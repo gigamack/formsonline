@@ -14,7 +14,7 @@
       <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/insertDocNextState") ?>" method="post">
       <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
       <input type="hidden" id="userID" name="userID" value="iesorn.c"/>
-      <input type="hidden" id="stateID" name="stateID" value="s01t02"/>
+      <input type="hidden" id="stateID" name="stateID" value="t01s02"/>
       <input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>"/>
       <div class="card text-black bg-light">
         <div class="card-header Stidti"><h2>คำร้องขอทำบัตรนักศึกษาชั่วคราว</h2></div>

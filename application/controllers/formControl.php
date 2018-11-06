@@ -35,11 +35,24 @@
             // $this->load->view('script');         
         }
 
+        public function stdCardAllowed()
+        {
+            $docID = $_GET['docID'];
+            $dataselect = array('document.DocID' => $docID);
+            $data['docInfo'] = $this->docModel->getDocBydocID($docID);
+            $data['docState'] = $this->docStateModel->selectDocState($docID);
+            $data['docCommented'] = $this->docModel->selectDocWithState($dataselect);
+            $this->load->view('css');
+            $this->load->view('headerAdmin');
+           $this->load->view('stdCardCommented',$data);
+            $this->load->view('footer');       
+        }
+
         public function stdCardForm()
         {
             $this->load->view('css');
-           $this->load->view('header');
-        //    $this->load->view('sidebar');
+            $this->load->view('header');
+            //$this->load->view('sidebar');
             $this->load->view('TempStdCardReq');
             $this->load->view('footer');
             // $this->load->view('script');         
@@ -49,7 +62,7 @@
         {
             $this->load->view('css');
            $this->load->view('header');
-        //    $this->load->view('sidebar');
+            //$this->load->view('sidebar');
             $this->load->view('TempStdCardReq_test');
             $this->load->view('footer');
             // $this->load->view('script');         
@@ -71,6 +84,7 @@
             $docID = $_GET['docID'];
             $data['docInfo'] = $this->docModel->getDocBydocID($docID);
             $data['docState'] = $this->docStateModel->selectDocState($docID);
+            $this->load->view('headerAdmin');
             $this->load->view('css');
            $this->load->view('ChkTempReq',$data);
         //    $this->load->view('sidebar');

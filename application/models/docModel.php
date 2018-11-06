@@ -32,6 +32,7 @@ class docModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    
     public function updateDoc($data,$conditionVal)
     {
         $this->db->where('DocID', $conditionVal);
@@ -63,6 +64,7 @@ class docModel extends CI_Model
         $this->db->select('*');
         $this->db->from('document');
         $this->db->join('latest_StateID ', 'document.DocID = latest_StateID.DocID');
+        $this->db->join('StateHistory ', 'latest_StateID.step_id = StateHistory.ID');
         $this->db->where($data);
         $query = $this->db->get();
         //$query = $this->db->get();

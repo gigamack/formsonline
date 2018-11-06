@@ -9,6 +9,7 @@
 <body>
 <?php
             $getDocInfo = $docInfo[0];
+            $commented_id = $docCommented;
 ?>
 <div class="container Chuanpim" >
       <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/insertDocNextState") ?>" method="post">
@@ -53,7 +54,7 @@
           </div>
       <label class="form-check-label">มีความประสงค์ขอบัตรประจำตัวนักศึกษาชั่วคราวเนื่องจาก/I would like to request a PSU Student identification card due to:</label>					
       
-      <div class="input-group mb-3 disabled">  
+      <div class="input-group mb-3">  
           <select disabled class="custom-select" id="reason" name="reason" onchange="if (this.value=='5'){this.form['other'].style.visibility='visible'}else {this.form['other'].style.visibility='hidden'};">
             <option value="1"<?php if($getDocInfo['ReasonID'] == '1'){ echo ' selected="selected"'; } ?>>บัตรสูญหาย/ loss of the previous card (แนบใบแจ้งความจากสถานีตำรวจ/the notice from police station is enclosed)</option>
             <option value="2"<?php if($getDocInfo['ReasonID'] == '2'){ echo ' selected="selected"'; } ?>>บัตรชำรุด/ damaged card</option>
@@ -76,9 +77,9 @@
           <div class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
           <label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
           <div class="radio">
-              <input type="radio" id="agree" name="commentid" value="1">
+              <input type="radio" id="agree" name="commentid" value="1" <?php if($commented_id[0]->OfficerCommentID == 1){ echo ' checked="checked"'; } ?>>
               <label for="agree">Agree</label>
-              <input type="radio" id="disagree" name="commentid" value="2">
+              <input type="radio" id="disagree" name="commentid" value="2" <?php if($commented_id[0]->OfficerCommentID == 2){ echo ' checked="checked"'; } ?>>
               <label for="disagree">Disagree</label>              
           </div>
           <div class="form-group purple-border">

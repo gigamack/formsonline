@@ -48,6 +48,7 @@ class docModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    
 
     public function selectDoc($data)
     {
@@ -55,6 +56,34 @@ class docModel extends CI_Model
         $query = $this->db->get_where('document', $data);
         return $query->result();
     }
+    
+    public function selectDocWithState($data)
+    {
+        //print_r($data);
+        $this->db->select('*');
+        $this->db->from('document');
+        $this->db->join('latest_StateID ', 'document.DocID = latest_StateID.DocID');
+        $this->db->where($data);
+        $query = $this->db->get();
+        //$query = $this->db->get();
+        return $query->result();
+    }
+
+    public function selectDocSome($data,$feild)
+    {
+        //print_r($data);
+        $this->db->select($feild);
+        $query=$this->db->get_where('document', $data);
+        return $query->result_array();
+    }
+
+    public function selectLastestState($data)
+    {
+        //print_r($data);
+        $query = $this->db->get_where('latest_StateID', $data);
+        return $query->result_array();
+    }
+
 
     public function deleteDoc($data)
     {

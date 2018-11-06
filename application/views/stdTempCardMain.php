@@ -29,6 +29,7 @@
             <tbody>
             <?php $i=1;?>
             <?php foreach($GetDocID as $docid){?>
+                <?php if($docid->stateID == "t01s01"){ ?>
                 <tr class ="table-warning">
                     <th scope="row"><?php echo $i; ?></th>
                     <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
@@ -36,7 +37,8 @@
                     <td><a href="<?php echo base_url('formControl/editReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
                     <a href="<?php echo base_url('formControl/delReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/trash.png" style="width:30px;"/></a></td>
                 </tr>
-            <?php $i++;}?>
+
+                <?php $i++;}}?>
             </tbody>
         </table>
         </div>
@@ -52,16 +54,20 @@
                     <th scope="col">#</th>
                     <th scope="col">ประเภทคำร้อง</th>
                     <th scope="col">สถานะคำร้อง</th>
-                    <th scope="col">ตรวจสอบโดย</th>
+                    <th scope="col">รายละเอียด</th>
                 </tr>
             </thead>
             <tbody>
+            <?php $i=1;?>
+            <?php foreach($GetDocID as $docid){?>
+                <?php if($docid->stateID != "t01s01"){ ?>
                 <tr class ="table-warning">
-                    <th scope="row">1</th>
+                    <th scope="row"><?php echo $i; ?></th>
                     <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
-                    <td>รอการตรวจสอบ</td>
-                    <td>นาง ข</td>
+                    <td>พิจารณาแล้ว</td>
+                    <td><a href="<?php echo base_url('formControl/editReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
                 </tr>
+                <?php $i++;}}?>
             </tbody>
         </table>
         </div>

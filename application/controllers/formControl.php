@@ -11,13 +11,22 @@
         public function index()
         {
             $this->load->view('welcome_message');
+            $dataSelect=array('StudentID' => "4935511076");
+            $data=$this->docModel->selectDocWithState($dataSelect);
+            print_r($data);
+            // foreach($data as $docid){
+            // echo $docid['DocID'];
+            // echo "<br/>";
+            // }
+            //selectLastestState
         }
     
         public function stdCardMain()
         {
             //$data['docList']=$this->docModel->getDocByuserID("4935511076");
             $dataSelect=array('StudentID' => "4935511076");
-            $data['docList']=$this->docModel->selectDoc($dataSelect);
+            $data['docList']=$this->docModel->selectDocWithState($dataSelect);
+            //$data['docList']=$this->docModel->selectDoc($dataSelect);
             $this->load->view('css');
             $this->load->view('header');
         //    $this->load->view('sidebar');
@@ -49,7 +58,8 @@
         public function stdCardFormAdmin()
         {
             $dataSelect=array();
-            $data['docList']=$this->docModel->selectDoc($dataSelect);
+            $data['docList']=$this->docModel->selectDocWithState($dataSelect);
+            // $data['docList']=$this->docModel->selectDoc($dataSelect);
             $this->load->view('css');
             $this->load->view('headerAdmin');
             $this->load->view('TempStdCardRev',$data);

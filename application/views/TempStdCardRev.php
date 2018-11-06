@@ -30,14 +30,15 @@
             <tbody>         
                 <?php $i=1;?>
                 <?php foreach($GetDocID as $docid){?>
+                <?php if($docid->stateID == "t01s01"){ ?>
                 <tr class ="table-warning">
                     <th scope="row"><?php echo $i; ?></th>
-                    <td><?php echo $docid->DocTypeID;?></td>
+                    <td><?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':'');?></td>
                     <td><?php echo $docid->StudentID;?></td>
                     <td>รอการตรวจสอบ</td>
                     <td><a href="<?php echo base_url('formControl/stdCardAllow?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
                 </tr>
-                <?php $i++;}?>
+                <?php $i++;}}?>
             </tbody>
         </table>
         </div>
@@ -54,45 +55,22 @@
                     <th scope="col">ประเภทคำร้อง</th>
                     <th scope="col">ผู้ยื่นคำร้อง</th>
                     <th scope="col">สถานะคำร้อง</th>
-                    <th scope="col">ตรวจสอบโดย</th>
+                    <th scope="col">รายละเอียด</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody>         
+                <?php $i=1;?>
+                <?php foreach($GetDocID as $docid){?>
+                <?php if($docid->stateID != "t01s01"){ ?>
                 <tr class ="table-warning">
-                    <th scope="row">1</th>
-                    <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
-                    <td>นาย ก</td>
+                    <th scope="row"><?php echo $i; ?></th>
+                    <td><?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':'');?></td>
+                    <td><?php echo $docid->StudentID;?></td>
                     <td>รอการตรวจสอบ</td>
-                    <td>นาง ข</td>
+                    <td><a href="<?php echo base_url('formControl/stdCardAllow?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
                 </tr>
-                <tr class ="table-warning">
-                    <th scope="row">2</th>
-                    <td>คำร้องขอถอนรายวิชาติดสัญลักษณ์ W</td>
-                    <td>นาย ข</td>
-                    <td>รอการตรวจสอบ</td>
-                    <td>นาง ข</td>
-                </tr>
-                <tr class ="table-warning">
-                    <th scope="row">3</th>
-                    <td>คำร้องขอถอนรายวิชาติดสัญลักษณ์ W</td>
-                    <td>นาย ข</td>
-                    <td>รอการตรวจสอบ</td>
-                    <td>นาง ค</td>
-                </tr>
-                <tr class ="table-warning">
-                    <th scope="row">4</th>
-                    <td>คำร้องขอถอนรายวิชาติดสัญลักษณ์ W</td>
-                    <td>นาย ข</td>
-                    <td>รอการตรวจสอบ</td>
-                    <td>นาง จ</td>
-                </tr>
-                <tr class ="table-warning">
-                    <th scope="row">5</th>
-                    <td>คำร้องขอถอนรายวิชาติดสัญลักษณ์ W</td>
-                    <td>นาย ข</td>
-                    <td>รอการตรวจสอบ</td>
-                    <td>นาง ข</td>
-                </tr>
+                <?php $i++;}}?>
+            </tbody>
             </tbody>
         </table>
         </div>

@@ -1,5 +1,6 @@
 <?php 
-    class formControl extends CI_Controller {
+    class formControl extends CI_Controller 
+    {
 
         public function __construct()
     {
@@ -92,12 +93,39 @@
             // $this->load->view('script');         
         }
 
+        public function addnews($facid, $nameFac)
+        {
+            $filename;
+            $date = date('Y-m-d H:i:s');
+            if (!empty($_FILES)) {
+                $filename = $_FILES['file']['name'];
+                $tempFile = $_FILES['file']['tmp_name'];
+                $targetPath = getcwd() . '/uploaded_file/';
+                $targetFile = $targetPath . $_FILES['file']['name'];
+    
+                move_uploaded_file($tempFile, $targetFile);
+            }
+            $this->News_model->addnews($_POST, $filename, $date, $facid, $_SESSION['UserID']);
+            $this->session->set_flashdata('compelte', 'ระบบได้ทำการอัปโหลดไฟล์ของท่านเสร็จเรียบร้อยแล้ว');
+            redirect(base_url("Project-COOP/Fun_sidebar_admin/show_news?namefac_sub=" . $nameFac));
+        }
+
         public function insertReq()
         {
             //$this->load->model('company_model');
+            $filename;
+            $encodename = uniqid();
+            if (!empty($_FILES)) {
+                $filename = $encodename.'_'.$_FILES['stdPicFile']['name'];
+                $tempFile = $_FILES['stdPicFile']['tmp_name'];
+                $targetPath = getcwd() . '/uploads/';
+                $targetFile = $targetPath . $encodename .'_'. $_FILES['stdPicFile']['name'];
+                move_uploaded_file($tempFile, $targetFile);
+            }
             $data= array('StudentID' => $_POST['stdid']
+            , 'ReasonID' => $_POST['reason']
             , 'ReasonOther' => $_POST['other']
-            , 'PoliceNoticePath' => $_POST['stdPicFile']
+            , 'PoliceNoticePath' => $filename
             , 'DocTypeID' => $_POST['DocTypeID']);
             $this->docModel->InsertDoc($data);
             $dataMaxDocID = array('StudentID' => $_POST['stdid']);
@@ -129,15 +157,43 @@
 
         public function updateReq()
         {
-            $data= array('DocID' => $_POST['docID']
-            , 'StudentID' => $_POST['stdid']
-            , 'ReasonID' => $_POST['reason']
-            , 'ReasonOther' => $_POST['other']
-            , 'PoliceNoticePath' => $_POST['stdPicFile']
-            , 'DocTypeID' => $_POST['DocTypeID']);
+            
+                $filename;
+                $encodename = uniqid();
+                if (empty($_FILES['stdPicFile']))
+                {
+                    $data= array('DocID' => $_POST['docID']
+                    , 'StudentID' => $_POST['stdid']
+                    , 'ReasonID' => $_POST['reason']
+                    , 'ReasonOther' => $_POST['other']
+                    , 'DocTypeID' => $_POST['DocTypeID']);                    
+                }
+                else
+                {
+                    $filename = $encodename.'_'.$_FILES['stdPicFile']['name'];
+                    $tempFile = $_FILES['stdPicFile']['tmp_name'];
+                    $targetPath = getcwd() . '/uploads/';
+                    $targetFile = $targetPath . $encodename .'_'. $_FILES['stdPicFile']['name'];
+                    move_uploaded_file($tempFile, $targetFile);
+                    unlink($targetPath . $_POST['currentimageValue']);
+
+                    $data= array('DocID' => $_POST['docID']
+                    , 'StudentID' => $_POST['stdid']
+                    , 'ReasonID' => $_POST['reason']
+                    , 'ReasonOther' => $_POST['other']
+                    , 'PoliceNoticePath' => $filename
+                    , 'DocTypeID' => $_POST['DocTypeID']);                    
+                }
+            
+            // $data= array('DocID' => $_POST['docID']
+            // , 'StudentID' => $_POST['stdid']
+            // , 'ReasonID' => $_POST['reason']
+            // , 'ReasonOther' => $_POST['other']
+            // , 'PoliceNoticePath' => $_POST['stdPicFile']
+            // , 'DocTypeID' => $_POST['DocTypeID']);
             $this->docModel->updateDoc($data,$_POST['docID']);
-            //$back = base_url("/formControl/stdCardMain");
-            //header('Location:' . $back);         
+            $back = base_url("/formControl/stdCardMain");
+            header('Location:' . $back);         
         }
         public function insertDocNextState()
         {
@@ -151,30 +207,5 @@
             //$back = base_url("/formControl/stdCardMain");
             //header('Location:' . $back);         
         }        
-        public function do_upload()
-        {
-                $config['upload_path']          = './uploads/';
-                $config['allowed_types']        = 'gif|jpg|png';
-                $config['encrypt_name'] = TRUE;
-
-                // $config['max_size']             = 100;
-                // $config['max_width']            = 1024;
-                // $config['max_height']           = 768;
-
-                $this->load->library('upload', $config);
-
-                if ( ! $this->upload->do_upload('stdPicFile'))
-                {
-                        $error = array('error' => $this->upload->display_errors());
-
-                        $this->load->view('upload_form', $error);
-                }
-                else
-                {
-                        $data = array('upload_data' => $this->upload->data());
-
-                        $this->load->view('upload_success', $data);
-                }
-        }
     }
 ?>

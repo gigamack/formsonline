@@ -11,7 +11,7 @@
             $getDocInfo = $docInfo[0];
 ?>
 <div class="container Chuanpim" >
-      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/updateReq") ?>" method="post">
+      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/updateReq") ?>" method="post" enctype="multipart/form-data">
       <div class="card text-black bg-light">
         <div class="card-header Stidti"><h2>คำร้องขอทำบัตรนักศึกษาชั่วคราว</h2></div>
         <div class="input-group">
@@ -70,8 +70,12 @@
           </div> 
           <div class="form-group" style="margin: 20px auto auto auto">
               <label for="stdPicFile">แนบไฟล์รูปภาพใบแจ้งความจากสถานีตำรวจ กรณีบัตรสูญหาย</label>
-              <input type="file" class="form-control-file" id="stdPicFile" name="stdPicFile" value="<?php echo (isset($getDocInfo['PoliceNoticePath'])?$getDocInfo['PoliceNoticePath']:"") ?>">
+              <input type="file" class="form-control-file" id="stdPicFile" name="stdPicFile">           
           </div>
+          <div class="form-group" style="margin: 20px auto auto auto">             
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><h4>Attached file</h4></button>
+          </div>
+          <input type="hidden" name="currentimageValue" value="<?php echo $getDocInfo['PoliceNoticePath']; ?>"/>
           <div class="form-group" style="margin: 20px auto auto auto">
               <label class="text-danger">ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว 1รูปมาด้วย </label>
           </div>
@@ -81,6 +85,26 @@
         </div>
         </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Attached file.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <img src="../uploads/<?php echo $getDocInfo['PoliceNoticePath']; ?>" alt="ไฟล์ประกอบคำร้อง" class="img-thumbnail">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Modal -->
       </form>  
 
       <!-- <script>
@@ -96,6 +120,16 @@
           }
         }
       </script>   -->
+      <script>
+        var uploadField = document.getElementById("stdPicFile");
+        uploadField.onchange = function() {
+        if(this.files[0].size > 10485760){
+        alert("File is too big!");
+        this.value = "";
+        };
+        };
+
+      </script>
 </div>
 </body>
 </html>

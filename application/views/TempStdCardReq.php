@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container Chuanpim" >
-      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/insertReq") ?>" method="post">
+      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/insertReq") ?>" method="post" enctype="multipart/form-data">
       <div class="card text-black bg-light">
         <div class="card-header Stidti"><h2>คำร้องขอทำบัตรนักศึกษาชั่วคราว</h2></div>
         <div class="input-group">
@@ -93,6 +93,16 @@
           }
         }
       </script>   -->
+      <script>
+        var uploadField = document.getElementById("stdPicFile");
+        uploadField.onchange = function() {
+        if(this.files[0].size > 10485760){
+        alert("File is too big!");
+        this.value = "";
+        };
+        };
+
+      </script>
 </div>
 </body>
 </html>

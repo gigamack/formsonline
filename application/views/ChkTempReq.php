@@ -66,9 +66,8 @@
             <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
             <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="visibility:hidden;" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"/>
           </div> 
-          <div class="form-group" style="margin: 20px auto auto auto">
-              <label for="stdPicFile">แนบไฟล์รูปภาพใบแจ้งความจากสถานีตำรวจ กรณีบัตรสูญหาย</label>
-              <img src="../assets/images/BNKLogo.jpg" alt="ภาพใบแจ้งความ" class="img-thumbnail">
+          <div class="form-group" style="margin: 20px auto auto auto">             
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><h4>Attached file</h4></button>
           </div>
           <div class="form-group" style="margin: 20px auto auto auto">
               <label class="text-danger">ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว 1รูปมาด้วย </label>
@@ -91,6 +90,26 @@
         </div>
         </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Attached file.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <img src="../uploads/<?php echo $getDocInfo['PoliceNoticePath']; ?>" alt="ไฟล์ประกอบคำร้อง" class="img-thumbnail">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Modal -->
       </form>      
 </div>
 </body>

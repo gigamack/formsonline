@@ -15,6 +15,15 @@ class Authentication extends CI_Controller
             'password' => $_POST['password'],
         );
         $UserInfo = $this->User_model->getUserInfo($credentail);
-        print_r($UserInfo);
+        // print_r($UserInfo);
+        if($UserInfo['UserType'] = 'Staffs')
+        {
+           $_SESSION['userid'] = $UserInfo['']
+                 redirect(base_url("/formcontrol/stdCardFormAdmin"));
+            
+        }
+        print_r($UserInfo['PSUPassport']['GetUserDetailsResult']['string']['0']);
+    
+
     }
 }

@@ -11,10 +11,12 @@
     }
         public function index()
         {
-            $this->load->view('welcome_message');
-            $dataSelect=array('StudentID' => "4935511076");
-            $data=$this->docModel->selectDocWithState($dataSelect);
-            print_r($data);
+            $this->load->view('login');
+
+            // $this->load->view('welcome_message');
+            // $dataSelect=array('StudentID' => "4935511076");
+            // $data=$this->docModel->selectDocWithState($dataSelect);
+            // print_r($data);
             // foreach($data as $docid){
             // echo $docid['DocID'];
             // echo "<br/>";

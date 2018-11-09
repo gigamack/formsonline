@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+<?php
+    $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
+    $fullname=$_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
+    $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
+    $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
+?>
 <div class="container Chuanpim" >
       <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/insertReq") ?>" method="post" enctype="multipart/form-data">
       <div class="card text-black bg-light">
@@ -20,15 +26,15 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="stdid">รหัสนักศึกษา:</label>
-                  <label></label>
-                  <input type="hidden" id="stdid" name="stdid" value="4935511076"/>
+                  <label><?php echo $studentid;?></label>
+                  <input type="hidden" id="stdid" name="stdid" value="<?php echo $studentid?>"/>
                   <!-- <input type="text" class="form-control" id="stdid" placeholder="รหัสนักศึกษา"> -->
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                 <label for="stdfullname">ชื่อ-สกุล:</label>
-                <label id="stdfullname"></label>
+                <label id="stdfullname"><?php echo $fullname;?></label>
                 <!-- <input type="label" class="form-control" id="stdfullname" placeholder="ชื่อ-สกุล" readonly>       -->
               </div>  
             </div> 
@@ -37,14 +43,14 @@
               <div class="col-md-4">
                 <div class="form-group">     
                 <label for="fac">คณะ:</label>
-                <label id="fac"></label>
+                <label id="fac"><?php echo $faculty;?></label>
                 <!-- <input type="text" class="form-control" id="fac" placeholder="คณะ" readonly>       -->
                 </div>
               </div>
               <div class="col-md-4">    
                 <div class="form-group">
                 <label for="major">สาขาวิชา:</label>
-                <label id="major"></label>
+                <label id="major"><?php echo $majorname;?></label>
                 <!-- <input type="text" class="form-control" id="major" placeholder="สาขาวิชา" readonly>       -->
               </div>
             </div>    

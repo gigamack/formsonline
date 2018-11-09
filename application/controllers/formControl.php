@@ -27,7 +27,8 @@
         public function stdCardMain()
         {
             //$data['docList']=$this->docModel->getDocByuserID("4935511076");
-            $dataSelect=array('StudentID' => "4935511076");
+            $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
+            $dataSelect=array('StudentID' => $studentid);
             $data['docList']=$this->docModel->selectDocWithState($dataSelect);
             //$data['docList']=$this->docModel->selectDoc($dataSelect);
             $this->load->view('css');

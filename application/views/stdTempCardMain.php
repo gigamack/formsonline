@@ -8,6 +8,7 @@
 </head>
 <body>
 <?php
+            //print_r($_SESSION['userSession'][0]);
             $GetDocID = $docList;
 ?>
 <div class="container Chuanpim" >

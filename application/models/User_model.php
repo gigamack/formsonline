@@ -6,18 +6,23 @@ class User_model extends CI_Model
     private $UserInfo;
     private $Username;
     private $UserType;
+    private $StudentInfo;
 
     private function setUserInfo()
     {
         $this->load->library('psupassport', $this->credential);
         $this->load->library('roleprovider');
+        $this->load->library('studentinfo');
         $PSUPassportResult = $this->psupassport->GetUserDetails();
         $this->Username = (isset($PSUPassportResult['GetUserDetailsResult']) ? $PSUPassportResult['GetUserDetailsResult']['string'][0] : '');
         $UserRoles = $this->roleprovider->GetRoles($this->Username);
+        $this->UserType = (isset($PSUPassportResult['GetUserDetailsResult']) ? $this->getUserType($PSUPassportResult['GetUserDetailsResult']['string'][14]) : '');
+        $this->StudentInfo = $this->studentinfo->getStudentInfo($this->credential['username']);
         $this->UserInfo = array(
-            "UserType" => isset($PSUPassportResult['GetUserDetailsResult']) ? $this->getUserType($PSUPassportResult['GetUserDetailsResult']['string'][14]) : '',
+            "UserType" => $this->UserType,
             "PSUPassport" => $PSUPassportResult,
             "UserRoles" => $UserRoles,
+            "StudentInfo" => $this->StudentInfo,
         );
     }
 

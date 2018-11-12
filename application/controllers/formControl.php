@@ -207,8 +207,8 @@
             , 'stateID' => $_POST['stateID']);
             $this->docStateModel->InsertDocState($data);
             //$this->docModel->updateDocState($data,$_POST['docID']);
-            //$back = base_url("/formControl/stdCardMain");
-            //header('Location:' . $back);         
+            $back = base_url("/formControl/stdCardFormAdmin");
+            header('Location:' . $back);         
         }        
     }
 ?>

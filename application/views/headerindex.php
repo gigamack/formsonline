@@ -14,11 +14,11 @@
     <style type = "text/css">
         @font-face {
         font-family: "Stidti";
-        src: url("../assets/fonts/Stidti-Bold.otf");
+        src: url("assets/fonts/Stidti-Bold.otf");
         }
         @font-face {
         font-family: "Chuanpim";
-        src: url("../assets/fonts/DB_ChuanPim_PSU.ttf");
+        src: url("assets/fonts/DB_ChuanPim_PSU.ttf");
         } 
         .Stidti {
         font-family: Stidti;
@@ -40,7 +40,7 @@
 <body>
 <header>
 <div class="navbar navbar-dark navbar-expand-md navbar-fixed-top" style="background-color: #69b3e7;">
-<a href="<?php echo base_url('formControl/stdCardMain');?>" class="navbar-brand Stidti"><img id="Image1" src="assets/images/PSU_EN-H.gif" style="width:70px;float:left;margin-top:7px " /></a>
+<a href="<?php echo base_url();?>" class="navbar-brand Stidti"><img id="Image1" src="assets/images/PSU_EN-H.gif" style="width:70px;float:left;margin-top:7px " /></a>
 <div style="margin-left:10px" class="Stidti text-light"><h1>Online Forms System</h1></div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #69b3e7;">

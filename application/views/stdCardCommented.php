@@ -12,7 +12,7 @@
             $commented_id = $docCommented;
 ?>
 <div class="container Chuanpim" >
-      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/insertDocNextState") ?>" method="post">
+      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/stdCardFormAdmin") ?>" method="post">
       <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
       <input type="hidden" id="userID" name="userID" value="iesorn.c"/>
       <input type="hidden" id="stateID" name="stateID" value="t01s02"/>
@@ -82,10 +82,10 @@
               <label for="disagree">Disagree</label>              
           </div>
           <div class="form-group purple-border">
-            <textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
+            <textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
           </div>
           <div>
-          <button type="submit" class="btn-sm btn-primary Chuanpim"><h3>Submit</h3></button>          
+          <button type="submit" class="btn-sm btn-primary Chuanpim"><h3>Back</h3></button>          
           </div>
           </div>
         </div>

@@ -17,21 +17,16 @@ class Authentication extends CI_Controller
         $UserInfo = $this->User_model->getUserInfo($credentail);
         // print_r($UserInfo);
         $_SESSION['userSession'] = $UserInfo;
-        if($UserInfo['UserType'] == 'Staffs')
-        {
-                redirect(base_url('formcontrol/stdCardFormAdmin'));
+        if ($UserInfo['UserType'] == 'Staffs') {
+            redirect(base_url('formcontrol/stdCardFormAdmin'));
             // redirect(base_url("formcontrol/stdCardFormAdmin"));
-            // echo $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['0'];            
-        }
-        else
-        {
+            // echo $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['0'];
+        } else {
             redirect(base_url("formcontrol/stdCardMain"));
             // print_r($_SESSION['userSession']['StudentInfo']);
             // echo $_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
         }
         //print_r($UserInfo['PSUPassport']['GetUserDetailsResult']['string']['0']);
-    
 
     }
 }
-?>

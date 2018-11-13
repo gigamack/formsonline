@@ -14,11 +14,13 @@ class User_model extends CI_Model
         $this->load->library('roleprovider');
         $this->load->library('studentinfo');
         $PSUPassportResult = $this->psupassport->GetUserDetails();
-        $this->Username = (isset($PSUPassportResult['GetUserDetailsResult']) ? $PSUPassportResult['GetUserDetailsResult']['string'][0] : '');
+        $AuthenticationResult = (isset($PSUPassportResult['GetUserDetailsResult']) ? 1 : 0);  // 1 = true 0 = false
+        $this->Username = (($AuthenticationResult==1) ? $PSUPassportResult['GetUserDetailsResult']['string'][0] : '');
         $UserRoles = $this->roleprovider->GetRoles($this->Username);
-        $this->UserType = (isset($PSUPassportResult['GetUserDetailsResult']) ? $this->getUserType($PSUPassportResult['GetUserDetailsResult']['string'][14]) : '');
+        $this->UserType = (($AuthenticationResult==1) ? $this->getUserType($PSUPassportResult['GetUserDetailsResult']['string'][14]) : '');
         $this->StudentInfo = $this->studentinfo->getStudentInfo($this->credential['username']);
         $this->UserInfo = array(
+            "AuthenticationResult" => $AuthenticationResult,
             "UserType" => $this->UserType,
             "PSUPassport" => $PSUPassportResult,
             "UserRoles" => $UserRoles,

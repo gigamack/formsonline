@@ -9,6 +9,7 @@
 <body>
 <?php
             $getDocInfo = $docInfo[0];
+            $getStdInfo = $stdinfo;
 ?>
 <div class="container Chuanpim" >
       <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/insertDocNextState") ?>" method="post">
@@ -33,7 +34,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                 <label for="stdfullname">ชื่อ-สกุล:</label>
-                <label for="stdfullname" id="stdfullname"></label>      
+                <label for="stdfullname" id="stdfullname"><?php echo $getStdInfo['TITLE_NAME_THAI'].$getStdInfo['STUD_NAME_THAI'].' '.$getStdInfo['STUD_SNAME_THAI'];?></label>      
               </div>  
             </div> 
           </div>
@@ -41,13 +42,13 @@
               <div class="col-md-4">
                 <div class="form-group">     
                 <label for="fac">คณะ:</label>
-                <label for="fac" id="fac"></label>
+                <label for="fac" id="fac"><?php echo $getStdInfo['FAC_NAME_THAI']?></label>
                 </div>
               </div>
               <div class="col-md-4">    
                 <div class="form-group">
                 <label for="major">สาขาวิชา:</label>
-                <label for="major" id="major"></label>      
+                <label for="major" id="major"><?php echo $getStdInfo['MAJOR_NAME_THAI']?></label>      
               </div>
             </div>    
           </div>

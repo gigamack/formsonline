@@ -36,7 +36,7 @@
                     <td><?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':'');?></td>
                     <td><?php echo $docid->StudentID;?></td>
                     <td>รอการตรวจสอบ</td>
-                    <td><a href="<?php echo base_url('formControl/stdCardAllow?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
+                    <td><a href="<?php echo base_url('formControl/stdCardAllow?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
                 </tr>
                 <?php $i++;}}?>
             </tbody>
@@ -67,7 +67,7 @@
                     <td><?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':'');?></td>
                     <td><?php echo $docid->StudentID;?></td>
                     <td>รอการตรวจสอบ</td>
-                    <td><a href="<?php echo base_url('formControl/stdCardAllowed?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
+                    <td><a href="<?php echo base_url('formControl/stdCardAllowed?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
                 </tr>
                 <?php $i++;}}?>
             </tbody>

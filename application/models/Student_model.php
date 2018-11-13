@@ -7,6 +7,6 @@ class Student_model extends CI_Model
     {
         $this->load->library('studentinfo');
         $this->StudentInfo = $this->studentinfo->getStudentInfo($StudentID);
-        return $this->StudentInfol;
+        return $this->StudentInfo;
     }
 }

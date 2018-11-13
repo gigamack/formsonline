@@ -7,6 +7,7 @@
         parent::__construct();
         $this->load->model('docModel');
         $this->load->model('docStateModel');
+        $this->load->model('Student_model');
         $this->load->helper(array('form', 'url'));
     }
         public function index()
@@ -42,10 +43,12 @@
         public function stdCardAllowed()
         {
             $docID = $_GET['docID'];
+            $stdID = $_GET['stdID'];
             $dataselect = array('document.DocID' => $docID);
             $data['docInfo'] = $this->docModel->getDocBydocID($docID);
             $data['docState'] = $this->docStateModel->selectDocState($docID);
             $data['docCommented'] = $this->docModel->selectDocWithState($dataselect);
+            $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
             $this->load->view('css');
             $this->load->view('headerAdmin');
            $this->load->view('stdCardCommented',$data);
@@ -86,7 +89,9 @@
         public function stdCardAllow()
         {
             $docID = $_GET['docID'];
+            $stdID = $_GET['stdID'];
             $data['docInfo'] = $this->docModel->getDocBydocID($docID);
+            $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
             $data['docState'] = $this->docStateModel->selectDocState($docID);
             $this->load->view('headerAdmin');
             $this->load->view('css');

@@ -6,6 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">  
 </head>
 <body>
+<?php 
+        if(isset($_SESSION['errors']))
+        {
+          if($_SESSION['errors']=='Fail')
+          {
+            echo "<script>alert('Invalid login!');</script>";
+            $_SESSION['errors']='';
+          }
+        }
+        ?>
+
 <form action="<?php echo base_url("/Authentication") ?>" method="post">
 <div class="container col-sm-6 col-md-4 col-md-offset-1" style="margin: 3rem auto auto auto">
     <div class="card">

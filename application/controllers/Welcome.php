@@ -20,6 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		//$_SESSION['errors']='';
 			$this->load->view('headerindex');
 			$this->load->view('login');
 			$this->load->view('footer');   

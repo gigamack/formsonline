@@ -57,6 +57,7 @@
                     <th scope="col">#</th>
                     <th scope="col">ประเภทคำร้อง</th>
                     <th scope="col">สถานะคำร้อง</th>
+                    <th scope="col">วันที่ดำเนินการ</th>
                     <th scope="col">รายละเอียด</th>
                 </tr>
             </thead>
@@ -67,6 +68,7 @@
                 <tr class ="table-warning">
                     <th scope="row"><?php echo $i; ?></th>
                     <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
+                    <td><?php echo $docid->OfficerCommentedDate ?></td>
                     <td>พิจารณาแล้ว</td>
                     <td><a href="<?php echo base_url('formControl/editReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
                 </tr>

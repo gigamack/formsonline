@@ -70,7 +70,18 @@ class docModel extends CI_Model
         //$query = $this->db->get();
         return $query->result();
     }
-
+    public function selectDocWithStateTest($data)
+    {
+        //print_r($data);
+        $this->db->select('*');
+        $this->db->from('document');
+        $this->db->join('latest_StateID ', 'document.DocID = latest_StateID.DocID');
+        $this->db->join('StateHistory ', 'latest_StateID.step_id = StateHistory.ID');
+        $this->db->where($data);
+        $query = $this->db->get();
+        //$query = $this->db->get();
+        return $query->result_array();
+    }
     public function selectDocSome($data,$feild)
     {
         //print_r($data);

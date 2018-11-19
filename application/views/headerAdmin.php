@@ -22,7 +22,7 @@
         <a class="nav-link" href="<?php echo base_url("/formControl/stdCardFormAdmin") ?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="btn btn-outline-danger" href="<?php echo base_url();?>" role="button">Log Out</a>
+        <a class="btn btn-danger" href="<?php echo base_url();?>" role="button">Log Out</a>
       </li>
     </ul>
   </div>

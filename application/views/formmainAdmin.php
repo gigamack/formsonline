@@ -29,7 +29,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="btn btn-outline-danger" href="<?php echo base_url();?>" role="button">Log Out</a>
+        <a class="btn btn-danger" href="<?php echo base_url();?>" role="button">Log Out</a>
       </li>
     </ul>
   </div>

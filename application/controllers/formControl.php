@@ -97,6 +97,19 @@
             $this->load->view('TempStdCardRev',$data);
             $this->load->view('footer');         
         }
+        public function stdCardFormAdminTEST()
+        {
+            $dataSelect=array();
+            $data['docList']=$this->docModel->selectDocWithStateTest($dataSelect);
+            // $data['docList']=$this->docModel->selectDoc($dataSelect);
+            // $this->load->view('css');
+            // $this->load->view('headerAdmin');
+            // $this->load->view('TempStdCardRev',$data);
+            // $this->load->view('footer');         
+            $sorter = $data['docList'];
+            //array_multisort($sorter);
+            var_dump($sorter);
+        }        
 
         public function stdCardAllow()
         {

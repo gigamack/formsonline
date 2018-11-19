@@ -25,7 +25,7 @@
         <a class="nav-link" href="<?php echo base_url('formControl/stdCardForm');?>">Add new request</a>
       </li>
       <li class="nav-item active">
-        <a class="btn btn-outline-danger" href="<?php echo base_url();?>" role="button">Log Out</a>
+        <a class="btn btn-danger" href="<?php echo base_url();?>" role="button">Log Out</a>
       </li>
     </ul>
   </div>

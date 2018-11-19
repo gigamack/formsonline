@@ -56,7 +56,7 @@
                     <th scope="col">#</th>
                     <th scope="col">ประเภทคำร้อง</th>
                     <th scope="col">ผู้ยื่นคำร้อง</th>
-                    <th scope="col">วันที่สร้างคำร้อง</th>
+                    <th scope="col">วันที่จัดการคำร้อง</th>
                     <th scope="col">สถานะคำร้อง</th>
                     <th scope="col">รายละเอียด</th>
                 </tr>
@@ -69,7 +69,7 @@
                     <th scope="row"><?php echo $i; ?></th>
                     <td><?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':'');?></td>
                     <td><?php echo $docid->StudentID;?></td>
-                    <td><?php echo $docid->CreatedDate;?></td>
+                    <td><?php echo $docid->OfficerCommentedDate;?></td>
                     <td>รอการตรวจสอบ</td>
                     <td><a href="<?php echo base_url('formControl/stdCardAllowed?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
                 </tr>

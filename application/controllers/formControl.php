@@ -55,6 +55,18 @@
             $this->load->view('footer');       
         }
 
+        public function formindex()
+        {
+            $this->load->view('css');
+			$this->load->view('formmain');
+        }
+
+        public function formindexAdmin()
+        {
+            $this->load->view('css');
+			$this->load->view('formmainAdmin');
+        }
+
         public function stdCardForm()
         {
             $this->load->view('css');

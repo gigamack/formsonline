@@ -20,11 +20,14 @@ class Authentication extends CI_Controller
         if($UserInfo['AuthenticationResult']==1)
         {
             if ($UserInfo['UserType'] == 'Staffs') {
-                redirect(base_url('formcontrol/stdCardFormAdmin'));
+                redirect(base_url("formcontrol/formindexAdmin"));
+                // redirect(base_url('formcontrol/stdCardFormAdmin'));
                 // redirect(base_url("formcontrol/stdCardFormAdmin"));
                 // echo $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['0'];
-            } else {
-                redirect(base_url("formcontrol/stdCardMain"));
+            } else 
+            {
+                redirect(base_url("formcontrol/formindex"));
+                //redirect(base_url("formcontrol/stdCardMain"));
                 // print_r($_SESSION['userSession']['StudentInfo']);
                 // echo $_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
             }

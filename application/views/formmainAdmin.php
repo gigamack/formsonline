@@ -41,7 +41,7 @@
 </div> -->
 <div class="card" style="width: 18rem; margin: 20px auto auto auto;">
   <ul class="list-group list-group-flush">
-    <a href="<?php echo base_url('formcontrol/stdCardMain');?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">คำร้องขอบัตรนักศึกษาชั่วคราว</a>
+    <a href="<?php echo base_url('formcontrol/stdCardFormAdmin');?>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">คำร้องขอบัตรนักศึกษาชั่วคราว</a>
   </ul>
 </div>
 <div class="footer">

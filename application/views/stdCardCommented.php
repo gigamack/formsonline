@@ -77,9 +77,9 @@
           <div class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
           <label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
           <div class="radio">
-              <input type="radio" id="agree" name="commentid" value="1" <?php if($commented_id[0]->OfficerCommentID == 1){ echo ' checked="checked"'; } ?>>
+              <input type="radio" id="agree" name="commentid" value="1" <?php if($commented_id[0]->OfficerCommentID == 1){ echo ' checked="checked"'; } ?> disabled>
               <label for="agree">Agree</label>
-              <input type="radio" id="disagree" name="commentid" value="2" <?php if($commented_id[0]->OfficerCommentID == 2){ echo ' checked="checked"'; } ?>>
+              <input type="radio" id="disagree" name="commentid" value="2" <?php if($commented_id[0]->OfficerCommentID == 2){ echo ' checked="checked"'; } ?> disabled>
               <label for="disagree">Disagree</label>              
           </div>
           <div class="form-group purple-border">
@@ -103,6 +103,8 @@
         </button>
         </div>
         <div class="modal-body">
+        <?php $fileurl= $getDocInfo['PoliceNoticePath']!=""?"../uploads/".$getDocInfo['PoliceNoticePath']:"#"; ?>
+        <a class="btn btn-danger" href="<?php echo $fileurl; ?>" role="button">Download</a>
         <img src="../uploads/<?php echo $getDocInfo['PoliceNoticePath']; ?>" alt="ไฟล์ประกอบคำร้อง" class="img-thumbnail">
         </div>
         <div class="modal-footer">

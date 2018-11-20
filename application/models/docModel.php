@@ -66,11 +66,12 @@ class docModel extends CI_Model
         $this->db->join('latest_StateID ', 'document.DocID = latest_StateID.DocID');
         $this->db->join('StateHistory ', 'latest_StateID.step_id = StateHistory.ID');
         $this->db->where($data);
+        
         $query = $this->db->get();
         //$query = $this->db->get();
         return $query->result();
     }
-    public function selectDocWithStateTest($data)
+    public function selectDocWithStateOrder($data,$orderby,$ordayway)
     {
         //print_r($data);
         $this->db->select('*');
@@ -78,9 +79,10 @@ class docModel extends CI_Model
         $this->db->join('latest_StateID ', 'document.DocID = latest_StateID.DocID');
         $this->db->join('StateHistory ', 'latest_StateID.step_id = StateHistory.ID');
         $this->db->where($data);
+        $this->db->order_by($orderby, $ordayway);
         $query = $this->db->get();
         //$query = $this->db->get();
-        return $query->result_array();
+        return $query->result();
     }
     public function selectDocSome($data,$feild)
     {

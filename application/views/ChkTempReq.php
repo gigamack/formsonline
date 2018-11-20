@@ -102,6 +102,8 @@
         </button>
         </div>
         <div class="modal-body">
+        <?php $fileurl= $getDocInfo['PoliceNoticePath']!=""?"../uploads/".$getDocInfo['PoliceNoticePath']:"#"; ?>
+        <a class="btn btn-danger" href="<?php echo $fileurl; ?>" role="button">Download</a>
         <img src="../uploads/<?php echo $getDocInfo['PoliceNoticePath']; ?>" alt="ไฟล์ประกอบคำร้อง" class="img-thumbnail">
         </div>
         <div class="modal-footer">

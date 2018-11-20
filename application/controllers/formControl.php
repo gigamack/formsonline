@@ -30,7 +30,9 @@
             //$data['docList']=$this->docModel->getDocByuserID("4935511076");
             $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
             $dataSelect=array('StudentID' => $studentid);
-            $data['docList']=$this->docModel->selectDocWithState($dataSelect);
+            $data['docList']=$this->docModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->docModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
+            // $data['docList']=$this->docModel->selectDocWithState($dataSelect);
             //$data['docList']=$this->docModel->selectDoc($dataSelect);
             $this->load->view('css');
             $this->load->view('header');
@@ -54,7 +56,20 @@
            $this->load->view('stdCardCommented',$data);
             $this->load->view('footer');       
         }
-
+        public function stdCardAllowedStdView()
+        {
+            $docID = $_GET['docID'];
+            $stdID = $_GET['stdID'];
+            $dataselect = array('document.DocID' => $docID);
+            $data['docInfo'] = $this->docModel->getDocBydocID($docID);
+            $data['docState'] = $this->docStateModel->selectDocState($docID);
+            $data['docCommented'] = $this->docModel->selectDocWithState($dataselect);
+            $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
+            $this->load->view('css');
+            $this->load->view('headerAdmin');
+           $this->load->view('stdCardCommentedView',$data);
+            $this->load->view('footer');       
+        }
         public function formindex()
         {
             $this->load->view('css');
@@ -90,7 +105,9 @@
         public function stdCardFormAdmin()
         {
             $dataSelect=array();
-            $data['docList']=$this->docModel->selectDocWithState($dataSelect);
+            // $data['docList']=$this->docModel->selectDocWithState($dataSelect);
+            $data['docList']=$this->docModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->docModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
             // $data['docList']=$this->docModel->selectDoc($dataSelect);
             $this->load->view('css');
             $this->load->view('headerAdmin');

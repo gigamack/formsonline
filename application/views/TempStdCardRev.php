@@ -63,7 +63,7 @@
             </thead>
             <tbody>         
                 <?php $i=1;?>
-                <?php foreach($GetDocID as $docid){?>
+                <?php foreach($docList2 as $docid){?>
                 <?php if($docid->stateID != "t01s01"){ ?>
                 <tr class ="table-warning">
                     <th scope="row"><?php echo $i; ?></th>

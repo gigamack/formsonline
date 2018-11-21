@@ -79,6 +79,7 @@
         public function formindexAdmin()
         {
             $this->load->view('css');
+            $this->load->view('headerAdmin');
 			$this->load->view('formmainAdmin');
         }
 

@@ -24,9 +24,37 @@
             // }
             //selectLastestState
         }
-    
+        public function chkSTDLogin()
+        {
+            if (isset($_SESSION['userSession']))
+            {
+                if($_SESSION['userSession']['UserType'] <> 'Students')
+                {
+                    redirect(base_url());
+                }
+            }
+            else
+            {
+                redirect(base_url());
+            }
+        }
+        public function chkStaffLogin()
+        {
+            if (isset($_SESSION['userSession']))
+            {
+                if($_SESSION['userSession']['UserType'] <> 'Staffs')
+                {
+                    redirect(base_url());
+                }
+            }
+            else
+            {
+                redirect(base_url());
+            }
+        }
         public function stdCardMain()
         {
+            $this->chkSTDLogin();
             //$data['docList']=$this->docModel->getDocByuserID("4935511076");
             $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
             $dataSelect=array('StudentID' => $studentid);
@@ -44,6 +72,7 @@
 
         public function stdCardAllowed()
         {
+            $this->chkStaffLogin();
             $docID = $_GET['docID'];
             $stdID = $_GET['stdID'];
             $dataselect = array('document.DocID' => $docID);
@@ -58,6 +87,7 @@
         }
         public function stdCardAllowedStdView()
         {
+            $this->chkSTDLogin();
             $docID = $_GET['docID'];
             $stdID = $_GET['stdID'];
             $dataselect = array('document.DocID' => $docID);
@@ -72,12 +102,15 @@
         }
         public function formindex()
         {
+            $this->chkSTDLogin();
+            //print_r($_SESSION['userSession']['UserType']);
             $this->load->view('css');
 			$this->load->view('formmain');
         }
 
         public function formindexAdmin()
         {
+            $this->chkStaffLogin();
             $this->load->view('css');
             $this->load->view('headerAdmin');
 			$this->load->view('formmainAdmin');
@@ -85,6 +118,7 @@
 
         public function stdCardForm()
         {
+            $this->chkSTDLogin();
             $this->load->view('css');
             $this->load->view('header');
             //$this->load->view('sidebar');
@@ -105,6 +139,7 @@
 
         public function stdCardFormAdmin()
         {
+            $this->chkStaffLogin();
             $dataSelect=array();
             // $data['docList']=$this->docModel->selectDocWithState($dataSelect);
             $data['docList']=$this->docModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
@@ -117,6 +152,7 @@
         }
         public function stdCardFormAdminTEST()
         {
+            $this->chkStaffLogin();
             $dataSelect=array();
             $data['docList']=$this->docModel->selectDocWithStateTest($dataSelect);
             // $data['docList']=$this->docModel->selectDoc($dataSelect);
@@ -131,6 +167,7 @@
 
         public function stdCardAllow()
         {
+            $this->chkStaffLogin();
             $docID = $_GET['docID'];
             $stdID = $_GET['stdID'];
             $data['docInfo'] = $this->docModel->getDocBydocID($docID);
@@ -142,23 +179,6 @@
         //    $this->load->view('sidebar');
             $this->load->view('footer');
             // $this->load->view('script');         
-        }
-
-        public function addnews($facid, $nameFac)
-        {
-            $filename;
-            $date = date('Y-m-d H:i:s');
-            if (!empty($_FILES)) {
-                $filename = $_FILES['file']['name'];
-                $tempFile = $_FILES['file']['tmp_name'];
-                $targetPath = getcwd() . '/uploaded_file/';
-                $targetFile = $targetPath . $_FILES['file']['name'];
-    
-                move_uploaded_file($tempFile, $targetFile);
-            }
-            $this->News_model->addnews($_POST, $filename, $date, $facid, $_SESSION['UserID']);
-            $this->session->set_flashdata('compelte', 'ระบบได้ทำการอัปโหลดไฟล์ของท่านเสร็จเรียบร้อยแล้ว');
-            redirect(base_url("Project-COOP/Fun_sidebar_admin/show_news?namefac_sub=" . $nameFac));
         }
 
         public function insertReq()
@@ -191,6 +211,7 @@
 
         public function editReq()
         {
+            $this->chkSTDLogin();
             $docID = $_GET['docID'];
             $data['docInfo']=$this->docModel->getDocBydocID($docID);
             $back = base_url("/formControl/stdCardMain");

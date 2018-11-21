@@ -37,7 +37,7 @@
 						<?php echo $Fullname ?>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="<?php echo base_url(); ?>">Logout</a>
+						<a class="dropdown-item" href="<?php echo base_url();?>/Authentication/logout">Logout</a>
 					</div>
 				</div>
 			</div>

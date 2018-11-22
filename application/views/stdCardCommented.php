@@ -66,7 +66,17 @@
         </div>
           <div class="input-group">            
             <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
-            <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="visibility:hidden;" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"/>
+             <?php 
+            if($getDocInfo['ReasonOther']=="")
+            {
+              $showtextbox="visibility:hidden;";
+            }
+            else
+            {
+              $showtextbox="visibility: visible;";
+            }           
+            ?>            
+            <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="<?php echo $showtextbox;?>" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"disabled/>
           </div> 
           <div class="form-group" style="margin: 20px auto auto auto">             
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><h4>Attached file</h4></button>
@@ -83,7 +93,7 @@
               <label for="disagree">Disagree</label>              
           </div>
           <div class="form-group purple-border">
-            <textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
+            <textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:" disabled><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
           </div>
           <div>
           <button type="submit" class="btn-sm btn-primary Chuanpim"><h3>Back</h3></button>          

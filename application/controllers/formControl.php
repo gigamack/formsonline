@@ -96,7 +96,7 @@
             $data['docCommented'] = $this->docModel->selectDocWithState($dataselect);
             $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
             $this->load->view('css');
-            $this->load->view('headerAdmin');
+            $this->load->view('header');
            $this->load->view('stdCardCommentedView',$data);
             $this->load->view('footer');       
         }

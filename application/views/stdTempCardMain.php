@@ -67,9 +67,9 @@
                 <?php if($docid->stateID != "t01s01"){ ?>
                 <tr class ="table-warning">
                     <th scope="row"><?php echo $i; ?></th>
-                    <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
+                    <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>                    
+                    <td><?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : 'ไม่เห็นชอบ';?></td>
                     <td><?php echo $docid->OfficerCommentedDate ?></td>
-                    <td>พิจารณาแล้ว</td>
                     <td><a href="<?php echo base_url('formControl/stdCardAllowedStdView?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
                 </tr>
                 <?php $i++;}}?>

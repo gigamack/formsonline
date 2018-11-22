@@ -68,9 +68,20 @@
             <option value="5"<?php if($getDocInfo['ReasonID'] == '5'){ echo ' selected="selected"'; } ?>>อื่นๆ /Other</option>
           </select>
         </div>
-          <div class="input-group">            
+          <div class="input-group">  
+          <?php 
+            if($getDocInfo['ReasonOther']=="")
+            {
+              $showtextbox="visibility:hidden;";
+            }
+            else
+            {
+              $showtextbox="visibility: visible;";
+            }           
+            ?>            
+            <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="<?php echo $showtextbox;?>" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"/>          
             <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
-            <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="visibility:hidden;" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"/>
+            <!-- <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="visibility:hidden;" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"/> -->
           </div> 
           <div class="form-group" style="margin: 20px auto auto auto">
               <label for="stdPicFile">แนบไฟล์รูปภาพใบแจ้งความจากสถานีตำรวจ กรณีบัตรสูญหาย</label>

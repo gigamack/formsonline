@@ -184,9 +184,9 @@
         public function insertReq()
         {
             //$this->load->model('company_model');
-            $filename;
+            $filename='';
             $encodename = uniqid();
-            if (!empty($_FILES)) {
+            if ($_FILES['stdPicFile']['name']!='') {
                 $filename = $encodename.'_'.$_FILES['stdPicFile']['name'];
                 $tempFile = $_FILES['stdPicFile']['tmp_name'];
                 $targetPath = getcwd() . '/uploads/';
@@ -225,6 +225,8 @@
         {
             $data= array('DocID' => $_GET['docID']);
             $this->docModel->deleteDoc($data);
+            $back = base_url("/formControl/stdCardMain");
+            header('Location:' . $back);
         }
 
         public function updateReq()
@@ -232,12 +234,13 @@
             
                 $filename;
                 $encodename = uniqid();
-                if (empty($_FILES['stdPicFile']))
+                $otherreason = ($_POST['reason']=='5')?$_POST['other']:"";
+                if ($_FILES['stdPicFile']['name']=='')
                 {
                     $data= array('DocID' => $_POST['docID']
                     , 'StudentID' => $_POST['stdid']
                     , 'ReasonID' => $_POST['reason']
-                    , 'ReasonOther' => $_POST['other']
+                    , 'ReasonOther' => $otherreason
                     , 'DocTypeID' => $_POST['DocTypeID']);                    
                 }
                 else
@@ -252,7 +255,7 @@
                     $data= array('DocID' => $_POST['docID']
                     , 'StudentID' => $_POST['stdid']
                     , 'ReasonID' => $_POST['reason']
-                    , 'ReasonOther' => $_POST['other']
+                    , 'ReasonOther' => $otherreason
                     , 'PoliceNoticePath' => $filename
                     , 'DocTypeID' => $_POST['DocTypeID']);                    
                 }

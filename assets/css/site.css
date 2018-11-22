@@ -1,0 +1,28 @@
+@font-face {
+	font-family: 'Stidti-Regular';
+	src: url('../fonts/Stidti-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'DB ChuanPim PSU v3.2.1';
+	src: url('../fonts/DB ChuanPim PSU v3.2.1.ttf') format('truetype');
+}
+
+html {
+	font-size: 20px;
+}
+
+body {
+	font-family: 'DB ChuanPim PSU v3.2.1';
+	/* font-size: 26px;
+    color:#000; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Stidti-Regular';
+}

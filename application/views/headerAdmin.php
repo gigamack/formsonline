@@ -31,7 +31,7 @@
 						<a class="nav-link" href="<?php echo base_url("/formcontrol/formindexAdmin"); ?>">Home</a>
 					</li>
 				</ul>
-				<div class="dropdown">
+				<div class="dropdown" style="padding-right:40px">
 					<a class="nav-link dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
 					 aria-haspopup="true" aria-expanded="false">
 						<?php echo $Fullname ?>

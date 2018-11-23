@@ -80,7 +80,9 @@
           </div>
           <input type="hidden" id="DocTypeID" name="DocTypeID" value="1"/>
           <input type="hidden" id="stateID" name="stateID" value="t01s01" />
-          <button type="submit" class="btn btn-primary Chuanpim"><h3>Submit</h3></button>
+          <div style="margin:  auto auto 20px auto">
+          <button type="submit" class="btn btn-primary Chuanpim">Submit</button>
+          </div>
         </div>
         </div>
         </div>

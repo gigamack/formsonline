@@ -98,7 +98,7 @@
             }           
             ?> 
           <div class="form-group" style="margin: 20px auto auto auto">             
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="<?php echo $showattachedbutton;?>"><h4>Attached file</h4></button>
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="<?php echo $showattachedbutton;?>">Attached file</button>
           </div>
           <input type="hidden" name="currentimageValue" value="<?php echo $getDocInfo['PoliceNoticePath']; ?>"/>
           <div class="form-group" style="margin: 20px auto auto auto">
@@ -106,7 +106,9 @@
           </div>
           <input type="hidden" id="DocTypeID" name="DocTypeID" value="1"/>
           <input type="hidden" id="stateID" name="stateID" value="t01s01" />
-          <button type="submit" class="btn btn-primary Chuanpim"><h3>Update</h3></button>
+          <div style="margin:  auto auto 20px auto">
+          <button type="submit" class="btn btn-primary Chuanpim">Update</button>
+          </div>
         </div>
         </div>
         </div>
@@ -123,7 +125,11 @@
         </button>
         </div>
         <div class="modal-body">
-        <img src="../uploads/<?php echo $getDocInfo['PoliceNoticePath']; ?>" alt="ไฟล์ประกอบคำร้อง" class="img-thumbnail">
+        <?php
+        $fileextension = array(".pdf", ".doc", "docx", ".xls","xlsx");
+        $uploadedextension = substr($getDocInfo['PoliceNoticePath'],-4);
+        $showmodalpic= in_array($uploadedextension,$fileextension)?"visibility: hidden;":"visibility: visible;"; ?>
+        <img src="../uploads/<?php echo $getDocInfo['PoliceNoticePath']; ?>" alt="ไฟล์ประกอบคำร้อง" class="img-thumbnail" style="<?php echo $showmodalpic;?>">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

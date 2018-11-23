@@ -89,7 +89,7 @@
             }           
             ?> 
           <div class="form-group" style="margin: 20px auto auto auto">             
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="<?php echo $showattachedbutton;?>"><h4>Attached file</h4></button>
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="<?php echo $showattachedbutton;?>">Attached file</button>
           </div>
           <div class="form-group" style="margin: 20px auto auto auto">
               <label class="text-danger">ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว 1รูปมาด้วย </label>
@@ -105,8 +105,8 @@
           <div class="form-group purple-border">
             <textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:" disabled><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
           </div>
-          <div>
-          <button type="submit" class="btn-sm btn-primary Chuanpim"><h3>Back</h3></button>          
+          <div style="margin:  auto auto 20px auto">
+          <button type="submit" class="btn btn-primary Chuanpim">Back</button>
           </div>
           </div>
         </div>
@@ -125,7 +125,11 @@
         <div class="modal-body">
         <?php $fileurl= $getDocInfo['PoliceNoticePath']!=""?"../uploads/".$getDocInfo['PoliceNoticePath']:"#"; ?>
         <a class="btn btn-danger" href="<?php echo $fileurl; ?>" role="button">Download</a>
-        <img src="../uploads/<?php echo $getDocInfo['PoliceNoticePath']; ?>" alt="ไฟล์ประกอบคำร้อง" class="img-thumbnail">
+        <?php
+        $fileextension = array(".pdf", ".doc", "docx", ".xls","xlsx");
+        $uploadedextension = substr($getDocInfo['PoliceNoticePath'],-4);
+        $showmodalpic= in_array($uploadedextension,$fileextension)?"visibility: hidden;":"visibility: visible;"; ?>
+        <img src="../uploads/<?php echo $getDocInfo['PoliceNoticePath']; ?>" alt="ไฟล์ประกอบคำร้อง" class="img-thumbnail" style="<?php echo $showmodalpic;?>">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

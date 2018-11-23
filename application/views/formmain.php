@@ -20,12 +20,9 @@
     text-align: center;
 }
 </style>
-<<<<<<< HEAD
 	<title>Document</title>
-=======
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico" />
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico" />
 	<title>PSU Phuket Online Forms</title>
->>>>>>> 0d34d590703bd7e7ffb24cea328dbc0695d22d0d
 </head>
 
 <body>
@@ -49,7 +46,7 @@
 				<div class="dropdown" style="padding-right:40px">
 					<a class="nav-link dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
 					 aria-haspopup="true" aria-expanded="false">
-					 <?php echo "($UserID) ".$Fullname ?>
+						<?php echo "($UserID) ".$Fullname ?>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="<?php echo base_url();?>/Authentication/logout">Logout</a>

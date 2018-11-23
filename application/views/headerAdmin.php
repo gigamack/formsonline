@@ -1,4 +1,5 @@
 <?php
+	$UserID = $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
 	$Fullname = $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][1] 
 	. ' ' . $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][2]
 ?>
@@ -34,7 +35,7 @@
 				<div class="dropdown" style="padding-right:40px">
 					<a class="nav-link dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
 					 aria-haspopup="true" aria-expanded="false">
-						<?php echo $Fullname ?>
+						<?php echo "($UserID) ".$Fullname ?>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="<?php echo base_url();?>/Authentication/logout">Logout</a>

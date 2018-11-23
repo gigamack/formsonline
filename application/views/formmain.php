@@ -20,7 +20,12 @@
     text-align: center;
 }
 </style>
+<<<<<<< HEAD
 	<title>Document</title>
+=======
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico" />
+	<title>PSU Phuket Online Forms</title>
+>>>>>>> 0d34d590703bd7e7ffb24cea328dbc0695d22d0d
 </head>
 
 <body>

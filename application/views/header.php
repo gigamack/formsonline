@@ -7,10 +7,18 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico" />
+		<title>PSU Phuket Online Forms</title>
+>>>>>>> 0d34d590703bd7e7ffb24cea328dbc0695d22d0d
 </head>
 
 <body>

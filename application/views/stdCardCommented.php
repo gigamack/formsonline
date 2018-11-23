@@ -78,8 +78,18 @@
             ?>            
             <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="<?php echo $showtextbox;?>" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"disabled/>
           </div> 
+          <?php 
+            if($getDocInfo['PoliceNoticePath']=="")
+            {
+              $showattachedbutton="visibility:hidden;";
+            }
+            else
+            {
+              $showattachedbutton="visibility:visible;";
+            }           
+            ?> 
           <div class="form-group" style="margin: 20px auto auto auto">             
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><h4>Attached file</h4></button>
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="<?php echo $showattachedbutton;?>"><h4>Attached file</h4></button>
           </div>
           <div class="form-group" style="margin: 20px auto auto auto">
               <label class="text-danger">ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว 1รูปมาด้วย </label>

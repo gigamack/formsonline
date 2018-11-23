@@ -87,8 +87,18 @@
               <label for="stdPicFile">แนบไฟล์รูปภาพใบแจ้งความจากสถานีตำรวจ กรณีบัตรสูญหาย</label>
               <input type="file" class="form-control-file" id="stdPicFile" name="stdPicFile">           
           </div>
+          <?php 
+            if($getDocInfo['PoliceNoticePath']=="")
+            {
+              $showattachedbutton="visibility:hidden;";
+            }
+            else
+            {
+              $showattachedbutton="visibility:visible;";
+            }           
+            ?> 
           <div class="form-group" style="margin: 20px auto auto auto">             
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><h4>Attached file</h4></button>
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="<?php echo $showattachedbutton;?>"><h4>Attached file</h4></button>
           </div>
           <input type="hidden" name="currentimageValue" value="<?php echo $getDocInfo['PoliceNoticePath']; ?>"/>
           <div class="form-group" style="margin: 20px auto auto auto">

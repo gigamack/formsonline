@@ -1,5 +1,5 @@
 <?php 
-    class baseDataControl extends CI_Controller {
+    class BaseDataControl extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
@@ -20,7 +20,7 @@
     {   
         $docID = array('DoctypeID' => $_GET['doctypeID']);
         $data['doctypeInfo']=$this->DocTypeModel->selectDocType($docID);
-        $back = base_url("/baseDataControl/docTypeMain");
+        $back = base_url("/BaseDataControl/docTypeMain");
         $this->load->view('css');
         $this->load->view('headerdoctype');
         $this->load->view('docTypeAlter',$data);
@@ -31,7 +31,7 @@
     {
         $data= array('DoctypeID' => $_GET['doctypeID']);
         $this->DocTypeModel->deleteDocType($data);
-        $back = base_url("/baseDataControl/docTypeMain");
+        $back = base_url("/BaseDataControl/docTypeMain");
         header('Location:' . $back);
     }
 
@@ -48,7 +48,7 @@
             //$this->load->model('company_model');
             $data= array('DoctypeName' => $_POST['docTypeName']);
             $this->DocTypeModel->InsertDocType($data);
-            $back = base_url("/baseDataControl/docTypeMain");
+            $back = base_url("/BaseDataControl/docTypeMain");
             header('Location:' . $back);
     }
     
@@ -56,7 +56,7 @@
     {
         $data= array('DoctypeName' => $_POST['docTypeName']);
         $this->DocTypeModel->updateDocType($data,$_POST['docTypeID']);
-        $back = base_url("/baseDataControl/docTypeMain");
+        $back = base_url("/BaseDataControl/docTypeMain");
         header('Location:' . $back);      
     }
     }

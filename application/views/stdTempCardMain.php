@@ -37,8 +37,8 @@
                     <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
                     <td><?php echo $docid->CreatedDate ?></td>
                     <td>รอการตรวจสอบ</td>
-                    <td><a href="<?php echo base_url('formControl/editReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
-                    <a href="<?php echo base_url('formControl/delReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/trash.png" style="width:30px;"/></a></td>
+                    <td><a href="<?php echo base_url('FormControl/editReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
+                    <a href="<?php echo base_url('FormControl/delReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/trash.png" style="width:30px;"/></a></td>
                 </tr>
 
                 <?php $i++;}}?>
@@ -70,7 +70,7 @@
                     <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>                    
                     <td><?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : 'ไม่เห็นชอบ';?></td>
                     <td><?php echo $docid->OfficerCommentedDate ?></td>
-                    <td><a href="<?php echo base_url('formControl/stdCardAllowedStdView?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
+                    <td><a href="<?php echo base_url('FormControl/stdCardAllowedStdView?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
                 </tr>
                 <?php $i++;}}?>
             </tbody>

@@ -11,7 +11,7 @@
             $getDoctypeInfo = $doctypeInfo[0];
             //print_r($getDoctypeInfo->DoctypeID $getDoctypeInfo->DoctypeName);
 ?>
-<form action="<?php echo base_url("/baseDataControl/updateDoctype") ?>" method="post">
+<form action="<?php echo base_url("/BaseDataControl/updateDoctype") ?>" method="post">
 <div class="container Chuanpim" >
 <div class="form-group" style="margin: 20px auto auto auto">
 <label for="docTypeName"><h4>ชื่อประเภทคำร้อง :</h4></label>

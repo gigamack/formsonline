@@ -30,8 +30,8 @@
                 <tr class ="table-warning">
                     <th scope="row"><?php echo $docTypeList->DoctypeID; ?></th>
                     <td><?php echo $docTypeList->DoctypeName; ?></td>
-                    <td><a href="<?php echo base_url('baseDataControl/editDocType?doctypeID='.$docTypeList->DoctypeID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
-                    <a href="<?php echo base_url('baseDataControl/delDocType?doctypeID='.$docTypeList->DoctypeID);?>"><img id="Image1" src="../assets/images/trash.png" style="width:30px;"/></a></td>
+                    <td><a href="<?php echo base_url('BaseDataControl/editDocType?doctypeID='.$docTypeList->DoctypeID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
+                    <a href="<?php echo base_url('BaseDataControl/delDocType?doctypeID='.$docTypeList->DoctypeID);?>"><img id="Image1" src="../assets/images/trash.png" style="width:30px;"/></a></td>
                 </tr>
             <?php } ?>
             </tbody>

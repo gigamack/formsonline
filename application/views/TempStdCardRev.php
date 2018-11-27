@@ -11,7 +11,7 @@
             $GetDocID = $docList;
 ?>
 <div class="container Chuanpim" >
-<form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/stdCardAllow") ?>" method="post">
+<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardAllow") ?>" method="post">
     <div class="card">
         <div class="card-header bg-info text-light Stidti">
             <h3>รายการคำร้องรอตรวจสอบ</h3>
@@ -38,7 +38,7 @@
                     <td><?php echo $docid->StudentID;?></td>
                     <td><?php echo $docid->CreatedDate;?></td>
                     <td>รอการตรวจสอบ</td>
-                    <td><a href="<?php echo base_url('formControl/stdCardAllow?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
+                    <td><a href="<?php echo base_url('FormControl/stdCardAllow?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
                 </tr>
                 <?php $i++;}}?>
             </tbody>
@@ -71,7 +71,7 @@
                     <td><?php echo $docid->StudentID;?></td>
                     <td><?php echo $docid->OfficerCommentedDate;?></td>
                     <td><?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : 'ไม่เห็นชอบ';?></td>
-                    <td><a href="<?php echo base_url('formControl/stdCardAllowed?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
+                    <td><a href="<?php echo base_url('FormControl/stdCardAllowed?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a></td>
                 </tr>
                 <?php $i++;}}?>
             </tbody>

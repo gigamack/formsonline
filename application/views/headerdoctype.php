@@ -9,7 +9,7 @@
 <body>
 <header>
 <div class="navbar navbar-dark navbar-expand-md navbar-fixed-top" style="background-color: #69b3e7;">
-<a href="<?php echo base_url('baseDataControl/docTypeMain');?>" class="navbar-brand Stidti"><img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;float:left;margin-top:7px " /></a>
+<a href="<?php echo base_url('BaseDataControl/docTypeMain');?>" class="navbar-brand Stidti"><img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;float:left;margin-top:7px " /></a>
 <div style="margin-left:10px" class="Stidti text-light"><h1>Online Forms System</h1></div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #69b3e7;">
@@ -19,10 +19,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('baseDataControl/docTypeMain');?>">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url('BaseDataControl/docTypeMain');?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url('baseDataControl/AddDocTypeForm');?>">Add document type</a>
+        <a class="nav-link" href="<?php echo base_url('BaseDataControl/AddDocTypeForm');?>">Add document type</a>
       </li>
       <li class="nav-item active dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

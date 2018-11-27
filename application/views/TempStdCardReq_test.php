@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container Chuanpim" >
-     <form style="margin: 20px auto auto auto" action="<?php echo base_url("/formControl/insertReq") ?>" method="post" enctype="multipart/form-data">
+     <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post" enctype="multipart/form-data">
       <!-- <?php echo form_open_multipart('/upload/do_upload');?> -->
       <div class="card text-black bg-light">
         <div class="card-header Stidti"><h2>คำร้องขอทำบัตรนักศึกษาชั่วคราว</h2></div>

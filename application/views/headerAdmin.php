@@ -18,7 +18,7 @@
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg  navbar-dark " style="background-color: #003c71;">
-			<a href="<?php echo base_url("/formControl/stdCardFormAdmin") ?>" class="navbar-brand">
+			<a href="<?php echo base_url("/FormControl/stdCardFormAdmin") ?>" class="navbar-brand">
 				<img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;" />
 				Online Forms System
 			</a>
@@ -29,7 +29,7 @@
 			<div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url("/formcontrol/formindexAdmin"); ?>">Home</a>
+						<a class="nav-link" href="<?php echo base_url("/Formcontrol/formindexAdmin"); ?>">Home</a>
 					</li>
 				</ul>
 				<div class="dropdown" style="padding-right:40px">

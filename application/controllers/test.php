@@ -1,12 +1,12 @@
 <?php 
-    class test extends CI_Controller 
+    class Test extends CI_Controller 
     {
 
         public function __construct()
     {
         parent::__construct();
-        $this->load->model('docModel');
-        $this->load->model('docStateModel');
+        $this->load->model('DocModel');
+        $this->load->model('DocStateModel');
         $this->load->helper(array('form', 'url'));
     }
         public function index()

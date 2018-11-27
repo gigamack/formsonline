@@ -1,12 +1,12 @@
 <?php 
-    class formControl extends CI_Controller 
+    class FormControl extends CI_Controller 
     {
 
         public function __construct()
     {
         parent::__construct();
-        $this->load->model('docModel');
-        $this->load->model('docStateModel');
+        $this->load->model('DocModel');
+        $this->load->model('DocStateModel');
         $this->load->model('Student_model');
         $this->load->helper(array('form', 'url'));
     }
@@ -16,7 +16,7 @@
 
             // $this->load->view('welcome_message');
             // $dataSelect=array('StudentID' => "4935511076");
-            // $data=$this->docModel->selectDocWithState($dataSelect);
+            // $data=$this->DocModel->selectDocWithState($dataSelect);
             // print_r($data);
             // foreach($data as $docid){
             // echo $docid['DocID'];
@@ -55,13 +55,13 @@
         public function stdCardMain()
         {
             $this->chkSTDLogin();
-            //$data['docList']=$this->docModel->getDocByuserID("4935511076");
+            //$data['docList']=$this->DocModel->getDocByuserID("4935511076");
             $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
             $dataSelect=array('StudentID' => $studentid);
-            $data['docList']=$this->docModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
-            $data['docList2']=$this->docModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
-            // $data['docList']=$this->docModel->selectDocWithState($dataSelect);
-            //$data['docList']=$this->docModel->selectDoc($dataSelect);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
+            // $data['docList']=$this->DocModel->selectDocWithState($dataSelect);
+            //$data['docList']=$this->DocModel->selectDoc($dataSelect);
             $this->load->view('css');
             $this->load->view('header');
         //    $this->load->view('sidebar');
@@ -76,9 +76,9 @@
             $docID = $_GET['docID'];
             $stdID = $_GET['stdID'];
             $dataselect = array('document.DocID' => $docID);
-            $data['docInfo'] = $this->docModel->getDocBydocID($docID);
-            $data['docState'] = $this->docStateModel->selectDocState($docID);
-            $data['docCommented'] = $this->docModel->selectDocWithState($dataselect);
+            $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
+            $data['docState'] = $this->DocStateModel->selectDocState($docID);
+            $data['docCommented'] = $this->DocModel->selectDocWithState($dataselect);
             $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
             $this->load->view('css');
             $this->load->view('headerAdmin');
@@ -91,9 +91,9 @@
             $docID = $_GET['docID'];
             $stdID = $_GET['stdID'];
             $dataselect = array('document.DocID' => $docID);
-            $data['docInfo'] = $this->docModel->getDocBydocID($docID);
-            $data['docState'] = $this->docStateModel->selectDocState($docID);
-            $data['docCommented'] = $this->docModel->selectDocWithState($dataselect);
+            $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
+            $data['docState'] = $this->DocStateModel->selectDocState($docID);
+            $data['docCommented'] = $this->DocModel->selectDocWithState($dataselect);
             $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
             $this->load->view('css');
             $this->load->view('header');
@@ -141,10 +141,10 @@
         {
             $this->chkStaffLogin();
             $dataSelect=array();
-            // $data['docList']=$this->docModel->selectDocWithState($dataSelect);
-            $data['docList']=$this->docModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
-            $data['docList2']=$this->docModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
-            // $data['docList']=$this->docModel->selectDoc($dataSelect);
+            // $data['docList']=$this->DocModel->selectDocWithState($dataSelect);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
+            // $data['docList']=$this->DocModel->selectDoc($dataSelect);
             $this->load->view('css');
             $this->load->view('headerAdmin');
             $this->load->view('TempStdCardRev',$data);
@@ -154,8 +154,8 @@
         {
             $this->chkStaffLogin();
             $dataSelect=array();
-            $data['docList']=$this->docModel->selectDocWithStateTest($dataSelect);
-            // $data['docList']=$this->docModel->selectDoc($dataSelect);
+            $data['docList']=$this->DocModel->selectDocWithStateTest($dataSelect);
+            // $data['docList']=$this->DocModel->selectDoc($dataSelect);
             // $this->load->view('css');
             // $this->load->view('headerAdmin');
             // $this->load->view('TempStdCardRev',$data);
@@ -170,9 +170,9 @@
             $this->chkStaffLogin();
             $docID = $_GET['docID'];
             $stdID = $_GET['stdID'];
-            $data['docInfo'] = $this->docModel->getDocBydocID($docID);
+            $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
             $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
-            $data['docState'] = $this->docStateModel->selectDocState($docID);
+            $data['docState'] = $this->DocStateModel->selectDocState($docID);
             $this->load->view('headerAdmin');
             $this->load->view('css');
            $this->load->view('ChkTempReq',$data);
@@ -198,14 +198,14 @@
             , 'ReasonOther' => $_POST['other']
             , 'PoliceNoticePath' => $filename
             , 'DocTypeID' => $_POST['DocTypeID']);
-            $this->docModel->InsertDoc($data);
+            $this->DocModel->InsertDoc($data);
             $dataMaxDocID = array('StudentID' => $_POST['stdid']);
-            $maxDocIDS=$this->docModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
+            $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
             $maxDocID=$maxDocIDS[0];
             $data2 = array('DocID' => $maxDocID->DocID
             , 'stateID' => $_POST['stateID']);
-            $this->docStateModel->InsertDocState($data2);
-            $back = base_url("/formControl/stdCardMain");
+            $this->DocStateModel->InsertDocState($data2);
+            $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);
         }
 
@@ -213,8 +213,8 @@
         {
             $this->chkSTDLogin();
             $docID = $_GET['docID'];
-            $data['docInfo']=$this->docModel->getDocBydocID($docID);
-            $back = base_url("/formControl/stdCardMain");
+            $data['docInfo']=$this->DocModel->getDocBydocID($docID);
+            $back = base_url("/FormControl/stdCardMain");
             $this->load->view('css');
             $this->load->view('header');
             $this->load->view('editTempStdCardReq',$data);
@@ -224,8 +224,8 @@
         public function delReq()
         {
             $data= array('DocID' => $_GET['docID']);
-            $this->docModel->deleteDoc($data);
-            $back = base_url("/formControl/stdCardMain");
+            $this->DocModel->deleteDoc($data);
+            $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);
         }
 
@@ -266,8 +266,8 @@
             // , 'ReasonOther' => $_POST['other']
             // , 'PoliceNoticePath' => $_POST['stdPicFile']
             // , 'DocTypeID' => $_POST['DocTypeID']);
-            $this->docModel->updateDoc($data,$_POST['docID']);
-            $back = base_url("/formControl/stdCardMain");
+            $this->DocModel->updateDoc($data,$_POST['docID']);
+            $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);         
         }
         public function insertDocNextState()
@@ -277,9 +277,9 @@
             , 'OfficerCommentText' => $_POST['commentText']
             , 'OfficerID' => $_POST['userID']
             , 'stateID' => $_POST['stateID']);
-            $this->docStateModel->InsertDocState($data);
-            //$this->docModel->updateDocState($data,$_POST['docID']);
-            $back = base_url("/formControl/stdCardFormAdmin");
+            $this->DocStateModel->InsertDocState($data);
+            //$this->DocModel->updateDocState($data,$_POST['docID']);
+            $back = base_url("/FormControl/stdCardFormAdmin");
             header('Location:' . $back);         
         }        
     }

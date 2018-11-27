@@ -1,11 +1,11 @@
 <?php
-class testModel extends CI_Controller 
+class TestModel extends CI_Controller 
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('docModel');
-        $this->load->model('docStateModel');
+        $this->load->model('DocModel');
+        $this->load->model('DocStateModel');
         $this->load->model('Student_model');
         $this->load->helper(array('form', 'url'));
     }

@@ -9,7 +9,7 @@ class UnitTest extends CI_Controller
         $this->config->item('config');
 
         $this->load->model('User_model');
-        $this->load->model('docModel');
+        $this->load->model('DocModel');
 
         
     }

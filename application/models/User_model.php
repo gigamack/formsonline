@@ -11,11 +11,11 @@ class User_model extends CI_Model
 
     private function setUserInfo()
     {
-        $this->load->library('psupassport', $this->credential);
+        $this->load->library('PSUPassport', $this->credential);
         $PSUPassport = new PSUPassport($this->credential);
         
-        $this->load->library('roleprovider');
-        $this->load->library('studentinfo');
+        $this->load->library('RoleProvider');
+        $this->load->library('StudentInfo');
 
         
         $PSUPassportResult = $PSUPassport->GetUserDetails();

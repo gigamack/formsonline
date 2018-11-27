@@ -40,7 +40,7 @@
 			<div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url("/Formcontrol/formindex"); ?>">Home</a>
+						<a class="nav-link" href="<?php echo base_url("/FormControl/formindex"); ?>">Home</a>
 					</li>
 				</ul>
 				<div class="dropdown" style="padding-right:40px">
@@ -58,7 +58,7 @@
 
 	<div class="card" style="width: 18rem; margin: 20px auto auto auto;">
 		<ul class="list-group list-group-flush">
-			<a href="<?php echo base_url('Formcontrol/stdCardMain');?>" class="btn btn-primary btn-lg active" role="button"
+			<a href="<?php echo base_url('FormControl/stdCardMain');?>" class="btn btn-primary btn-lg active" role="button"
 			 aria-pressed="true">คำร้องขอบัตรนักศึกษาชั่วคราว</a>
 		</ul>
 	</div>

@@ -27,7 +27,7 @@
 
 		<div class="row">
 			<div class="col">
-				<div class="collapse" id="multiCollapseExample1" data-parent="#ResultList">
+				<div class="collapse show" id="multiCollapseExample1" data-parent="#ResultList">
 					<div class="card mt-3">
 						<div class="card-header bg-primary text-light Stidti">
 							<h3>รายการคำร้องรอตรวจสอบ</h3>

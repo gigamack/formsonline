@@ -43,7 +43,7 @@
                 <tbody>
                 <?php $i=1;?>
                 <?php foreach($GetDocID as $docid){?>
-                    <?php if($docid->stateID == "t01s01"){ ?>
+                    <?php if (strpos($docid->stateID,'s01') !== false){ ?>
                     <tr class ="">
                         <th scope="row"><?php echo $i; ?></th>
                         <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
@@ -78,7 +78,7 @@
                 <tbody>
                 <?php $i=1;?>
                 <?php foreach($docList2 as $docid){?>
-                    <?php if($docid->stateID != "t01s01"){ ?>
+                    <?php if (strpos($docid->stateID,'s01') == false){ ?>
                     <tr class ="">
                         <th scope="row"><?php echo $i; ?></th>
                         <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>                    

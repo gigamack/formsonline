@@ -29,13 +29,13 @@
 			<div class="col">
 				<div class="collapse show" id="multiCollapseExample1" data-parent="#ResultList">
 					<div class="card mt-3">
-						<div class="card-header bg-primary text-light Stidti">
-							<h3>รายการคำร้องรอตรวจสอบ</h3>
-						</div>
+						<h5 class="card-header bg-primary text-light">
+							รายการคำร้องรอตรวจสอบ
+						</h5>
 						<div class="card-body">
-							<table id="unfinishedReq" class="table table-sm Chuanpimsmall">
+							<table id="unfinishedReq" class="table table-hove">
 								<thead>
-									<tr class="bg-dark text-light">
+									<tr class="">
 										<th scope="col">#</th>
 										<th scope="col">ประเภทคำร้อง</th>
 										<th scope="col">ผู้ยื่นคำร้อง</th>
@@ -48,7 +48,7 @@
 									<?php $i=1;?>
 									<?php foreach($GetDocID as $docid){?>
 									<?php if($docid->stateID == "t01s01"){ ?>
-									<tr class="table-warning">
+									<tr class="">
 										<th scope="row">
 											<?php echo $i; ?>
 										</th>
@@ -74,13 +74,13 @@
 
 				<div class="collapse " id="multiCollapseExample2" data-parent="#ResultList">
 					<div class="card mt-3">
-						<div class="card-header bg-success text-light Stidti">
-							<h3>รายการคำร้องที่ตรวจสอบแล้ว</h3>
-						</div>
+						<h5 class="card-header bg-success text-light">
+							รายการคำร้องที่ตรวจสอบแล้ว
+						</h5>
 						<div class="card-body">
-							<table id="finishedReq" class="table table-sm Chuanpimsmall">
+							<table id="finishedReq" class="table table-hover">
 								<thead>
-									<tr class="bg-dark text-light">
+									<tr class="">
 										<th scope="col">#</th>
 										<th scope="col">ประเภทคำร้อง</th>
 										<th scope="col">ผู้ยื่นคำร้อง</th>
@@ -93,7 +93,7 @@
 									<?php $i=1;?>
 									<?php foreach($docList2 as $docid){?>
 									<?php if($docid->stateID != "t01s01"){ ?>
-									<tr class="table-warning">
+									<tr class="">
 										<th scope="row">
 											<?php echo $i; ?>
 										</th>

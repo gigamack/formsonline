@@ -26,13 +26,13 @@
 
     <div class="collapse show" id="multiCollapseExample1" data-parent="#ResultList">
         <div class="card" style="margin: 20px auto auto auto">
-            <div class="card-header bg-primary text-light Stidti">
-                <h3>รายการคำร้องรอพิจารณา</h3>
-            </div>
+            <h5 class="card-header bg-primary text-light Stidti">
+                รายการคำร้องรอพิจารณา
+            </h5>
             <div class="card-body">
-            <table id="unfinishedReq" class="table table-sm Chuanpimsmall">
+            <table id="unfinishedReq" class="table table-hove">
                 <thead>
-                    <tr class="bg-dark text-light">
+                    <tr class="">
                         <th scope="col">#</th>
                         <th scope="col">ประเภทคำร้อง</th>
                         <th scope="col">วันที่สร้างคำร้อง</th>
@@ -44,7 +44,7 @@
                 <?php $i=1;?>
                 <?php foreach($GetDocID as $docid){?>
                     <?php if($docid->stateID == "t01s01"){ ?>
-                    <tr class ="table-warning">
+                    <tr class ="">
                         <th scope="row"><?php echo $i; ?></th>
                         <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
                         <td><?php echo $docid->CreatedDate ?></td>
@@ -61,13 +61,13 @@
     </div>
     <div class="collapse " id="multiCollapseExample2" data-parent="#ResultList">
         <div class="card" style="margin: 20px auto auto auto">
-            <div class="card-header bg-success text-light Stidti">
-                <h3>รายการคำร้องที่พิจารณาแล้ว</h3>
-            </div>
+            <h5 class="card-header bg-success text-light Stidti">
+                รายการคำร้องที่พิจารณาแล้ว
+            </h5>
             <div class="card-body">
-            <table id="finishedReq" class="table table-sm Chuanpimsmall">
+            <table id="finishedReq" class="table table-hove">
                 <thead>
-                    <tr class="bg-dark text-light">
+                    <tr class="">
                         <th scope="col">#</th>
                         <th scope="col">ประเภทคำร้อง</th>
                         <th scope="col">สถานะคำร้อง</th>
@@ -79,7 +79,7 @@
                 <?php $i=1;?>
                 <?php foreach($docList2 as $docid){?>
                     <?php if($docid->stateID != "t01s01"){ ?>
-                    <tr class ="table-warning">
+                    <tr class ="">
                         <th scope="row"><?php echo $i; ?></th>
                         <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>                    
                         <td><?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : 'ไม่เห็นชอบ';?></td>

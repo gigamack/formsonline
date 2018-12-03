@@ -36,8 +36,7 @@ class Authentication extends CI_Controller
             }
             else
             {
-                $_SESSION['errors']='Fail';
-                redirect(base_url());
+                $this->logout();
 
             }
         // print_r($UserInfo['PSUPassport']['GetUserDetailsResult']['string']['9']);

@@ -19,19 +19,28 @@ class Authentication extends CI_Controller
         $_SESSION['userSession'] = $UserInfo;
         if($UserInfo['AuthenticationResult']==1)
         {
-            if ($UserInfo['UserType'] == 'Staffs') {
-                // redirect(base_url("FormControl/formindexAdmin"));
-                redirect(base_url('FormControl/stdCardFormAdmin'));
-                // redirect(base_url("formcontrol/stdCardFormAdmin"));
-                // echo $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['0'];
-            } else 
+            if ($_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['9']=='C03')
             {
-                // redirect(base_url("FormControl/formindex"));
-                redirect(base_url("FormControl/stdCardMain"));
-                // print_r($_SESSION['userSession']['StudentInfo']);
-                // echo $_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
+                if ($UserInfo['UserType'] == 'Staffs') {
+                    // redirect(base_url("FormControl/formindexAdmin"));
+                    redirect(base_url('FormControl/stdCardFormAdmin'));
+                    // redirect(base_url("formcontrol/stdCardFormAdmin"));
+                    // echo $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['0'];
+                } else 
+                {
+                    // redirect(base_url("FormControl/formindex"));
+                    redirect(base_url("FormControl/stdCardMain"));
+                    // print_r($_SESSION['userSession']['StudentInfo']);
+                    // echo $_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
+                }
             }
-        //print_r($UserInfo['PSUPassport']['GetUserDetailsResult']['string']['0']);
+            else
+            {
+                $_SESSION['errors']='Fail';
+                redirect(base_url());
+
+            }
+        // print_r($UserInfo['PSUPassport']['GetUserDetailsResult']['string']['9']);
         }
         else
         {

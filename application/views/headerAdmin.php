@@ -29,7 +29,7 @@
 			<div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url("/FormControl/formindexAdmin"); ?>">Home</a>
+						<a class="nav-link" href="<?php echo base_url("/FormControl/stdCardFormAdmin"); ?>">Home</a>
 					</li>
 				</ul>
 				<div class="dropdown" style="padding-right:40px">

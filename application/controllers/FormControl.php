@@ -56,7 +56,7 @@
         {
             $this->chkSTDLogin();
             //$data['docList']=$this->DocModel->getDocByuserID("4935511076");
-            $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
+            $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
             $dataSelect=array('StudentID' => $studentid);
             $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
             $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');

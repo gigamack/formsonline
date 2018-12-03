@@ -108,6 +108,13 @@
 			$this->load->view('formmain');
         }
 
+        public function changenameform()
+        {
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('ChangenameFrm');
+            $this->load->view('footer');
+        }
         public function formindexAdmin()
         {
             $this->chkStaffLogin();

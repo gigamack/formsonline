@@ -65,15 +65,32 @@
               </div>                
           </div>
         <label class="form-check-label">มีความประสงค์จะขอเปลี่ยนชื่อ-สกุล(ไทย/อังกฤษ)(กรุณาระบุเฉพาะชื่อ-สกุลที่เปลี่ยน)เป็น</label>	
-        <div class="input-group mb-3">
-            <label for="newthName">ภาษาไทย:</label>
-            <input type="text" class="form-control" id="newthName" name="newthName" placeholder="ชื่อ" />
-            <input type="text" class="form-control" id="newthSname" name="newthSname" placeholder="สกุล" />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label for="newthName">ภาษาไทย:</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control" id="newthName" name="newthName" placeholder="ชื่อ" />
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control" id="newthSname" name="newthSname" placeholder="สกุล" />
+                </div>
+            </div>
         </div>
-        <div class="input-group mb-3">
-            <label for="newthName">ภาษาอังกฤษ:</label>
-            <input type="text" class="form-control" id="newengName" name="newengName" placeholder="ชื่อ" />
-            <input type="text" class="form-control" id="newengSname" name="newengSname" placeholder="สกุล" />
+        <div class="container">
+            <div class="row"> 
+                <div class="col">   
+                    <label for="newthName">ภาษาอังกฤษ:</label>     
+                </div>
+                <div class="col-5">                    
+                    <input type="text" class="form-control" id="newengName" name="newengName" placeholder="Name" style="text-transform:uppercase"/>
+                </div>
+                <!-- <div class="w-100"></div> -->
+                <div class="col-5">
+                    <input type="text" class="form-control" id="newengSname" name="newengSname" placeholder="Surname" style="text-transform:uppercase"/>
+                </div>
+            </div>
         </div>
         <div class="input-group">            
           <label for="reason">เหตุผลเนื่องจาก:</label>
@@ -82,11 +99,11 @@
         <div class="form-group" style="margin: 20px auto auto auto">
               <label>โดยได้แนบเอกสารประกอบคำร้องขอแจ้งเปลี่ยนชื่อ-สกุลดังนี้</label>
               <label for="stdPicFile1">1.สำเนาบัตรประจำตัวประชาชน</label>
-              <input type="file" class="form-control-file" id="stdPicFile1" name="stdPicFile1">
+              <input type="file" class="form-control-file" id="stdFile1" name="stdFile1">
               <label for="stdPicFile2">2.สำเนาหนังสือสำคัญแสดงการเปลี่ยนชื่อ-สกุล</label>
-              <input type="file" class="form-control-file" id="stdPicFile2" name="stdPicFile2">
+              <input type="file" class="form-control-file" id="stdFile2" name="stdFile2">
               <label for="stdPicFile3">3.สำเนาหนังสือเดินทาง(กรณีเปลี่ยนชื่อ-สกุลภาษาอังกฤษตามหนังสือเดินทาง)</label>
-              <input type="file" class="form-control-file" id="stdPicFile3" name="stdPicFile3">
+              <input type="file" class="form-control-file" id="stdFile3" name="stdFile3">
         </div>
           <input type="hidden" id="DocTypeID" name="DocTypeID" value="2"/>
           <input type="hidden" id="stateID" name="stateID" value="t02s01" />

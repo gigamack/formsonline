@@ -62,12 +62,10 @@
   	</div>
 		<ul class="list-group list-group-flush">
 		<li class="list-group-item">
-		<a href="<?php echo base_url("/FormControl/stdCardForm");?>" class="btn btn-light active" role="button"
-			 aria-pressed="true">คำร้องขอบัตรนักศึกษาชั่วคราว</a>
+		<a href="<?php echo base_url("/FormControl/stdCardForm");?>" class="card-link">คำร้องขอบัตรนักศึกษาชั่วคราว</a>
 		</li>
 		<li class="list-group-item">
-			<a href="<?php echo base_url("/FormControl/changenameform");?>" class="btn btn-light active" role="button"
-			 aria-pressed="true">คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</a>
+			<a href="<?php echo base_url("/FormControl/changenameform");?>" class="card-link">คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</a>
 		</li>
 		</ul>
 	</div>

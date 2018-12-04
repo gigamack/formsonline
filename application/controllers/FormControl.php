@@ -288,6 +288,6 @@
             //$this->DocModel->updateDocState($data,$_POST['docID']);
             $back = base_url("/FormControl/stdCardFormAdmin");
             header('Location:' . $back);         
-        }        
+        }
     }
 ?>

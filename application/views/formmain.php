@@ -56,10 +56,19 @@
 		</nav>
 	</header>
 
-	<div class="card" style="width: 18rem; margin: 20px auto auto auto;">
+	<div class="card text-white bg-info" style="width: 18rem; margin: 20px auto auto auto;">
+	<div class="card-header">
+    	งานทะเบียนกลาง
+  	</div>
 		<ul class="list-group list-group-flush">
-			<a href="<?php echo base_url("/FormControl/stdCardForm");?>" class="btn btn-primary btn-lg active" role="button"
+		<li class="list-group-item">
+		<a href="<?php echo base_url("/FormControl/stdCardForm");?>" class="btn btn-light active" role="button"
 			 aria-pressed="true">คำร้องขอบัตรนักศึกษาชั่วคราว</a>
+		</li>
+		<li class="list-group-item">
+			<a href="<?php echo base_url("/FormControl/changenameform");?>" class="btn btn-light active" role="button"
+			 aria-pressed="true">คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</a>
+		</li>
 		</ul>
 	</div>
 	<div class="footer">

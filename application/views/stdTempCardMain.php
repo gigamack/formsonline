@@ -11,6 +11,11 @@
             //print_r($_SESSION['userSession'][0]);
             $GetDocID = $docList;
 ?>
+<script>
+  function clickAlert() {
+    alert("Alert!");
+}
+</script>
 <div class="container Chuanpim" id="ResultList">
 <div class="row mt-2">
 			<div class="col">
@@ -50,7 +55,7 @@
                         <td><?php echo $docid->CreatedDate ?></td>
                         <td>รอการตรวจสอบ</td>
                         <td><a href="<?php echo base_url('FormControl/editReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
-                        <a href="<?php echo base_url('FormControl/delReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/trash.png" style="width:30px;"/></a></td>
+                        <a href="<?php echo base_url('FormControl/delReq?docID='.$docid->DocID);?>" onclick="return confirm('ยืนยันที่จะลบรายการนี้?');"><img id="Image1" src="../assets/images/trash.png" style="width:30px;"/></a></td>
                     </tr>
 
                     <?php $i++;}}?>

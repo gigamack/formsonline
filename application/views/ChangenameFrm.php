@@ -14,7 +14,7 @@
     $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 ?>
 <div class="container Chuanpim" >
-      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post" enctype="multipart/form-data">
+      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertchangenameReq") ?>" method="post" enctype="multipart/form-data">
       <div class="card text-black bg-light">
         <div class="card-header Stidti"><h2>คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</h2></div>
         <div class="input-group">

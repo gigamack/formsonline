@@ -216,6 +216,52 @@
             header('Location:' . $back);
         }
 
+        public function insertchangenameReq()
+        {
+            //$this->load->model('company_model');
+            $filename='';
+            $encodename = uniqid();
+            if ($_FILES['stdFile1']['name']!='') {
+                $filename = $encodename.'_'.$_FILES['stdFile1']['name'];
+                $tempFile = $_FILES['stdFile1']['tmp_name'];
+                $targetPath = getcwd() . '/uploads/';
+                $targetFile = $targetPath . $encodename .'_'. $_FILES['stdFile1']['name'];
+                move_uploaded_file($tempFile, $targetFile);
+            }
+            if ($_FILES['stdFile2']['name']!='') {
+                $filename2 = $encodename.'_'.$_FILES['stdFile2']['name'];
+                $tempFile = $_FILES['stdFile2']['tmp_name'];
+                $targetPath = getcwd() . '/uploads/';
+                $targetFile = $targetPath . $encodename .'_'. $_FILES['stdFile2']['name'];
+                move_uploaded_file($tempFile, $targetFile);
+            }
+            if ($_FILES['stdFile3']['name']!='') {
+                $filename3 = $encodename.'_'.$_FILES['stdFile3']['name'];
+                $tempFile = $_FILES['stdFile3']['tmp_name'];
+                $targetPath = getcwd() . '/uploads/';
+                $targetFile = $targetPath . $encodename .'_'. $_FILES['stdFile3']['name'];
+                move_uploaded_file($tempFile, $targetFile);
+            }
+            $data= array('StudentID' => $_POST['stdid']
+            , 'tel' => $_POST['tel']
+            , 'stdFile1' => $filename
+            , 'stdFile2' => $filename2
+            , 'stdFile3' => $filename3
+            , 'newthname' => $_POST['newthName']
+            , 'newthsname' => $_POST['newthSname']
+            , 'newengname' => $_POST['newengName']
+            , 'newengsname' => $_POST['newengSname']
+            , 'DocTypeID' => $_POST['DocTypeID']);
+            $this->DocModel->InsertDoc($data);
+            $dataMaxDocID = array('StudentID' => $_POST['stdid']);
+            $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
+            $maxDocID=$maxDocIDS[0];
+            $data2 = array('DocID' => $maxDocID->DocID
+            , 'stateID' => $_POST['stateID']);
+            $this->DocStateModel->InsertDocState($data2);
+            $back = base_url("/FormControl/stdCardMain");
+            header('Location:' . $back);
+        }
         public function editReq()
         {
             $this->chkSTDLogin();

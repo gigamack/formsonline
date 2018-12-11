@@ -51,7 +51,9 @@
                     <?php if (strpos($docid->stateID,'s01') !== false){ ?>
                     <tr class ="">
                         <th scope="row"><?php echo $i; ?></th>
-                        <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>
+                        <td>
+                        <?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':($docid->DocTypeID==2?'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล':''));?>
+                        </td>
                         <td><?php echo $docid->CreatedDate ?></td>
                         <td>รอการตรวจสอบ</td>
                         <td><a href="<?php echo base_url('FormControl/editReq?docID='.$docid->DocID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
@@ -86,7 +88,9 @@
                     <?php if (strpos($docid->stateID,'s01') == false){ ?>
                     <tr class ="">
                         <th scope="row"><?php echo $i; ?></th>
-                        <td>คำร้องขอทำบัตรนักศึกษาชั่วคราว</td>                    
+                        <td>
+                        <?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':($docid->DocTypeID==2?'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล':''));?>
+                        </td>                    
                         <td><?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : 'ไม่เห็นชอบ';?></td>
                         <td><?php echo $docid->OfficerCommentedDate ?></td>
                         <td><a href="<?php echo base_url('FormControl/stdCardAllowedStdView?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>

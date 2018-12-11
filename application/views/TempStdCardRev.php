@@ -53,7 +53,7 @@
 											<?php echo $i; ?>
 										</th>
 										<td>
-											<?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':'');?>
+										<?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':($docid->DocTypeID==2?'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล':''));?>
 										</td>
 										<td>
 											<?php echo $docid->StudentID;?>
@@ -98,7 +98,7 @@
 											<?php echo $i; ?>
 										</th>
 										<td>
-											<?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':'');?>
+											<?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':($docid->DocTypeID==2?'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล':''));?>
 										</td>
 										<td>
 											<?php echo $docid->StudentID;?>

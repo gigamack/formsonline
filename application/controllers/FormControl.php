@@ -268,9 +268,15 @@
             $docID = $_GET['docID'];
             $data['docInfo']=$this->DocModel->getDocBydocID($docID);
             $back = base_url("/FormControl/stdCardMain");
+            // print_r($data['docInfo']);
             $this->load->view('css');
             $this->load->view('header');
-            $this->load->view('editTempStdCardReq',$data);
+            if($data['docInfo'][0]['DocTypeID']==1)
+            {$this->load->view('editTempStdCardReq',$data);
+            }
+            else if($data['docInfo'][0]['DocTypeID']==2)
+            {$this->load->view('EditChangenameFrm',$data);               
+            }
             $this->load->view('footer');
         }
 

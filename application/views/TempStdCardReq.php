@@ -15,7 +15,7 @@
     $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
     $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 ?>
-	<div class="container Chuanpim">
+	<div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post"
 			enctype="multipart/form-data">
 			<div class="card">

@@ -56,17 +56,17 @@
 		</nav>
 	</header>
 
-	<div class="card text-white bg-info" style="width: 18rem; margin: 20px auto auto auto;">
-	<div class="card-header">
-    	งานทะเบียนกลาง
-  	</div>
+	<div class="card " style="width: 18rem; margin: 20px auto auto auto;">
+		<h5 class="card-header bg-primary text-white">
+			งานทะเบียนกลาง
+		</h5>
 		<ul class="list-group list-group-flush">
-		<li class="list-group-item">
-		<a href="<?php echo base_url("/FormControl/stdCardForm");?>" class="card-link">คำร้องขอบัตรนักศึกษาชั่วคราว</a>
-		</li>
-		<li class="list-group-item">
-			<a href="<?php echo base_url("/FormControl/changenameform");?>" class="card-link">คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</a>
-		</li>
+			<li class="list-group-item">
+				<a href="<?php echo base_url("/FormControl/stdCardForm");?>" class="card-link">คำร้องขอบัตรนักศึกษาชั่วคราว</a>
+			</li>
+			<li class="list-group-item">
+				<a href="<?php echo base_url("/FormControl/changenameform");?>" class="card-link">คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</a>
+			</li>
 		</ul>
 	</div>
 	<div class="footer">

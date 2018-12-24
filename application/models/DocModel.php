@@ -35,6 +35,8 @@ class docModel extends CI_Model
     
     public function updateDoc($data,$conditionVal)
     {
+        // echo $conditionVal;
+        // print_r($data);
         $this->db->where('DocID', $conditionVal);
         $this->db->update('document',$data);
         return true;

@@ -247,6 +247,7 @@
             , 'stdFile1' => $filename
             , 'stdFile2' => $filename2
             , 'stdFile3' => $filename3
+            , 'reason' => $_POST['reason']
             , 'newthname' => $_POST['newthName']
             , 'newthsname' => $_POST['newthSname']
             , 'newengname' => $_POST['newengName']
@@ -326,6 +327,68 @@
             // , 'PoliceNoticePath' => $_POST['stdPicFile']
             // , 'DocTypeID' => $_POST['DocTypeID']);
             $this->DocModel->updateDoc($data,$_POST['docID']);
+            $back = base_url("/FormControl/stdCardMain");
+            header('Location:' . $back);         
+        }
+        public function updateChangeNameReq()
+        {
+            
+                $filename='';
+                $filename2='';
+                $filename3='';
+                $encodename = uniqid();
+            if ($_FILES['stdFile1']['name']!='') {
+                $filename = $encodename.'_'.$_FILES['stdFile1']['name'];
+                $tempFile = $_FILES['stdFile1']['tmp_name'];
+                $targetPath = getcwd() . '/uploads/';
+                $targetFile = $targetPath . $encodename .'_'. $_FILES['stdFile1']['name'];
+                move_uploaded_file($tempFile, $targetFile);
+                unlink($targetPath . $_POST['currentimageValue1']);
+            }
+            if ($_FILES['stdFile2']['name']!='') {
+                $filename2 = $encodename.'_'.$_FILES['stdFile2']['name'];
+                $tempFile = $_FILES['stdFile2']['tmp_name'];
+                $targetPath = getcwd() . '/uploads/';
+                $targetFile = $targetPath . $encodename .'_'. $_FILES['stdFile2']['name'];
+                move_uploaded_file($tempFile, $targetFile);
+                unlink($targetPath . $_POST['currentimageValue2']);
+            }
+            if ($_FILES['stdFile3']['name']!='') {
+                $filename3 = $encodename.'_'.$_FILES['stdFile3']['name'];
+                $tempFile = $_FILES['stdFile3']['tmp_name'];
+                $targetPath = getcwd() . '/uploads/';
+                $targetFile = $targetPath . $encodename .'_'. $_FILES['stdFile3']['name'];
+                move_uploaded_file($tempFile, $targetFile);
+                unlink($targetPath . $_POST['currentimageValue3']);
+            }
+                    $data= array('DocID' => $_POST['docID']
+                    , 'StudentID' => $_POST['stdid']
+                    , 'tel' => $_POST['tel']                    
+                    , 'newthname' => $_POST['newthName']
+                    , 'newthsname' => $_POST['newthSname']
+                    , 'newengname' => $_POST['newengName']
+                    , 'newengsname' => $_POST['newengSname']
+                    , 'reason' => $_POST['reason']
+                    , 'DocTypeID' => $_POST['DocTypeID']);
+                    $this->DocModel->updateDoc($data,$_POST['docID']);
+                    if($filename!='')
+                    {
+                        $data= array('DocID' => $_POST['docID']                       
+                        , 'stdFile1' => $filename);
+                        $this->DocModel->updateDoc($data,$_POST['docID']);
+                    }
+                    if($filename2!='')
+                    {
+                        $data= array('DocID' => $_POST['docID']                       
+                        , 'stdFile2' => $filename2);
+                        $this->DocModel->updateDoc($data,$_POST['docID']);
+                    }
+                    if($filename3!='')
+                    {
+                        $data= array('DocID' => $_POST['docID']                       
+                        , 'stdFile3' => $filename3);
+                        $this->DocModel->updateDoc($data,$_POST['docID']);
+                    }
             $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);         
         }

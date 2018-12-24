@@ -15,7 +15,9 @@
     $getDocInfo = $docInfo[0];
 ?>
 <div class="container Chuanpim" >
-      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertchangenameReq") ?>" method="post" enctype="multipart/form-data">
+      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateChangeNameReq") ?>" method="post" enctype="multipart/form-data">
+      <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
+      <input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>"/>
       <div class="card text-black bg-light">
         <div class="card-header Stidti"><h2>คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</h2></div>
         <div class="input-group">
@@ -98,7 +100,7 @@
           <input type="text" class="form-control" id="reason" name="reason" value="<?php echo $getDocInfo['ReasonOther'];?>" />
         </div> 
         <?php 
-            if($getDocInfo['PoliceNoticePath']=="")
+            if($getDocInfo['stdFile1']=="")
             {
               $showattachedbutton="visibility:hidden;";
             }
@@ -108,7 +110,7 @@
             }           
             ?>          
         <div class="form-group" style="margin: 20px auto auto auto">
-              <label>โดยได้แนบเอกสารประกอบคำร้องขอแจ้งเปลี่ยนชื่อ-สกุลดังนี้</label>
+              <label>โดยได้แนบเอกสารประกอบคำร้องขอแจ้งเปลี่ยนชื่อ-สกุลดังนี้</label><br/>
               <label for="stdPicFile1">1.สำเนาบัตรประจำตัวประชาชน</label>
               <input type="file" class="form-control-file" id="stdFile1" name="stdFile1">
               <div class="form-group" style="margin: 20px auto auto auto">             
@@ -125,11 +127,15 @@
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal3" style="<?php echo $showattachedbutton;?>">Attached file</button>
               </div>
         </div>
+          <input type="hidden" name="currentimageValue1" value="<?php echo $getDocInfo['stdFile1']; ?>"/>
+          <input type="hidden" name="currentimageValue2" value="<?php echo $getDocInfo['stdFile2']; ?>"/>
+          <input type="hidden" name="currentimageValue3" value="<?php echo $getDocInfo['stdFile3']; ?>"/>
           <input type="hidden" id="DocTypeID" name="DocTypeID" value="2"/>
           <input type="hidden" id="stateID" name="stateID" value="t02s01" />
           <div style="margin:  auto auto 20px auto">
-          <button type="submit" class="btn btn-primary Chuanpim">Submit</button>
+          
           </div>
+          <button style="margin: auto auto 20px auto" type="submit" class="btn btn-primary Chuanpim">Submit</button>
         </div>
         </div>
         </div>

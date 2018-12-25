@@ -182,10 +182,19 @@
             $data['docState'] = $this->DocStateModel->selectDocState($docID);
             $this->load->view('headerAdmin');
             $this->load->view('css');
-           $this->load->view('ChkTempReq',$data);
+            if($data['docInfo'][0]['DocTypeID']==1)
+            {$this->load->view('ChkTempReq',$data);
+            }
+            else if($data['docInfo'][0]['DocTypeID']==2)
+            {$this->load->view('ChangenameAllow',$data);               
+            }          
         //    $this->load->view('sidebar');
             $this->load->view('footer');
             // $this->load->view('script');         
+        }
+        public function changeNameAllow()
+        {
+        
         }
 
         public function insertReq()

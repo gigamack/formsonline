@@ -10,13 +10,14 @@
 <?php
             $getDocInfo = $docInfo[0];
             $getStdInfo = $stdinfo;
+            $staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0]);
 ?>
 <div class="container Chuanpim" >
       <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">
       <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
-      <input type="hidden" id="userID" name="userID" value="iesorn.c"/>
+      <input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>"/>
       <input type="hidden" id="stateID" name="stateID" value="t01s02"/>
-      <input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>"/>
+      <input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>"/>      
       <div class="card text-black bg-light">
         <div class="card-header Stidti"><h2>คำร้องขอทำบัตรนักศึกษาชั่วคราว</h2></div>
         <div class="input-group">
@@ -42,13 +43,13 @@
               <div class="col-md-4">
                 <div class="form-group">     
                 <label for="fac">คณะ:</label>
-                <label for="fac" id="fac"><?php echo $getStdInfo['FAC_NAME_THAI']?></label>
+                <label for="fac" id="fac"><?php echo $getStdInfo['FAC_NAME_THAI']; ?></label>
                 </div>
               </div>
               <div class="col-md-4">    
                 <div class="form-group">
                 <label for="major">สาขาวิชา:</label>
-                <label for="major" id="major"><?php echo $getStdInfo['MAJOR_NAME_THAI']?></label>      
+                <label for="major" id="major"><?php echo $getStdInfo['MAJOR_NAME_THAI'];?></label>      
               </div>
             </div>    
           </div>
@@ -75,7 +76,7 @@
               $showtextbox="visibility: visible;";
             }           
             ?>            
-            <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="<?php echo $showtextbox;?>" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"disabled/>
+            <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="<?php echo $showtextbox;?>" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>" disabled/>
           </div> 
           <?php 
             if($getDocInfo['PoliceNoticePath']=="")

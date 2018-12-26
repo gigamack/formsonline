@@ -13,7 +13,14 @@ $Fullname = $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['str
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico" />
 	<title>PSU Phuket Online Forms</title>
-
+	<style>
+		@media screen and (max-width: 991.98px){
+			.nav-link{
+				display:block;
+				padding: 0;
+			}
+		}
+	</style>
 	
 </head>
 

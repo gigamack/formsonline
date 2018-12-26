@@ -15,6 +15,7 @@
 <div class="container Chuanpim" >
       <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardMain") ?>" method="post">
       <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
+      <input type="hidden" id="doctypeID" name="doctypeID" value="<?php echo $getDocInfo['DocTypeID']; ?>"/>
       <input type="hidden" id="userID" name="userID" value="iesorn.c"/>
       <input type="hidden" id="stateID" name="stateID" value="t01s02"/>
       <input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>"/>

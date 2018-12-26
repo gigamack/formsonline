@@ -40,7 +40,7 @@
 						<a class="nav-link" href="<?php echo base_url("/FormControl/stdCardMain"); ?>">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url(" FormControl/formindex"); ?>">Add new request</a>
+						<a class="nav-link" href="<?php echo base_url("/FormControl/formindex"); ?>">Add new request</a>
 					</li>
 				</ul>
 				<div class="dropdown" style="padding-right:40px">

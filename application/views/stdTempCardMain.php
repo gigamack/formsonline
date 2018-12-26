@@ -93,7 +93,7 @@
                         </td>                    
                         <td><?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : 'ไม่เห็นชอบ';?></td>
                         <td><?php echo $docid->OfficerCommentedDate ?></td>
-                        <td><a href="<?php echo base_url('FormControl/stdCardAllowedStdView?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
+                        <td><a href="<?php echo base_url('FormControl/AllowedStdView?docID='.$docid->DocID.'&stdID='.$docid->StudentID.'&doctypeID='.$docid->DocTypeID);?>"><img id="Image1" src="../assets/images/view.png" style="width:30px;"/></a>
                     </tr>
                     <?php $i++;}}?>
                 </tbody>

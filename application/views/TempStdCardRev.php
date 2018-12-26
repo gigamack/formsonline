@@ -109,7 +109,7 @@
 										<td>
 											<?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : 'ไม่เห็นชอบ';?>
 										</td>
-										<td><a href="<?php echo base_url('FormControl/stdCardAllowed?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img
+										<td><a href="<?php echo base_url('FormControl/Allowed?docID='.$docid->DocID.'&stdID='.$docid->StudentID.'&doctypeID='.$docid->DocTypeID);?>"><img
 												 id="Image1" src="../assets/images/view.png" style="width:30px;" /></a></td>
 									</tr>
 									<?php $i++;}}?>

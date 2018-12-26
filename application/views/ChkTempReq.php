@@ -10,7 +10,7 @@
 <?php
             $getDocInfo = $docInfo[0];
             $getStdInfo = $stdinfo;
-            $staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0]);
+            $staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
 ?>
 <div class="container Chuanpim" >
       <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">

@@ -70,24 +70,40 @@
             // $this->load->view('script');         
         }
 
-        public function stdCardAllowed()
-        {
-            $this->chkStaffLogin();
-            $docID = $_GET['docID'];
-            $stdID = $_GET['stdID'];
-            $dataselect = array('document.DocID' => $docID);
-            $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
-            $data['docState'] = $this->DocStateModel->selectDocState($docID);
-            $data['docCommented'] = $this->DocModel->selectDocWithState($dataselect);
-            $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
-            $this->load->view('css');
-            $this->load->view('headerAdmin');
-           $this->load->view('stdCardCommented',$data);
-            $this->load->view('footer');       
-        }
-        public function stdCardAllowedStdView()
+        // public function stdCardAllowed()
+        // {
+        //     $this->chkStaffLogin();
+        //     $docID = $_GET['docID'];
+        //     $stdID = $_GET['stdID'];
+        //     $dataselect = array('document.DocID' => $docID);
+        //     $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
+        //     $data['docState'] = $this->DocStateModel->selectDocState($docID);
+        //     $data['docCommented'] = $this->DocModel->selectDocWithState($dataselect);
+        //     $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
+        //     $this->load->view('css');
+        //     $this->load->view('headerAdmin');
+        //    $this->load->view('stdCardCommented',$data);
+        //     $this->load->view('footer');       
+        // }
+        // public function stdCardAllowedStdView()
+        // {
+        //     $this->chkSTDLogin();
+        //     $docID = $_GET['docID'];
+        //     $stdID = $_GET['stdID'];
+        //     $dataselect = array('document.DocID' => $docID);
+        //     $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
+        //     $data['docState'] = $this->DocStateModel->selectDocState($docID);
+        //     $data['docCommented'] = $this->DocModel->selectDocWithState($dataselect);
+        //     $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
+        //     $this->load->view('css');
+        //     $this->load->view('header');
+        //    $this->load->view('stdCardCommentedView',$data);
+        //     $this->load->view('footer');       
+        // }
+        public function AllowedStdView()
         {
             $this->chkSTDLogin();
+            $doctypeID = $_GET['doctypeID'];
             $docID = $_GET['docID'];
             $stdID = $_GET['stdID'];
             $dataselect = array('document.DocID' => $docID);
@@ -97,7 +113,38 @@
             $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
             $this->load->view('css');
             $this->load->view('header');
-           $this->load->view('stdCardCommentedView',$data);
+            if($doctypeID==1)
+            {
+                $this->load->view('stdCardCommentedView',$data);
+            }
+            elseif($doctypeID==2)
+            {
+                $this->load->view('ChangenameAllowedSTD',$data);
+            }           
+            $this->load->view('footer');       
+        }
+        public function Allowed()
+        {
+            $this->chkStaffLogin();
+            $doctypeID = $_GET['doctypeID'];
+            $docID = $_GET['docID'];
+            $stdID = $_GET['stdID'];
+            $dataselect = array('document.DocID' => $docID);
+            $doctypeID = $_GET['doctypeID'];
+            $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
+            $data['docState'] = $this->DocStateModel->selectDocState($docID);
+            $data['docCommented'] = $this->DocModel->selectDocWithState($dataselect);
+            $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
+            $this->load->view('css');
+            $this->load->view('headerAdmin');
+            if($doctypeID==1)
+            {
+                $this->load->view('stdCardCommented',$data);
+            }
+            elseif($doctypeID==2)
+            {
+                $this->load->view('ChangenameAllowed',$data);
+            }           
             $this->load->view('footer');       
         }
         public function formindex()

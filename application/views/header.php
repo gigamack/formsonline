@@ -7,11 +7,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico" />
-		<title>PSU Phuket Online Forms</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico" />
+	<title>PSU Phuket Online Forms</title>
+	<style>
+		@media screen and (max-width: 991.98px){
+			.nav-link{
+				display:block;
+				padding: 0;
+			}
+		}
+	</style>
 </head>
 
 <body>
@@ -21,23 +29,24 @@
 				<img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;" />
 				Online Forms System
 			</a>
-			<button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+			<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+			 aria-controls="#navbarsExampleDefault" aria-expanded="false">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url("/FormControl/stdCardMain"); ?>">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url("FormControl/formindex"); ?>">Add new request</a>
+						<a class="nav-link" href="<?php echo base_url(" FormControl/formindex"); ?>">Add new request</a>
 					</li>
 				</ul>
 				<div class="dropdown" style="padding-right:40px">
 					<a class="nav-link dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
 					 aria-haspopup="true" aria-expanded="false">
-					 <?php echo "($UserID) ".$Fullname ?>
+						<?php echo "($UserID) ".$Fullname ?>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="<?php echo base_url();?>/Authentication/logout">Logout</a>

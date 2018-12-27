@@ -340,6 +340,27 @@
         public function delReq()
         {
             $data= array('DocID' => $_GET['docID']);
+            $docinfo['docInfo']=$this->DocModel->getDocBydocID($_GET['docID']);
+            // if($docinfo['docInfo'][0]['PoliceNoticePath']!='')
+            // {
+            //     $targetPath = getcwd() . '/uploads/';
+            //     unlink($targetPath . $docinfo['docInfo'][0]['PoliceNoticePath']);
+            // }
+            // if($docinfo['docInfo'][0]['stdFile1']!='')
+            // {
+            //     $targetPath = getcwd() . '/uploads/';
+            //     unlink($targetPath . $docinfo['docInfo'][0]['stdFile1']);
+            // }
+            // if($docinfo['docInfo'][0]['stdFile2']!='')
+            // {
+            //     $targetPath = getcwd() . '/uploads/';
+            //     unlink($targetPath . $docinfo['docInfo'][0]['stdFile2']);
+            // }
+            // if($docinfo['docInfo'][0]['stdFile3']!='')
+            // {
+            //     $targetPath = getcwd() . '/uploads/';
+            //     unlink($targetPath . $docinfo['docInfo'][0]['stdFile3']);
+            // }
             $this->DocModel->deleteDoc($data);
             $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);

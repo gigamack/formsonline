@@ -97,7 +97,7 @@
         </div>
         <div class="input-group">            
           <label for="reason">เหตุผลเนื่องจาก:</label>
-          <input type="text" class="form-control" id="reason" name="reason" value="<?php echo $getDocInfo['ReasonOther'];?>" />
+          <input type="text" class="form-control" id="reason" name="reason" value="<?php echo $getDocInfo['reason'];?>" />
         </div> 
         <?php 
             if($getDocInfo['stdFile1']=="")

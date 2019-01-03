@@ -40,11 +40,11 @@
 						<a class="nav-link" href="<?php echo base_url("/FormControl/stdCardMain"); ?>">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url("/FormControl/formindex"); ?>">Add new request</a>
+						<a class="nav-link" href="<?php echo base_url("FormControl/formindex"); ?>">Add New Request</a>
 					</li>
 				</ul>
-				<div class="dropdown" style="padding-right:40px">
-					<a class="nav-link dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
+				<div class="dropdown">
+					<a class="dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
 					 aria-haspopup="true" aria-expanded="false">
 						<?php echo "($UserID) ".$Fullname ?>
 					</a>
@@ -55,10 +55,6 @@
 			</div>
 		</nav>
 	</header>
-
-	<!-- /<nav class="navbar navbar-dark" style="background-color: #69b3e7;"> -->
-	<!-- Navbar content -->
-	<!-- </nav> -->
 </body>
 
 </html>

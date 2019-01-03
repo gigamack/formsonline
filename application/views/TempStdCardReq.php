@@ -78,24 +78,27 @@
 							<label class="font-weight-bold" for="stdPicFile">แนบไฟล์รูปภาพใบแจ้งความจากสถานีตำรวจ กรณีบัตรสูญหาย</label>
 						</div>
 					</div>
-          <div class="row">
+					<div class="row">
 						<div class="col">
 							<input type="file" class="form-control-file" id="stdPicFile" name="stdPicFile">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col">
-							<label class="text-danger font-weight-bold">* ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว 
+							<label class="text-danger font-weight-bold">* ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว
 								1 รูปมาด้วย</label>
 						</div>
 					</div>
-					<input type="hidden" id="DocTypeID" name="DocTypeID" value="1" />
-					<input type="hidden" id="stateID" name="stateID" value="t01s01" />
+
 					<div class="row">
 						<div class="col">
-							<button type="submit" class="btn btn-success col-3 float-right">Submit</button>
+							<div class="form-group">
+									<input type="hidden" id="DocTypeID" name="DocTypeID" value="1" />
+									<input type="hidden" id="stateID" name="stateID" value="t01s01" />
+									<button type="submit" class="btn btn-success btn-block ">Submit</button>
+							</div>
 						</div>
-					</div>
+					</div>	
 				</div>
 			</div>
 		</form>

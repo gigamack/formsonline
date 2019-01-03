@@ -42,13 +42,13 @@ $Fullname = $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['str
 						<a class="nav-link" href="<?php echo base_url("/FormControl/stdCardFormAdmin"); ?>">Home</a>
 					</li>
 				</ul>
-				<div class="dropdown" style="padding-right:40px">
-					<a class="nav-link dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
+				<div class="dropdown mr-4">
+					<a class="dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
 					 aria-haspopup="true" aria-expanded="false">
-						<?php echo "($UserID) " . $Fullname ?>
+						<?php echo "($UserID) ".$Fullname ?>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="<?php echo base_url(); ?>/Authentication/logout">Logout</a>
+						<a class="dropdown-item" href="<?php echo base_url();?>/Authentication/logout">Logout</a>
 					</div>
 				</div>
 			</div>

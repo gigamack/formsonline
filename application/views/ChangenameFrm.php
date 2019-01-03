@@ -120,14 +120,12 @@ $majorname = $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<input type="hidden" id="DocTypeID" name="DocTypeID" value="2" />
-									<input type="hidden" id="stateID" name="stateID" value="t02s01" />
-									<button type="submit" class="btn btn-success float-right btn-block">Submit</button>
-								</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<input type="hidden" id="DocTypeID" name="DocTypeID" value="2" />
+								<input type="hidden" id="stateID" name="stateID" value="t02s01" />
+								<button type="submit" class="btn btn-success btn-block ">Submit</button>
 							</div>
 						</div>
 					</div>

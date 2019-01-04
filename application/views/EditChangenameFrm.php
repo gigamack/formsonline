@@ -134,7 +134,7 @@
           <div style="margin:  auto auto 20px auto">
           
           </div>
-          <button style="margin: auto auto 20px auto" type="submit" class="btn btn-primary Chuanpim">Submit</button>
+          <button style="margin: auto auto 20px auto" type="submit" class="btn btn-success btn-block">Submit</button>
         </div>
         </div>
         </div>

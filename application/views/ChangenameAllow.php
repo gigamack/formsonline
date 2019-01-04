@@ -163,7 +163,7 @@
 								<div class="form-group purple-border">
 									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
 								</div>
-								<button style="margin: auto auto 20px auto" type="submit" class="btn btn-primary text-center Chuanpim">Submit</button>
+								<button style="margin: auto auto 20px auto" type="submit" class="btn btn-success btn-block">Submit</button>
 							</div>
 						</div>
 					</div>

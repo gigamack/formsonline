@@ -19,7 +19,7 @@
     $majorname=$getStdInfo['MAJOR_NAME_THAI'];
     $staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
 ?>
-	<div class="container Chuanpim">
+	<div class="container mt-3 mb-3">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>"
 			method="post" enctype="multipart/form-data">
 			<input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>" />
@@ -27,96 +27,94 @@
 			<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 			<input type="hidden" id="stateID" name="stateID" value="t02s02" />
 			<div class="card text-black bg-light">
-				<div class="card-header Stidti">
-					<h2>คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</h2>
-				</div>
-				<div class="input-group">
-					<div class="container">
+				<h5 class="card-header bg-primary text-light">
+					คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล
+				</h5>
+				<div class="card-body">
+					<div class="form-group">					
 						<div class="row">
-							<div class="col"></div>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
+							<div class="col">
 									<label for="stdfullname">ข้าพเจ้า(ชื่อ-สกุลเดิม):</label>
 									<label id="stdfullname">
-										<?php echo $fullname;?></label>
+									<?php echo $fullname;?></label>
 									<!-- <input type="label" class="form-control" id="stdfullname" placeholder="ชื่อ-สกุล" readonly>       -->
-								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group">
+							<div class="col">
 									<label for="stdid">รหัสนักศึกษา:</label>
 									<label>
 										<?php echo $studentid;?></label>
 									<input type="hidden" id="stdid" name="stdid" value="<?php echo $studentid?>" />
 									<!-- <input type="text" class="form-control" id="stdid" placeholder="รหัสนักศึกษา"> -->
-								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
+							<div class="col">								
 									<label for="fac">คณะ:</label>
-									<label id="fac">
-										<?php echo $faculty;?></label>
+									<label id="fac"><?php echo $faculty;?></label>
 									<!-- <input type="text" class="form-control" id="fac" placeholder="คณะ" readonly>       -->
-								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group">
+							<div class="col">
 									<label for="major">สาขาวิชา:</label>
 									<label id="major">
 										<?php echo $majorname;?></label>
 									<!-- <input type="text" class="form-control" id="major" placeholder="สาขาวิชา" readonly>       -->
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-2">
+										<label for="tel">หมายเลขโทรศัพท์มือถือ:</label>
+								</div>
+								<div class="col-md-5">									
+										<input type="text" class="form-control" id="tel" name="tel" value="<?php echo $getDocInfo['tel'];?>" disabled />
+										<!-- <input type="text" class="form-control" id="fac" placeholder="คณะ" readonly>       -->
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="tel">หมายเลขโทรศัพท์มือถือ:</label>
-									<input type="text" class="form-control" id="tel" name="tel" value="<?php echo $getDocInfo['tel'];?>" disabled />
-									<!-- <input type="text" class="form-control" id="fac" placeholder="คณะ" readonly>       -->
-								</div>
-							</div>
-						</div>
-						<label class="form-check-label">มีความประสงค์จะขอเปลี่ยนชื่อ-สกุล(ไทย/อังกฤษ)(กรุณาระบุเฉพาะชื่อ-สกุลที่เปลี่ยน)เป็น</label>
-						<div class="container">
+						<div class="form-group">
 							<div class="row">
 								<div class="col">
+									<label class="form-check-label">มีความประสงค์จะขอเปลี่ยนชื่อ-สกุล(ไทย/อังกฤษ)(กรุณาระบุเฉพาะชื่อ-สกุลที่เปลี่ยน)เป็น</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-2">
 									<label for="newthName">ภาษาไทย:</label>
 								</div>
-								<div class="col-5">
+								<div class="col-md">
 									<input type="text" class="form-control" id="newthName" name="newthName" value="<?php echo $getDocInfo['newthname'];?>"
 									 disabled />
 								</div>
-								<div class="col-5">
+								<div class="col-md">
 									<input type="text" class="form-control" id="newthSname" name="newthSname" value="<?php echo $getDocInfo['newthsname'];?>"
 									 disabled />
 								</div>
 							</div>
 						</div>
-						<div class="container">
+						<div class="form-group">
 							<div class="row">
-								<div class="col">
+								<div class="col-md-2">
 									<label for="newthName">ภาษาอังกฤษ:</label>
 								</div>
-								<div class="col-5">
+								<div class="col-md">
 									<input type="text" class="form-control" id="newengName" name="newengName" value="<?php echo $getDocInfo['newengname'];?>"
 									 style="text-transform:uppercase" disabled />
 								</div>
 								<!-- <div class="w-100"></div> -->
-								<div class="col-5">
+								<div class="col-md">
 									<input type="text" class="form-control" id="newengSname" name="newengSname" value="<?php echo $getDocInfo['newengsname'];?>"
 									 style="text-transform:uppercase" disabled />
 								</div>
 							</div>
 						</div>
-						<div class="input-group">
-							<label for="reason">เหตุผลเนื่องจาก:</label>
-							<input type="text" class="form-control" id="reason" name="reason" value="<?php echo $getDocInfo['reason'];?>"
-							 disabled />
+						<div class="form-group">
+							<div class="row">
+									<div class="col">  
+										<label for="reason">เหตุผลเนื่องจาก:</label>
+										<input type="text" class="form-control" id="reason" name="reason" value="<?php echo $getDocInfo['reason'];?>"
+										disabled />
+									</div>
+							</div>
 						</div>
 						<?php 
             if($getDocInfo['stdFile1']=="")

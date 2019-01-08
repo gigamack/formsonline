@@ -21,50 +21,37 @@
 			<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 			<input type="hidden" id="stateID" name="stateID" value="t01s02" />
 			<input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>" />
-			<div class="card text-black bg-light">
-				<div class="card-header Stidti">
-					<h2>คำร้องขอทำบัตรนักศึกษาชั่วคราว</h2>
-				</div>
-				<div class="input-group">
-					<div class="container">
+			<div class="card">
+				<h5 class="card-header bg-primary text-light">
+					คำร้องขอทำบัตรนักศึกษาชั่วคราว
+				</h5>
+				<div class="card-body">
+					<div class="row">
+							<div class="col">										
+										<label for="stdid" class="font-weight-bold">รหัสนักศึกษา:</label>
+										<label for="stdid" id="stdid" name="stdid"><?php echo $getDocInfo['StudentID'];?></label>
+							</div>
+							<div class="col">
+									<label for="stdfullname" class="font-weight-bold">ชื่อ-สกุล:</label>
+									<label for="stdfullname" id="stdfullname"><?php echo $getStdInfo['TITLE_NAME_THAI'].$getStdInfo['STUD_NAME_THAI'].' '.$getStdInfo['STUD_SNAME_THAI'];?></label>
+							</div>
+					</div>
 						<div class="row">
-							<div class="col"></div>
+							<div class="col">
+									<label for="fac" class="font-weight-bold">คณะ:</label>
+									<label for="fac" id="fac"><?php echo $getStdInfo['FAC_NAME_THAI']; ?></label>
+							</div>
+							<div class="col">
+									<label for="major" class="font-weight-bold">สาขาวิชา:</label>
+									<label for="major" id="major"><?php echo $getStdInfo['MAJOR_NAME_THAI'];?></label>
+							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="stdid">รหัสนักศึกษา:</label>
-									<label for="stdid" id="stdid" name="stdid">
-										<?php echo $getDocInfo['StudentID'];?></label>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="stdfullname">ชื่อ-สกุล:</label>
-									<label for="stdfullname" id="stdfullname">
-										<?php echo $getStdInfo['TITLE_NAME_THAI'].$getStdInfo['STUD_NAME_THAI'].' '.$getStdInfo['STUD_SNAME_THAI'];?></label>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="fac">คณะ:</label>
-									<label for="fac" id="fac">
-										<?php echo $getStdInfo['FAC_NAME_THAI']; ?></label>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="major">สาขาวิชา:</label>
-									<label for="major" id="major">
-										<?php echo $getStdInfo['MAJOR_NAME_THAI'];?></label>
-								</div>
-							</div>
-						</div>
-						<label class="form-check-label">มีความประสงค์ขอบัตรประจำตัวนักศึกษาชั่วคราวเนื่องจาก/I would like to request a
+							<div class="col">
+							<label class="font-weight-bold">มีความประสงค์ขอบัตรประจำตัวนักศึกษาชั่วคราวเนื่องจาก/I would like to request a
 							PSU Student identification card due to:</label>
-
+							</div>
+						</div>
 						<div class="input-group mb-3 disabled">
 							<select disabled class="custom-select" id="reason" name="reason" onchange="if (this.value=='5'){this.form['other'].style.visibility='visible'}else {this.form['other'].style.visibility='hidden'};">
 								<option value="1" <?php if($getDocInfo['ReasonID']=='1' ){ echo ' selected="selected"' ; } ?>>บัตรสูญหาย/ loss
@@ -121,9 +108,7 @@
 							<div class="form-group purple-border">
 								<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
 							</div>
-							<div style="margin:  auto auto 20px auto">
-								<button type="submit" class="btn btn-primary Chuanpim">Submit</button>
-							</div>
+								<button type="submit" class="btn btn-success btn-block">Submit</button>
 						</div>
 					</div>
 				</div>

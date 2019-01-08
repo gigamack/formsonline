@@ -12,30 +12,28 @@
             $commented_id = $docCommented;
             $getStdInfo = $stdinfo;
 ?>
-<div class="container">
-      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardMain") ?>" method="post">
+<div class="container Chuanpim" >
+      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardFormAdmin") ?>" method="post">
       <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
       <input type="hidden" id="doctypeID" name="doctypeID" value="<?php echo $getDocInfo['DocTypeID']; ?>"/>
       <input type="hidden" id="userID" name="userID" value="iesorn.c"/>
       <input type="hidden" id="stateID" name="stateID" value="t01s02"/>
       <input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>"/>
       <div class="card">
-        <h5 class="card-header bg-primary text-light">
-					คำร้องขอทำบัตรนักศึกษาชั่วคราว
-				</h5>
-        <div class="card-body">
-					<div class="row">
-						<div class="col">                
-                  <label for="stdid" class="font-weight-bold">รหัสนักศึกษา:</label>
-                  <label for="stdid" id="stdid" name="stdid"><?php echo $getDocInfo['StudentID'];?></label>
-                </div>
-              <div class="col">
-                <label for="stdfullname" class="font-weight-bold">ชื่อ-สกุล:</label>
-                <label for="stdfullname" id="stdfullname"><?php echo $getStdInfo['TITLE_NAME_THAI'].$getStdInfo['STUD_NAME_THAI'].' '.$getStdInfo['STUD_SNAME_THAI'];?></label>      
+      <h5 class="card-header bg-primary text-light">คำร้องขอทำบัตรนักศึกษาชั่วคราว</h5>
+      <div class="card-body">
+            <div class="row">
+              <div class="col">          
+                    <label for="stdid" class="font-weight-bold">รหัสนักศึกษา:</label>
+                    <label for="stdid" id="stdid" name="stdid"><?php echo $getDocInfo['StudentID'];?></label>
+              </div>
+              <div class="col">            
+                  <label for="stdfullname" class="font-weight-bold">ชื่อ-สกุล:</label>
+                  <label for="stdfullname" id="stdfullname"><?php echo $getStdInfo['TITLE_NAME_THAI'].$getStdInfo['STUD_NAME_THAI'].' '.$getStdInfo['STUD_SNAME_THAI'];?></label>      
               </div>  
-          </div> 
-          <div class="row">
-              <div class="col">   
+            </div> 
+            <div class="row">
+              <div class="col">                  
                 <label for="fac" class="font-weight-bold">คณะ:</label>
                 <label for="fac" id="fac"><?php echo $getStdInfo['FAC_NAME_THAI']?></label>
               </div>
@@ -44,24 +42,27 @@
                 <label for="major" id="major"><?php echo $getStdInfo['MAJOR_NAME_THAI']?></label>      
               </div>
             </div>    
-          <div class="row"> 
-						<div class="col">
-            <label class="font-weight-bold">มีความประสงค์ขอบัตรประจำตัวนักศึกษาชั่วคราวเนื่องจาก/I would like to request a PSU Student identification card due to:</label>					
-            </div>
-          </div>
-          <div class="row">
-						<div class="col"> 
-              <select disabled class="custom-select" id="reason" name="reason" onchange="if (this.value=='5'){this.form['other'].style.visibility='visible'}else {this.form['other'].style.visibility='hidden'};">
-                <option value="1"<?php if($getDocInfo['ReasonID'] == '1'){ echo ' selected="selected"'; } ?>>บัตรสูญหาย/ loss of the previous card (แนบใบแจ้งความจากสถานีตำรวจ/the notice from police station is enclosed)</option>
-                <option value="2"<?php if($getDocInfo['ReasonID'] == '2'){ echo ' selected="selected"'; } ?>>บัตรชำรุด/ damaged card</option>
-                <option value="3"<?php if($getDocInfo['ReasonID'] == '3'){ echo ' selected="selected"'; } ?>>บัตรหมดอายุ/ an expired card.</option>
-                <option value="4"<?php if($getDocInfo['ReasonID'] == '4'){ echo ' selected="selected"'; } ?>>เปลี่ยนรหัสนักศึกษา,คำนำหน้า,ชื่อ-สกุล/ Change of ID No.,Title,Full Name.</option>
-                <option value="5"<?php if($getDocInfo['ReasonID'] == '5'){ echo ' selected="selected"'; } ?>>อื่นๆ /Other</option>
-              </select>
-            </div>
-          </div>           
+            <div class="row">
+                <div class="col">
+                  <label class="font-weight-bold">มีความประสงค์ขอบัตรประจำตัวนักศึกษาชั่วคราวเนื่องจาก/I would like to request a PSU Student identification card due to:</label>
+                </div>
+					  </div>				
+      
+            <div class="row">
+              <div class="col">  
+              <div class="form-group">
+                <select disabled class="custom-select" id="reason" name="reason" onchange="if (this.value=='5'){this.form['other'].style.visibility='visible'}else {this.form['other'].style.visibility='hidden'};">
+                  <option value="1"<?php if($getDocInfo['ReasonID'] == '1'){ echo ' selected="selected"'; } ?>>บัตรสูญหาย/ loss of the previous card (แนบใบแจ้งความจากสถานีตำรวจ/the notice from police station is enclosed)</option>
+                  <option value="2"<?php if($getDocInfo['ReasonID'] == '2'){ echo ' selected="selected"'; } ?>>บัตรชำรุด/ damaged card</option>
+                  <option value="3"<?php if($getDocInfo['ReasonID'] == '3'){ echo ' selected="selected"'; } ?>>บัตรหมดอายุ/ an expired card.</option>
+                  <option value="4"<?php if($getDocInfo['ReasonID'] == '4'){ echo ' selected="selected"'; } ?>>เปลี่ยนรหัสนักศึกษา,คำนำหน้า,ชื่อ-สกุล/ Change of ID No.,Title,Full Name.</option>
+                  <option value="5"<?php if($getDocInfo['ReasonID'] == '5'){ echo ' selected="selected"'; } ?>>อื่นๆ /Other</option>
+                </select>
+                </div>
+              </div>
+            </div>        
             <!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
-            <?php 
+             <?php 
             if($getDocInfo['ReasonOther']=="")
             {
               $showtextbox="visibility:hidden;";
@@ -70,10 +71,12 @@
             {
               $showtextbox="visibility: visible;";
             }           
-            ?>        
-            <div class="row">
-              <div class="col">
-              <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="<?php echo $showtextbox;?>" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"disabled/>
+            ?>
+            <div class="row">  
+              <div class="col"> 
+              <div class="form-group"> 
+                <input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="<?php echo $showtextbox;?>" value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>"disabled/>
+              </div>
               </div>
             </div>
           <?php 
@@ -86,15 +89,15 @@
               $showattachedbutton="visibility:visible;";
             }           
             ?> 
-          <div class="row">
-						<div class="col">            
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="<?php echo $showattachedbutton;?>">Attached file</button>
+            <div class="row">  
+              <div class="col">    
+                <div class="form-group">                          
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" style="<?php echo $showattachedbutton;?>">Attached file</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="row">
-						<div class="col">      
-              <label class="text-danger font-weight-bold">ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว 1รูปมาด้วย </label>
-            </div>
+          <div class="form-group" style="margin: 20px auto auto auto">
+              <label class="text-danger">ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว 1รูปมาด้วย </label>
           </div>
           <div class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
           <label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
@@ -107,9 +110,11 @@
           <div class="form-group purple-border">
             <textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:" disabled><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
           </div>
-          <div style="margin:  auto auto 20px auto">
-          <button type="submit" class="btn btn-primary Chuanpim">Back</button>
-          </div>
+          <div class="row">
+						<div class="col">
+							<div class="form-group">
+              <button type="submit" class="btn btn-success btn-block ">Back</button>
+            </div>
           </div>
         </div>
         </div>

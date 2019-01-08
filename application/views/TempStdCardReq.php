@@ -32,8 +32,7 @@
 						<input type="hidden" id="stdid" name="stdid" value="<?php echo $studentid?>" />
 						<div class="col">
 							<label class="font-weight-bold" for="stdfullname">ชื่อ-สกุล :</label>
-							<label>
-								<?php echo $fullname;?></label>
+							<label><?php echo $fullname;?></label>
 						</div>
 					</div>
 					<div class="row">

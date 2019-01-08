@@ -107,11 +107,11 @@ $majorname = $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];
 							<div class="col">
 								<div class="form-group">
 									<label class="font-weight-bold" for="stdPicFile1">1.สำเนาบัตรประจำตัวประชาชน</label>
-									<input type="file" class="form-control-file" id="stdFile1" name="stdFile1">
+									<input type="file" class="form-control-file" id="stdFile1" name="stdFile1" required>
 								</div>
 								<div class="form-group">
 									<label class="font-weight-bold" for="stdPicFile2">2.สำเนาหนังสือสำคัญแสดงการเปลี่ยนชื่อ-สกุล</label>
-									<input type="file" class="form-control-file" id="stdFile2" name="stdFile2">
+									<input type="file" class="form-control-file" id="stdFile2" name="stdFile2" required>
 								</div>
 								<div class="form-group">
 									<label class="font-weight-bold" for="stdPicFile3">3.สำเนาหนังสือเดินทาง(กรณีเปลี่ยนชื่อ-สกุลภาษาอังกฤษตามหนังสือเดินทาง)</label>

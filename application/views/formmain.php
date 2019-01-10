@@ -67,6 +67,9 @@
 			<li class="list-group-item">
 				<a href="<?php echo base_url("/FormControl/changenameform");?>" class="card-link">คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล</a>
 			</li>
+			<li class="list-group-item">
+				<a href="<?php echo base_url("/FormControl/graduateform");?>" class="card-link">คำร้องขอสำเร็จการศึกษา</a>
+			</li>
 		</ul>
 	</div>
 	<div class="footer">

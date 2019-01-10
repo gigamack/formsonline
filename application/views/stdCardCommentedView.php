@@ -13,7 +13,7 @@
             $getStdInfo = $stdinfo;
 ?>
 <div class="container Chuanpim" >
-      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardFormAdmin") ?>" method="post">
+      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardMain") ?>">
       <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
       <input type="hidden" id="doctypeID" name="doctypeID" value="<?php echo $getDocInfo['DocTypeID']; ?>"/>
       <input type="hidden" id="userID" name="userID" value="iesorn.c"/>

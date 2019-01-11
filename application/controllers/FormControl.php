@@ -481,5 +481,14 @@
             $back = base_url("/FormControl/stdCardFormAdmin");
             header('Location:' . $back);         
         }
+        public function graduateform()
+        {
+            $this->chkSTDLogin();
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('GraduateReqForm');
+            $this->load->view('footer');
+        }
+
     }
 ?>

@@ -490,5 +490,15 @@
             $this->load->view('footer');
         }
 
+        public function Mastergraduateform()
+        {
+            $this->chkSTDLogin();
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('MasterGraduateReqForm');
+            $this->load->view('footer');
+        }
+
+
     }
 ?>

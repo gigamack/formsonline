@@ -242,8 +242,42 @@
 						<div class="col-md"><div class="form-group">
 						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" />
 						</div></div>
-					</div>			
-					
+					</div>
+
+					<div class="row">
+						<div class="col-md">
+						<div class="form-group">
+						<label class="font-weight-bold" for="thesissubjType">ประเภทวิชา:</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+								<select class="custom-select" id="subjType" name="yearEnd">
+									<option value="" selected>--เลือกประเภท--</option>
+									<option value="อ่างทอง">สารนิพนธ์ </option>
+									<option value="อ่างทอง">วิทยานิพนธ์ </option>	
+								</select>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<label class="font-weight-bold" for="thesissubjCode">รหัสวิชาวิทยานิพนธ์ :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<input type="text" class="form-control" id="thesissubjCode" name="thesissubjCode" placeholder="รหัสวิชาวิทยานิพนธ์" />
+						</div></div>
+					</div>
+					<div class="row">
+						<div class="col-md">
+						<div class="form-group">
+						<label class="font-weight-bold" for="thesisnameth">ชื่อวิชาวิทยานิพนธ์ภาษาไทย :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<textarea class="form-control" id="thesisnameth" name="thesisnameth" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาไทย"></textarea>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<label class="font-weight-bold" for="thesisnameeng">ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<textarea class="form-control" id="thesisnameeng" name="thesisnameeng" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ"></textarea>
+						</div></div>
+					</div>
 					<div class="row">
 						<div class="col">
 							<div class="form-group">

@@ -499,6 +499,26 @@
             $this->load->view('footer');
         }
 
+        public function editstatGradmaster()
+        {   
+            $this->chkSTDLogin();   
+            $this->load->view('css');         
+            $this->load->view('header');
+            $this->load->view('updateStatMasterGrad');
+            $this->load->view('footer');
+
+        }
+
+        public function editstatGrad()
+        {   
+            $this->chkSTDLogin();   
+            $this->load->view('css');         
+            $this->load->view('header');
+            $this->load->view('updateStatGrad');
+            $this->load->view('footer');
+
+        }
+
 
     }
 ?>

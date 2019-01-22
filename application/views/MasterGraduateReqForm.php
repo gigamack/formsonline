@@ -279,10 +279,19 @@
 						</div></div>
 					</div>
 					<div class="row">
+						<div class="col-md">
+						<div class="form-group">
+						<label class="font-weight-bold" for="engtest">การผ่านความรู้ภาษาอังกฤษโดย :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<textarea class="form-control" id="engtest" name="engtest" rows="3" placeholder="การผ่านความรู้ภาษาอังกฤษโดย"></textarea>
+						</div></div>
+					</div>
+					<div class="row">
 						<div class="col">
 							<div class="form-group">
-									<input type="hidden" id="DocTypeID" name="DocTypeID" value="1" />
-									<input type="hidden" id="stateID" name="stateID" value="t03s01" />
+									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
+									<input type="hidden" id="stateID" name="stateID" value="t04s01" />
 									<button type="submit" class="btn btn-success btn-block">Submit</button>
 							</div>
 						</div>

@@ -17,10 +17,12 @@
 	$majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 	$dob="";
 	$citizenid="";
-
+	// print_r($_SESSION['userSession']);
+	print_r($stdinfo);
 ?>
+
 	<div class="container">
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertGradReq") ?>" method="post">
 			<div class="card">
 				<h5 class="card-header bg-primary text-light">
 					คำร้องขอสำเร็จการศึกษา
@@ -247,7 +249,7 @@
 					<div class="row">
 						<div class="col">
 							<div class="form-group">
-									<input type="hidden" id="DocTypeID" name="DocTypeID" value="1" />
+									<input type="hidden" id="DocTypeID" name="DocTypeID" value="3" />
 									<input type="hidden" id="stateID" name="stateID" value="t03s01" />
 									<button type="submit" class="btn btn-success btn-block">Submit</button>
 							</div>

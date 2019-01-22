@@ -30,6 +30,8 @@ class StudentInfo
                     MAJOR_SHORT_ENG
                     FAC_NAME_THAI
                     FAC_NAME_ENG
+                    CITIZEN_ID
+                    STUD_BIRTH_DATE
             }}',
             'variables' => array(
                 'STUDENT_ID' => $StudentID,

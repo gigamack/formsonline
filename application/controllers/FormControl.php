@@ -319,6 +319,57 @@
             $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);
         }
+
+        public function insertGradReq()
+        {
+            $data= array('StudentID' => $_POST['stdid']
+            , 'tel' => $_POST['tel']
+            , 'termEnd' => $_POST['termEnd']
+            , 'yearEnd' => $_POST['yearEnd']
+            , 'houseNumber' => $_POST['homenumber']
+            , 'street' => $_POST['street']
+            , 'sub_district' => $_POST['subdistrict']
+            , 'district' => $_POST['district']
+            , 'province' => $_POST['province']
+            , 'zipcode' => $_POST['zipcode']);
+            $this->DocModel->InsertDoc($data);
+            $dataMaxDocID = array('StudentID' => $_POST['stdid']);
+            $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
+            $maxDocID=$maxDocIDS[0];
+            $data2 = array('DocID' => $maxDocID->DocID
+            , 'stateID' => $_POST['stateID']);
+            $this->DocStateModel->InsertDocState($data2);
+            $back = base_url("/FormControl/stdCardMain");
+            header('Location:' . $back);
+        }
+
+        public function insertMasterGradReq()
+        {
+            $data= array('StudentID' => $_POST['stdid']
+            , 'tel' => $_POST['tel']
+            , 'termEnd' => $_POST['termEnd']
+            , 'yearEnd' => $_POST['yearEnd']
+            , 'houseNumber' => $_POST['homenumber']
+            , 'street' => $_POST['street']
+            , 'sub_district' => $_POST['subdistrict']
+            , 'district' => $_POST['district']
+            , 'province' => $_POST['province']
+            , 'zipcode' => $_POST['zipcode']
+            , 'thesissubjCode' => $_POST['thesissubjCode']
+            , 'thesisnameth' => $_POST['thesisnameth']
+            , 'thesisnameeng' => $_POST['thesisnameeng']
+            , 'engtest' => $_POST['engtest']);
+            $this->DocModel->InsertDoc($data);
+            $dataMaxDocID = array('StudentID' => $_POST['stdid']);
+            $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
+            $maxDocID=$maxDocIDS[0];
+            $data2 = array('DocID' => $maxDocID->DocID
+            , 'stateID' => $_POST['stateID']);
+            $this->DocStateModel->InsertDocState($data2);
+            $back = base_url("/FormControl/stdCardMain");
+            header('Location:' . $back);
+        }
+
         public function editReq()
         {
             $this->chkSTDLogin();
@@ -484,9 +535,11 @@
         public function graduateform()
         {
             $this->chkSTDLogin();
+            $data['stdinfo'] = $this->Student_model->getStudentInfo('5730212051');
             $this->load->view('css');
             $this->load->view('header');
-            $this->load->view('GraduateReqForm');
+
+            $this->load->view('GraduateReqForm',$data);
             $this->load->view('footer');
         }
 

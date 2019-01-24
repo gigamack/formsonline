@@ -6,7 +6,6 @@ class Authentication extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
-        $this->load->model('Student_model');
     }
 
     public function index()
@@ -41,19 +40,6 @@ class Authentication extends CI_Controller
 
             }
         // print_r($UserInfo['PSUPassport']['GetUserDetailsResult']['string']['9']);
-        }
-        elseif($_POST['password'] = 'test') //addded for test std
-        {
-            $dataTest = $this->Student_model->getStudentInfo($_POST['username']);
-            print_r($dataTest); 
-            $_SESSION['userSession']['UserType'] = 'Students';
-            $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] = $dataTest['STUDENT_ID'];
-            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0]= $dataTest['STUDENT_ID'];
-            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][1]= $dataTest['STUD_NAME_THAI'];
-            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][2]= $dataTest['STUD_SNAME_THAI'];
-            $_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI']= $dataTest['FAC_NAME_THAI'];
-            $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI']= $dataTest['MAJOR_NAME_THAI'];
-            redirect(base_url("FormControl/stdCardMain"));
         }
         else
         {

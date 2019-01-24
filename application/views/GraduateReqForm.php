@@ -15,10 +15,10 @@
 	$fullnameeng=$_SESSION['userSession']['StudentInfo']['STUD_NAME_ENG'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_ENG'];
     $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
 	$majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
-	$dob="";
-	$citizenid="";
+	$dob=$_SESSION['userSession']['StudentInfo']['STUD_BIRTH_DATE'];
+	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
 	// print_r($_SESSION['userSession']);
-	print_r($stdinfo);
+	//print_r($stdinfo);
 ?>
 
 	<div class="container">
@@ -57,7 +57,7 @@
 						<div class="col-md">
 							<label class="font-weight-bold" for="citizenid">เลขบัตรประชาชน :</label>
 						</div>
-						<div class="col-md-4">
+						<div class="col">
 							<label><?php echo $citizenid;?></label>
 						</div>
 					</div>

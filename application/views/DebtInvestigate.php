@@ -23,7 +23,7 @@
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post">
 			<div class="card">
 				<h5 class="card-header bg-primary text-light">
-					คำร้องขอสำเร็จการศึกษา
+					คำร้องเพื่อขอสำเร็จการศึกษาและสำรวจหนี้สิน (ระดับบัณฑิตศึกษา)
 				</h5>
 				<div class="card-body">
 					<div class="row">

@@ -16,14 +16,16 @@
     $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
 	$majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 	$dob=$_SESSION['userSession']['StudentInfo']['STUD_BIRTH_DATE'];
-	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
+    $citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
+    $getDocInfo = $docInfo[0];
 	// print_r($_SESSION['userSession']);
-	//print_r($stdinfo);
+    //print_r($stdinfo);
 ?>
-
+    
 	<div class="container">
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertGradReq") ?>" method="post">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateGradReq") ?>" method="post">
 			<div class="card">
+            <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
 				<h5 class="card-header bg-primary text-light">
 					คำร้องขอสำเร็จการศึกษา
 				</h5>
@@ -78,7 +80,7 @@
 						<div class="col-md">
 						<div class="form-group">						
 							<select class="custom-select" id="termEnd" name="termEnd">
-								<option selected>เลือก</option>
+								<option selected><?php echo $getDocInfo['termEnd'];?></option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>	
@@ -91,7 +93,7 @@
 							<div class="col-md">
 							<div class="form-group">						
 								<select class="custom-select" id="yearEnd" name="yearEnd">
-									<option selected>เลือก</option>
+									<option selected><?php echo $getDocInfo['yearEnd'];?></option>
 									<option value="<?php echo strftime("%Y")+542;?>"><?php echo strftime("%Y")+542;?></option>
 									<option value="<?php echo strftime("%Y")+543;?>"><?php echo strftime("%Y")+543;?></option>
 									<option value="<?php echo strftime("%Y")+544;?>"><?php echo strftime("%Y")+544;?></option>	
@@ -105,13 +107,13 @@
 						<label class="font-weight-bold" for="homenumber">บ้านเลขที่:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="homenumber" name="homenumber" placeholder="บ้านเลขที่" />
+						<input type="text" class="form-control" id="homenumber" name="homenumber" value="<?php echo $getDocInfo['houseNumber'];?>" />
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<label class="font-weight-bold" for="soi">ซอย:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="soi" name="soi" placeholder="ซอย" />
+						<input type="text" class="form-control" id="soi" name="soi" value="<?php echo $getDocInfo['soi'];?>" />
 						</div></div>
 					</div>
 					<div class="row">
@@ -121,7 +123,7 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="street" name="street" placeholder="ถนน" />
+						<input type="text" class="form-control" id="street" name="street" value="<?php echo $getDocInfo['street'];?>" />
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
@@ -129,7 +131,7 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="subdistrict" name="subdistrict" placeholder="ตำบล" />
+						<input type="text" class="form-control" id="subdistrict" name="subdistrict"  value="<?php echo $getDocInfo['sub_district'];?>" />
 						</div></div>
 					</div>
 					<div class="row">
@@ -139,7 +141,7 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="district" name="district" placeholder="อำเภอ" />
+						<input type="text" class="form-control" id="district" name="district" value="<?php echo $getDocInfo['district'];?>" />
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
@@ -148,7 +150,7 @@
 						<div class="col-md">
 						<div class="form-group">						
 								<select class="custom-select" id="province" name="province">
-								<option value="" selected>---เลือกจังหวัด---</option>
+								<option select="selected" value="<?php echo $getDocInfo['province'];?>"><?php echo $getDocInfo['province'];?></option>
 									<option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
 									<option value="กระบี่">กระบี่ </option>
 									<option value="กาญจนบุรี">กาญจนบุรี </option>
@@ -236,13 +238,13 @@
 						<label class="font-weight-bold" for="zipcode">รหัสไปรษณีย์:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="รหัสไปรษณีย์" />
+						<input type="text" class="form-control" id="zipcode" name="zipcode" value="<?php echo $getDocInfo['zipcode'];?>" />
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<label class="font-weight-bold" for="tel">หมายเลขโทรศัพท์:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" />
+						<input type="text" class="form-control" id="tel" name="tel" value="<?php echo $getDocInfo['tel'];?>" />
 						</div></div>
 					</div>			
 					

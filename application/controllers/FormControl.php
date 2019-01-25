@@ -326,12 +326,14 @@
             , 'tel' => $_POST['tel']
             , 'termEnd' => $_POST['termEnd']
             , 'yearEnd' => $_POST['yearEnd']
+            , 'soi' => $_POST['soi']
             , 'houseNumber' => $_POST['homenumber']
             , 'street' => $_POST['street']
             , 'sub_district' => $_POST['subdistrict']
             , 'district' => $_POST['district']
             , 'province' => $_POST['province']
-            , 'zipcode' => $_POST['zipcode']);
+            , 'zipcode' => $_POST['zipcode']
+            , 'DocTypeID' => $_POST['DocTypeID']);
             $this->DocModel->InsertDoc($data);
             $dataMaxDocID = array('StudentID' => $_POST['stdid']);
             $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
@@ -380,10 +382,16 @@
             $this->load->view('css');
             $this->load->view('header');
             if($data['docInfo'][0]['DocTypeID']==1)
-            {$this->load->view('editTempStdCardReq',$data);
+            {
+                $this->load->view('editTempStdCardReq',$data);
             }
             else if($data['docInfo'][0]['DocTypeID']==2)
-            {$this->load->view('EditChangenameFrm',$data);               
+            {
+                $this->load->view('EditChangenameFrm',$data);               
+            }
+            else if($data['docInfo'][0]['DocTypeID']==3)
+            {
+                $this->load->view('EditGradReqForm',$data);
             }
             $this->load->view('footer');
         }
@@ -517,6 +525,25 @@
                         , 'stdFile3' => $filename3);
                         $this->DocModel->updateDoc($data,$_POST['docID']);
                     }
+            $back = base_url("/FormControl/stdCardMain");
+            header('Location:' . $back);         
+        }
+        public function updateGradReq()
+        {            
+                    $data=array('DocID' => $_POST['docID']
+                                , 'StudentID' => $_POST['stdid']
+                                , 'tel' => $_POST['tel']
+                                , 'soi' => $_POST['soi']
+                                , 'termEnd' => $_POST['termEnd']
+                                , 'yearEnd' => $_POST['yearEnd']
+                                , 'houseNumber' => $_POST['homenumber']
+                                , 'street' => $_POST['street']
+                                , 'sub_district' => $_POST['subdistrict']
+                                , 'district' => $_POST['district']
+                                , 'province' => $_POST['province']
+                                , 'zipcode' => $_POST['zipcode']
+                                , 'DocTypeID' => $_POST['DocTypeID']);
+                    $this->DocModel->updateDoc($data,$_POST['docID']);                    
             $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);         
         }

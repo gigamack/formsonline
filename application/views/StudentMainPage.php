@@ -55,7 +55,7 @@
 						<tbody>
 							<?php $i=1;?>
 							<?php foreach($GetDocID as $docid){?>                           						
-                                <tr class="<?php echo ($docid->OfficerCommentID == '1') ? 'bg-primary' : ($docid->OfficerCommentID == '2'?'bg-danger':'bg-warning');?>">
+                                <tr>
 								<th scope="row">
 									<?php echo $i; ?>
 								</th>
@@ -65,7 +65,7 @@
 								<td>
 									<?php echo $docid->CreatedDate ?>
 								</td>
-								<td>
+								<td class="<?php echo ($docid->OfficerCommentID == '1') ? 'text-primary' : ($docid->OfficerCommentID == '2'?'text-danger':'text-info');?>">
                                 <?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : ($docid->OfficerCommentID == '2'?'ไม่เห็นชอบ':'รอการตรวจสอบ');?>
                                 </td>
                                 <td>

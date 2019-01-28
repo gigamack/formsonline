@@ -52,6 +52,23 @@
                 redirect(base_url());
             }
         }
+        public function stdMain()
+        {
+            $this->chkSTDLogin();
+            //$data['docList']=$this->DocModel->getDocByuserID("4935511076");
+            $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
+            $dataSelect=array('StudentID' => $studentid);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','DESC');
+            // $data['docList']=$this->DocModel->selectDocWithState($dataSelect);
+            //$data['docList']=$this->DocModel->selectDoc($dataSelect);
+            $this->load->view('css');
+            $this->load->view('header');
+        //    $this->load->view('sidebar');
+            $this->load->view('StudentMainPage',$data);
+            $this->load->view('footer');
+            // $this->load->view('script');         
+        }
+
         public function stdCardMain()
         {
             $this->chkSTDLogin();

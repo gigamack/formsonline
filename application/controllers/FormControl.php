@@ -69,6 +69,16 @@
             // $this->load->view('script');         
         }
 
+        public function stdcardform2()
+        {   
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('StdReqDdlPart',$data);
+
+            $this->load->view('StdReqTable',$data);
+            $this->load->view('footer');
+        }
+
         public function stdCardMain()
         {
             $this->chkSTDLogin();
@@ -170,6 +180,29 @@
             //print_r($_SESSION['userSession']['UserType']);
             $this->load->view('css');
 			$this->load->view('formmain');
+        }
+
+        public function formcaller()
+        {   
+            $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
+            $dataSelect=array('StudentID' => $studentid);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
+            $chosenform = $_POST['formselect'];
+            $this->load->view('css');
+            $this->load->view('header');           
+            $this->load->view('StdReqDdlPart',$data);
+            if($chosenform=='1')
+            {
+                $this->load->view('stdTempcardfrm');
+                // $this->load->view('TempStdCardReq');
+            }
+            else if($chosenform=='2')
+            {
+                $this->load->view('ChangenameFrm');
+            }
+            $this->load->view('StdReqTable',$data);
+            $this->load->view('footer');
         }
 
         public function changenameform()

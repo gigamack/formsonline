@@ -29,8 +29,8 @@ class Authentication extends CI_Controller
                     // echo $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['0'];
                 } else 
                 {
-                    // redirect(base_url("FormControl/formindex"));
-                    redirect(base_url("FormControl/stdCardMain"));
+                    // redirect(base_url("FormControl/stdCardMain"));
+                    redirect(base_url("FormControl/stdMain"));
                     // print_r($_SESSION['userSession']['StudentInfo']);
                     // echo $_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
                 }

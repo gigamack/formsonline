@@ -24,10 +24,10 @@
             <div class = "row" style="margin: 20px auto auto auto">
                 <div class = "col-mb-6">
                     <select class="custom-select custom-select-lg" id="formselect" name="formselect">
-                        <option selected value="#">เลือกคำร้องที่ต้องการเพิ่ม</option>
-                        <option value="1">คำร้องขอบัตรนักศึกษาชั่วคราว</option>
-                        <option value="2">คำร้องขอเปลี่ยนชื่อสกุล</option>
-                        <option value="3">คำร้องขอสำเร็จการศึกษา</option>
+                        <option value="#">เลือกคำร้องที่ต้องการเพิ่ม</option>
+                        <option value="1" <?php if($_SESSION["ddlchosen"]=='1') echo 'selected="selected"';?>>คำร้องขอบัตรนักศึกษาชั่วคราว</option>
+                        <option value="2" <?php if($_SESSION["ddlchosen"]=='2') echo 'selected="selected"';?>>คำร้องขอเปลี่ยนชื่อสกุล</option>
+                        <option value="3" <?php if($_SESSION["ddlchosen"]=='3') echo 'selected="selected"';?>>คำร้องขอสำเร็จการศึกษา</option>
                     </select>
                 </div>
                 <div class = "col-mb-2"> 

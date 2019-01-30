@@ -191,7 +191,8 @@
             $chosenform = $_POST['formselect'];
             $this->load->view('css');
             $this->load->view('header');           
-            $this->load->view('StdReqDdlPart',$data);
+            $_SESSION["ddlchosen"] = $chosenform;
+            $this->load->view('StdReqDdlPart',$data);            
             if($chosenform=='1')
             {
                 $this->load->view('stdTempcardfrm');
@@ -199,7 +200,11 @@
             }
             else if($chosenform=='2')
             {
-                $this->load->view('ChangenameFrm');
+                $this->load->view('NameChangingFrm');
+            }
+            else if($chosenform=='3')
+            {
+                $this->load->view('NameChangingFrm');
             }
             $this->load->view('StdReqTable',$data);
             $this->load->view('footer');

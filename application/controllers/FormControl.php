@@ -148,6 +148,10 @@
             {
                 $this->load->view('ChangenameAllowedSTD',$data);
             }           
+            elseif($doctypeID==2)
+            {
+                $this->load->view('#',$data);
+            }
             $this->load->view('footer');       
         }
         public function Allowed()
@@ -322,9 +326,28 @@
             $maxDocID=$maxDocIDS[0];
             $data2 = array('DocID' => $maxDocID->DocID
             , 'stateID' => $_POST['stateID']);
-            $this->DocStateModel->InsertDocState($data2);
-            $back = base_url("/FormControl/stdCardMain");
+            $this->DocStateModel->InsertDocState($data2);   
+            $this->send_mail();        
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);
+        }
+
+        public function send_mail() {
+            $from_email = "gigamack@gmail.com";
+            $to_email = $this->input->post('iesorn.c@phuket.psu.ac.th');
+            //Load email library
+            $this->load->library('email');
+            $this->email->from($from_email, 'Iesorn Chaisane');
+            $this->email->to($to_email);
+            $this->email->subject('Send Email Codeigniter');
+            $this->email->message('The email send using codeigniter library');
+            $this->email->send();
+            //Send mail
+            // if($this->email->send())
+            //     $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+            // else
+            //     $this->session->set_flashdata("email_sent","You have encountered an error");
+            //$this->load->view('stdMain');
         }
 
         public function insertchangenameReq()
@@ -476,7 +499,7 @@
                 unlink($targetPath . $docinfo['docInfo'][0]['stdFile3']);
             }
             $this->DocModel->deleteDoc($data);
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);
         }
 

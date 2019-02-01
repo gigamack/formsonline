@@ -12,8 +12,16 @@
             $commented_id = $docCommented;
             $getStdInfo = $stdinfo;
 ?>
+<script>
+$('html, body').animate({
+    scrollTop: $("#form").offset().top
+}, 2000);
+</script>
+<div id="form">
+    <h1>test</h1>
+</div>
 <div class="container Chuanpim" >
-      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardMain") ?>">
+      <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdMain") ?>">
       <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
       <input type="hidden" id="doctypeID" name="doctypeID" value="<?php echo $getDocInfo['DocTypeID']; ?>"/>
       <input type="hidden" id="userID" name="userID" value="iesorn.c"/>
@@ -24,7 +32,7 @@
       <div class="card-body">
             <div class="row">
               <div class="col">          
-                    <label for="stdid" class="font-weight-bold">รหัสนักศึกษา:</label>
+                    <label for="stdid" class="font-weight-bold" autofocus>รหัสนักศึกษา:</label>
                     <label for="stdid" id="stdid" name="stdid"><?php echo $getDocInfo['StudentID'];?></label>
               </div>
               <div class="col">            

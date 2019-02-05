@@ -450,6 +450,57 @@
             header('Location:' . $back);
         }
 
+        //added 05-2-2019
+        public function editRequest()
+        {
+            $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
+            $dataSelect=array('StudentID' => $studentid);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
+            $chosenform = $_POST['formselect'];
+            $this->load->view('css');
+            $this->load->view('header');           
+            $_SESSION["ddlchosen"] = $chosenform;
+            $this->load->view('StdReqDdlPart',$data);            
+            if($chosenform=='1')
+            {
+                $this->load->view('stdTempcardfrm');
+                // $this->load->view('TempStdCardReq');
+            }
+            else if($chosenform=='2')
+            {
+                $this->load->view('NameChangingFrm');
+            }
+            else if($chosenform=='3')
+            {
+                $this->load->view('NameChangingFrm');
+            }
+            $this->load->view('StdReqTable',$data);
+            $this->load->view('footer');
+            
+            $this->chkSTDLogin();
+            $docID = $_GET['docID'];
+            $data['docInfo']=$this->DocModel->getDocBydocID($docID);
+            $back = base_url("/FormControl/stdCardMain");
+            // print_r($data['docInfo']);
+            $this->load->view('css');
+            $this->load->view('header');
+            if($data['docInfo'][0]['DocTypeID']==1)
+            {
+                $this->load->view('editTempStdCardReq',$data);
+            }
+            else if($data['docInfo'][0]['DocTypeID']==2)
+            {
+                $this->load->view('EditChangenameFrm',$data);               
+            }
+            else if($data['docInfo'][0]['DocTypeID']==3)
+            {
+                $this->load->view('EditGradReqForm',$data);
+            }
+            $this->load->view('footer');
+        }
+        //ended
+
         public function editReq()
         {
             $this->chkSTDLogin();

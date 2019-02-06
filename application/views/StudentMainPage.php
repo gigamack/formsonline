@@ -89,7 +89,8 @@
                                 $visible="";
                                 if($docid->OfficerCommentID == '0')
                                 {
-                                    $linkpage="FormControl/editReq?docID=".$docid->DocID;
+									//$linkpage="FormControl/editReq?docID=".$docid->DocID;
+									$linkpage="FormControl/editRequest?docID=".$docid->DocID;
                                     $visible="width:30px;";
                                 } 
                                 else

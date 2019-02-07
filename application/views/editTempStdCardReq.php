@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
-
-<body>
 	<?php
       $getDocInfo = $docInfo[0];           
       $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
@@ -16,7 +5,7 @@
       $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
       $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 ?>
-	<div class="container Chuanpim">
+
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateReq") ?>" method="post"
 			enctype="multipart/form-data">
 			<div class="card text-black bg-light">
@@ -188,7 +177,3 @@
 			};
 
 		</script>
-	</div>
-</body>
-
-</html>

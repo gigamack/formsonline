@@ -208,7 +208,7 @@
             }
             else if($chosenform=='3')
             {
-                $this->load->view('NameChangingFrm');
+                $this->load->view('GraduateReqForm');
             }
             $this->load->view('StdReqTable',$data);
             $this->load->view('footer');

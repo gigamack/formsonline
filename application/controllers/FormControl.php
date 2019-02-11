@@ -690,6 +690,16 @@
             $this->load->view('footer');
         }
 
+        public function DebtInvestigateform()
+        {
+            $this->chkSTDLogin();
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('DebtInvestigate');
+            $this->load->view('footer');
+        }
+        
+
         public function editstatGradmaster()
         {   
             $this->chkSTDLogin();   

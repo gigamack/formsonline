@@ -3,18 +3,18 @@
 ?>
 <div class="card" style="margin: 20px auto auto auto">
 				<h5 class="card-header bg-primary text-light Stidti">
-					รายการคำร้อง
+				History
 				</h5>
 				<div class="card-body">
 					<table id="unfinishedReq" class="table table-hove">
 						<thead>
 							<tr class="">
 								<th scope="col">#</th>
-								<th scope="col">ประเภทคำร้อง</th>
-								<th scope="col">วันที่สร้างคำร้อง</th>
-								<th scope="col">สถานะคำร้อง</th>
-                                <th scope="col">วันที่ดำเนินการ</th>
-								<th scope="col">จัดการ</th>
+								<th scope="col">Type</th>
+								<th scope="col">Created Date</th>
+								<th scope="col">Status</th>
+                                <th scope="col">Processed Date</th>
+								<th scope="col">Manage</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -31,7 +31,7 @@
 									<?php echo $docid->CreatedDate ?>
 								</td>
 								<td class="<?php echo ($docid->OfficerCommentID == '1') ? 'text-primary' : ($docid->OfficerCommentID == '2'?'text-danger':'text-info');?>">
-                                <?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : ($docid->OfficerCommentID == '2'?'ไม่เห็นชอบ':'รอการตรวจสอบ');?>
+                                <?php echo ($docid->OfficerCommentID == '1') ? 'Approved' : ($docid->OfficerCommentID == '2'?'Disapproved':'Waiting');?>
                                 </td>
                                 <td>
 									<?php echo $docid->OfficerCommentedDate ?>

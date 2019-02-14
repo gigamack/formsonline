@@ -20,20 +20,21 @@
 	<div class="container Chuanpim" id="ResultList">
         <form action="<?php echo base_url("/FormControl/formcaller") ?>" method="post">
         <div class="card" style="margin: 20px auto auto auto">
-            <h5 class="card-header bg-primary text-light Stidti">เพิ่มคำร้อง</h5>
+            <h5 class="card-header bg-primary text-light Stidti">Add new request</h5>
             <div class = "row" style="margin: 20px auto auto auto">
-                <div class = "col-mb-6">
-                    <select class="custom-select custom-select-lg" id="formselect" name="formselect">
-                        <option value="#">เลือกคำร้องที่ต้องการเพิ่ม</option>
-                        <option value="1" <?php if($_SESSION["ddlchosen"]=='1') echo 'selected="selected"';?>>คำร้องขอบัตรนักศึกษาชั่วคราว</option>
-                        <option value="2" <?php if($_SESSION["ddlchosen"]=='2') echo 'selected="selected"';?>>คำร้องขอเปลี่ยนชื่อสกุล</option>
-                        <option value="3" <?php if($_SESSION["ddlchosen"]=='3') echo 'selected="selected"';?>>คำร้องขอสำเร็จการศึกษา</option>
+                <div class = "col-mb-6 pb-3">
+                    <select class="custom-select" id="formselect" name="formselect">
+                        <option value="#">Choose the form ...</option>
+                        <option value="1" <?php if($_SESSION["ddlchosen"]=='1') echo 'selected="selected"';?>>Request Form for temporary PSU Identification Card</option>
+                        <option value="2" <?php if($_SESSION["ddlchosen"]=='2') echo 'selected="selected"';?>>Request Form for name or surname change</option>
+                        <option value="3" <?php if($_SESSION["ddlchosen"]=='3') echo 'selected="selected"';?>>Request Form for Graduation</option>
+                        <option value="4" <?php if($_SESSION["ddlchosen"]=='4') echo 'selected="selected"';?>>Request Form for Graduation and Debt Investigation</option>
                     </select>
                 </div>
                 <div class = "col-mb-2"> 
-                  <button type="submit" class="btn btn-lg btn-success">Submit</button>  
+                  <button type="submit" class="btn btn-success">Select</button>  
                 </div>  
             </div>            
         </div>
-        </form>
+    </form>
 			

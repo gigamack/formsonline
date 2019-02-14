@@ -20,18 +20,19 @@
 	<div class="container Chuanpim" id="ResultList">
         <form action="<?php echo base_url("/FormControl/formcaller") ?>" method="post">
         <div class="card" style="margin: 20px auto auto auto">
-            <h5 class="card-header bg-primary text-light Stidti">เพิ่มคำร้อง</h5>
+            <h5 class="card-header bg-primary text-light Stidti">Add new request</h5>
             <div class = "row" style="margin: 20px auto auto auto">
-                <div class = "col-mb-6">
-                    <select class="custom-select custom-select-lg" id="formselect" name="formselect">
-                        <option selected>เลือกคำร้องที่ต้องการเพิ่ม</option>
-                        <option value="1">คำร้องขอบัตรนักศึกษาชั่วคราว</option>
-                        <option value="2">คำร้องขอเปลี่ยนชื่อสกุล</option>
-                        <option value="3">คำร้องขอสำเร็จการศึกษา</option>
+                <div class = "col-mb-6 pb-3">
+					<select class="custom-select" id="formselect" name="formselect">
+                        <option value="#">Choose the form ...</option>
+                        <option value="1">Request Form for temporary PSU Identification Card</option>
+                        <option value="2">Request Form for name or surname change</option>
+                        <option value="3">Request Form for Graduation</option>
+                        <option value="4">Request Form for Graduation and Debt Investigation</option>
                     </select>
                 </div>
                 <div class = "col-mb-2"> 
-                  <button type="submit" class="btn btn-lg btn-success">Submit</button>  
+                  <button type="submit" class="btn btn-success">Select</button>  
                 </div>  
             </div>            
         </div>
@@ -51,18 +52,18 @@
 
 			<div class="card" style="margin: 20px auto auto auto">
 				<h5 class="card-header bg-primary text-light Stidti">
-					รายการคำร้อง
+					History
 				</h5>
 				<div class="card-body">
 					<table id="unfinishedReq" class="table table-hove">
 						<thead>
 							<tr class="">
 								<th scope="col">#</th>
-								<th scope="col">ประเภทคำร้อง</th>
-								<th scope="col">วันที่สร้างคำร้อง</th>
-								<th scope="col">สถานะคำร้อง</th>
-                                <th scope="col">วันที่ดำเนินการ</th>
-								<th scope="col">จัดการ</th>
+								<th scope="col">Type</th>
+								<th scope="col">Created Date</th>
+								<th scope="col">Status</th>
+                                <th scope="col">Processed Date</th>
+								<th scope="col">Manage</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -79,7 +80,7 @@
 									<?php echo $docid->CreatedDate ?>
 								</td>
 								<td class="<?php echo ($docid->OfficerCommentID == '1') ? 'text-primary' : ($docid->OfficerCommentID == '2'?'text-danger':'text-info');?>">
-                                <?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : ($docid->OfficerCommentID == '2'?'ไม่เห็นชอบ':'รอการตรวจสอบ');?>
+                                <?php echo ($docid->OfficerCommentID == '1') ? 'Approved' : ($docid->OfficerCommentID == '2'?'Disapproved':'Waiting');?>
                                 </td>
                                 <td>
 									<?php echo $docid->OfficerCommentedDate ?>

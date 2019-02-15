@@ -32,6 +32,7 @@ class StudentInfo
                     FAC_NAME_ENG
                     CITIZEN_ID
                     STUD_BIRTH_DATE
+                    STUDY_LEVEL_ID
             }}',
             'variables' => array(
                 'STUDENT_ID' => $StudentID,

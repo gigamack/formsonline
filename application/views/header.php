@@ -24,7 +24,7 @@
 
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg  navbar-dark " style="background-color: #003c71;">
+		<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
 			<a href="<?php echo base_url("/FormControl/stdMain") ?>" class="navbar-brand">
 			<!-- <a href="<?php echo base_url("/FormControl/stdCardMain") ?>" class="navbar-brand"> -->
 				<img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;" />

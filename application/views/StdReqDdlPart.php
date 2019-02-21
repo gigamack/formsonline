@@ -20,7 +20,7 @@
 	<div class="container Chuanpim" id="ResultList">
         <form action="<?php echo base_url("/FormControl/formcaller") ?>" method="post">
         <div class="card" style="margin: 20px auto auto auto">
-            <h6 class="card-header text-light Stidti" style="background-color: #003c71;">Add new request</h6>
+            <h6 class="card-header bg-primary Stidti">Add new request</h6>
             <div class = "row" style="margin: 20px auto auto auto">
                 <div class = "col-mb-6 pb-3">
                     <select class="custom-select" id="formselect" name="formselect">

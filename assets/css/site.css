@@ -11,6 +11,21 @@
 html {
 	font-size: 20px;
 }
+form
+{
+color: #929292;
+}
+
+form label{
+color: #626262;
+}
+
+form small.sub {
+	display: block;
+	position: absolute;
+	color: #626262;
+    top: 1.2em;
+}
 
 body {
 	font-family: 'DB ChuanPim PSU v3.2.1';
@@ -25,10 +40,12 @@ h4,
 h5,
 h6 {
 	font-family: 'Stidti-Regular';
+	color: #fff ;
 }
 
 .bg-primary {
-	background-color: #003c71 !important;
+	/* background-color: #003c71 !important; */
+	background-color: #0085ad !important;
 }
 
 .btn-primary {

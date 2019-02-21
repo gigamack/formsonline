@@ -83,8 +83,8 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col">
-							<label class="text-danger font-weight-bold">* ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว
+						<div class="col" style="margin: 20px auto auto auto">
+							<label class="mx-auto text-danger font-weight-bold">* ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว
 								1 รูปมาด้วย</label>
 						</div>
 					</div>

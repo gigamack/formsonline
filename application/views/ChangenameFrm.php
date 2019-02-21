@@ -19,14 +19,15 @@ $majorname = $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];
 		<form action="<?php echo base_url("/FormControl/insertchangenameReq") ?>"
 			method="post" enctype="multipart/form-data">
 			<div class="card text-black bg-light">
-				<h5 class="card-header bg-primary text-light">
+				<h2 class="card-header bg-primary text-light">
 					คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล
-				</h5>
+				</h2>
 				<div class="card-body">
 					<div class="form-group">
 						<div class="row">
 							<div class="col">
-								<label class="font-weight-bold" for="stdfullname">ข้าพเจ้า(ชื่อ-สกุลเดิม):</label>
+								<label class="font-weight-bold" for="stdfullname">Current fullname:</label>
+								<label for="stdfullname">ชื่อ-สกุลเดิม:</label>
 								<label id="stdfullname">
 									<?php echo $fullname; ?></label>
 							</div>

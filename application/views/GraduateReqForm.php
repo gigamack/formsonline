@@ -13,13 +13,14 @@
 
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertGradReq") ?>" method="post">
 			<div class="card">
-				<h5 class="card-header bg-primary text-light">
-					คำร้องขอสำเร็จการศึกษา
-				</h5>
+				<h6 class="card-header bg-primary text-light">
+					Request for graduation / คำร้องขอสำเร็จการศึกษา
+				</h6>
 				<div class="card-body">
 					<div class="row">
 						<div class="col">
-							<label class="font-weight-bold" for="stdid">รหัสนักศึกษา:</label>
+							<label class="font-weight-bold" for="stdid">Student ID:/</label>
+							<label for="stdid">รหัสนักศึกษา</label>
 						</div>
 						<div class="col">
 							<label><?php echo $studentid;?></label>
@@ -28,7 +29,8 @@
 					</div>
 					<div class="row">
 						<div class="col">
-							<label class="font-weight-bold" for="stdfullname">ชื่อ-สกุล :</label>
+						<label class="font-weight-bold" for="stdfullname">Fullname :/</label>
+							<label for="stdfullname">ชื่อ-สกุล</label>
 						</div>
 						<div class="col">
 							<label><?php echo $fullname;?></label>
@@ -36,7 +38,8 @@
 					</div>
 					<div class="row">
 						<div class="col">
-								<label class="font-weight-bold" for="stdfullnameeng">ชื่อ-สกุล(ภาษาอังกฤษ) :</label>
+								<label class="font-weight-bold" for="stdfullname">Fullname (English) :/</label>
+								<label for="stdfullnameeng">ชื่อ-สกุล(ภาษาอังกฤษ)</label>
 						</div>
 						<div class="col">
 								<label><?php echo $fullnameeng;?></label>
@@ -44,7 +47,8 @@
 					</div>
 					<div class="row">
 						<div class="col-md">
-							<label class="font-weight-bold" for="citizenid">เลขบัตรประชาชน :</label>
+						    <label class="font-weight-bold" for="citizenid">Citizen ID :/</label>
+							<label for="citizenid">เลขบัตรประชาชน</label>
 						</div>
 						<div class="col">
 							<label><?php echo $citizenid;?></label>

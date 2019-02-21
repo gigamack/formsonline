@@ -21,7 +21,9 @@
 		<div class="container col-sm-6 col-md-4 col-md-offset-1" style="margin: 3rem auto auto auto">
 			<div class="card">
 				<div class="card-header" style="background-color: #003c71; color:#FFFFFF">
-					<h6>PSU Passport Login</h6>
+				<div class="mx-auto" style="width: 250px;">
+				<h6>Login with PSU Passport</h6>
+				</div>
 				</div>
 				<div class="card-body">
 					<div class="form-group">

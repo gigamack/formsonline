@@ -52,6 +52,33 @@
                 redirect(base_url());
             }
         }
+        public function stdMain()
+        {
+            $this->chkSTDLogin();
+            //$data['docList']=$this->DocModel->getDocByuserID("4935511076");
+            $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
+            $dataSelect=array('StudentID' => $studentid);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','DESC');
+            // $data['docList']=$this->DocModel->selectDocWithState($dataSelect);
+            //$data['docList']=$this->DocModel->selectDoc($dataSelect);
+            $this->load->view('css');
+            $this->load->view('header');
+        //    $this->load->view('sidebar');
+            $this->load->view('StudentMainPage',$data);
+            $this->load->view('footer');
+            // $this->load->view('script');         
+        }
+
+        public function stdcardform2()
+        {   
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('StdReqDdlPart',$data);
+
+            $this->load->view('StdReqTable',$data);
+            $this->load->view('footer');
+        }
+
         public function stdCardMain()
         {
             $this->chkSTDLogin();
@@ -121,6 +148,10 @@
             {
                 $this->load->view('ChangenameAllowedSTD',$data);
             }           
+            elseif($doctypeID==2)
+            {
+                $this->load->view('#',$data);
+            }
             $this->load->view('footer');       
         }
         public function Allowed()
@@ -153,6 +184,34 @@
             //print_r($_SESSION['userSession']['UserType']);
             $this->load->view('css');
 			$this->load->view('formmain');
+        }
+
+        public function formcaller()
+        {   
+            $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
+            $dataSelect=array('StudentID' => $studentid);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
+            $chosenform = $_POST['formselect'];
+            $this->load->view('css');
+            $this->load->view('header');           
+            $_SESSION["ddlchosen"] = $chosenform;
+            $this->load->view('StdReqDdlPart',$data);            
+            if($chosenform=='1')
+            {
+                $this->load->view('stdTempcardfrm');
+                // $this->load->view('TempStdCardReq');
+            }
+            else if($chosenform=='2')
+            {
+                $this->load->view('NameChangingFrm');
+            }
+            else if($chosenform=='3')
+            {
+                $this->load->view('GraduateReqForm');
+            }
+            $this->load->view('StdReqTable',$data);
+            $this->load->view('footer');
         }
 
         public function changenameform()
@@ -267,9 +326,28 @@
             $maxDocID=$maxDocIDS[0];
             $data2 = array('DocID' => $maxDocID->DocID
             , 'stateID' => $_POST['stateID']);
-            $this->DocStateModel->InsertDocState($data2);
-            $back = base_url("/FormControl/stdCardMain");
+            $this->DocStateModel->InsertDocState($data2);   
+            $this->send_mail();        
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);
+        }
+
+        public function send_mail() {
+            $from_email = "gigamack@gmail.com";
+            $to_email = $this->input->post('iesorn.c@phuket.psu.ac.th');
+            //Load email library
+            $this->load->library('email');
+            $this->email->from($from_email, 'Iesorn Chaisane');
+            $this->email->to($to_email);
+            $this->email->subject('Send Email Codeigniter');
+            $this->email->message('The email send using codeigniter library');
+            $this->email->send();
+            //Send mail
+            // if($this->email->send())
+            //     $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+            // else
+            //     $this->session->set_flashdata("email_sent","You have encountered an error");
+            //$this->load->view('stdMain');
         }
 
         public function insertchangenameReq()
@@ -326,12 +404,14 @@
             , 'tel' => $_POST['tel']
             , 'termEnd' => $_POST['termEnd']
             , 'yearEnd' => $_POST['yearEnd']
+            , 'soi' => $_POST['soi']
             , 'houseNumber' => $_POST['homenumber']
             , 'street' => $_POST['street']
             , 'sub_district' => $_POST['subdistrict']
             , 'district' => $_POST['district']
             , 'province' => $_POST['province']
-            , 'zipcode' => $_POST['zipcode']);
+            , 'zipcode' => $_POST['zipcode']
+            , 'DocTypeID' => $_POST['DocTypeID']);
             $this->DocModel->InsertDoc($data);
             $dataMaxDocID = array('StudentID' => $_POST['stdid']);
             $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
@@ -370,6 +450,39 @@
             header('Location:' . $back);
         }
 
+        //added 05-2-2019
+        public function editRequest()
+        {                        
+            $this->chkSTDLogin();
+            $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
+            $dataSelect=array('StudentID' => $studentid);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
+            $docID = $_GET['docID'];
+            $data['docInfo']=$this->DocModel->getDocBydocID($docID);
+            $back = base_url("/FormControl/stdCardMain");
+            // print_r($data['docInfo']);
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('StdReqDdlPart',$data);
+            
+            if($data['docInfo'][0]['DocTypeID']==1)
+            {
+                $this->load->view('editTempStdCardReq',$data);
+            }
+            else if($data['docInfo'][0]['DocTypeID']==2)
+            {
+                $this->load->view('EditChangenameFrm',$data);               
+            }
+            else if($data['docInfo'][0]['DocTypeID']==3)
+            {
+                $this->load->view('EditGradReqForm',$data);
+            }
+            $this->load->view('StdReqTable',$data);
+            $this->load->view('footer');
+        }
+        //ended
+
         public function editReq()
         {
             $this->chkSTDLogin();
@@ -380,10 +493,16 @@
             $this->load->view('css');
             $this->load->view('header');
             if($data['docInfo'][0]['DocTypeID']==1)
-            {$this->load->view('editTempStdCardReq',$data);
+            {
+                $this->load->view('editTempStdCardReq',$data);
             }
             else if($data['docInfo'][0]['DocTypeID']==2)
-            {$this->load->view('EditChangenameFrm',$data);               
+            {
+                $this->load->view('EditChangenameFrm',$data);               
+            }
+            else if($data['docInfo'][0]['DocTypeID']==3)
+            {
+                $this->load->view('EditGradReqForm',$data);
             }
             $this->load->view('footer');
         }
@@ -413,7 +532,7 @@
                 unlink($targetPath . $docinfo['docInfo'][0]['stdFile3']);
             }
             $this->DocModel->deleteDoc($data);
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);
         }
 
@@ -520,6 +639,25 @@
             $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);         
         }
+        public function updateGradReq()
+        {            
+                    $data=array('DocID' => $_POST['docID']
+                                , 'StudentID' => $_POST['stdid']
+                                , 'tel' => $_POST['tel']
+                                , 'soi' => $_POST['soi']
+                                , 'termEnd' => $_POST['termEnd']
+                                , 'yearEnd' => $_POST['yearEnd']
+                                , 'houseNumber' => $_POST['homenumber']
+                                , 'street' => $_POST['street']
+                                , 'sub_district' => $_POST['subdistrict']
+                                , 'district' => $_POST['district']
+                                , 'province' => $_POST['province']
+                                , 'zipcode' => $_POST['zipcode']
+                                , 'DocTypeID' => $_POST['DocTypeID']);
+                    $this->DocModel->updateDoc($data,$_POST['docID']);                    
+            $back = base_url("/FormControl/stdCardMain");
+            header('Location:' . $back);         
+        }
         public function insertDocNextState()
         {
             $data= array('DocID' => $_POST['docID']
@@ -551,6 +689,16 @@
             $this->load->view('MasterGraduateReqForm');
             $this->load->view('footer');
         }
+
+        public function DebtInvestigateform()
+        {
+            $this->chkSTDLogin();
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('DebtInvestigate');
+            $this->load->view('footer');
+        }
+        
 
         public function editstatGradmaster()
         {   

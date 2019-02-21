@@ -19,7 +19,7 @@
     $commented_id = $docCommented;
 ?>
 <div class="container mt-3 mb-3">
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardMain") ?>">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdMain") ?>">
 			<input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>" />
 			<input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>" />
 			<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />

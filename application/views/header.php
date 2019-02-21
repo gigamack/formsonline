@@ -25,7 +25,8 @@
 <body>
 	<header>
 		<nav class="navbar navbar-expand-lg  navbar-dark " style="background-color: #003c71;">
-			<a href="<?php echo base_url("/FormControl/stdCardMain") ?>" class="navbar-brand">
+			<a href="<?php echo base_url("/FormControl/stdMain") ?>" class="navbar-brand">
+			<!-- <a href="<?php echo base_url("/FormControl/stdCardMain") ?>" class="navbar-brand"> -->
 				<img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;" />
 				Online Forms System
 			</a>
@@ -35,17 +36,19 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-				<ul class="navbar-nav mr-auto">
+				<!-- <ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url("/FormControl/stdCardMain"); ?>">Home</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url("FormControl/formindex"); ?>">Add New Request</a>
 					</li>
+				</ul> -->
+				<ul class="navbar-nav mr-auto">
 				</ul>
 				<div class="dropdown">
 					<a class="dropdown-toggle" style="color: white !important;" href="#" id="fullname" data-toggle="dropdown"
-					 aria-haspopup="true" aria-expanded="false">
+					 aria-haspopup="true" aria-expanded="true">
 						<?php echo "($UserID) ".$Fullname ?>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

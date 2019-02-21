@@ -29,8 +29,8 @@ class Authentication extends CI_Controller
                     // echo $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['0'];
                 } else 
                 {
-                    // redirect(base_url("FormControl/formindex"));
-                    redirect(base_url("FormControl/stdCardMain"));
+                    // redirect(base_url("FormControl/stdCardMain"));
+                    redirect(base_url("FormControl/stdMain"));
                     // print_r($_SESSION['userSession']['StudentInfo']);
                     // echo $_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
                 }
@@ -43,18 +43,18 @@ class Authentication extends CI_Controller
         // print_r($UserInfo['PSUPassport']['GetUserDetailsResult']['string']['9']);
         }
         elseif($_POST['password'] = 'test') //addded for test std
-        {
-            $dataTest = $this->Student_model->getStudentInfo($_POST['username']);
-            print_r($dataTest); 
-            $_SESSION['userSession']['UserType'] = 'Students';
-            $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] = $dataTest['STUDENT_ID'];
-            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0]= $dataTest['STUDENT_ID'];
-            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][1]= $dataTest['STUD_NAME_THAI'];
-            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][2]= $dataTest['STUD_SNAME_THAI'];
-            $_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI']= $dataTest['FAC_NAME_THAI'];
-            $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI']= $dataTest['MAJOR_NAME_THAI'];
-            redirect(base_url("FormControl/stdCardMain"));
-        }
+        { //addded for test std
+            $dataTest = $this->Student_model->getStudentInfo($_POST['username']); //addded for test std
+            print_r($dataTest); //addded for test std
+            $_SESSION['userSession']['UserType'] = 'Students'; //addded for test std
+            $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] = $dataTest['STUDENT_ID']; //addded for test std
+            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0]= $dataTest['STUDENT_ID']; //addded for test std
+            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][1]= $dataTest['STUD_NAME_THAI']; //addded for test std
+            $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][2]= $dataTest['STUD_SNAME_THAI']; //addded for test std
+            $_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI']= $dataTest['FAC_NAME_THAI']; //addded for test std
+            $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI']= $dataTest['MAJOR_NAME_THAI']; //addded for test std
+            redirect(base_url("FormControl/stdCardMain")); //addded for test std
+        } //addded for test std
         else
         {
             $_SESSION['errors']='Fail';

@@ -55,7 +55,7 @@
 						<div class="col-md">
 							<label class="font-weight-bold" for="citizenid">เลขบัตรประชาชน :</label>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md">
 							<label><?php echo $citizenid;?></label>
 						</div>
 					</div>

@@ -18,9 +18,9 @@
 				</h6>
 				<div class="card-body">
 					<div class="row">
-						<div class="col">
-							<label class="font-weight-bold" for="stdid">Student ID:/</label>
-							<label for="stdid">รหัสนักศึกษา</label>
+						<div class="col-md-3">
+							<label class="font-weight-bold" for="stdid">Student ID:</label>
+							<small class="sub">รหัสนักศึกษา</small>
 						</div>
 						<div class="col">
 							<label><?php echo $studentid;?></label>
@@ -28,27 +28,27 @@
 						<input type="hidden" id="stdid" name="stdid" value="<?php echo $studentid?>" />				
 					</div>
 					<div class="row">
-						<div class="col">
-						<label class="font-weight-bold" for="stdfullname">Fullname :/</label>
-							<label for="stdfullname">ชื่อ-สกุล</label>
+						<div class="col-md-3">
+						<label class="font-weight-bold" for="stdfullname">Fullname:</label>
+						<small class="sub">ชื่อ-สกุล</small>
 						</div>
 						<div class="col">
 							<label><?php echo $fullname;?></label>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col">
-								<label class="font-weight-bold" for="stdfullname">Fullname (English) :/</label>
-								<label for="stdfullnameeng">ชื่อ-สกุล(ภาษาอังกฤษ)</label>
+						<div class="col-md-3">
+								<label class="font-weight-bold" for="stdfullname">Fullname (English):</label>
+								<small class="sub">ชื่อ-สกุล(ภาษาอังกฤษ)</small>
 						</div>
 						<div class="col">
 								<label><?php echo $fullnameeng;?></label>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md">
-						    <label class="font-weight-bold" for="citizenid">Citizen ID :/</label>
-							<label for="citizenid">เลขบัตรประชาชน</label>
+						<div class="col-md-3">
+						    <label class="font-weight-bold" for="citizenid">Citizen ID :</label>
+							<small class="sub">เลขบัตรประชาชน</small>
 						</div>
 						<div class="col">
 							<label><?php echo $citizenid;?></label>
@@ -57,8 +57,9 @@
 
 					
 					<div class="row">						
-						<div class="col-md">
-							<label class="font-weight-bold" for="dob">วัน/เดือน/ปีเกิด :</label>
+						<div class="col-md-3">
+							<label class="font-weight-bold" for="dob">Date of birth :</label>
+							<small class="sub">วัน/เดือน/ปีเกิด :</small>
 						</div>
 						<div class="col-md">
 							<label><?php echo $dob;?></label>
@@ -66,7 +67,8 @@
 					</div>				
 					<div class="row">
 						<div class="col-md">
-						<label class="font-weight-bold" for="termEnd">ภาคการศึกษาที่ขอจบ :</label>
+						<label class="font-weight-bold" for="termEnd">Graduated semester :</label>
+						<small class="sub">ภาคการศึกษาที่ขอจบ</small>
 						</div>
 						<div class="col-md">
 						<div class="form-group">						
@@ -79,7 +81,8 @@
 						</div>
 						</div>
 						<div class="col-md">
-						<label class="font-weight-bold" for="yearEnd">ปีการศึกษาที่ขอจบ :</label>
+						<label class="font-weight-bold" for="yearEnd">Graduated year :</label>
+						<small class="sub">ปีการศึกษาที่ขอจบ</small>
 						</div>
 							<div class="col-md">
 							<div class="form-group">						
@@ -95,13 +98,15 @@
 					<div class="row">
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="homenumber">บ้านเลขที่:</label>
+						<label class="font-weight-bold" for="homenumber">House no:</label>
+						<small class="sub">บ้านเลขที่</small>
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<input type="text" class="form-control" id="homenumber" name="homenumber" placeholder="บ้านเลขที่" />
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<label class="font-weight-bold" for="soi">ซอย:</label>
+						<label class="font-weight-bold" for="soi">Lane:</label>
+						<small class="sub">ซอย</small>
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<input type="text" class="form-control" id="soi" name="soi" placeholder="ซอย" />
@@ -110,7 +115,8 @@
 					<div class="row">
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="street">ถนน:</label>
+						<label class="font-weight-bold" for="street">Street:</label>
+						<small class="sub">ถนน</small>
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
@@ -118,7 +124,8 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="subdistrict">ตำบล:</label>
+						<label class="font-weight-bold" for="subdistrict">Sub-district:</label>
+						<small class="sub">ตำบล</small>
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
@@ -128,7 +135,8 @@
 					<div class="row">
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="district">อำเภอ:</label>
+						<label class="font-weight-bold" for="district">District:</label>
+						<small class="sub">อำเภอ</small>
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
@@ -136,7 +144,8 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="province">จังหวัด:</label>
+						<label class="font-weight-bold" for="province">Province:</label>
+						<small class="sub">จังหวัด</small>
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">						
@@ -226,13 +235,15 @@
 					<div class="row">
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="zipcode">รหัสไปรษณีย์:</label>
+						<label class="font-weight-bold" for="zipcode">Postal Code:</label>
+						<small class="sub">รหัสไปรษณีย์</small>
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="รหัสไปรษณีย์" />
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<label class="font-weight-bold" for="tel">หมายเลขโทรศัพท์:</label>
+						<label class="font-weight-bold" for="tel">Tel:</label>
+						<small class="sub">หมายเลขโทรศัพท์</small>
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" />

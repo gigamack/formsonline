@@ -19,27 +19,28 @@
 					<div class="row">
 						<div class="col">
 							<label class="font-weight-bold" for="stdid">Student ID /</label>
-							<label for="stdid">รหัสนักศึกษา:</label>
+							<!-- <label for="stdid">รหัสนักศึกษา:</label> -->
+							<small class="sub">รหัสนักศึกษา</small>
 							<label>
 								<?php echo $studentid;?></label>
 						</div>
 						<input type="hidden" id="stdid" name="stdid" value="<?php echo $studentid?>" />
 						<div class="col">
 							<label class="font-weight-bold" for="stdfullname">Fullname /</label>
-							<label for="stdfullname">ชื่อ-สกุล:</label>
+							<small class="sub">ชื่อ-สกุล:</small>
 							<label><?php echo $fullname;?></label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col">
 							<label class="font-weight-bold" for="fac">Faculty /</label>
-							<label for="fac">คณะ :</label>
+							<small class="sub">คณะ :</small>
 							<label>
 								<?php echo $faculty;?></label>
 						</div>
 						<div class="col">
 							<label class="font-weight-bold" for="major">Major /</label>
-							<label for="major">สาขาวิชา :</label>							
+							<small class="sub">สาขาวิชา :</small>						
 							<label>
 								<?php echo $majorname;?></label>
 						</div>
@@ -69,7 +70,7 @@
 					</div>
 					<div class="row">
 						<div class="col">
-							<label class="font-weight-bold" for="stdPicFile">In case of loss of previous card, the notice from police station is required / แนบไฟล์รูปภาพใบแจ้งความจากสถานีตำรวจ กรณีบัตรสูญหาย</label>
+							<label class="font-weight-bold" for="stdPicFile">In case of loss of previous card, the notice from police station is required <small class="sub">แนบไฟล์รูปภาพใบแจ้งความจากสถานีตำรวจ กรณีบัตรสูญหาย</small></label>
 						</div>
 					</div>
 					<div class="row">

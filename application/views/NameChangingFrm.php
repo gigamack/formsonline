@@ -8,7 +8,7 @@ $majorname = $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_ENG'];
 			method="post" enctype="multipart/form-data">
 			<div class="card text-black bg-light">
 				<h6 class="card-header bg-primary">
-					คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล
+					Change of name form / คำร้องขอเปลี่ยน ชื่อ-สกุล
 				</h6>
 				<div class="card-body">
 					<div class="form-group">

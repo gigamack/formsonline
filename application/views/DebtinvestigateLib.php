@@ -23,7 +23,7 @@
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post">
 			<div class="card">
 				<h5 class="card-header bg-primary text-light">
-				Request form for Graduation and Debt Investigation (Graduate School) / คำร้องเพื่อขอสำเร็จการศึกษาและสำรวจหนี้สิน (ระดับบัณฑิตศึกษา)
+					คำร้องเพื่อขอสำเร็จการศึกษาและสำรวจหนี้สิน (ระดับบัณฑิตศึกษา)
 				</h5>
 				<div class="card-body">
 					<div class="row">
@@ -114,11 +114,7 @@
 							</tr>
 							<tr>
 							<th scope="col">งานรับนักศึกษาและทะเบียนกลาง / Student Admission and Registration</th>
-							<td>
-							<div class="form-check">								
-								<label><input type="checkbox" value=""> ยืนยันไม่มีหนี้สิน</label>				
-							</div>	
-							</td>
+							<td></td>
 							<td></td>
 							<td></td>
 							</tr>

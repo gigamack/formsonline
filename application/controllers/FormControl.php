@@ -210,6 +210,10 @@
             {
                 $this->load->view('GraduateReqForm');
             }
+            else if($chosenform=='4')
+            {
+                $this->load->view('DebtInvestigate');
+            }
             $this->load->view('StdReqTable',$data);
             $this->load->view('footer');
         }

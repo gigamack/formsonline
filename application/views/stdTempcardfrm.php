@@ -12,9 +12,9 @@
 <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post"
 			enctype="multipart/form-data">
 			<div class="card">
-				<h5 class="card-header bg-primary text-light">
-				Request Form for temporary PSU Identification Card
-				</h5>
+				<h6 class="card-header bg-primary text-light">
+				Request Form for temporary PSU Identification Card / คำร้องขอรับบัตรนักศึกษาชั่วคราว
+				</h6>
 				<div class="card-body">
 					<div class="row">
 						<div class="col">

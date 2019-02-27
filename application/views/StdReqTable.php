@@ -2,7 +2,7 @@
             $GetDocID = $docList;
 ?>
 <div class="card" style="margin: 20px auto auto auto">
-				<h6 class="card-header text-light Stidti" style="background-color: #003c71;">
+				<h6 class="card-header text-light Stidti bg-primary" style="background-color: #003c71;">
 				History
 				</h6>
 				<div class="card-body">

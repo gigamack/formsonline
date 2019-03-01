@@ -9,7 +9,7 @@
 }
 
 html {
-	font-size: 20px;
+	
 }
 form
 {
@@ -29,10 +29,29 @@ form small.sub {
 
 body {
 	font-family: 'DB ChuanPim PSU v3.2.1';
+	font-size: 16px; /*NR*/
 	/* font-size: 26px;
     color:#000; */
 }
 
+h1 {
+	font-size: 2rem;
+}
+h2 {
+	font-size: 1.8rem;
+}
+h3 {
+	font-size: 1.6rem;
+}
+h4 {
+	font-size: 1.4rem;
+}
+h5 {
+	font-size: 1.2rem;
+}
+h6 {
+	font-size: 1rem;
+}
 h1,
 h2,
 h3,
@@ -126,4 +145,18 @@ h6 {
 .btn-success:not(:disabled):not(.disabled).active:focus,
 .show>.btn-success.dropdown-toggle:focus {
 	box-shadow: 0 0 0 0.2rem rgb(89, 203, 232);
+}
+
+.row {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+[class*="col"] {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.text-minor {
+	color: #ccc;
 }

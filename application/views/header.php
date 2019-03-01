@@ -27,9 +27,9 @@
 		<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
 			<a href="<?php echo base_url("/FormControl/stdMain") ?>" class="navbar-brand">
 			<!-- <a href="<?php echo base_url("/FormControl/stdCardMain") ?>" class="navbar-brand"> -->
-				<img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;" />
-				Online Forms System
+				<img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;" />				
 			</a>
+			<a href="<?php echo base_url("/FormControl/stdMain") ?>" class="navbar-brand"><h5>Online Form System</h5></a>
 			<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
 			 aria-controls="#navbarsExampleDefault" aria-expanded="false">
 				<span class="navbar-toggler-icon"></span>

@@ -117,7 +117,7 @@
 							<td>
 								<div class="form-check">
 								<input type="checkbox" class="form-check-input" id="exampleCheck1">
-								<label><input type="checkbox" value="">ยืนยันไม่มีหนี้สิน</label>				
+								<label>ยืนยันไม่มีหนี้สิน</label>				
 								</div>	
 							</td>
 							<td></td>

@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 </head>
-
-<body>
 	<?php
     $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
 	$fullname=$_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
@@ -19,12 +14,12 @@
 	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
 
 ?>
-	<div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post">
 			<div class="card">
-				<h5 class="card-header bg-primary text-light">
-				Request form for Graduation and Debt Investigation (Graduate School) / คำร้องเพื่อขอสำเร็จการศึกษาและสำรวจหนี้สิน (ระดับบัณฑิตศึกษา)
-				</h5>
+				<div class="card-header bg-primary text-light">
+				   <h4>Request form for Graduation and Debt Investigation (Graduate School) </h4> 
+				   <h6 class="text-minor">คำร้องเพื่อขอสำเร็จการศึกษาและสำรวจหนี้สิน (ระดับบัณฑิตศึกษา) </h6>
+                 </div>
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-3">
@@ -115,9 +110,9 @@
 							<tr>
 							<th scope="col">งานรับนักศึกษาและทะเบียนกลาง / Student Admission and Registration</th>
 							<td>
-							<div class="form-check">								
+							<!-- <div class="form-check">								
 								<label><input type="checkbox" value=""> ยืนยันไม่มีหนี้สิน</label>				
-							</div>	
+							</div>	 -->
 							</td>
 							<td></td>
 							<td></td>
@@ -141,7 +136,4 @@
 				</div>
 			</div>
 		</form>	
-	</div>
-</body>
 
-</html>

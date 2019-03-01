@@ -12,9 +12,10 @@
 <form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post"
 			enctype="multipart/form-data">
 			<div class="card">
-				<h6 class="card-header bg-primary text-light">
-				Request Form for temporary PSU Identification Card / คำร้องขอรับบัตรนักศึกษาชั่วคราว
-				</h6>
+				<div class="card-header bg-primary text-light">
+				<h4>Request Form for temporary PSU Identification Card</h4>
+				<h6 class="text-minor">คำร้องขอรับบัตรนักศึกษาชั่วคราว</h6>
+				</div>
 				<div class="card-body">
 					<div class="row">
 						<div class="col">
@@ -74,12 +75,12 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col">
+						<div class="col-md-12">
 							<input type="file" class="form-control-file" id="stdPicFile" name="stdPicFile">
 						</div>
 					</div>
 					<div class="row">
-						<div class="col">
+						<div class="col-md-12">
 							<label class="text-danger font-weight-bold">* Please bring your 1 inch formal photo to registration office when you contact to receive new student ID card / ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว
 								1 รูปมาด้วย</label>
 						</div>

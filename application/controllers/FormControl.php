@@ -218,6 +218,38 @@
             $this->load->view('footer');
         }
 
+        public function formcallerStaff()
+        {   
+            $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
+            $dataSelect=array('StudentID' => $studentid);
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
+            $chosenform = $_POST['formselect'];
+            $this->load->view('css');
+            $this->load->view('header');           
+            $_SESSION["ddlchosen"] = $chosenform;
+            $this->load->view('StdReqDdlPart',$data);            
+            if($chosenform=='1')
+            {
+                $this->load->view('stdTempcardfrm');
+                // $this->load->view('TempStdCardReq');
+            }
+            else if($chosenform=='2')
+            {
+                $this->load->view('NameChangingFrm');
+            }
+            else if($chosenform=='3')
+            {
+                $this->load->view('GraduateReqForm');
+            }
+            else if($chosenform=='4')
+            {
+                $this->load->view('DebtInvestigate');
+            }
+            $this->load->view('StdReqTable',$data);
+            $this->load->view('footer');
+        }
+
         public function changenameform()
         {
             $this->load->view('css');
@@ -700,6 +732,14 @@
             $this->load->view('css');
             $this->load->view('header');
             $this->load->view('DebtInvestigate');
+            $this->load->view('footer');
+        }
+        public function DebtInvestigatefReg()
+        {
+            $this->chkSTDLogin();
+            $this->load->view('css');
+            $this->load->view('header');
+            $this->load->view('DebtInvestigateReg');
             $this->load->view('footer');
         }
         

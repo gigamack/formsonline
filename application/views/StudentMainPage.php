@@ -20,7 +20,7 @@
 	<div class="container Chuanpim" id="ResultList">
         <form action="<?php echo base_url("/FormControl/formcaller") ?>" method="post">
         <div class="card" style="margin: 20px auto auto auto">
-            <h5 class="card-header bg-primary text-light Stidti">Add new request</h5>
+            <h6 class="card-header bg-primary text-light Stidti">Add new request</h6>
             <div class = "row" style="margin: 20px auto auto auto">
                 <div class = "col-mb-6 pb-3">
 					<select class="custom-select" id="formselect" name="formselect">
@@ -51,19 +51,19 @@
 		<!-- above this line is form code -->
 
 			<div class="card" style="margin: 20px auto auto auto">
-				<h5 class="card-header bg-primary text-light Stidti">
+				<h6 class="card-header bg-primary text-light Stidti">
 					History
-				</h5>
+				</h6>
 				<div class="card-body">
 					<table id="unfinishedReq" class="table table-hove">
 						<thead>
 							<tr class="">
-								<th scope="col">#</th>
-								<th scope="col">Type</th>
-								<th scope="col">Created Date</th>
-								<th scope="col">Status</th>
-                                <th scope="col">Processed Date</th>
-								<th scope="col">Manage</th>
+								<th scope="col" class="text-center">#</th>
+								<th scope="col" class="text-center">Type</th>
+								<th scope="col" class="text-center">Created Date</th>
+								<th scope="col" class="text-center">Status</th>
+                                <th scope="col" class="text-center">Processed Date</th>
+								<th scope="col" class="text-center">Manage</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -100,10 +100,19 @@
                                     $visible="display: none;";
                                 }
                                 ?>
-								<td><a href="<?php echo base_url($linkpage);?>"><img id="Image1" src="../assets/images/view.png"
-										 style="width:30px;" /></a>
-									<a href="<?php echo base_url('FormControl/delReq?docID='.$docid->DocID);?>" onclick="return confirm('ยืนยันที่จะลบรายการนี้?');"><img
-										 id="Image1" src="../assets/images/trash.png" style="<?php echo $visible;?>" /></a></td>
+								<td>	<div class="row">
+								<!-- <a href="<?php echo base_url($linkpage);?>"><img id="Image1" src="../assets/images/view.png"
+										 style="width:30px;" /></a> -->
+										<div class="col">
+										<a href="<?php echo base_url($linkpage);?>">Edit</a>	 
+										</div>
+									<!-- <a href="<?php echo base_url('FormControl/delReq?docID='.$docid->DocID);?>" onclick="return confirm('ยืนยันที่จะลบรายการนี้?');"><img
+										 id="Image1" src="../assets/images/trash.png" style="<?php echo $visible;?>" /></a> -->
+										 <div class="col">
+										 <a href="<?php echo base_url('FormControl/delReq?docID='.$docid->DocID);?>" style="<?php echo $visible;?>" onclick="return confirm('Confirm to delete ?');">Delete</a>
+										 </div>
+										 </div>
+								</td>
 							</tr>
 
 							<?php $i++;}?>

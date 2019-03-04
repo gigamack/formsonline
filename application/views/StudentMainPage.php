@@ -20,7 +20,7 @@
 	<div class="container Chuanpim" id="ResultList">
         <form action="<?php echo base_url("/FormControl/formcaller") ?>" method="post">
         <div class="card" style="margin: 20px auto auto auto">
-            <h6 class="card-header bg-primary text-light Stidti">Add new request</h6>
+            <h6 class="card-header bg-success text-light Stidti">Add new request</h6>
             <div class = "row" style="margin: 20px auto auto auto">
                 <div class = "col-mb-6 pb-3">
 					<select class="custom-select" id="formselect" name="formselect">
@@ -32,7 +32,7 @@
                     </select>
                 </div>
                 <div class = "col-mb-2"> 
-                  <button type="submit" class="btn btn-success">Select</button>  
+                  <button type="submit" class="btn btn-primary">Select</button>  
                 </div>  
             </div>            
         </div>
@@ -51,7 +51,7 @@
 		<!-- above this line is form code -->
 
 			<div class="card" style="margin: 20px auto auto auto">
-				<h6 class="card-header bg-primary text-light Stidti">
+				<h6 class="card-header bg-success text-light Stidti">
 					History
 				</h6>
 				<div class="card-body">

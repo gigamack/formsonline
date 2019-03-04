@@ -24,12 +24,12 @@
 
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+		<nav class="navbar navbar-expand-lg bg-success navbar-dark">
 			<a href="<?php echo base_url("/FormControl/stdMain") ?>" class="navbar-brand">
 			<!-- <a href="<?php echo base_url("/FormControl/stdCardMain") ?>" class="navbar-brand"> -->
 				<img id="Image1" src="../assets/images/PSU_EN-H.gif" style="width:70px;" />				
 			</a>
-			<a href="<?php echo base_url("/FormControl/stdMain") ?>" class="navbar-brand"><h5>Online Form System</h5></a>
+			<a href="<?php echo base_url("/FormControl/stdMain") ?>" class="navbar-brand"><h5>KTB NEXT</h5></a>
 			<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
 			 aria-controls="#navbarsExampleDefault" aria-expanded="false">
 				<span class="navbar-toggler-icon"></span>

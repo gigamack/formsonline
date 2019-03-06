@@ -329,6 +329,12 @@
             }
             else if($data['docInfo'][0]['DocTypeID']==2)
             {$this->load->view('ChangenameAllow',$data);               
+            }
+            else if($data['docInfo'][0]['DocTypeID']==3)
+            {$this->load->view('updateStatGrad',$data);               
+            }
+            else if($data['docInfo'][0]['DocTypeID']==4)
+            {$this->load->view('DebtInvestigateStaff',$data);               
             }          
         //    $this->load->view('sidebar');
             $this->load->view('footer');
@@ -734,12 +740,12 @@
             $this->load->view('DebtInvestigate');
             $this->load->view('footer');
         }
-        public function DebtInvestigatefReg()
+        public function DebtInvestigateStaff()
         {
             $this->chkSTDLogin();
             $this->load->view('css');
             $this->load->view('header');
-            $this->load->view('DebtInvestigateReg');
+            $this->load->view('DebtInvestigateStaff');
             $this->load->view('footer');
         }
         

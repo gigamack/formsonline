@@ -48,12 +48,31 @@
 									<?php $i=1;?>
 									<?php foreach($GetDocID as $docid){?>
 									<?php if(strpos($docid->stateID,'s01') !== false){ ?>
+										<?php
+										$docTypeName="";
+										if ($docid->DocTypeID==1)
+										{
+											$docTypeName = 'คำร้องขอทำบัตรนักศึกษาชั่วคราว';
+										}
+										else if ($docid->DocTypeID==2)
+										{
+											$docTypeName = 'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล';
+										}
+										else if ($docid->DocTypeID==3)
+										{
+											$docTypeName = 'คำร้องขอสำเร็จการศึกษา';
+										}
+										else if ($docid->DocTypeID==4)
+										{
+											$docTypeName = 'คำร้องขอตรวจสอบหนี้สิน';
+										}									
+									?>
 									<tr class="">
 										<th scope="row">
 											<?php echo $i; ?>
 										</th>
 										<td>
-										<?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':($docid->DocTypeID==2?'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล':''));?>
+										<?php echo $docTypeName;?>
 										</td>
 										<td>
 											<?php echo $docid->StudentID;?>
@@ -62,8 +81,7 @@
 											<?php echo $docid->CreatedDate;?>
 										</td>
 										<td>รอการตรวจสอบ</td>
-										<td><a href="<?php echo base_url('FormControl/stdCardAllow?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>"><img
-												 id="Image1" src="../assets/images/view.png" style="width:30px;" /></a></td>
+										<td><a href="<?php echo base_url('FormControl/stdCardAllow?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>">Manage</a></td>
 									</tr>
 									<?php $i++;}}?>
 								</tbody>
@@ -93,12 +111,31 @@
 									<?php $i=1;?>
 									<?php foreach($docList2 as $docid){?>
 									<?php if(strpos($docid->stateID,'s01') == false){ ?>
+									<?php
+										$docTypeName="";
+										if ($docid->DocTypeID==1)
+										{
+											$docTypeName = 'คำร้องขอทำบัตรนักศึกษาชั่วคราว';
+										}
+										else if ($docid->DocTypeID==2)
+										{
+											$docTypeName = 'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล';
+										}
+										else if ($docid->DocTypeID==3)
+										{
+											$docTypeName = 'คำร้องขอสำเร็จการศึกษา';
+										}
+										else if ($docid->DocTypeID==4)
+										{
+											$docTypeName = 'คำร้องขอตรวจสอบหนี้สิน';
+										}									
+									?>
 									<tr class="">
 										<th scope="row">
 											<?php echo $i; ?>
 										</th>
 										<td>
-											<?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':($docid->DocTypeID==2?'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล':''));?>
+											<?php echo $docTypeName;?>
 										</td>
 										<td>
 											<?php echo $docid->StudentID;?>

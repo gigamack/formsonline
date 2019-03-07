@@ -127,7 +127,7 @@
 					<div class="row">
 						<div class="col">
 							<div class="form-group">
-									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
+									<input type="hidden" id="DocTypeID" name="DocTypeID" value="5" />
 									<input type="hidden" id="stateID" name="stateID" value="t05s01" />
 									<button type="submit" class="btn btn-success">Submit</button>
 							</div>

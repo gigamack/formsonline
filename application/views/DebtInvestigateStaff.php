@@ -5,26 +5,36 @@
 	<title>Document</title>
 </head>
 	<?php
-    $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
-	$fullname=$_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
-	$fullnameeng=$_SESSION['userSession']['StudentInfo']['STUD_NAME_ENG'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_ENG'];
-    $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
-	$majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
-	$dob=$_SESSION['userSession']['StudentInfo']['STUD_BIRTH_DATE'];
-    $citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
-    $appFacStaff = "";
+    // $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
+	// $fullname=$_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
+	// $fullnameeng=$_SESSION['userSession']['StudentInfo']['STUD_NAME_ENG'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_ENG'];
+    // $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
+	// $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
+	// $dob=$_SESSION['userSession']['StudentInfo']['STUD_BIRTH_DATE'];
+    // $citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
+    // $appFacStaff = "";
     $appdateFac = "";
     $appLibStaff = "";
     $appdateLib = "";
     $appBuildStaff = "";
     $appdateBuild = "";
     $appRegStaff = "";
-    $appdateReg = "";
-
+	$appdateReg = "";
+	/* ******** */
+	$getDocInfo = $docInfo[0];
+    $getStdInfo = $stdinfo; 
+    $studentid= $getDocInfo['StudentID'];
+    $fullnameeng= $getStdInfo['TITLE_NAME_ENG'].$getStdInfo['STUD_NAME_ENG'].' '.$getStdInfo['STUD_SNAME_ENG'];
+    $faculty=$getStdInfo['FAC_NAME_THAI'];
+    $majorname=$getStdInfo['MAJOR_NAME_THAI'];
+	$staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];		
+	$dob=$getStdInfo['STUD_BIRTH_DATE'];
+	$citizenid=$getStdInfo['CITIZEN_ID'];
+	$dob=$_SESSION['userSession']['StudentInfo']['STUD_BIRTH_DATE'];    
 ?>
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post">
 			<div class="card">
-				<div class="card-header bg-primary text-light">
+				<div class="card-header bg-success text-light">
 				   <h4>Request form for Graduation and Debt Investigation (Graduate School) </h4> 
 				   <h6 class="text-minor">คำร้องเพื่อขอสำเร็จการศึกษาและสำรวจหนี้สิน (ระดับบัณฑิตศึกษา) </h6>
                  </div>
@@ -97,8 +107,8 @@
 							<tr>
 							<th scope="col">คณะ / Faculty</th>
 							<td>
-                                <label class="radio-inline"><input type="radio" name="nodebtfac" value="0">ไม่มีหนี้สิน</label>
-                                <label class="radio-inline"><input type="radio" name="hasdebtfac" value="1">มีหนี้สิน</label>
+                                <label class="radio-inline"><input type="radio" name="debtfac" value="0">ไม่มีหนี้สิน</label>
+                                <label class="radio-inline"><input type="radio" name="debtfac" value="1">มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appFacStaff; ?></td>
 							<td><?php echo $appdateFac; ?></td>
@@ -109,8 +119,8 @@
 							<tr>
 							<th scope="col">ห้องสมุด / Library</th>
 							<td>
-                            <label class="radio-inline"><input type="radio" name="nodebtlib" value="0">ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="hasdebtlib" value="1">มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtlib" value="0">ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtlib" value="1">มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appLibStaff; ?></td>
 							<td><?php echo $appdateLib; ?></td>
@@ -118,8 +128,8 @@
 							<tr>
 							<th scope="col">อาคาร / Building</th>
 							<td>
-                            <label class="radio-inline"><input type="radio" name="nodebtbuild" value="0">ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="hasdebtbuild" value="1">มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtbuild" value="0">ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtbuild" value="1">มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appBuildStaff; ?></td>
 							<td><?php echo $appdateBuild; ?></td>
@@ -127,8 +137,8 @@
 							<tr>
 							<th scope="col">งานรับนักศึกษาและทะเบียนกลาง<br/>Student Admission and Registration</th>
 							<td>
-                            <label class="radio-inline"><input type="radio" name="nodebtreg" value="0">ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="hasdebtreg" value="1">มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="0">ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="1">มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appRegStaff; ?></td>
 							<td><?php echo $appdateReg; ?></td>

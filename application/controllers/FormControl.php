@@ -334,7 +334,7 @@
             {$this->load->view('updateStatGrad',$data);               
             }
             else if($data['docInfo'][0]['DocTypeID']==4)
-            {$this->load->view('DebtInvestigateStaff',$data);               
+            {$this->load->view('DebtInvestigateStaff',$data);              
             }          
         //    $this->load->view('sidebar');
             $this->load->view('footer');

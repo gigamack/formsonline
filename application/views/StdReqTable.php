@@ -2,7 +2,7 @@
             $GetDocID = $docList;
 ?>
 <div class="card" style="margin: 20px auto auto auto">
-				<h6 class="card-header text-light Stidti bg-primary" style="background-color: #003c71;">
+				<h6 class="card-header text-light Stidti bg-success" style="background-color: #003c71;">
 				History
 				</h6>
 				<div class="card-body">
@@ -24,11 +24,34 @@
 								<th scope="row">
 									<?php echo $i; ?>
 								</th>
+								<?php
+										$docTypeName="";
+										if ($docid->DocTypeID==1)
+										{
+											$docTypeName = 'คำร้องขอทำบัตรนักศึกษาชั่วคราว';
+										}
+										else if ($docid->DocTypeID==2)
+										{
+											$docTypeName = 'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล';
+										}
+										else if ($docid->DocTypeID==3)
+										{
+											$docTypeName = 'คำร้องขอสำเร็จการศึกษา';
+										}
+										else if ($docid->DocTypeID==4)
+										{
+											$docTypeName = 'คำร้องขอสำเร็จการศึกษา ป.โท';
+										}
+										else if ($docid->DocTypeID==5)
+										{
+											$docTypeName = 'คำร้องขอตรวจสอบหนี้สิน';
+										}									
+									?>
 								<td>
-									<?php echo ($docid->DocTypeID==1?'คำร้องขอทำบัตรนักศึกษาชั่วคราว':($docid->DocTypeID==2?'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล':($docid->DocTypeID==3?'คำร้องขอสำเร็จการศึกษา':'')));?>
+									<?php echo $docTypeName; ?>
 								</td>
 								<td class="text-center">
-									<?php echo $docid->CreatedDate ?>
+									<?php echo $docid->CreatedDate; ?>
 								</td>
 								<td class="text-center <?php echo ($docid->OfficerCommentID == '1') ? 'text-primary' : ($docid->OfficerCommentID == '2'?'text-danger':'text-info');?>">
                                 <?php echo ($docid->OfficerCommentID == '1') ? 'Approved' : ($docid->OfficerCommentID == '2'?'Disapproved':'Waiting');?>

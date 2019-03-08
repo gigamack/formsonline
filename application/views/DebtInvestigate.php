@@ -14,7 +14,7 @@
 	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
 
 ?>
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDebtinvestigate") ?>" method="post">
 			<div class="card">
 				<div class="card-header bg-primary text-light">
 				   <h4>Request form for Graduation and Debt Investigation (Graduate School) </h4> 

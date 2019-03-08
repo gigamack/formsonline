@@ -64,7 +64,9 @@
             $this->load->view('css');
             $this->load->view('header');
         //    $this->load->view('sidebar');
-            $this->load->view('StudentMainPage',$data);
+        $this->load->view('StdReqDdlPart',$data);  
+        $this->load->view('StdReqTable',$data);        
+            // $this->load->view('StudentMainPage',$data);
             $this->load->view('footer');
             // $this->load->view('script');         
         }
@@ -190,7 +192,7 @@
         {   
             $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
             $dataSelect=array('StudentID' => $studentid);
-            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','ASC');
+            $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','DESC');
             $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
             $chosenform = $_POST['formselect'];
             $this->load->view('css');
@@ -244,7 +246,7 @@
             }
             else if($chosenform=='4')
             {
-                $this->load->view('DebtInvestigate');
+                $this->load->view('DebtInvestigateStaff');
             }
             $this->load->view('StdReqTable',$data);
             $this->load->view('footer');
@@ -334,6 +336,9 @@
             {$this->load->view('updateStatGrad',$data);               
             }
             else if($data['docInfo'][0]['DocTypeID']==4)
+            {$this->load->view('#',$data);              
+            }   
+            else if($data['docInfo'][0]['DocTypeID']==5)
             {$this->load->view('DebtInvestigateStaff',$data);              
             }          
         //    $this->load->view('sidebar');
@@ -436,7 +441,7 @@
             $data2 = array('DocID' => $maxDocID->DocID
             , 'stateID' => $_POST['stateID']);
             $this->DocStateModel->InsertDocState($data2);
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);
         }
 
@@ -461,7 +466,7 @@
             $data2 = array('DocID' => $maxDocID->DocID
             , 'stateID' => $_POST['stateID']);
             $this->DocStateModel->InsertDocState($data2);
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);
         }
 
@@ -480,7 +485,8 @@
             , 'thesissubjCode' => $_POST['thesissubjCode']
             , 'thesisnameth' => $_POST['thesisnameth']
             , 'thesisnameeng' => $_POST['thesisnameeng']
-            , 'engtest' => $_POST['engtest']);
+            , 'engtest' => $_POST['engtest']
+            , 'DocTypeID' => $_POST['DocTypeID']);
             $this->DocModel->InsertDoc($data);
             $dataMaxDocID = array('StudentID' => $_POST['stdid']);
             $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
@@ -488,9 +494,27 @@
             $data2 = array('DocID' => $maxDocID->DocID
             , 'stateID' => $_POST['stateID']);
             $this->DocStateModel->InsertDocState($data2);
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);
         }
+
+        public function insertDebtinvestigate()
+        {
+            $data= array('StudentID' => $_POST['stdid']
+            , 'engtest' => $_POST['engtest']
+            , 'DocTypeID' => $_POST['DocTypeID']);
+            $this->DocModel->InsertDoc($data);
+            $dataMaxDocID = array('StudentID' => $_POST['stdid']);
+            $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
+            $maxDocID=$maxDocIDS[0];
+            $data2 = array('DocID' => $maxDocID->DocID
+            , 'stateID' => $_POST['stateID']);
+            $this->DocStateModel->InsertDocState($data2);
+            $this->send_mail();      
+            $back = base_url("/FormControl/stdMain");
+            header('Location:' . $back);
+        }
+
 
         //added 05-2-2019
         public function editRequest()
@@ -697,6 +721,96 @@
                                 , 'zipcode' => $_POST['zipcode']
                                 , 'DocTypeID' => $_POST['DocTypeID']);
                     $this->DocModel->updateDoc($data,$_POST['docID']);                    
+            $back = base_url("/FormControl/stdCardMain");
+            header('Location:' . $back);         
+        }
+
+        public function updateDebtinvestigate()
+        {           
+                    $Fullname = $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][1].' '.$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][2];
+                    $appdate = date("Y-m-d");
+                    $debtfac = 0;
+                    $debtlib = 0;
+                    $debtbuild = 0;
+                    $debtreg = 0;
+                    $debtFacapproveby ='';
+                    $debtFacapprovedate ='';
+                    $debtLibapproveby ='';
+                    $debtLibapprovedate ='';
+                    $debtBuildtapproveby ='';
+                    $debtBuildapprovedate ='';
+                    $debtRegtapproveby ='';
+                    $debtRegapprovedate ='';
+
+                    if(isset($_POST['debtfac']))
+                    {
+                        $debtfac = $_POST['debtfac'];
+                        $debtFacapproveby=$Fullname;
+                        $debtFacapprovedate=$appdate;
+                    }
+                    else
+                    {
+                        
+                        $debtfac = 0;                        
+                        $debtFacapproveby="";
+                        $debtFacapprovedate="";
+                    } 
+
+                    if(!isset($_POST['debtlib']))
+                    {
+                        $debtlib = 0;
+                        $debtLibapproveby="";
+                        $debtLibapprovedate="";
+                    }  
+                    else
+                    {
+                        $debtlib = $_POST['debtlib'];
+                        $debtLibapproveby=$Fullname;
+                        $debtLibapprovedate=$appdate;
+                    }
+
+                    if(!isset($_POST['debtbuild']))
+                    {
+                        $debtbuild = 0;
+                        $debtBuildtapproveby="";
+                        $debtBuildapprovedate="";
+                    }  
+                    else
+                    {
+                        $debtbuild = $_POST['debtbuild'];
+                        $debtBuildtapproveby=$Fullname;
+                        $debtBuildapprovedate=$appdate;
+                    }
+
+                    if(!isset($_POST['debtreg']))
+                    {
+                        $debtreg = 0;    
+                        $debtRegtapproveby="";
+                        $debtRegapprovedate="";                   
+                    } 
+                    else
+                    {
+                        $debtreg = $_POST['debtreg'];    
+                        $debtRegtapproveby=$Fullname;
+                        $debtRegapprovedate=$appdate;    
+                    }
+
+                    $data=array('DocID' => $_POST['docID']
+                                , 'StudentID' => $_POST['stdid']                                
+                                , 'nodebtFac' => $debtfac
+                                , 'nodebtLib' => $debtlib
+                                , 'nodebtBuild' => $debtbuild
+                                , 'nodebtReg' => $debtreg
+                                , 'debtFacapproveby' => $debtFacapproveby 
+                                , 'debtFacapprovedate' => $debtFacapprovedate
+                                , 'debtLibapproveby' =>  $debtLibapproveby
+                                , 'debtLibapprovedate' => $debtLibapprovedate
+                                , 'debtBuildtapproveby' => $debtBuildtapproveby
+                                , 'debtBuildapprovedate' => $debtBuildapprovedate
+                                , 'debtRegtapproveby' => $debtRegtapproveby
+                                , 'debtRegapprovedate' => $debtRegapprovedate
+                                , 'DocTypeID' => $_POST['DocTypeID']);
+                    $this->DocModel->updateDoc($data,$_POST['docID']);                   
             $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);         
         }

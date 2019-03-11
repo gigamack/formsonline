@@ -11,10 +11,12 @@
 
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg bg-primary navbar-dark " style="background-color: #003c71;">
+		<nav class="navbar navbar-expand-lg bg-success navbar-dark " style="background-color: #003c71;">
 			<a href="" class="navbar-brand">
-				<img id="Image1" src="<?php echo base_url(); ?>/assets/images/PSU_EN-H.gif" style="width:70px;" />
-				Online Forms System
+				<img id="Image1" src="<?php echo base_url(); ?>/assets/images/PSU_EN-H.gif" style="width:70px;" />				
+			</a>
+			<a href="" class="navbar-brand">				
+				<h5>Online Forms System</h5>
 			</a>
 		</nav>
 	</header>

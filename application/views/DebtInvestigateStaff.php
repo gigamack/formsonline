@@ -12,17 +12,24 @@
 	// $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 	// $dob=$_SESSION['userSession']['StudentInfo']['STUD_BIRTH_DATE'];
     // $citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
-	// $appFacStaff = "";
-	$appFacStaff = "";
-    $appdateFac = "";
-    $appLibStaff = "";
-    $appdateLib = "";
-    $appBuildStaff = "";
-    $appdateBuild = "";
-    $appRegStaff = "";
-	$appdateReg = "";
+	// $appFacStaff = "";	
 	/* ******** */
 	$getDocInfo = $docInfo[0];
+	/*get approveinfo*/ 
+	$appFacStaff = $getDocInfo['debtFacapproveby'];
+    $appdateFac = $getDocInfo['debtFacapprovedate'];
+    $appLibStaff = $getDocInfo['debtLibapproveby'];
+    $appdateLib = $getDocInfo['debtLibapprovedate'];
+    $appBuildStaff = $getDocInfo['debtBuildtapproveby'];
+    $appdateBuild = $getDocInfo['debtBuildapprovedate'];
+    $appRegStaff = $getDocInfo['debtRegtapproveby'];
+	$appdateReg = $getDocInfo['debtRegapprovedate'];
+
+	if($appdateFac==0000-00-00) $appdateFac='';
+	if($appdateLib==0000-00-00) $appdateLib='';
+	if($appdateBuild==0000-00-00) $appdateBuild='';
+	if($appdateReg==0000-00-00) $appdateReg='';
+	/*end*/
     $getStdInfo = $stdinfo; 
 	$studentid= $getDocInfo['StudentID'];
 	$fullname= $getStdInfo['TITLE_NAME_THAI'].' '.$getStdInfo['STUD_NAME_THAI'].' '.$getStdInfo['STUD_SNAME_THAI'];
@@ -110,8 +117,8 @@
 							<tr>
 							<th scope="col">คณะ / Faculty</th>
 							<td>
-                                <label class="radio-inline"><input type="radio" name="debtfac" value="1">ไม่มีหนี้สิน</label>
-                                <label class="radio-inline"><input type="radio" name="debtfac" value="2">มีหนี้สิน</label>
+                                <label class="radio-inline"><input type="radio" name="debtfac" value="1" <?php if($getDocInfo['nodebtFac']== 1) echo "checked";?>>ไม่มีหนี้สิน</label>
+                                <label class="radio-inline"><input type="radio" name="debtfac" value="2" <?php if($getDocInfo['nodebtFac']== 2) echo "checked";?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appFacStaff; ?></td>
 							<td><?php echo $appdateFac; ?></td>
@@ -122,8 +129,8 @@
 							<tr>
 							<th scope="col">ห้องสมุด / Library</th>
 							<td>
-                            <label class="radio-inline"><input type="radio" name="debtlib" value="1">ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtlib" value="2">มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtlib" value="1" <?php if($getDocInfo['nodebtLib']== 1) echo "checked";?>>ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtlib" value="2" <?php if($getDocInfo['nodebtLib']== 2) echo "checked";?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appLibStaff; ?></td>
 							<td><?php echo $appdateLib; ?></td>
@@ -131,17 +138,17 @@
 							<tr>
 							<th scope="col">อาคาร / Building</th>
 							<td>
-                            <label class="radio-inline"><input type="radio" name="debtbuild" value="1">ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtbuild" value="2">มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtbuild" value="1" <?php if($getDocInfo['nodebtBuild']== 1) echo "checked";?>>ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtbuild" value="2" <?php if($getDocInfo['nodebtBuild']== 2) echo "checked";?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appBuildStaff; ?></td>
 							<td><?php echo $appdateBuild; ?></td>
 							</tr>                            
 							<tr>
 							<th scope="col">งานรับนักศึกษาและทะเบียนกลาง<br/>Student Admission and Registration</th>
-							<td>
-                            <label class="radio-inline"><input type="radio" name="debtreg" value="1">ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtreg" value="2">มีหนี้สิน</label>
+							<td>			
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="1" <?php if($getDocInfo['nodebtReg']== 1) echo "checked";?>>ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="2" <?php if($getDocInfo['nodebtReg']== 2) echo "checked";?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appRegStaff; ?></td>
 							<td><?php echo $appdateReg; ?></td>

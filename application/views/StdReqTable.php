@@ -51,24 +51,37 @@
 									<?php echo $docTypeName; ?>
 								</td>
 								<td class="text-center">
-									<?php echo $docid->CreatedDate; ?>
+									<?php 
+									$datenew = date("d-M-Y",strtotime($docid->CreatedDate));
+									// echo $docid->CreatedDate; 
+									echo $datenew;
+									?>
 								</td>
 								<td class="text-center <?php echo ($docid->OfficerCommentID == '1') ? 'text-primary' : ($docid->OfficerCommentID == '2'?'text-danger':'text-info');?>">
                                 <?php echo ($docid->OfficerCommentID == '1') ? 'Approved' : ($docid->OfficerCommentID == '2'?'Disapproved':'Waiting');?>
-                                </td>
+								</td>
+								<?php 
+									$processedDate = date("d-M-Y",strtotime($docid->OfficerCommentedDate));									
+									?>
                                 <td class="text-center">
-									<?php echo $docid->OfficerCommentedDate ?>
+									<?php 
+									// echo $docid->OfficerCommentedDate 
+									echo $processedDate;
+									?>
 								</td>
                                 <?php
                                 $linkpage="";
-                                $visible="";
+								$visible="";
+								$wording = '';
                                 if($docid->OfficerCommentID == '0')
                                 {
+									$wording = "Edit";
                                     $linkpage="FormControl/editReq?docID=".$docid->DocID;
                                     $visible="width:30px;";
                                 } 
                                 else
                                 {
+									$wording = "View";
                                     $linkpage='FormControl/AllowedStdView?docID='.$docid->DocID.'&stdID='.$docid->StudentID.'&doctypeID='.$docid->DocTypeID;
                                     $visible="display: none;";
                                 }
@@ -76,8 +89,9 @@
 								<td>	<div class="row">
 								<!-- <a href="<?php echo base_url($linkpage);?>"><img id="Image1" src="../assets/images/view.png"
 										 style="width:30px;" /></a> -->
-										<div class="col">
-										<a href="<?php echo base_url($linkpage);?>">Edit</a>	 
+										<div class="col">										
+										<a href="<?php echo base_url($linkpage);?>">
+										<?php echo $wording; ?></a>	 
 										</div>
 									<!-- <a href="<?php echo base_url('FormControl/delReq?docID='.$docid->DocID);?>" onclick="return confirm('ยืนยันที่จะลบรายการนี้?');"><img
 										 id="Image1" src="../assets/images/trash.png" style="<?php echo $visible;?>" /></a> -->

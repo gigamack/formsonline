@@ -30,6 +30,7 @@ class Authentication extends CI_Controller
                 } else 
                 {
                     // redirect(base_url("FormControl/stdCardMain"));
+                    $_SESSION["ddlchosen"]='0';
                     redirect(base_url("FormControl/stdMain"));
                     // print_r($_SESSION['userSession']['StudentInfo']);
                     // echo $_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
@@ -53,7 +54,9 @@ class Authentication extends CI_Controller
             $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][2]= $dataTest['STUD_SNAME_THAI']; //addded for test std
             $_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI']= $dataTest['FAC_NAME_THAI']; //addded for test std
             $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI']= $dataTest['MAJOR_NAME_THAI']; //addded for test std
-            redirect(base_url("FormControl/stdCardMain")); //addded for test std
+            $_SESSION["ddlchosen"]='0';
+            redirect(base_url("FormControl/stdMain"));
+            // redirect(base_url("FormControl/stdCardMain")); //addded for test std
         } //addded for test std
         else
         {

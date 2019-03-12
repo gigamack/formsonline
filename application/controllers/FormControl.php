@@ -570,6 +570,16 @@
             {
                 $this->load->view('EditGradReqForm',$data);
             }
+            else if($data['docInfo'][0]['DocTypeID']==4)
+            {
+                $this->load->view('EditMasterGradReqForm',$data);
+            }
+            else if($data['docInfo'][0]['DocTypeID']==5)
+            {
+                $this->load->view('EditDebtInvestigate',$data);
+            }
+
+            
             $this->load->view('footer');
         }
 
@@ -814,6 +824,19 @@
             $back = base_url("/FormControl/stdCardMain");
             header('Location:' . $back);         
         }
+
+        public function updateDebtinvestigateStd()
+        {           
+
+                    $data=array('DocID' => $_POST['docID']
+                                , 'StudentID' => $_POST['stdid']                                
+                                , 'engtest' => $_POST['engtest']
+                                , 'DocTypeID' => $_POST['DocTypeID']);
+                    $this->DocModel->updateDoc($data,$_POST['docID']);                   
+            $back = base_url("/FormControl/stdMain");
+            header('Location:' . $back);         
+        }
+
         public function insertDocNextState()
         {
             $data= array('DocID' => $_POST['docID']

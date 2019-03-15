@@ -6,10 +6,11 @@ $majorname = $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_ENG'];
 ?>
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertchangenameReq") ?>"
 			method="post" enctype="multipart/form-data">
-			<div class="card text-black bg-light">
-				<h6 class="card-header bg-primary">
-					Change of name form / คำร้องขอเปลี่ยน ชื่อ-สกุล
-				</h6>
+			<div class="card text-black bg-light">	
+				<div class="card-header bg-success text-light">
+				<h5>Change of name form</h5>
+				<h6 class="text-minor">คำร้องขอเปลี่ยน ชื่อ-สกุล</h6>
+				</div>
 				<div class="card-body">
 					<div class="form-group">
 						<div class="row">

@@ -5,25 +5,19 @@
     $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
 	$majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 	$dob=$_SESSION['userSession']['StudentInfo']['STUD_BIRTH_DATE'];
-	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
-	// print_r($_SESSION['userSession']);
-	//print_r($stdinfo);
+    $citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
+    $getDocInfo = $docInfo[0];
 ?>
-
-
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertGradReq") ?>" method="post">
+	<div class="container">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertMasterGradReq") ?>" method="post">
 			<div class="card">
-				<div class="card-header bg-success text-light">
-				<h5>
-					Request for graduation
+				<h5 class="card-header bg-primary text-light">
+					คำร้องขอสำเร็จการศึกษา
 				</h5>
-				<h6 class="text-minor">คำร้องขอสำเร็จการศึกษา</h6>
-				</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col-md-3">
-							<label class="font-weight-bold" for="stdid">Student ID:</label>
-							<small class="sub">รหัสนักศึกษา</small>
+						<div class="col">
+							<label class="font-weight-bold" for="stdid">รหัสนักศึกษา:</label>
 						</div>
 						<div class="col">
 							<label><?php echo $studentid;?></label>
@@ -31,38 +25,34 @@
 						<input type="hidden" id="stdid" name="stdid" value="<?php echo $studentid?>" />				
 					</div>
 					<div class="row">
-						<div class="col-md-3">
-						<label class="font-weight-bold" for="stdfullname">Fullname:</label>
-						<small class="sub">ชื่อ-สกุล</small>
+						<div class="col">
+							<label class="font-weight-bold" for="stdfullname">ชื่อ-สกุล :</label>
 						</div>
 						<div class="col">
 							<label><?php echo $fullname;?></label>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-3">
-								<label class="font-weight-bold" for="stdfullname">Fullname (English):</label>
-								<small class="sub">ชื่อ-สกุล(ภาษาอังกฤษ)</small>
+						<div class="col">
+								<label class="font-weight-bold" for="stdfullnameeng">ชื่อ-สกุล(ภาษาอังกฤษ) :</label>
 						</div>
 						<div class="col">
 								<label><?php echo $fullnameeng;?></label>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-3">
-						    <label class="font-weight-bold" for="citizenid">Citizen ID :</label>
-							<small class="sub">เลขบัตรประชาชน</small>
+						<div class="col-md">
+							<label class="font-weight-bold" for="citizenid">เลขบัตรประชาชน :</label>
 						</div>
-						<div class="col">
+						<div class="col-md">
 							<label><?php echo $citizenid;?></label>
 						</div>
 					</div>
 
 					
 					<div class="row">						
-						<div class="col-md-3">
-							<label class="font-weight-bold" for="dob">Date of birth :</label>
-							<small class="sub">วัน/เดือน/ปีเกิด :</small>
+						<div class="col-md">
+							<label class="font-weight-bold" for="dob">วัน/เดือน/ปีเกิด :</label>
 						</div>
 						<div class="col-md">
 							<label><?php echo $dob;?></label>
@@ -70,13 +60,12 @@
 					</div>				
 					<div class="row">
 						<div class="col-md">
-						<label class="font-weight-bold" for="termEnd">Graduated semester :</label>
-						<small class="sub">ภาคการศึกษาที่ขอจบ</small>
+						<label class="font-weight-bold" for="termEnd">ภาคการศึกษาที่ขอจบ :</label>
 						</div>
 						<div class="col-md">
 						<div class="form-group">						
 							<select class="custom-select" id="termEnd" name="termEnd">
-								<option selected>เลือก</option>
+								<option selected><?php echo $getDocInfo['termEnd'];?></option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>	
@@ -84,13 +73,12 @@
 						</div>
 						</div>
 						<div class="col-md">
-						<label class="font-weight-bold" for="yearEnd">Graduated year :</label>
-						<small class="sub">ปีการศึกษาที่ขอจบ</small>
+						<label class="font-weight-bold" for="yearEnd">ปีการศึกษาที่ขอจบ :</label>
 						</div>
 							<div class="col-md">
 							<div class="form-group">						
-								<select class="custom-select" id="yearEnd" name="yearEnd">
-									<option selected>เลือก</option>
+                            <select class="custom-select" id="yearEnd" name="yearEnd">
+									<option selected><?php echo $getDocInfo['yearEnd'];?></option>
 									<option value="<?php echo strftime("%Y")+542;?>"><?php echo strftime("%Y")+542;?></option>
 									<option value="<?php echo strftime("%Y")+543;?>"><?php echo strftime("%Y")+543;?></option>
 									<option value="<?php echo strftime("%Y")+544;?>"><?php echo strftime("%Y")+544;?></option>	
@@ -101,59 +89,53 @@
 					<div class="row">
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="homenumber">House no:</label>
-						<small class="sub">บ้านเลขที่</small>
+						<label class="font-weight-bold" for="homenumber">บ้านเลขที่:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="homenumber" name="homenumber" placeholder="บ้านเลขที่" />
+						<input type="text" class="form-control" id="homenumber" name="homenumber" value="<?php echo $getDocInfo['houseNumber'];?>" />
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<label class="font-weight-bold" for="soi">Lane:</label>
-						<small class="sub">ซอย</small>
+						<label class="font-weight-bold" for="soi">ซอย:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="soi" name="soi" placeholder="ซอย" />
+						<input type="text" class="form-control" id="soi" name="soi" value="<?php echo $getDocInfo['soi'];?>" />
 						</div></div>
 					</div>
 					<div class="row">
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="street">Street:</label>
-						<small class="sub">ถนน</small>
+						<label class="font-weight-bold" for="street">ถนน:</label>
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="street" name="street" placeholder="ถนน" />
+						<input type="text" class="form-control" id="street" name="street" value="<?php echo $getDocInfo['street'];?>" />
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="subdistrict">Sub-district:</label>
-						<small class="sub">ตำบล</small>
+						<label class="font-weight-bold" for="subdistrict">ตำบล:</label>
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="subdistrict" name="subdistrict" placeholder="ตำบล" />
+						<input type="text" class="form-control" id="subdistrict" name="subdistrict"  value="<?php echo $getDocInfo['sub_district'];?>" />
 						</div></div>
 					</div>
 					<div class="row">
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="district">District:</label>
-						<small class="sub">อำเภอ</small>
+						<label class="font-weight-bold" for="district">อำเภอ:</label>
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="district" name="district" placeholder="อำเภอ" />
+						<input type="text" class="form-control" id="district" name="district" value="<?php echo $getDocInfo['district'];?>" />
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="province">Province:</label>
-						<small class="sub">จังหวัด</small>
+						<label class="font-weight-bold" for="province">จังหวัด:</label>
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">						
 								<select class="custom-select" id="province" name="province">
-								<option value="" selected>---เลือกจังหวัด---</option>
+								<option select="selected" value="<?php echo $getDocInfo['province'];?>"><?php echo $getDocInfo['province'];?></option>
 									<option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
 									<option value="กระบี่">กระบี่ </option>
 									<option value="กาญจนบุรี">กาญจนบุรี </option>
@@ -238,26 +220,67 @@
 					<div class="row">
 						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="zipcode">Postal Code:</label>
-						<small class="sub">รหัสไปรษณีย์</small>
+						<label class="font-weight-bold" for="zipcode">รหัสไปรษณีย์:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="รหัสไปรษณีย์" />
+						<input type="text" class="form-control" id="zipcode" name="zipcode" value="<?php echo $getDocInfo['zipcode'];?>" />
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<label class="font-weight-bold" for="tel">Tel:</label>
-						<small class="sub">หมายเลขโทรศัพท์</small>
+						<label class="font-weight-bold" for="tel">หมายเลขโทรศัพท์:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" />
+						<input type="text" class="form-control" id="tel" name="tel" value="<?php echo $getDocInfo['tel'];?>" />
 						</div></div>
-					</div>			
-					
+					</div>	
+
+					<div class="row">
+						<div class="col-md">
+						<div class="form-group">
+						<label class="font-weight-bold" for="thesissubjType">ประเภทวิชา:</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+								<select class="custom-select" id="subjType" name="yearEnd">
+									<option selected><?php echo $getDocInfo['subjType'];?></option>
+									<option value="สารนิพนธ์">สารนิพนธ์ </option>
+									<option value="วิทยานิพนธ์">วิทยานิพนธ์ </option>	
+								</select>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<label class="font-weight-bold" for="thesissubjCode">รหัสวิชาวิทยานิพนธ์ :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<input type="text" class="form-control" id="thesissubjCode" name="thesissubjCode" placeholder="รหัสวิชาวิทยานิพนธ์" value="<?php echo $getDocInfo['thesissubjCode'];?>" />
+						</div></div>
+					</div>
+					<div class="row">
+						<div class="col-md">
+						<div class="form-group">
+						<label class="font-weight-bold" for="thesisnameth">ชื่อวิชาวิทยานิพนธ์ภาษาไทย :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<textarea class="form-control" id="thesisnameth" name="thesisnameth" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาไทย" value="<?php echo $getDocInfo['thesisnameth'];?>"></textarea>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<label class="font-weight-bold" for="thesisnameeng">ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<textarea class="form-control" id="thesisnameeng" name="thesisnameeng" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ" value="<?php echo $getDocInfo['thesisnameeng'];?>"></textarea>
+						</div></div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+						<div class="form-group">
+						<label class="font-weight-bold" for="engtest">การผ่านความรู้ภาษาอังกฤษโดย :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<input type="text" class="form-control" id="engtest" name="engtest" placeholder="การผ่านความรู้ภาษาอังกฤษโดย" value="<?php echo $getDocInfo['engtest'];?>"/>
+						</div></div>
+					</div>
 					<div class="row">
 						<div class="col">
 							<div class="form-group">
-									<input type="hidden" id="DocTypeID" name="DocTypeID" value="3" />
-									<input type="hidden" id="stateID" name="stateID" value="t03s01" />
+									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
+									<input type="hidden" id="stateID" name="stateID" value="t04s01" />
 									<button type="submit" class="btn btn-success btn-block">Submit</button>
 							</div>
 						</div>
@@ -265,3 +288,6 @@
 				</div>
 			</div>
 		</form>	
+	</div>
+
+

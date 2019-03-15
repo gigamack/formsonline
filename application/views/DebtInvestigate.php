@@ -16,7 +16,7 @@
 ?>
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDebtinvestigate") ?>" method="post">
 			<div class="card">
-				<div class="card-header bg-primary text-light">
+				<div class="card-header bg-success text-light">
 				   <h4>Request form for Graduation and Debt Investigation (Graduate School) </h4> 
 				   <h6 class="text-minor">คำร้องเพื่อขอสำเร็จการศึกษาและสำรวจหนี้สิน (ระดับบัณฑิตศึกษา) </h6>
                  </div>

@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
-
-<body>
 	<?php
     $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
 	$fullname=$_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
@@ -19,12 +8,14 @@
 	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
 
 ?>
-	<div class="container">
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertMasterGradReq") ?>" method="post">
 			<div class="card">
-				<h5 class="card-header bg-primary text-light">
-					คำร้องขอสำเร็จการศึกษา
+			<div class="card-header bg-success text-light">
+				<h5>
+					Request for graduation
 				</h5>
+				<h6 class="text-minor">คำร้องขอสำเร็จการศึกษา</h6>
+				</div>
 				<div class="card-body">
 					<div class="row">
 						<div class="col">
@@ -145,7 +136,7 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">						
-								<select class="custom-select" id="yearEnd" name="yearEnd">
+								<select class="custom-select" id="province" name="province">
 								<option value="" selected>---เลือกจังหวัด---</option>
 									<option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
 									<option value="กระบี่">กระบี่ </option>
@@ -252,8 +243,8 @@
 						<div class="col-md"><div class="form-group">
 								<select class="custom-select" id="subjType" name="yearEnd">
 									<option value="" selected>--เลือกประเภท--</option>
-									<option value="อ่างทอง">สารนิพนธ์ </option>
-									<option value="อ่างทอง">วิทยานิพนธ์ </option>	
+									<option value="สารนิพนธ์">สารนิพนธ์ </option>
+									<option value="วิทยานิพนธ์">วิทยานิพนธ์ </option>	
 								</select>
 						</div></div>
 						<div class="col-md"><div class="form-group">
@@ -288,18 +279,14 @@
 						</div></div>
 					</div>
 					<div class="row">
-						<div class="col">
+						<div class="col text-center">
 							<div class="form-group">
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
 									<input type="hidden" id="stateID" name="stateID" value="t04s01" />
-									<button type="submit" class="btn btn-success btn-block">Submit</button>
+									<button type="submit" class="btn btn-success">Submit</button>
 							</div>
 						</div>
 					</div>	
 				</div>
 			</div>
 		</form>	
-	</div>
-</body>
-
-</html>

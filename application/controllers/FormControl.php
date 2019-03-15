@@ -214,6 +214,10 @@
             }
             else if($chosenform=='4')
             {
+                $this->load->view('MasterGraduateReqForm');
+            }
+            else if($chosenform=='5')
+            {
                 $this->load->view('DebtInvestigate');
             }
             $this->load->view('StdReqTable',$data);
@@ -572,7 +576,7 @@
             }
             else if($data['docInfo'][0]['DocTypeID']==4)
             {
-                $this->load->view('EditMasterGradReqForm',$data);
+                $this->load->view('EditMasterGradForm',$data);
             }
             else if($data['docInfo'][0]['DocTypeID']==5)
             {

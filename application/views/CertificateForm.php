@@ -14,3 +14,60 @@
 	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
 
 ?>
+<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDebtinvestigate") ?>" method="post">
+			<div class="card">
+				<div class="card-header bg-success text-light">
+				   <h4>Requisition form for Application of a certificate</h4> 
+				   <h6 class="text-minor">คำร้องขอหนังสือรับรอง</h6>
+                 </div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-3">
+							<label class="font-weight-bold" for="stdid">รหัสนักศึกษา:</label>
+						</div>
+						<div class="col">
+							<label><?php echo $studentid;?></label>
+						</div>
+						<input type="hidden" id="stdid" name="stdid" value="<?php echo $studentid?>" />				
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<label class="font-weight-bold" for="stdfullname">ชื่อ-สกุล :</label>
+						</div>
+						<div class="col">
+							<label><?php echo $fullname;?></label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+								<label class="font-weight-bold" for="stdfullnameeng">ชื่อ-สกุล(ภาษาอังกฤษ) :</label>
+						</div>
+						<div class="col">
+								<label><?php echo $fullnameeng;?></label>
+						</div>
+					</div>	
+					<div class="row">
+					<div class="col-md-3">
+								<label class="font-weight-bold" for="faculty">คณะ :</label>
+						</div>
+						<div class="col">
+								<label><?php echo $faculty;?></label>
+						</div>
+					</div>	
+					<div class="row">
+					<div class="col-md-3">
+								<label class="font-weight-bold" for="major">สาขา :</label>
+						</div>
+						<div class="col">
+								<label><?php echo $majorname;?></label>
+						</div>
+					</div>
+					<div class="row">
+							<div class="col">
+								<label class="font-weight-bold">A Certified Letter for Students who are studying.</label>
+								<small class="sub">ใบประมวลผลการศึกษา และหนังสือรับรองต่างๆ สำหรับนักศึกษาที่กำลังศึกษาอยู่</small>
+							</div>
+						</div>
+				</div>
+			</div>
+		</form>	

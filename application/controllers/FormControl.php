@@ -220,6 +220,10 @@
             {
                 $this->load->view('DebtInvestigate');
             }
+            else if($chosenform=='6')
+            {
+                $this->load->view('CertificateForm');
+            }
             $this->load->view('StdReqTable',$data);
             $this->load->view('footer');
         }

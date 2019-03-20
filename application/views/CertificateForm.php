@@ -67,7 +67,15 @@
 								<label class="font-weight-bold">A Certified Letter for Students who are studying.</label>
 								<small class="sub">ใบประมวลผลการศึกษา และหนังสือรับรองต่างๆ สำหรับนักศึกษาที่กำลังศึกษาอยู่</small>
 							</div>
-						</div>
+					</div>
+					<div class="row">
+							<div class="col">
+								<input type="checkbox" name="transcriptWait" /><label> ใบประมวลผลการศึกษา ฉบับรอสภาฯ : Transcript</label>
+							</div>
+							<!-- <div class="col">
+								<select optionฬ
+							</div> -->
+					</div>
 				</div>
 			</div>
 		</form>	

@@ -40,6 +40,7 @@
 	$dob=$getStdInfo['STUD_BIRTH_DATE'];
 	$citizenid=$getStdInfo['CITIZEN_ID'];
 	$dob=$getStdInfo['STUD_BIRTH_DATE'];
+	print_r($_SESSION['userSession']['UserRoles']);
 
 ?>
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateDebtinvestigate") ?>" method="post">

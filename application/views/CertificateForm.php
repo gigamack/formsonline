@@ -69,12 +69,52 @@
 							</div>
 					</div>
 					<div class="row">
-							<div class="col">
-								<input type="checkbox" name="transcriptWait" /><label> ใบประมวลผลการศึกษา ฉบับรอสภาฯ : Transcript</label>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
 							</div>
-							<!-- <div class="col">
-								<select optionฬ
-							</div> -->
+							<div class="col-sm">
+							<label class="font-weight-bold">Transcript </label>
+								<small class="sub">ใบประมวลผลการศึกษา ฉบับรอสภาฯ</small>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
+							</div>
+							<div class="col-sm">
+							<label class="font-weight-bold">Bonafide student certificate </label>
+								<small class="sub">ใบรับรองการเป็นนักศึกษา</small>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
+							</div>
+							<div class="col-sm">
+							<label class="font-weight-bold">Bonafide student behaviour certificate </label>
+								<small class="sub">ใบรับรองความประพฤติ(ความเห็นอาจารย์ที่ปรึกษา)</small>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
+							</div>
+							<div class="col-sm">
+							<label class="font-weight-bold">Last year student certificate </label>
+								<small class="sub">ใบรับรองเรียนชั้นปีสุดท้าย(กำลังรอเกรดเทอมสุดท้าย)</small>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
+							</div>
+							<label class="font-weight-bold">Last year student certificate </label>
+								<small class="sub">ใบรับรองเรียนครบตามหลักสูตร(เกรดครบทุกวิชาตามหลักสูตรที่เรียนมา)</small>
+							</div>
+					</div>
+
+					<div class="row">
+					
 					</div>
 				</div>
 			</div>

@@ -69,48 +69,130 @@
 							</div>
 					</div>
 					<div class="row">
-							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
-							</div>
-							<div class="col-sm">
+					<div class="col-sm-6">
 							<label class="font-weight-bold">Transcript </label>
 								<small class="sub">ใบประมวลผลการศึกษา ฉบับรอสภาฯ</small>
 							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>		
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">THB 70.-</label>
+							</div>					
 					</div>
 					<div class="row">
-							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
-							</div>
-							<div class="col-sm">
+							<div class="col-sm-6">
 							<label class="font-weight-bold">Bonafide student certificate </label>
 								<small class="sub">ใบรับรองการเป็นนักศึกษา</small>
 							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>			
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">THB 50.-</label>
+							</div>						
 					</div>
 					<div class="row">
-							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
-							</div>
-							<div class="col-sm">
+					<div class="col-sm-6">
 							<label class="font-weight-bold">Bonafide student behaviour certificate </label>
 								<small class="sub">ใบรับรองความประพฤติ(ความเห็นอาจารย์ที่ปรึกษา)</small>
 							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>		
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">THB 50.-</label>
+							</div>					
 					</div>
 					<div class="row">
-							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
-							</div>
-							<div class="col-sm">
+					<div class="col-sm-6">
 							<label class="font-weight-bold">Last year student certificate </label>
 								<small class="sub">ใบรับรองเรียนชั้นปีสุดท้าย(กำลังรอเกรดเทอมสุดท้าย)</small>
 							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>		
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">THB 50.-</label>
+							</div>					
 					</div>
 					<div class="row">
-							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" size="2" name="amountTranscript" />
-							</div>
-							<label class="font-weight-bold">Last year student certificate </label>
+					<div class="col-sm-6">
+							<label class="font-weight-bold">Completed of the curriculum certificate</label>
 								<small class="sub">ใบรับรองเรียนครบตามหลักสูตร(เกรดครบทุกวิชาตามหลักสูตรที่เรียนมา)</small>
 							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>		
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">THB 70.-</label>
+							</div>					
+					</div>
+					<div class="row">
+							<div class="col-sm-6">
+							<label class="font-weight-bold">Waiting an approval from the university council certificate</label>
+								<small class="sub">ใบรับรองสภาอนุมัติ(ผ่านการตรวจสอบแล้วว่าเรียนครบตามหลักสูตร)</small>
+							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">THB 50.-</label>
+							</div>					
 					</div>
 
 					<div class="row">

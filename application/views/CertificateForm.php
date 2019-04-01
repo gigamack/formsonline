@@ -77,16 +77,16 @@
 							<label class="font-weight-bold">Eng</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="en_amount_u1" />
 							</div>	
 							<div class="col-sm-1 text-center">
 							<label class="font-weight-bold">Thai</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="th_amount_u1" />
 							</div>		
 							<div class="col-sm-1 text-center">
-							<label class="font-weight-bold">THB 70.-</label>
+							<label class="font-weight-bold" name="price_u1" value="70">THB 70.-</label>
 							</div>					
 					</div>
 					<div class="row">
@@ -98,16 +98,16 @@
 							<label class="font-weight-bold">Eng</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="en_amount_u2" />
 							</div>	
 							<div class="col-sm-1 text-center">
 							<label class="font-weight-bold">Thai</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="th_amount_u2" />
 							</div>			
 							<div class="col-sm-1 text-center">
-							<label class="font-weight-bold">THB 50.-</label>
+							<label class="font-weight-bold" name="price_u2" value="50">THB 50.-</label>
 							</div>						
 					</div>
 					<div class="row">
@@ -119,16 +119,16 @@
 							<label class="font-weight-bold">Eng</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="en_amount_u3" />
 							</div>	
 							<div class="col-sm-1 text-center">
 							<label class="font-weight-bold">Thai</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="th_amount_u3" />
 							</div>		
 							<div class="col-sm-1 text-center">
-							<label class="font-weight-bold">THB 50.-</label>
+							<label class="font-weight-bold" name="price_u3" value="50">THB 50.-</label>
 							</div>					
 					</div>
 					<div class="row">
@@ -140,16 +140,16 @@
 							<label class="font-weight-bold">Eng</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="en_amount_u4" />
 							</div>	
 							<div class="col-sm-1 text-center">
 							<label class="font-weight-bold">Thai</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="th_amount_u4" />
 							</div>		
 							<div class="col-sm-1 text-center">
-							<label class="font-weight-bold">THB 50.-</label>
+							<label class="font-weight-bold" name="price_u4" value="50">THB 50.-</label>
 							</div>					
 					</div>
 					<div class="row">
@@ -161,16 +161,16 @@
 							<label class="font-weight-bold">Eng</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="en_amount_u5" />
 							</div>	
 							<div class="col-sm-1 text-center">
 							<label class="font-weight-bold">Thai</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="th_amount_u5" />
 							</div>		
 							<div class="col-sm-1 text-center">
-							<label class="font-weight-bold">THB 70.-</label>
+							<label class="font-weight-bold" name="price_u5" value="70">THB 70.-</label>
 							</div>					
 					</div>
 					<div class="row">
@@ -182,21 +182,167 @@
 							<label class="font-weight-bold">Eng</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="en_amount_u6" />
 							</div>	
 							<div class="col-sm-1 text-center">
 							<label class="font-weight-bold">Thai</label>
 							</div>
 							<div class="col-sm-1">
-							<input class="form-control" type="number" value="0" name="amountTranscript" />
+							<input class="form-control" type="number" value="0" name="th_amount_u6" />
 							</div>	
 							<div class="col-sm-1 text-center">
-							<label class="font-weight-bold">THB 50.-</label>
+							<label class="font-weight-bold" name="price_u6" value="50">THB 50.-</label>
+							</div>					
+					</div>
+					<div class="row">
+							<div class="col">
+								<label class="font-weight-bold">A Certified Letter for graduated student.</label>
+								<small class="sub">ใบประมวลผลการศึกษา และหนังสือรับรองต่างๆ สำหรับนักศึกษาที่สำเร็จศการศึกษาไปแล้ว</small>
+							</div>
+					</div>
+					<div class="row">
+					<div class="col-sm-6">
+							<label class="font-weight-bold">Transcript </label>
+								<small class="sub">ใบประมวลผลการศึกษา ฉบับสภาฯอนุมัติ</small>
+							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="en_amount_g1" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="th_amount_g1" />
+							</div>		
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold" name="price_g1" value="70">THB 70.-</label>
+							</div>					
+					</div>
+					<div class="row">
+							<div class="col-sm-6">
+							<label class="font-weight-bold">Approved from the university council certificate</label>
+								<small class="sub">ใบรับรองสำเร็จฉบับสภาอนุมัติ</small>
+							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="en_amount_g2" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="th_amount_g2" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold" name="price_g2" value="50">THB 50.-</label>
+							</div>					
+					</div>
+					<div class="row">
+							<div class="col">
+								<label class="font-weight-bold">Other.</label>
+								<small class="sub">อื่นๆ</small>
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-sm-6">
+							<label class="font-weight-bold">Course Description</label>
+								<small class="sub">คำอธิบายรายวิชา</small>
+							</div>							
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="th_amount_o1" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold" name="price_o1" value="70">THB 70.-</label>
+							</div>					
+					</div>
+					<div class="row">
+							<div class="col-sm-6">
+							<label class="font-weight-bold">ใบแปลประกาศนียบัตร/ปริญญาบัตร (แนบสำเนา)</label>
+							</div>							
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="en_amount_o2" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold" name="price_o2" value="100">THB 100.-</label>
+							</div>					
+					</div>
+					<div class="row">
+							<div class="col-sm-6">
+							<label class="font-weight-bold">ใบประกาศนียบัตรอาหารและเครื่องดื่ม/การโรงแรม</label>	
+							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="th_amount_o3" />
+							</div>								
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold" name="price_o3" value="250">THB 250.-</label>
+							</div>					
+					</div>
+					<div class="row">
+							<div class="col-sm-6">
+							<label class="font-weight-bold">ใบแทนปริญญาบัตร (กรณีปริญญาบัตรหาย)</label>	
+							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="th_amount_o4" />
+							</div>								
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold" name="price_o4" value="200">THB 200.-</label>
+							</div>					
+					</div>
+					<div class="row">
+							<div class="col-sm-6">
+							<label class="font-weight-bold">ใบประกาศนียบัตรอาหารและเครื่องดื่ม/การโรงแรม</label>	
+							</div>
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Thai</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="th_amount_o5" />
+							</div>								
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold">Eng</label>
+							</div>
+							<div class="col-sm-1">
+							<input class="form-control" type="number" value="0" name="en_amount_o5" />
+							</div>	
+							<div class="col-sm-1 text-center">
+							<label class="font-weight-bold" name="price_o5" value="50">THB 50.-</label>
 							</div>					
 					</div>
 
-					<div class="row">
-					
+					<div class="row">	
+							<div class="col-sm-1">
+							<input type="checkbox" id="sendems" name="sendems"/>
+							</div>						
+							<div class="col">							
+							<label class="font-weight-bold">Sending by EMS.</label>
+							<small class="sub">ส่งเอกสารทาง EMS </small>	
+							</div>																		
+					</div>
+					<div class="row text-center">
+						<div class="col">
+							<div class="form-group">
+								<input type="hidden" id="DocTypeID" name="DocTypeID" value="5" />
+								<input type="hidden" id="stateID" name="stateID" value="t05s01" />
+								<button type="submit" class="btn btn-success">Submit</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -79,7 +79,7 @@
 								<div class="col-md-2">
 									<label for="newthName">ภาษาไทย:</label>
 								</div>
-								<div class="col-md">
+								<div class="col-md">                
 									<input type="text" class="form-control" id="newthName" name="newthName" value="<?php echo $getDocInfo['newthname'];?>"
 									 disabled />
 								</div>

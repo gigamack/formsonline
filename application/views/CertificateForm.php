@@ -14,7 +14,7 @@
 	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
 
 ?>
-<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDebtinvestigate") ?>" method="post">
+<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/certinsert") ?>" method="post">
 			<div class="card">
 				<div class="card-header bg-success text-light">
 				   <h4>Requisition form for Application of a certificate</h4> 

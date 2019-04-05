@@ -405,6 +405,11 @@
             //$this->load->view('stdMain');
         }
 
+        public function insertcert()
+        {
+            //start with insert amount of cert into certRecord table then insert to document table 
+        }
+        
         public function insertchangenameReq()
         {
             //$this->load->model('company_model');

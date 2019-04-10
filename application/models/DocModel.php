@@ -51,6 +51,16 @@ class docModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function getMaxDocIDByuserID($stdid)
+    {
+        $this->db->select('max(DocID) as maxDocID');
+        $this->db->from('document');
+        $this->db->where('document.StudentID', $stdid);
+        $this->db->order_by('document.DocID');
+        $query = $this->db->get();
+        return $query->result();
+    }
     
 
     public function selectDoc($data)

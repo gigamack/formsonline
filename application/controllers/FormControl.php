@@ -5,6 +5,7 @@
         public function __construct()
     {
         parent::__construct();
+        $this->load->model('CertModel');
         $this->load->model('DocModel');
         $this->load->model('DocStateModel');
         $this->load->model('Student_model');
@@ -408,6 +409,52 @@
         public function insertcert()
         {
             //start with insert amount of cert into certRecord table then insert to document table 
+            
+            //eng u form
+            isset($_POST["en_amount_u1"])?$en_u1=$_POST["en_amount_u1"]:$en_u1=0;
+            isset($_POST["en_amount_u2"])?$en_u2=$_POST["en_amount_u2"]:$en_u2=0;
+            isset($_POST["en_amount_u3"])?$en_u3=$_POST["en_amount_u3"]:$en_u3=0;
+            isset($_POST["en_amount_u4"])?$en_u4=$_POST["en_amount_u4"]:$en_u4=0;
+            isset($_POST["en_amount_u5"])?$en_u5=$_POST["en_amount_u5"]:$en_u5=0;
+            isset($_POST["en_amount_u6"])?$en_u6=$_POST["en_amount_u6"]:$en_u6=0;
+            //TH u form
+            isset($_POST["th_amount_u1"])?$th_u1=$_POST["th_amount_u1"]:$th_u1=0;
+            isset($_POST["th_amount_u2"])?$th_u2=$_POST["th_amount_u2"]:$th_u2=0;
+            isset($_POST["th_amount_u3"])?$th_u3=$_POST["th_amount_u3"]:$th_u3=0;
+            isset($_POST["th_amount_u4"])?$th_u4=$_POST["th_amount_u4"]:$th_u4=0;
+            isset($_POST["th_amount_u5"])?$th_u5=$_POST["th_amount_u5"]:$th_u5=0;
+            isset($_POST["th_amount_u6"])?$th_u6=$_POST["th_amount_u6"]:$th_u6=0;
+            //en g form
+            isset($_POST["en_amount_g1"])?$en_g1=$_POST["en_amount_g1"]:$en_g1=0;
+            isset($_POST["en_amount_g2"])?$en_g2=$_POST["en_amount_g2"]:$en_g2=0;
+            //th g form
+            isset($_POST["th_amount_g1"])?$th_g1=$_POST["th_amount_g1"]:$th_g1=0;
+            isset($_POST["th_amount_g2"])?$th_g2=$_POST["th_amount_g2"]:$th_g2=0;
+            //en o form
+            isset($_POST["en_amount_o1"])?$en_o1=$_POST["en_amount_o1"]:$en_o1=0;
+            isset($_POST["en_amount_o2"])?$en_o2=$_POST["en_amount_o2"]:$en_o2=0;
+            //th o form 
+            isset($_POST["th_amount_o1"])?$th_o1=$_POST["th_amount_o1"]:$th_o1=0;
+            isset($_POST["th_amount_o2"])?$th_o2=$_POST["th_amount_o2"]:$th_o2=0;
+            
+            //Insert to certrecord
+            $data= array('StudentID' => $_POST['stdid']
+            , 'tel' => $_POST['tel']          
+            , 'addressCert' => $_POST['postaladdress']            
+            , 'DocTypeID' => $_POST['DocTypeID']);
+            $this->DocModel->InsertDoc($data);
+
+
+            //this part is unfinished
+            $data['maxdoc'] = $this->DocModel->getMaxDocIDByuserID($_POST['stdid']);
+            $DocID=$data['maxdoc'][0]['maxDocID '];
+            $dataCert= array('DocID' => $DocID
+            , 'tel' => $_POST['tel']          
+            , 'addressCert' => $_POST['postaladdress']            
+            , 'DocTypeID' => $_POST['DocTypeID']);
+
+            
+            
         }
         
         public function insertchangenameReq()

@@ -3,6 +3,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<script>
+				// function getSum(total, num) {
+  				// return total + num;
+				// }
+				function validate()
+				{
+					alert(document.getElementsByName("en_amount_u[0]"));
+					return false;
+					
+					// var check1 = document.getElementsByName("en_amount_u").reduce(getSum);
+					// var check2 = document.getElementsByName("th_amount_u").reduce(getSum);
+					// var check3 = document.getElementsByName("en_amount_g").reduce(getSum);
+					// var check4 = document.getElementsByName("th_amount_g").reduce(getSum);
+					// var check5 = document.getElementsByName("en_amount_o").reduce(getSum);
+					// var check6 = document.getElementsByName("th_amount_o").reduce(getSum);
+					// var total = check1+check2+check3+check4+check5+check6;
+					// if (check1 > 0) {
+					// // OK
+					// alert(check1);
+					// // return true;
+					// } 
+					// else 
+					// {
+					// 	alert("Please select at least 1 certificate!!");// not OK
+					// 	return false;
+					// }
+					
+				}		
+				
+	</script>
 </head>
 	<?php
     $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
@@ -14,7 +44,7 @@
 	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
 
 ?>
-<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/certinsert") ?>" method="post">
+<form style="margin: 20px auto auto auto" action="<?php echo base_url("/certController/insertcert") ?>" method="post" onsubmit="return validate()">
 			<div class="card">
 				<div class="card-header bg-success text-light">
 				   <h4>Requisition form for Application of a certificate</h4> 
@@ -88,13 +118,13 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_u1" />
+									<input class="form-control" type="number" value="0" id="en_amount_u1[]" name="en_amount_u[]" />
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_u1" />
+									<input class="form-control" type="number" value="0" name="th_amount_u[0]" />
 									</div>										
 								</div>
 							</div>					
@@ -111,13 +141,13 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_u2" />
+									<input class="form-control" type="number" value="0" name="en_amount_u[]" />
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_u2" />
+									<input class="form-control" type="number" value="0" name="th_amount_u[1]" />
 									</div>
 								</div>
 							</div>													
@@ -134,13 +164,13 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_u3" />
+									<input class="form-control" type="number" value="0" name="en_amount_u[]" />
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_u3" />
+									<input class="form-control" type="number" value="0" name="th_amount_u[2]" />
 									</div>										
 								</div>	
 							</div>				
@@ -157,13 +187,13 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_u4" />
+									<input class="form-control" type="number" value="0" name="en_amount_u[]" />
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_u4" />
+									<input class="form-control" type="number" value="0" name="th_amount_u[3]" />
 									</div>												
 								</div>
 							</div>			
@@ -180,13 +210,13 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_u5" />
+									<input class="form-control" type="number" value="0" name="en_amount_u[]" />
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_u5" />
+									<input class="form-control" type="number" value="0" name="th_amount_u[4]" />
 									</div>									
 								</div>
 							</div>					
@@ -203,13 +233,13 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_u6" />
+									<input class="form-control" type="number" value="0" name="en_amount_u[]" />
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_u6" />
+									<input class="form-control" type="number" value="0" name="th_amount_u[5]" />
 									</div>										
 								</div>
 							</div>				
@@ -232,13 +262,13 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_g1" />
+									<input class="form-control" type="number" value="0" name="en_amount_g[0]" />
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_g1" />
+									<input class="form-control" type="number" value="0" name="th_amount_g[0]" />
 									</div>													
 								</div>
 							</div>
@@ -256,13 +286,13 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_g2" />
+									<input class="form-control" type="number" value="0" name="en_amount_g[1]" />
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_g2" />
+									<input class="form-control" type="number" value="0" name="th_amount_g[1]" />
 									</div>										
 								</div>					
 							</div>
@@ -285,7 +315,7 @@
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_o1" />
+									<input class="form-control" type="number" value="0" name="th_amount_o[0]" />
 									</div>								
 								</div>	
 							</div>					
@@ -301,7 +331,7 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_o2" />
+									<input class="form-control" type="number" value="0" name="en_amount_o[1]" />
 									</div>	
 								</div>						
 							</div>				
@@ -317,7 +347,7 @@
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_o3" />
+									<input class="form-control" type="number" value="0" name="th_amount_o[2]" />
 									</div>								
 								</div>						
 							</div>					
@@ -333,7 +363,7 @@
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_o4" />
+									<input class="form-control" type="number" value="0" name="th_amount_o[3]" />
 									</div>
 								</div>
 							</div>				
@@ -350,13 +380,13 @@
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="th_amount_o5" />
+									<input class="form-control" type="number" value="0" name="th_amount_o[4]" />
 									</div>								
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="en_amount_o5" />
+									<input class="form-control" type="number" value="0" name="en_amount_o[4]" />
 									</div>										
 								</div>
 							</div>				
@@ -384,10 +414,10 @@
 							<div class="form-group">
 								<input type="hidden" id="DocTypeID" name="DocTypeID" value="5" />
 								<input type="hidden" id="stateID" name="stateID" value="t05s01" />
-								<button type="submit" class="btn btn-success">Submit</button>
+								<button onclick="alert(document.getElementsByName("en_amount_u[0]")" class="btn btn-success">Submit</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>			
 		</form>	

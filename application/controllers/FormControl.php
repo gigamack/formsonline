@@ -410,7 +410,7 @@
         {
             //start with insert amount of cert into certRecord table then insert to document table 
             
-            //eng u form
+                     //eng u form
             isset($_POST["en_amount_u1"])?$en_u1=$_POST["en_amount_u1"]:$en_u1=0;
             isset($_POST["en_amount_u2"])?$en_u2=$_POST["en_amount_u2"]:$en_u2=0;
             isset($_POST["en_amount_u3"])?$en_u3=$_POST["en_amount_u3"]:$en_u3=0;
@@ -433,9 +433,15 @@
             //en o form
             isset($_POST["en_amount_o1"])?$en_o1=$_POST["en_amount_o1"]:$en_o1=0;
             isset($_POST["en_amount_o2"])?$en_o2=$_POST["en_amount_o2"]:$en_o2=0;
+            isset($_POST["en_amount_o3"])?$en_o3=$_POST["en_amount_o3"]:$en_o3=0;
+            isset($_POST["en_amount_o4"])?$en_o4=$_POST["en_amount_o4"]:$en_o4=0;
+            isset($_POST["en_amount_o5"])?$en_o5=$_POST["en_amount_o5"]:$en_o5=0;
             //th o form 
             isset($_POST["th_amount_o1"])?$th_o1=$_POST["th_amount_o1"]:$th_o1=0;
             isset($_POST["th_amount_o2"])?$th_o2=$_POST["th_amount_o2"]:$th_o2=0;
+            isset($_POST["th_amount_o3"])?$th_o3=$_POST["th_amount_o3"]:$th_o3=0;
+            isset($_POST["th_amount_o4"])?$th_o4=$_POST["th_amount_o4"]:$th_o4=0;
+            isset($_POST["th_amount_o5"])?$th_o5=$_POST["th_amount_o5"]:$th_o5=0;
             
             //Insert to certrecord
             $data= array('StudentID' => $_POST['stdid']
@@ -444,14 +450,14 @@
             , 'DocTypeID' => $_POST['DocTypeID']);
             $this->DocModel->InsertDoc($data);
 
-
             //this part is unfinished
             $data['maxdoc'] = $this->DocModel->getMaxDocIDByuserID($_POST['stdid']);
-            $DocID=$data['maxdoc'][0]['maxDocID '];
-            $dataCert= array('DocID' => $DocID
-            , 'tel' => $_POST['tel']          
-            , 'addressCert' => $_POST['postaladdress']            
-            , 'DocTypeID' => $_POST['DocTypeID']);
+            $DocID=$data['maxdoc'][0]['maxDocID'];
+           // if()
+            $dataCert= array('docID' => $DocID
+            , 'certID' => $_POST['tel']          
+            , 'engAmount' => $_POST['postaladdress']            
+            , 'thAmount' => $_POST['DocTypeID']);
 
             
             

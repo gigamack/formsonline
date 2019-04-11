@@ -4,6 +4,7 @@ class docModel extends CI_Model
     public function InsertDoc($data)
     {        
         $this->db->insert('document', $data);
+        return $this->db->insert_id();
     }
 
     public function getDocBydocID($docID)

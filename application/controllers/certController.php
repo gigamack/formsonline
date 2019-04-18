@@ -182,7 +182,11 @@
             , 'thAmount' => $th_o5
             , 'othername' => $_POST['othercertname']);    
             $this->CertModel->InsertcertRecord($dataCert);    
-        }            
-        }
+        }   
+        $data2 = array('DocID' => $DocID
+            , 'stateID' => $_POST['stateID']);
+            $this->DocStateModel->InsertDocState($data2);
+            $back = base_url("/FormControl/stdMain");       
     }
+}
 ?>

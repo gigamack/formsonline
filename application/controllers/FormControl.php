@@ -644,6 +644,12 @@
             {
                 $this->load->view('EditDebtInvestigate',$data);
             }
+            else if($data['docInfo'][0]['DocTypeID']==6)
+            {
+                $data['certDetail'] = $this->CertModel->getCertDetailBydocID($docID);
+                $this->load->view('EditCertifyform',$data);
+            }
+            
 
             
             $this->load->view('footer');

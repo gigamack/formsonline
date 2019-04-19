@@ -188,5 +188,34 @@
             $this->DocStateModel->InsertDocState($data2);
             $back = base_url("/FormControl/stdMain");       
     }
+
+    public function Certsubmitedview()
+        {
+            $this->chkSTDLogin();
+            $doctypeID = $_GET['doctypeID'];
+            $docID = $_GET['docID'];
+            $stdID = $_GET['stdID'];
+            $dataselect = array('document.DocID' => $docID);
+            $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
+            $data['docState'] = $this->DocStateModel->selectDocState($docID);
+            $data['docCommented'] = $this->DocModel->selectDocWithState($dataselect);
+            $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
+            $data['certDetail'] = $this->CertModel->getCertDetailBydocID($docID);
+            $this->load->view('css');
+            $this->load->view('header');
+            if($doctypeID==1)
+            {
+                $this->load->view('stdCardCommentedView',$data);
+            }
+            elseif($doctypeID==2)
+            {
+                $this->load->view('ChangenameAllowedSTD',$data);
+            }           
+            elseif($doctypeID==2)
+            {
+                $this->load->view('#',$data);
+            }
+            $this->load->view('footer');       
+        }
 }
 ?>

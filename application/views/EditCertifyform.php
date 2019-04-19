@@ -2,38 +2,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
+	<title>Document</title>	
 	<!-- <script>
-				// function getSum(total, num) {
-  				// return total + num;
-				// }
-				function validate()
-				{
-					alert(document.getElementsByName("amount_en_u[0]"));
-					return false;
-					
-					// var check1 = document.getElementsByName("amount_en_u").reduce(getSum);
-					// var check2 = document.getElementsByName("amount_th_u").reduce(getSum);
-					// var check3 = document.getElementsByName("amount_en_g").reduce(getSum);
-					// var check4 = document.getElementsByName("amount_th_g").reduce(getSum);
-					// var check5 = document.getElementsByName("amount_en_o").reduce(getSum);
-					// var check6 = document.getElementsByName("amount_th_o").reduce(getSum);
-					// var total = check1+check2+check3+check4+check5+check6;
-					// if (check1 > 0) {
-					// // OK
-					// alert(check1);
-					// // return true;
-					// } 
-					// else 
-					// {
-					// 	alert("Please select at least 1 certificate!!");// not OK
-					// 	return false;
-					// }
-					
-				}		
-				
-	</script> -->
-	<script>
 		$(document).ready(function()
 		{
 		// $( "input[name^='en']").each(function(){
@@ -59,7 +29,7 @@
 	});
 		
 		});
-	</script>
+	</script> -->
 </head>
 	<?php
     $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
@@ -69,6 +39,9 @@
 	$majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 	$dob=$_SESSION['userSession']['StudentInfo']['STUD_BIRTH_DATE'];
 	$citizenid=$_SESSION['userSession']['StudentInfo']['CITIZEN_ID'];
+	$getDocInfo = $certDetail;
+	$docDetail = $docInfo;
+	// print_r($docDetail);
 
 ?>
 <form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url("/certController/insertcert") ?>" method="post" onsubmit="return validate()">
@@ -121,23 +94,27 @@
 					</div>
 					<div class="row">
 					<div class="col-md-3">
-								<label class="font-weight-bold" for="major">หมายเลขโทรศัพท์ที่ติดต่อได้ :</label>
+								<label class="font-weight-bold" for="tel">หมายเลขโทรศัพท์ที่ติดต่อได้ :</label>
 						</div>
 						<div class="col-md-3">
-							<input class="form-control" type="text" name="tel" id="tel">
+						<label class="font-weight-bold" name="tel" id="tel"><h5><?php echo $docDetail[0]['tel']; ?></h5></label>
 						</div>
 					</div>
 					<div class="row">
 							<div class="col">
-								<label class="font-weight-bold">A Certified Letter for Students who are studying.</label>
-								<small class="sub">ใบประมวลผลการศึกษา และหนังสือรับรองต่างๆ สำหรับนักศึกษาที่กำลังศึกษาอยู่</small>
+								<label class="font-weight-bold">รายการใบรับรองที่ร้องขอ</label>								
 							</div>
 					</div>
+					<?php 
+					$sum = 0;
+					$n = count($getDocInfo);
+					for ($i = 0; $i < $n; $i++)
+					{ 
+					?>
 					<div class="row">
 					<div class="col-sm-6">
-							<label class="font-weight-bold">Transcript </label>
-								<small class="sub">ใบประมวลผลการศึกษา ฉบับรอสภาฯ</small>
-								<label class="font-weight-bold" name="price_u1" value="70">(THB 70.-)</label>
+							<label class="font-weight-bold"> <?php echo $getDocInfo[$i]['certNameTH']?> </label>								
+								<label name="price_u1">ราคาใบละ <?php echo $getDocInfo[$i]['certPrice']?></label>
 							</div>
 							<div class="col-sm-6">
 								<div class="row">
@@ -145,280 +122,25 @@
 									<label class="font-weight-bold">Eng</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" id="amount_en_u1" name="amount_en_u1" />
+									<label><?php echo $getDocInfo[$i]['engAmount'] ?></label>
 									</div>	
 									<div class="col-2 text-center">
 									<label class="font-weight-bold">Thai</label>
 									</div>
 									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_u1" />
-									</div>										
+									<label><?php echo $getDocInfo[$i]['thAmount'] ?></label>
+									</div>	
+									<div class="col-2">
+									<label class="font-weight-bold">ค่าใช้จ่าย <?php echo $getDocInfo[$i]['totalcertPrice'] ?></label>
+									</div>
+									<?php $sum = $sum+$getDocInfo[$i]['totalcertPrice']; ?>
 								</div>
 							</div>					
 					</div>
+					<?php } ?>
 					<div class="row">
-							<div class="col-sm-6">
-							<label class="font-weight-bold">Bonafide student certificate </label>
-								<small class="sub">ใบรับรองการเป็นนักศึกษา</small>
-								<label class="font-weight-bold" name="price_u2" value="50">(THB 50.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_u2" />
-									</div>	
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_u2" />
-									</div>
-								</div>
-							</div>													
+						<label class="font-weight-bold">ราคารวม <?php echo $sum; ?></label>
 					</div>
-					<div class="row">
-					<div class="col-sm-6">
-							<label class="font-weight-bold">Bonafide student behaviour certificate </label>
-								<small class="sub">ใบรับรองความประพฤติ(ความเห็นอาจารย์ที่ปรึกษา)</small>
-								<label class="font-weight-bold" name="price_u3" value="50">(THB 50.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_u3" />
-									</div>	
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_u3" />
-									</div>										
-								</div>	
-							</div>				
-					</div>
-					<div class="row">
-					<div class="col-sm-6">
-							<label class="font-weight-bold">Last year student certificate </label>
-								<small class="sub">ใบรับรองเรียนชั้นปีสุดท้าย(กำลังรอเกรดเทอมสุดท้าย)</small>
-								<label class="font-weight-bold" name="price_u4" value="50">(THB 50.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_u4" />
-									</div>	
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_u4" />
-									</div>												
-								</div>
-							</div>			
-					</div>
-					<div class="row">
-					<div class="col-sm-6">
-							<label class="font-weight-bold">Completed of the curriculum certificate</label>
-								<small class="sub">ใบรับรองเรียนครบตามหลักสูตร(เกรดครบทุกวิชาตามหลักสูตรที่เรียนมา)</small>
-								<label class="font-weight-bold" name="price_u5" value="70">(THB 70.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_u5" />
-									</div>	
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_u5" />
-									</div>									
-								</div>
-							</div>					
-					</div>
-					<div class="row">
-							<div class="col-sm-6">
-							<label class="font-weight-bold">Waiting an approval from the university council certificate</label>
-								<small class="sub">ใบรับรองสภาอนุมัติ(ผ่านการตรวจสอบแล้วว่าเรียนครบตามหลักสูตร)</small>
-								<label class="font-weight-bold" name="price_u6" value="50">(THB 50.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_u6" />
-									</div>	
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_u6" />
-									</div>										
-								</div>
-							</div>				
-					</div>
-					<div class="row">
-							<div class="col">
-								<label class="font-weight-bold">A Certified Letter for graduated student.</label>
-								<small class="sub">ใบประมวลผลการศึกษา และหนังสือรับรองต่างๆ สำหรับนักศึกษาที่สำเร็จศการศึกษาไปแล้ว</small>
-							</div>
-					</div>
-					<div class="row">
-							<div class="col-sm-6">
-								<label class="font-weight-bold">Transcript </label>
-								<small class="sub">ใบประมวลผลการศึกษา ฉบับสภาฯอนุมัติ</small>
-								<label class="font-weight-bold" name="price_g1" value="70">(THB 70.-)</label>
-							</div>													
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_g1" />
-									</div>	
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_g1" />
-									</div>													
-								</div>
-							</div>
-							
-					</div>
-					<div class="row">
-							<div class="col-sm-6">
-							<label class="font-weight-bold">Approved from the university council certificate</label>
-								<small class="sub">ใบรับรองสำเร็จฉบับสภาอนุมัติ</small>
-								<label class="font-weight-bold" name="price_g2" value="50">(THB 50.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_g2" />
-									</div>	
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_g2" />
-									</div>										
-								</div>					
-							</div>
-					</div>
-					<div class="row">
-							<div class="col">
-								<label class="font-weight-bold">Other.</label>
-								<small class="sub">อื่นๆ</small>
-							</div>
-					</div>
-					<div class="row">
-							<div class="col-sm-6">
-							<label class="font-weight-bold">Course Description</label>
-								<small class="sub">คำอธิบายรายวิชา</small>
-								<label class="font-weight-bold" name="price_o1" value="70">(THB 70.-)</label>
-							</div>	
-							<div class="col-sm-6">
-								<div class="row">								
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_o1" />
-									</div>								
-								</div>	
-							</div>					
-					</div>
-					<div class="row">
-							<div class="col-sm-6">
-							<label class="font-weight-bold">ใบแปลประกาศนียบัตร/ปริญญาบัตร (แนบสำเนา)</label>
-							<label class="font-weight-bold" name="price_o2" value="100">(THB 100.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">							
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_o2" />
-									</div>	
-								</div>						
-							</div>				
-					</div>
-					<div class="row">
-							<div class="col-sm-6">
-							<label class="font-weight-bold">ใบประกาศนียบัตรอาหารและเครื่องดื่ม/การโรงแรม</label>
-							<label class="font-weight-bold" name="price_o3" value="250">(THB 250.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_o3" />
-									</div>								
-								</div>						
-							</div>					
-					</div>
-					<div class="row">
-							<div class="col-sm-6">
-							<label class="font-weight-bold">ใบแทนปริญญาบัตร (กรณีปริญญาบัตรหาย)</label>	
-							<label class="font-weight-bold" name="price_o4" value="200">(THB 200.-)</label>
-							</div>
-							<div class="col-sm-6">
-								<div class="row">
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_o4" />
-									</div>
-								</div>
-							</div>				
-					</div>
-					<div class="row">
-							<div class="col-sm-6 form-inline">							
-							<label class="font-weight-bold">อื่นๆ</label>					
-							<input class="form-control ml-2 w-50" type="text" name="othercertname" id="othercertname" />
-							<label class="font-weight-bold text-right ml-2" name="price_o5" value="50">(THB 50.-)</label>	
-							</div>		
-							<div class="col-sm-6">
-								<div class="row">					
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Thai</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_th_o5" />
-									</div>								
-									<div class="col-2 text-center">
-									<label class="font-weight-bold">Eng</label>
-									</div>
-									<div class="col-2">
-									<input class="form-control" type="number" value="0" name="amount_en_o5" />
-									</div>										
-								</div>
-							</div>			
-					</div>				
-
 					<div class="row">	
 							<!-- <div class="col-1">
 							<input type="checkbox" id="sendems" name="sendems"/>

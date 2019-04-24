@@ -648,10 +648,7 @@
             {
                 $data['certDetail'] = $this->CertModel->getCertDetailBydocID($docID);
                 $this->load->view('EditCertifyform',$data);
-            }
-            
-
-            
+            }       
             $this->load->view('footer');
         }
 

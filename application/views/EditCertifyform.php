@@ -30,6 +30,13 @@
 		
 		});
 	</script> -->
+	<style>
+	@media print {
+    #with_print {
+        display: none;
+    }
+}
+	</style>
 </head>
 	<?php
     $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
@@ -44,8 +51,8 @@
 	// print_r($docDetail);
 
 ?>
-<form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url("/certController/insertcert") ?>" method="post" onsubmit="return validate()">
-			<div class="card">
+<form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url("/FormControl/stdMain") ?>" method="post" onsubmit="return validate()">
+			<div class="card" id="with_or_without_print">
 				<div class="card-header bg-success text-light">
 				   <h4>Requisition form for Application of a certificate</h4> 
 				   <h6 class="text-minor">คำร้องขอหนังสือรับรอง</h6>
@@ -159,11 +166,13 @@
 					</div>
 
 					<div class="row text-center">
-						<div class="col">
+						<div class="col" id="with_print">
 							<div class="form-group">
 								<input type="hidden" id="DocTypeID" name="DocTypeID" value="6" />
 								<input type="hidden" id="stateID" name="stateID" value="t06s01" />
-								<button type="submit" class="btn btn-success">Submit</button>
+								<button onclick="window.print()">Print</button>
+								<button type="submit" class="btn btn-success">Back</button>
+								
 							</div>
 						</div>
 					</div>

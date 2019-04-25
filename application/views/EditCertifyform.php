@@ -51,6 +51,8 @@
 	// print_r($docDetail);
 
 ?>
+<body>
+<div class = "container">
 <form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url("/FormControl/stdMain") ?>" method="post" onsubmit="return validate()">
 			<div class="card" id="with_or_without_print">
 				<div class="card-header bg-success text-light">
@@ -147,24 +149,26 @@
 					<?php } ?>
 					<div class="row">
 						<label class="font-weight-bold">ราคารวม <?php echo $sum; ?></label>
+					</div>			
+					<!-- <div class="row">
+						<label class="font-weight-bold">ความเห็นอาจารย์ที่ปรึกษา</label>
+						<hr style="border-top: dotted 1px;" />
+						<hr style="border-top: dotted 1px;" />
+						<hr style="border-top: dotted 1px;" />
+					</div>						 -->
+					<div class="card" id="teacherComment">
+						<div class="card-body">
+							<strong class="card-title">ความเห็นอาจารย์ที่ปรึกษา</strong>
+							<span class="card-subtitle mb-2 text-muted">(เฉพาะการขอใบรับรองความประพฤติ)</span>
+							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
+							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
+							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
+							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
+							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
+							<div style="float: right; margin-right:20%;">(ลงชื่อ)</div><hr style="clear: both; border-top: dotted 1px; margin-top: 1.25em; position: relative; width:20%; margin-left:80%;" />
+							<div style="float: right; margin-right:20%;">(</div><hr style="clear: both; border-top: dotted 1px; margin-top: 1.25em; width:20%; margin-left:80%;" />)
+						</div>
 					</div>
-					<div class="row">	
-							<!-- <div class="col-1">
-							<input type="checkbox" id="sendems" name="sendems"/>
-							</div>						 -->
-							<div class="col">
-							<input type="checkbox" id="sendems" name="sendems"/>							
-							<label class="font-weight-bold">Sending by EMS.</label>
-							<small class="sub">ส่งเอกสารทาง EMS </small>	
-							</div>																								
-					</div>
-					<div class="row">
-					<div class="col">
-					<label class="font-weight-bold" for="stdfullnameeng">ที่อยู่ที่สามารถจัดส่งเอกสารให้(กรุณากรอกให้ชัดเจน)</label>
-					<textarea class="form-control" name="postaladdress" rows="3"></textarea>
-					</div>
-					</div>
-
 					<div class="row text-center">
 						<div class="col" id="with_print">
 							<div class="form-group">
@@ -179,3 +183,4 @@
 				</div>
 			</div>			
 		</form>	
+		</div>

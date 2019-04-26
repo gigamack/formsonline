@@ -156,27 +156,72 @@
 						<hr style="border-top: dotted 1px;" />
 						<hr style="border-top: dotted 1px;" />
 					</div>						 -->
+
+<style>
+	.fill-line {
+		border-bottom: dotted 1px;
+		margin-top: 1.25em; 
+	}
+
+	.signth {
+		margin-left: 50px;
+	}
+	.datesign {
+		margin-left: 50px;
+	}
+	.datesign:before {
+		content:"วันที่";
+		margin-left: -40px;
+	}
+
+	.signth:before {
+		content:"(ลงชื่อ)";
+		margin-left: -40px;
+	}
+
+	.signature {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.signature:before {
+		content: "(";
+		/*float: left;*/
+		margin-left: -10px;
+	}
+	.signature:after {
+		content: ")";
+		float:right;
+		margin-right: -10px;
+	}
+</style>
+
+
 					<div class="card" id="teacherComment">
 						<div class="card-body">
 							<strong class="card-title">ความเห็นอาจารย์ที่ปรึกษา</strong>
 							<span class="card-subtitle mb-2 text-muted">(เฉพาะการขอใบรับรองความประพฤติ)</span>
-							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
-							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
-							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
-							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
-							<hr style="border-top: dotted 1px; margin-top: 1.25em;" />
-							<div style="float: right; margin-right:20%;">(ลงชื่อ)</div><hr style="clear: both; border-top: dotted 1px; margin-top: 1.25em; position: relative; width:20%; margin-left:80%;" />
-							<div style="float: right; margin-right:20%;">(</div><hr style="clear: both; border-top: dotted 1px; margin-top: 1.25em; width:20%; margin-left:80%;" />)
-						</div>
+							<div class="fill-line" ></div>
+							<div class="fill-line" ></div>
+							<div class="fill-line" ></div>
+							<div class="fill-line" ></div>
+							<div class="fill-line" ></div>
+							<div class="row">
+								<div class = "col-md-9"></div>
+									<div class = "col-md-3 align-center">
+										<div class="fill-line signth" ></div>
+										<div class="fill-line signature"></div>
+										<div class="fill-line datesign" ></div>
+									</div>
+								</div>							
+							</div>
 					</div>
 					<div class="row text-center">
 						<div class="col" id="with_print">
 							<div class="form-group">
-								<input type="hidden" id="DocTypeID" name="DocTypeID" value="6" />
-								<input type="hidden" id="stateID" name="stateID" value="t06s01" />
-								<button onclick="window.print()">Print</button>
-								<button type="submit" class="btn btn-success">Back</button>
-								
+									<input type="hidden" id="DocTypeID" name="DocTypeID" value="6" />
+									<input type="hidden" id="stateID" name="stateID" value="t06s01" />
+									<button onclick="window.print()">Print</button>						
+									<button type="submit" class="btn btn-success">Back</button>															
 							</div>
 						</div>
 					</div>

@@ -189,6 +189,36 @@
             $back = base_url("/FormControl/stdMain");       
     }
 
+    public function insertDocNextState()
+        {
+            $data= array('DocID' => $_POST['docID']
+            , 'OfficerCommentID' => $_POST['commentid']
+            , 'OfficerCommentText' => $_POST['commentText']
+            , 'OfficerID' => $_POST['userID']
+            , 'stateID' => $_POST['stateID']);
+            $this->DocStateModel->InsertDocState($data);
+            $dataupdate=array('DocID' => $_POST['docID']
+                                , 'StudentID' => $_POST['stdid']                                
+                                , 'receiptNumber' => $_POST['accno']
+                                , 'DocTypeID' => $_POST['DocTypeID']);
+            $this->DocModel->updateDoc($dataupdate,$_POST['docID']);
+            //$this->DocModel->updateDocState($data,$_POST['docID']);
+            $back = base_url("/FormControl/stdCardFormAdmin");
+            header('Location:' . $back);     
+
+        }
+        // public function updateDebtinvestigateStd()
+        // {           
+
+        //             $data=array('DocID' => $_POST['docID']
+        //                         , 'StudentID' => $_POST['stdid']                                
+        //                         , 'receiptNumber' => $_POST['accno']
+        //                         , 'DocTypeID' => $_POST['DocTypeID']);
+        //             $this->DocModel->updateDoc($data,$_POST['docID']);                   
+        //     $back = base_url("/FormControl/stdMain");
+        //     header('Location:' . $back);         
+        // }
+
     public function Certsubmitedview()
         {
             $this->chkSTDLogin();

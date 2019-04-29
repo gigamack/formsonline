@@ -349,6 +349,11 @@
             }   
             else if($data['docInfo'][0]['DocTypeID']==5)
             {$this->load->view('DebtInvestigateStaff',$data);              
+            }  
+            else if($data['docInfo'][0]['DocTypeID']==6)            
+            {
+                $data['certDetail'] = $this->CertModel->getCertDetailBydocID($docID);
+                $this->load->view('AllowCertifyform',$data);                      
             }          
         //    $this->load->view('sidebar');
             $this->load->view('footer');

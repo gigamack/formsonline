@@ -23,10 +23,14 @@
 	$docDetail = $docInfo;
 	// print_r($docDetail);
 
+
 ?>
 <body>
 <div class = "container">
-<form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url("/FormControl/stdMain") ?>" method="post" onsubmit="return validate()">
+<?php print_r($docDetail); 
+ $xxx=$docDetail[0]['DocID'];?>
+<input type="hidden" name="docID" id="docID" value="<?php echo $xxx; ?>" />
+<form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url("/certController/insertDocNextState") ?>" method="post">
 			<div class="card" id="with_or_without_print">
 				<div class="card-header bg-success text-light">
 				   <h4>Requisition form for Application of a certificate</h4> 
@@ -207,8 +211,8 @@
 							<div class="form-group">
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="6" />
 									<input type="hidden" id="stateID" name="stateID" value="t06s02" />
-									<button onclick="window.print()">Print</button>						
-									<button type="submit" class="btn btn-success">Back</button>															
+									<!-- <button onclick="window.print()">Print</button>						 -->
+									<button type="submit" class="btn btn-success">Submit</button>															
 							</div>
 						</div>
 					</div>

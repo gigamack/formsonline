@@ -191,7 +191,7 @@
 
     public function insertDocNextState()
         {
-            $data= array('DocID' => $_POST['docID']
+            $data= array('DocID' => isset($_POST['docID']) ? $_POST['docID'] : '';
             , 'OfficerCommentID' => $_POST['commentid']
             , 'OfficerCommentText' => $_POST['commentText']
             , 'OfficerID' => $_POST['userID']

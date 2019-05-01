@@ -32,7 +32,7 @@
  $staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
  ?>
 
-<form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url("/certController/insertDocNextState")?>" method="post">
+<form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url("FormControl/stdCardFormAdmin")?>">
 <input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 <input type="hidden" name="docID" id="docID" value="<?php echo $xxx; ?>" />
 			<div class="card" id="with_or_without_print">
@@ -204,7 +204,9 @@
                             <div class="col-sm-2">
                                 <label class = "font-weight-bold">ใบเสร็จรับเงินเลขที่</label>
                             </div>
-                            <div class="col-md-3"><input class="textbox" id="accno" name="accno"/></div>
+                            <div class="col-md-3">
+                            <input class="textbox" id="accno" name="accno" value="<?php echo $docDetail[0]['receiptNumber']; ?>" disabled />
+                            </div>
 										
 									</div>
 								</div>							
@@ -216,7 +218,7 @@
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="6" />
 									<input type="hidden" id="stateID" name="stateID" value="t06s02" />
 									<!-- <button onclick="window.print()">Print</button>						 -->
-									<button type="submit" class="btn btn-success">Submit</button>															
+									<button type="submit" class="btn btn-success">Back</button>															
 							</div>
 						</div>
 					</div>

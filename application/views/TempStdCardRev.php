@@ -135,8 +135,16 @@
 										}
 										else if ($docid->DocTypeID==4)
 										{
+											$docTypeName = 'คำร้องขอสำเร็จการศึกษา ป.โท';
+										}
+										else if ($docid->DocTypeID==5)
+										{
 											$docTypeName = 'คำร้องขอตรวจสอบหนี้สิน';
-										}									
+										}		
+										else if ($docid->DocTypeID==6)
+										{
+											$docTypeName = 'คำร้องขอหนังสือรับรอง';
+										}																	
 									?>
 									<tr class="">
 										<th scope="row">

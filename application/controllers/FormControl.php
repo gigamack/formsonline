@@ -151,10 +151,7 @@
             {
                 $this->load->view('ChangenameAllowedSTD',$data);
             }           
-            elseif($doctypeID==2)
-            {
-                $this->load->view('#',$data);
-            }
+           
             $this->load->view('footer');       
         }
         public function Allowed()
@@ -178,6 +175,11 @@
             elseif($doctypeID==2)
             {
                 $this->load->view('ChangenameAllowed',$data);
+            }
+            elseif($doctypeID==6)
+            {
+                $data['certDetail'] = $this->CertModel->getCertDetailBydocID($docID);
+                $this->load->view('AllowedCertifyform',$data);
             }           
             $this->load->view('footer');       
         }

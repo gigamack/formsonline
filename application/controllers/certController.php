@@ -191,9 +191,9 @@
 
     public function insertDocNextState()
         {
-            $data= array('DocID' => isset($_POST['docID']) ? $_POST['docID'] : '';
-            , 'OfficerCommentID' => $_POST['commentid']
-            , 'OfficerCommentText' => $_POST['commentText']
+            $data= array('DocID' => $_POST['docID']
+            , 'OfficerCommentID' => 1
+            , 'OfficerCommentText' => ''
             , 'OfficerID' => $_POST['userID']
             , 'stateID' => $_POST['stateID']);
             $this->DocStateModel->InsertDocState($data);

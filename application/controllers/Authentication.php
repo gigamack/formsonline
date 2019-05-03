@@ -42,6 +42,7 @@ class Authentication extends CI_Controller
             $_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'] = $dataTest['FAC_NAME_THAI']; //addded for test std
             $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'] = $dataTest['MAJOR_NAME_THAI']; //addded for test std
             $_SESSION["ddlchosen"] = '0';
+            
             redirect(base_url("FormControl/stdMain"));
         } //addded for test std
         else {

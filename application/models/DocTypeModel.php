@@ -26,6 +26,15 @@ class DocTypeModel extends CI_Model
         $this->db->delete('documentType',$data);
 
     }
+    public function getDocType()
+    {
+        //print_r($data);
+        $this->db->select('*');
+        $this->db->from('documentType');        
+        $query = $this->db->get();
+        //$query = $this->db->get();
+        return $query->result_array();
+    }
 
 }
 

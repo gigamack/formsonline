@@ -9,6 +9,7 @@
         $this->load->model('DocModel');
         $this->load->model('DocStateModel');
         $this->load->model('Student_model');
+        $this->load->model('DocTypeModel');
         $this->load->helper(array('form', 'url'));
     }
         public function index()
@@ -60,6 +61,7 @@
             $studentid=isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
             $dataSelect=array('StudentID' => $studentid);
             $data['docList']=$this->DocModel->selectDocWithStateOrder($dataSelect,'CreatedDate','DESC');
+            $data['doctypeList']=$this->DocTypeModel->getDocType();
             // $data['docList']=$this->DocModel->selectDocWithState($dataSelect);
             //$data['docList']=$this->DocModel->selectDoc($dataSelect);
             $this->load->view('css');

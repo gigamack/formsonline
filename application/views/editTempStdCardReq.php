@@ -5,11 +5,11 @@
       $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
       $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 ?>
-
+<div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateReq") ?>" method="post"
 			enctype="multipart/form-data">
 			<div class="card text-black bg-light">
-				<h5 class="card-header bg-primary text-light">
+				<h5 class="card-header bg-success text-light">
 					คำร้องขอทำบัตรนักศึกษาชั่วคราว
 				</h5>
 				<div class="input-group">
@@ -135,6 +135,7 @@
 
 					</div>
 				</div>
+			</div>
 			</div>
 			<!-- Modal -->
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

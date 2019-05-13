@@ -9,9 +9,10 @@
     $getDocInfo = $docInfo[0];
 ?>
 	<div class="container">
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertMasterGradReq") ?>" method="post">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateMasterGradReq") ?>" method="post">
+			<input type="hidden" name="docID" id="docID" value="<?php echo $getDocInfo['DocID'];?>">
 			<div class="card">
-				<h5 class="card-header bg-primary text-light">
+				<h5 class="card-header bg-success text-light">
 					คำร้องขอสำเร็จการศึกษา
 				</h5>
 				<div class="card-body">
@@ -239,7 +240,7 @@
 						<label class="font-weight-bold" for="thesissubjType">ประเภทวิชา:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-								<select class="custom-select" id="subjType" name="yearEnd">
+								<select class="custom-select" id="subjType" name="subjType">
 									<option selected><?php echo $getDocInfo['subjType'];?></option>
 									<option value="สารนิพนธ์">สารนิพนธ์ </option>
 									<option value="วิทยานิพนธ์">วิทยานิพนธ์ </option>	
@@ -258,13 +259,13 @@
 						<label class="font-weight-bold" for="thesisnameth">ชื่อวิชาวิทยานิพนธ์ภาษาไทย :</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<textarea class="form-control" id="thesisnameth" name="thesisnameth" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาไทย" value="<?php echo $getDocInfo['thesisnameth'];?>"></textarea>
+						<textarea class="form-control" id="thesisnameth" name="thesisnameth" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาไทย"><?php echo $getDocInfo['thesisnameth'];?></textarea>
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<label class="font-weight-bold" for="thesisnameeng">ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ :</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<textarea class="form-control" id="thesisnameeng" name="thesisnameeng" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ" value="<?php echo $getDocInfo['thesisnameeng'];?>"></textarea>
+						<textarea class="form-control" id="thesisnameeng" name="thesisnameeng" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ"><?php echo $getDocInfo['thesisnameeng'];?></textarea>
 						</div></div>
 					</div>
 					<div class="row">
@@ -278,10 +279,10 @@
 					</div>
 					<div class="row">
 						<div class="col">
-							<div class="form-group">
+							<div class="form-group text-center">
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
 									<input type="hidden" id="stateID" name="stateID" value="t04s01" />
-									<button type="submit" class="btn btn-success btn-block">Submit</button>
+									<button type="submit" class="btn btn-success">Submit</button>
 							</div>
 						</div>
 					</div>	

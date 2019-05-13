@@ -17,7 +17,8 @@
 	$getDocInfo = $docInfo[0];
 	/*get approveinfo*/ 
 	$appFacStaff = $getDocInfo['debtFacapproveby'];
-    $appdateFac = $getDocInfo['debtFacapprovedate'];
+	$appdateFac = $getDocInfo['debtFacapprovedate'];
+	// $appdateFac = date("d-m-Y", strtotime($getDocInfo['debtFacapprovedate']));
     $appLibStaff = $getDocInfo['debtLibapproveby'];
     $appdateLib = $getDocInfo['debtLibapprovedate'];
     $appBuildStaff = $getDocInfo['debtBuildtapproveby'];
@@ -25,10 +26,11 @@
     $appRegStaff = $getDocInfo['debtRegtapproveby'];
 	$appdateReg = $getDocInfo['debtRegapprovedate'];
 
-	if($appdateFac==0000-00-00) $appdateFac='';
-	if($appdateLib==0000-00-00) $appdateLib='';
-	if($appdateBuild==0000-00-00) $appdateBuild='';
-	if($appdateReg==0000-00-00) $appdateReg='';
+	$appdateFac==0000-00-00 ? $appdateFac='':$appdateFac=date("d-m-Y", strtotime($appdateFac));
+	// if($appdateFac==0000-00-00) $appdateFac='';
+	$appdateLib==0000-00-00 ? $appdateLib='':$appdateLib=date("d-m-Y", strtotime($appdateLib));
+	$appdateBuild==0000-00-00 ? $appdateBuild='':$appdateBuild=date("d-m-Y", strtotime($appdateBuild));
+	$appdateReg==0000-00-00 ? $appdateReg='':$appdateReg=date("d-m-Y", strtotime($appdateReg));
 	/*end*/
     $getStdInfo = $stdinfo; 
 	$studentid= $getDocInfo['StudentID'];
@@ -40,9 +42,10 @@
 	$dob=$getStdInfo['STUD_BIRTH_DATE'];
 	$citizenid=$getStdInfo['CITIZEN_ID'];
 	$dob=$getStdInfo['STUD_BIRTH_DATE'];
-	print_r($_SESSION['userSession']['UserRoles']);
+	//print_r($_SESSION['userSession']['UserRoles']);
 
 ?>
+<div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateDebtinvestigate") ?>" method="post">
 			<div class="card">
 				<div class="card-header bg-success text-light">
@@ -156,14 +159,14 @@
 							</tr>
 						</tbody>
 					</table>					
-					<div class="row">
+					<div class="row text-center">
 					<div class="col">
 								<label class="font-weight-bold">หมายเหตุ:</label><label>นักศึกษาท่านใดที่มีหนี้สิน ให้ชำระหนี้สินให้เรียบร้อย มิฉะนั้น มหาวิทยาลัยสงวนสิทธิ์ไม่เสนออนุมัติปริญญา</label>
-						</div>
+					</div>
 					</div>
 					<div class="row">
 						<div class="col">
-							<div class="form-group">
+							<div class="form-group text-center">
 							<input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>" />
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="5" />
 									<input type="hidden" id="stateID" name="stateID" value="t05s01" />
@@ -174,4 +177,5 @@
 				</div>
 			</div>
 		</form>	
+</div>
 

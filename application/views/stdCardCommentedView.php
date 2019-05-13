@@ -28,7 +28,7 @@ $('html, body').animate({
       <input type="hidden" id="stateID" name="stateID" value="t01s02"/>
       <input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>"/>
       <div class="card">
-      <h5 class="card-header bg-primary text-light">คำร้องขอทำบัตรนักศึกษาชั่วคราว</h5>
+      <h5 class="card-header bg-success text-light">คำร้องขอทำบัตรนักศึกษาชั่วคราว</h5>
       <div class="card-body">
             <div class="row">
               <div class="col">          

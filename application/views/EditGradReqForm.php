@@ -10,11 +10,11 @@
 	// print_r($_SESSION['userSession']);
     //print_r($stdinfo);
 ?>
-    
+    <div class ="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateGradReq") ?>" method="post">
 			<div class="card">
             <input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocID']; ?>"/>
-				<h5 class="card-header bg-primary text-light">
+				<h5 class="card-header bg-success text-light">
 					คำร้องขอสำเร็จการศึกษา
 				</h5>
 				<div class="card-body">
@@ -248,3 +248,4 @@
 				</div>
 			</div>
 		</form>	
+		</div>

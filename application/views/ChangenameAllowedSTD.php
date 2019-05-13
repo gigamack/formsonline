@@ -25,7 +25,7 @@
 			<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 			<input type="hidden" id="stateID" name="stateID" value="t02s02" />
 			<div class="card text-black bg-light">
-				<h5 class="card-header bg-primary text-light">
+				<h5 class="card-header bg-success text-light">
 					คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล
 				</h5>
 				<div class="card-body">

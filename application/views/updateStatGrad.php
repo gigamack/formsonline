@@ -10,19 +10,26 @@
 
 <body>
 	<?php
-    $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
-	$fullname=$_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
-	$fullnameeng=$_SESSION['userSession']['StudentInfo']['STUD_NAME_ENG'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_ENG'];
-    $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
-	$majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
-	$dob="";
-	$citizenid="";
+    // $studentid=$_SESSION['userSession']['StudentInfo']['STUDENT_ID'];
+	// $fullname=$_SESSION['userSession']['StudentInfo']['STUD_NAME_THAI'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_THAI'];
+	// $fullnameeng=$_SESSION['userSession']['StudentInfo']['STUD_NAME_ENG'].' '.$_SESSION['userSession']['StudentInfo']['STUD_SNAME_ENG'];
+    // $faculty=$_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'];
+	// $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
+	// $dob="";
+	// $citizenid="";
 
+	$studentid=$stdinfo['STUDENT_ID'];
+	$fullname=$stdinfo['STUD_NAME_THAI'].' '.$stdinfo['STUD_SNAME_THAI'];
+	$fullnameeng=$stdinfo['STUD_NAME_ENG'].' '.$stdinfo['STUD_SNAME_ENG'];
+    $faculty=$stdinfo['FAC_NAME_THAI'];
+	$majorname=$stdinfo['MAJOR_NAME_THAI'];  
+	$dob=$stdinfo['STUD_BIRTH_DATE'];
+    $citizenid=$stdinfo['CITIZEN_ID'];
 ?>
 	<div class="container">
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">
 			<div class="card">
-				<h5 class="card-header bg-primary text-light">
+				<h5 class="card-header bg-success text-light">
 					คำร้องขอสำเร็จการศึกษา
 				</h5>
 				<div class="card-body">
@@ -52,10 +59,10 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md">
+						<div class="col">
 							<label class="font-weight-bold" for="citizenid">เลขบัตรประชาชน :</label>
 						</div>
-						<div class="col-md-4">
+						<div class="col">
 							<label><?php echo $citizenid;?></label>
 						</div>
 					</div>
@@ -243,7 +250,7 @@
 						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" />
 						</div></div>
 					</div>					
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-md-3">
 						<div class="form-group">
 						<label class="font-weight-bold" for="thesisnameth">สถานะการขออนุมัติปริญญา :</label>
@@ -257,13 +264,29 @@
 									<option value="4">เสนอนายกสภามหาวิทยาลัยอนุมัติปริญญา</option>
 								</select>
 						</div></div>
+					</div> -->
+					<div class="row">
+							<div style="margin: 20px auto auto auto" class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
+								<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
+								<div class="radio">
+									<input type="radio" id="agree" name="commentid" value="1">
+									<label for="agree">Approve</label>
+									<input type="radio" id="disagree" name="commentid" value="2">
+									<label for="disagree">Disapprove</label>
+								</div>
+								<div class="form-group purple-border">
+									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
+								</div>
+								<!-- <button style="margin: auto auto 20px auto" type="submit" class="btn btn-success btn-block">Submit</button> -->
+							</div>
 					</div>
 					<div class="row">
 						<div class="col">
-							<div class="form-group">
-									<input type="hidden" id="DocTypeID" name="DocTypeID" value="1" />
+							<div class="form-group text-center">
+							<input type="hidden" name="docID" id="docID" value="<?php echo $xxx; ?>" />
+									<input type="hidden" id="DocTypeID" name="DocTypeID" value="3" />
 									<input type="hidden" id="stateID" name="stateID" value="t03s01" />
-									<button type="submit" class="btn btn-success btn-block">Submit</button>
+									<button type="submit" class="btn btn-success">Submit</button>
 							</div>
 						</div>
 					</div>	

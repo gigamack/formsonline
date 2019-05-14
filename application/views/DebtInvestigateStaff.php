@@ -42,7 +42,30 @@
 	$dob=$getStdInfo['STUD_BIRTH_DATE'];
 	$citizenid=$getStdInfo['CITIZEN_ID'];
 	$dob=$getStdInfo['STUD_BIRTH_DATE'];
-	//print_r($_SESSION['userSession']['UserRoles']);
+	//print_r($_SESSION['userSession']['UserRoles']['result'])
+
+	$role="";
+		// echo sizeof($_SESSION['userSession']['UserRoles']['result']);
+		$rolearraysize = sizeof($_SESSION['userSession']['UserRoles']['result']);
+		for($i = 0; $i<$rolearraysize; $i++)
+		{
+		  if($_SESSION['userSession']['UserRoles']['result'][$i]['app_id'] = '5775d840-d0f6-11e8-a537-27d43fa8bb86')
+		  {
+			  $role=$_SESSION['userSession']['UserRoles']['result'][$i]['role_name_thai'];
+		  }		  
+		}
+		$dept='';
+		if ($role = 'COC' or $role = 'FIS' or $role = 'TE' or $role = 'ESSAND')
+		{
+			$dept = $role;
+		}
+		else 
+		{
+			$dept='';
+		}
+		//echo $role;
+		//echo $_SESSION['userSession']['UserRoles']['result'][$i];
+		// print_r($_SESSION['userSession']['UserRoles']['result']);
 
 ?>
 <div class="container">
@@ -121,14 +144,14 @@
 							<tr>
 							<th scope="col">คณะ / Faculty</th>
 							<td>
-                                <label class="radio-inline"><input type="radio" name="debtfac" value="1" <?php if($getDocInfo['nodebtFac']== 1) echo "checked";?>>ไม่มีหนี้สิน</label>
-                                <label class="radio-inline"><input type="radio" name="debtfac" value="2" <?php if($getDocInfo['nodebtFac']== 2) echo "checked";?>>มีหนี้สิน</label>
+                                <label class="radio-inline"><input type="radio" name="debtfac" value="1" <?php if($getDocInfo['nodebtFac']== 1) echo "checked";?> <?php if($dept!='') echo "disabled" ?>>ไม่มีหนี้สิน</label>
+                                <label class="radio-inline"><input type="radio" name="debtfac" value="2" <?php if($getDocInfo['nodebtFac']== 2) echo "checked";?> <?php if($dept!='') echo "disabled" ?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appFacStaff; ?></td>
 							<td><?php echo $appdateFac; ?></td>
 							</tr>
 							<tr>
-							<th scope="col" colspan="4">สำหรับเจ้าหน้าที่ / For staff</th>							
+							<th scope="col" colspan="4">สำหรับเจ้าหน้าที่ / For staff</th>					
 							</tr>
 							<tr>
 							<th scope="col">ห้องสมุด / Library</th>

@@ -253,12 +253,12 @@
 						</div></div>
 					</div>			
 					
-					<div class="row">
+					<div class="row text-center">
 						<div class="col">
 							<div class="form-group">
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="3" />
 									<input type="hidden" id="stateID" name="stateID" value="t03s01" />
-									<button type="submit" class="btn btn-success btn-block">Submit</button>
+									<button type="submit" class="btn btn-success">Submit</button>
 							</div>
 						</div>
 					</div>	

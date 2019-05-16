@@ -22,7 +22,7 @@
 			<input type="hidden" id="stateID" name="stateID" value="t01s02" />
 			<input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>" />
 			<div class="card">
-				<h5 class="card-header bg-primary text-light">
+				<h5 class="card-header bg-success text-light">
 					คำร้องขอทำบัตรนักศึกษาชั่วคราว
 				</h5>
 				<div class="card-body">
@@ -108,7 +108,7 @@
 							<div class="form-group purple-border">
 								<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
 							</div>
-								<button type="submit" class="btn btn-success btn-block">Submit</button>
+								<button type="submit" class="btn btn-success">Submit</button>
 						</div>
 					</div>
 				</div>

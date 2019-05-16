@@ -30,7 +30,7 @@
                     <select class="custom-select" id="formselect" name="formselect">
                         <option value="#">Choose the form ...</option>
                         <?php for($i=0;$i< sizeof($DocTypeList);$i++){?>
-                        <?php   if($DocTypeList[$i]['DoctypeID']=='4')
+                        <?php   if(($DocTypeList[$i]['DoctypeID']=='4') or ($DocTypeList[$i]['DoctypeID']=='5'))
                                     {
                                         if($_SESSION['userSession']['StudentInfo']['STUDY_LEVEL_ID']!='06')
                                         {
@@ -38,6 +38,15 @@
                                          <?php
                                         }     
                                     }
+                                else if($DocTypeList[$i]['DoctypeID']=='3')
+                                    {
+                                        if($_SESSION['userSession']['StudentInfo']['STUDY_LEVEL_ID']!='04')
+                                        {
+                                         ?><option value="<?php echo $DocTypeList[$i]['DoctypeID'];?>" <?php if($_SESSION["ddlchosen"]==$DocTypeList[$i]['DoctypeID']) echo 'selected="selected"'; ?>><?php echo $DocTypeList[$i]['DoctypeNameEng']; ?></option>
+                                         <?php
+                                        }   
+                                    }
+
                                 else
                                 {?>
                                     <option value="<?php echo $DocTypeList[$i]['DoctypeID'];?>" <?php if($_SESSION["ddlchosen"]==$DocTypeList[$i]['DoctypeID']) echo 'selected="selected"'; ?>><?php echo $DocTypeList[$i]['DoctypeNameEng']; ?></option>

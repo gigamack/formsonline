@@ -121,7 +121,7 @@
 									<label><?php echo $getDocInfo[$i]['thAmount'] ?></label>
 									</div>	
 									<div class="col-2">
-									<label class="font-weight-bold">ค่าใช้จ่าย <?php echo $getDocInfo[$i]['totalcertPrice'] ?></label>
+									<label class="font-weight-bold"><?php echo $getDocInfo[$i]['totalcertPrice'] ?> บาท</label>
 									</div>
 									<?php $sum = $sum+$getDocInfo[$i]['totalcertPrice']; ?>
 								</div>
@@ -129,7 +129,11 @@
 					</div>
 					<?php } ?>
 					<div class="row">
-						<label class="font-weight-bold">ราคารวม <?php echo $sum; ?></label>
+						<div class="col-sm-10">
+						</div>
+						<div class="col-sm">
+							<label class="font-weight-bold">รวม <?php echo $sum; ?> บาท</label>
+						</div>
 					</div>			
 					<!-- <div class="row">
 						<label class="font-weight-bold">ความเห็นอาจารย์ที่ปรึกษา</label>

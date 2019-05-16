@@ -117,8 +117,13 @@
 					<?php 
 					$sum = 0;
 					$n = count($getDocInfo);
+					$showadvisorbox = 0;
 					for ($i = 0; $i < $n; $i++)
 					{ 
+						if($getDocInfo[$i]['certID']=='u3')
+						{
+							$showadvisorbox = 1;
+						}
 					?>
 					<div class="row">
 					<div class="col-sm-6">
@@ -140,7 +145,7 @@
 									<label><?php echo $getDocInfo[$i]['thAmount'] ?></label>
 									</div>	
 									<div class="col-2">
-									<label class="font-weight-bold">ค่าใช้จ่าย <?php echo $getDocInfo[$i]['totalcertPrice'] ?></label>
+									<label class="font-weight-bold"><?php echo $getDocInfo[$i]['totalcertPrice'] ?> บาท</label>
 									</div>
 									<?php $sum = $sum+$getDocInfo[$i]['totalcertPrice']; ?>
 								</div>
@@ -148,7 +153,11 @@
 					</div>
 					<?php } ?>
 					<div class="row">
-						<label class="font-weight-bold">ราคารวม <?php echo $sum; ?></label>
+						<div class="col-sm-10">
+						</div>
+						<div class="col-sm">
+							<label class="font-weight-bold">รวม <?php echo $sum; ?> บาท</label>
+						</div>
 					</div>			
 					<!-- <div class="row">
 						<label class="font-weight-bold">ความเห็นอาจารย์ที่ปรึกษา</label>
@@ -196,7 +205,7 @@
 </style>
 
 
-					<div class="card" id="teacherComment">
+					<div class="card" id="teacherComment" style="<?php if($showadvisorbox == 0)echo "display: none;" ?>">
 						<div class="card-body">
 							<strong class="card-title">ความเห็นอาจารย์ที่ปรึกษา</strong>
 							<span class="card-subtitle mb-2 text-muted">(เฉพาะการขอใบรับรองความประพฤติ)</span>
@@ -219,7 +228,7 @@
 						<div class="col" id="with_print">
 							<div class="form-group">
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="6" />
-									<input type="hidden" id="stateID" name="stateID" value="t06s01" />
+									<input type="hidden" id="stateID" name="stateID" value="t06s01" />									
 									<button onclick="window.print()">Print</button>						
 									<button type="submit" class="btn btn-success">Back</button>															
 							</div>

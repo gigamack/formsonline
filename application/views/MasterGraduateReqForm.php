@@ -18,7 +18,7 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col">
+						<div class="col-md-3">
 							<label class="font-weight-bold" for="stdid">รหัสนักศึกษา:</label>
 						</div>
 						<div class="col">
@@ -27,7 +27,7 @@
 						<input type="hidden" id="stdid" name="stdid" value="<?php echo $studentid?>" />				
 					</div>
 					<div class="row">
-						<div class="col">
+						<div class="col-md-3">
 							<label class="font-weight-bold" for="stdfullname">ชื่อ-สกุล :</label>
 						</div>
 						<div class="col">
@@ -35,7 +35,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col">
+						<div class="col-md-3">
 								<label class="font-weight-bold" for="stdfullnameeng">ชื่อ-สกุล(ภาษาอังกฤษ) :</label>
 						</div>
 						<div class="col">
@@ -43,7 +43,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md">
+						<div class="col-md-3">
 							<label class="font-weight-bold" for="citizenid">เลขบัตรประชาชน :</label>
 						</div>
 						<div class="col-md">
@@ -53,7 +53,7 @@
 
 					
 					<div class="row">						
-						<div class="col-md">
+						<div class="col-md-3">
 							<label class="font-weight-bold" for="dob">วัน/เดือน/ปีเกิด :</label>
 						</div>
 						<div class="col-md">

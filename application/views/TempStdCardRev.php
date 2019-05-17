@@ -176,3 +176,29 @@
 </body>
 
 </html>
+<script>
+        $(document).ready(function () {
+            var oTable =$('#unfinishedReq').DataTable({
+                "pagingType": "full_numbers",
+                "ordering": false,
+                columnDefs:[{
+                    targets: 3,
+                    "render": function (data,type,row){
+                        moment.locale('th');
+                        return moment(data).format('lll');
+                    }
+                }]
+			});
+			var oTable =$('#finishedReq').DataTable({
+                "pagingType": "full_numbers",
+                "ordering": false,
+                columnDefs:[{
+                    targets: 3,
+                    "render": function (data,type,row){
+                        moment.locale('th');
+                        return moment(data).format('lll');
+                    }
+                }]
+            });
+        });
+</script>

@@ -115,3 +115,36 @@
 </body>
 
 </html>
+<script>
+$(document).ready(function () {
+            var oTable =$('#unfinishedReq').DataTable({
+                "pagingType": "full_numbers",
+                "ordering": false,
+                columnDefs:[{
+                    targets: 2,
+                    "render": function (data,type,row){
+                        moment.locale('en');
+                        return moment(data).format('DD-MMM-YYYY');
+                    }					
+                },
+				{
+                    targets: 4,
+                    "render": function (data,type,row){
+                        moment.locale('en');
+                        return moment(data).format('DD-MMM-YYYY');
+                    }					
+                }]
+			});
+			// var oTable =$('#finishedReq').DataTable({
+            //     "pagingType": "full_numbers",
+            //     "ordering": false,
+            //     columnDefs:[{
+            //         targets: 3,
+            //         "render": function (data,type,row){
+            //             moment.locale('th');
+            //             return moment(data).format('lll');
+            //         }
+            //     }]
+            // });
+        });
+	</script>

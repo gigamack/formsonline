@@ -186,7 +186,8 @@
         $data2 = array('DocID' => $DocID
             , 'stateID' => $_POST['stateID']);
             $this->DocStateModel->InsertDocState($data2);
-            $back = base_url("/FormControl/stdMain");       
+            $back = base_url("/FormControl/stdMain");      
+            header('Location:' . $back);  
     }
 
     public function insertDocNextState()

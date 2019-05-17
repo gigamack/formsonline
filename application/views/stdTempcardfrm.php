@@ -9,7 +9,7 @@
     $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_ENG'];  
 ?>
 
-<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post"
+<form id="tempCardform" style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertReq") ?>" method="post"
 			enctype="multipart/form-data">
 			<div class="card">
 				<div class="card-header bg-success text-light">
@@ -55,7 +55,7 @@
 					<div class="row">
 						<div class="col">
 							<select class="custom-select" id="reason" name="reason" onchange="if (this.value=='5'){this.form['other'].style.visibility='visible'}else {this.form['other'].style.visibility='hidden'};">
-								<option selected>Choose/เลือก..</option>
+								<option value="0" selected>Choose/เลือก..</option>
 								<option value="1">Loss of the previous card. (the notice from police station is enclosed.) / บัตรสูญหาย (แนบใบแจ้งความจากสถานีตำรวจ)</option>
 								<option value="2">Damaged card./ บัตรชำรุด</option>
 								<option value="3">Expired card./ บัตรหมดอายุ</option>
@@ -107,7 +107,35 @@
 					alert("File is too big!");
 					this.value = "";
 				};
-			};
+			};		
+		
+		$(document).ready(function()
+		{
+		// $( "input[name^='en']").each(function(){
+		// 	console.log($(this).val());
+		// });	
 
-		</script>
+
+		$("#tempCardform").submit(function(){
+			var selectedvalue = $("#reason").val();			
+			if(selectedvalue==0)
+			{
+				alert("You have to select reason.");
+				return false;
+			}	
+			if(selectedvalue==1)
+			{
+				if($("#stdPicFile").val()=="")
+				{
+					alert("You have to attach picture.");
+					return false;
+				}
+				
+			}		
+
+			
+	});
+		
+		});
+	</script>
 </html>

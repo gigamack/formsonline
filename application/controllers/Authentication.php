@@ -21,10 +21,10 @@ class Authentication extends CI_Controller
         if ($UserInfo['AuthenticationResult'] == 1) {
             if ($_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['9'] == 'C03') {
                  if (empty($UserInfo['UserRoles']['result'])==false) {
-                    redirect(base_url('FormControl/stdCardFormAdmin'));
+                    redirect(base_url('admin/dashboard'));
                 } else {
                     $_SESSION["ddlchosen"] = '0';
-                    redirect(base_url("FormControl/stdMain"));
+                    redirect(base_url("student/dashboard"));
                 }
             } else {
                 $this->logout();
@@ -43,7 +43,7 @@ class Authentication extends CI_Controller
             $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'] = $dataTest['MAJOR_NAME_THAI']; //addded for test std
             $_SESSION["ddlchosen"] = '0';
             
-            redirect(base_url("FormControl/stdMain"));
+            redirect(base_url("student/dashboard"));
         } //addded for test std
         else {
             $_SESSION['errors'] = 'Fail';

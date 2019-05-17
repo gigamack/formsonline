@@ -607,7 +607,7 @@
             $data['docList2']=$this->DocModel->selectDocWithStateOrder($dataSelect,'OfficerCommentedDate','DESC');
             $docID = $_GET['docID'];
             $data['docInfo']=$this->DocModel->getDocBydocID($docID);
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             // print_r($data['docInfo']);
             $this->load->view('css');
             $this->load->view('header');
@@ -635,7 +635,7 @@
             $this->chkSTDLogin();
             $docID = $_GET['docID'];
             $data['docInfo']=$this->DocModel->getDocBydocID($docID);
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             // print_r($data['docInfo']);
             $this->load->view('css');
             $this->load->view('header');
@@ -734,7 +734,7 @@
             // , 'PoliceNoticePath' => $_POST['stdPicFile']
             // , 'DocTypeID' => $_POST['DocTypeID']);
             $this->DocModel->updateDoc($data,$_POST['docID']);
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);         
         }
         public function updateChangeNameReq()
@@ -796,7 +796,7 @@
                         , 'stdFile3' => $filename3);
                         $this->DocModel->updateDoc($data,$_POST['docID']);
                     }
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);         
         }
         public function updateGradReq()
@@ -815,7 +815,7 @@
                                 , 'zipcode' => $_POST['zipcode']
                                 , 'DocTypeID' => $_POST['DocTypeID']);
                     $this->DocModel->updateDoc($data,$_POST['docID']);                    
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);         
         }
 
@@ -840,7 +840,7 @@
                                 , 'thesisnameeng' => $_POST['thesisnameeng']
                                 , 'engtest' => $_POST['engtest']);
                     $this->DocModel->updateDoc($data,$_POST['docID']);                    
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);         
         }
 
@@ -930,7 +930,7 @@
                                 , 'debtRegapprovedate' => $debtRegapprovedate
                                 , 'DocTypeID' => $_POST['DocTypeID']);
                     $this->DocModel->updateDoc($data,$_POST['docID']);                   
-            $back = base_url("/FormControl/stdCardMain");
+            $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);         
         }
 

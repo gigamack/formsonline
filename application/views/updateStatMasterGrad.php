@@ -82,8 +82,8 @@
 						</div>
 						<div class="col-md">
 						<div class="form-group">						
-							<select class="custom-select" id="termEnd" name="termEnd">
-								<option selected>เลือก</option>
+							<select class="custom-select" id="termEnd" name="termEnd" disabled>
+								<option selected><?php echo $docInfo[0]['termEnd']; ?></option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>	
@@ -95,8 +95,8 @@
 						</div>
 							<div class="col-md">
 							<div class="form-group">						
-								<select class="custom-select" id="yearEnd" name="yearEnd">
-									<option selected>เลือก</option>
+								<select class="custom-select" id="yearEnd" name="yearEnd" disabled>
+									<option selected><?php echo $docInfo[0]['yearEnd']; ?></option>
 									<option value="1">2561</option>
 									<option value="2">2562</option>
 									<option value="3">2563</option>	
@@ -110,13 +110,13 @@
 						<label class="font-weight-bold" for="homenumber">บ้านเลขที่:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="homenumber" name="homenumber" placeholder="บ้านเลขที่" />
+						<input type="text" class="form-control" id="homenumber" name="homenumber" placeholder="บ้านเลขที่" value="<?php echo $docInfo[0]['houseNumber']; ?>" disabled />
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<label class="font-weight-bold" for="soi">ซอย:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="soi" name="soi" placeholder="ซอย" />
+						<input type="text" class="form-control" id="soi" name="soi" placeholder="ซอย" value="<?php echo $docInfo[0]['soi']; ?>" disabled />
 						</div></div>
 					</div>
 					<div class="row">
@@ -126,7 +126,7 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="street" name="street" placeholder="ถนน" />
+						<input type="text" class="form-control" id="street" name="street" placeholder="ถนน" value="<?php echo $docInfo[0]['street']; ?>" disabled />
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
@@ -134,7 +134,7 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="subdistrict" name="subdistrict" placeholder="ตำบล" />
+						<input type="text" class="form-control" id="subdistrict" name="subdistrict" placeholder="ตำบล" value="<?php echo $docInfo[0]['sub_district']; ?>" disabled />
 						</div></div>
 					</div>
 					<div class="row">
@@ -144,7 +144,7 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
-						<input type="text" class="form-control" id="district" name="district" placeholder="อำเภอ" />
+						<input type="text" class="form-control" id="district" name="district" placeholder="อำเภอ" value="<?php echo $docInfo[0]['district']; ?>" disabled />
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">
@@ -152,8 +152,8 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">						
-								<select class="custom-select" id="yearEnd" name="yearEnd">
-								<option value="" selected>---เลือกจังหวัด---</option>
+								<select class="custom-select" id="yearEnd" name="yearEnd" disabled >
+								<option value="" selected><?php echo $docInfo[0]['province']; ?></option>
 									<option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
 									<option value="กระบี่">กระบี่ </option>
 									<option value="กาญจนบุรี">กาญจนบุรี </option>
@@ -241,13 +241,13 @@
 						<label class="font-weight-bold" for="zipcode">รหัสไปรษณีย์:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="รหัสไปรษณีย์" />
+						<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="รหัสไปรษณีย์" value="<?php echo $docInfo[0]['zipcode']; ?>" disabled />
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<label class="font-weight-bold" for="tel">หมายเลขโทรศัพท์:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" />
+						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" value="<?php echo $docInfo[0]['tel']; ?>" disabled/>
 						</div></div>
 					</div>
 
@@ -257,8 +257,8 @@
 						<label class="font-weight-bold" for="thesissubjType">ประเภทวิชา:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-								<select class="custom-select" id="subjType" name="yearEnd">
-									<option value="" selected>--เลือกประเภท--</option>
+								<select class="custom-select" id="subjType" name="subjType" disabled>
+									<option value="" selected><?php echo $docInfo[0]['subjType']; ?></option>
 									<option value="อ่างทอง">สารนิพนธ์ </option>
 									<option value="อ่างทอง">วิทยานิพนธ์ </option>	
 								</select>
@@ -267,7 +267,7 @@
 						<label class="font-weight-bold" for="thesissubjCode">รหัสวิชาวิทยานิพนธ์ :</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="thesissubjCode" name="thesissubjCode" placeholder="รหัสวิชาวิทยานิพนธ์" />
+						<input type="text" class="form-control" id="thesissubjCode" name="thesissubjCode" placeholder="รหัสวิชาวิทยานิพนธ์" value="<?php echo $docInfo[0]['thesissubjCode']; ?>" disabled />
 						</div></div>
 					</div>
 					<div class="row">
@@ -276,13 +276,13 @@
 						<label class="font-weight-bold" for="thesisnameth">ชื่อวิชาวิทยานิพนธ์ภาษาไทย :</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<textarea class="form-control" id="thesisnameth" name="thesisnameth" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาไทย"></textarea>
+						<textarea class="form-control" id="thesisnameth" name="thesisnameth" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาไทย" disabled><?php echo $docInfo[0]['thesisnameth']; ?></textarea>
 						</div></div>
 						<div class="col-md"><div class="form-group">
 						<label class="font-weight-bold" for="thesisnameeng">ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ :</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<textarea class="form-control" id="thesisnameeng" name="thesisnameeng" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ"></textarea>
+						<textarea class="form-control" id="thesisnameeng" name="thesisnameeng" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ" disabled><?php echo $docInfo[0]['thesisnameeng']; ?></textarea>
 						</div></div>
 					</div>
 					<div class="row">

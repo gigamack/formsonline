@@ -156,8 +156,8 @@
 							<tr>
 							<th scope="col">ห้องสมุด / Library</th>
 							<td>
-                            <label class="radio-inline"><input type="radio" name="debtlib" value="1" <?php if($getDocInfo['nodebtLib']== 1) echo "checked";?>>ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtlib" value="2" <?php if($getDocInfo['nodebtLib']== 2) echo "checked";?>>มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtlib" value="1" <?php if($getDocInfo['nodebtLib']== 1) echo "checked";?> <?php if($dept!='งานห้องสมุด') echo "disabled" ?>>ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtlib" value="2" <?php if($getDocInfo['nodebtLib']== 2) echo "checked";?> <?php if($dept!='งานห้องสมุด') echo "disabled" ?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appLibStaff; ?></td>
 							<td><?php echo $appdateLib; ?></td>
@@ -165,8 +165,8 @@
 							<tr>
 							<th scope="col">อาคาร / Building</th>
 							<td>
-                            <label class="radio-inline"><input type="radio" name="debtbuild" value="1" <?php if($getDocInfo['nodebtBuild']== 1) echo "checked";?>>ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtbuild" value="2" <?php if($getDocInfo['nodebtBuild']== 2) echo "checked";?>>มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtbuild" value="1" <?php if($getDocInfo['nodebtBuild']== 1) echo "checked";?> <?php if($dept!='งานอาคาร') echo "disabled" ?>>ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtbuild" value="2" <?php if($getDocInfo['nodebtBuild']== 2) echo "checked";?> <?php if($dept!='งานอาคาร') echo "disabled" ?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appBuildStaff; ?></td>
 							<td><?php echo $appdateBuild; ?></td>
@@ -174,8 +174,8 @@
 							<tr>
 							<th scope="col">งานรับนักศึกษาและทะเบียนกลาง<br/>Student Admission and Registration</th>
 							<td>			
-                            <label class="radio-inline"><input type="radio" name="debtreg" value="1" <?php if($getDocInfo['nodebtReg']== 1) echo "checked";?>>ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtreg" value="2" <?php if($getDocInfo['nodebtReg']== 2) echo "checked";?>>มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="1" <?php if($getDocInfo['nodebtReg']== 1) echo "checked";?> <?php if($dept!='งานทะเบียนกลาง') echo "disabled" ?>>ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="2" <?php if($getDocInfo['nodebtReg']== 2) echo "checked";?> <?php if($dept!='งานทะเบียนกลาง') echo "disabled" ?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appRegStaff; ?></td>
 							<td><?php echo $appdateReg; ?></td>

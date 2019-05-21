@@ -318,7 +318,7 @@
 						<div class="col">
 							<div class="form-group">
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
-									<input type="hidden" id="stateID" name="stateID" value="t04s01" />
+									<input type="hidden" id="stateID" name="stateID" value="t04s02" />
 									<button type="submit" class="btn btn-success">Submit</button>
 							</div>
 						</div>

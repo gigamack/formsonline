@@ -70,6 +70,7 @@
 ?>
 <div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateDebtinvestigate") ?>" method="post">
+			<input type ="hidden" name="staffunit" id="staffunit" value="<?php echo $role;?>">
 			<div class="card">
 				<div class="card-header bg-success text-light">
 				   <h4>Request form for Graduation and Debt Investigation (Graduate School) </h4> 

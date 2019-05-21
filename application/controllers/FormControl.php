@@ -913,23 +913,84 @@
                         $debtRegtapproveby=$Fullname;
                         $debtRegapprovedate=$appdate;    
                     }
-
-                    $data=array('DocID' => $_POST['docID']
-                                , 'StudentID' => $_POST['stdid']                                
-                                , 'nodebtFac' => $debtfac
-                                , 'nodebtLib' => $debtlib
-                                , 'nodebtBuild' => $debtbuild
-                                , 'nodebtReg' => $debtreg
-                                , 'debtFacapproveby' => $debtFacapproveby 
-                                , 'debtFacapprovedate' => $debtFacapprovedate
-                                , 'debtLibapproveby' =>  $debtLibapproveby
-                                , 'debtLibapprovedate' => $debtLibapprovedate
-                                , 'debtBuildtapproveby' => $debtBuildtapproveby
-                                , 'debtBuildapprovedate' => $debtBuildapprovedate
-                                , 'debtRegtapproveby' => $debtRegtapproveby
-                                , 'debtRegapprovedate' => $debtRegapprovedate
-                                , 'DocTypeID' => $_POST['DocTypeID']);
-                    $this->DocModel->updateDoc($data,$_POST['docID']);                   
+                    if($_POST['staffunit'] ='COC' or $_POST['staffunit'] = 'FIS' or $_POST['staffunit'] = 'TE' or $_POST['staffunit'] = 'ESSAND')
+                    {
+                        $data=array('DocID' => $_POST['docID']
+                        , 'StudentID' => $_POST['stdid']                                
+                        , 'nodebtFac' => $debtfac                        
+                        , 'debtFacapproveby' => $debtFacapproveby 
+                        , 'debtFacapprovedate' => $debtFacapprovedate                       
+                        , 'DocTypeID' => $_POST['DocTypeID']);                          
+                    }
+                    else if($_POST['staffunit']='งานทะเบียนกลาง')
+                    {
+                        $data=array('DocID' => $_POST['docID']
+                        , 'StudentID' => $_POST['stdid']                              
+                        , 'nodebtReg' => $debtreg                       
+                        , 'debtRegtapproveby' => $debtRegtapproveby
+                        , 'debtRegapprovedate' => $debtRegapprovedate
+                        , 'DocTypeID' => $_POST['DocTypeID']);
+                    }
+                    else if($_POST['staffunit']='งานห้องสมุด')
+                    {
+                        $data=array('DocID' => $_POST['docID']
+                        , 'StudentID' => $_POST['stdid']                              
+                        , 'nodebtLib' => $debtlib                        
+                        , 'debtLibapproveby' =>  $debtLibapproveby
+                        , 'debtLibapprovedate' => $debtLibapprovedate                       
+                        , 'DocTypeID' => $_POST['DocTypeID']);
+                    }
+                    else if($_POST['staffunit']='งานอาคาร')
+                    {
+                        $data=array('DocID' => $_POST['docID']
+                        , 'StudentID' => $_POST['stdid']                           
+                        , 'nodebtBuild' => $debtbuild                       
+                        , 'debtBuildtapproveby' => $debtBuildtapproveby
+                        , 'debtBuildapprovedate' => $debtBuildapprovedate                        
+                        , 'DocTypeID' => $_POST['DocTypeID']);
+                    }
+                    // $this->DocModel->updateDoc($data,$_POST['docID']);
+                    // $data=array('DocID' => $_POST['docID']
+                    //             , 'StudentID' => $_POST['stdid']                                
+                    //             , 'nodebtFac' => $debtfac
+                    //             , 'nodebtLib' => $debtlib
+                    //             , 'nodebtBuild' => $debtbuild
+                    //             , 'nodebtReg' => $debtreg
+                    //             , 'debtFacapproveby' => $debtFacapproveby 
+                    //             , 'debtFacapprovedate' => $debtFacapprovedate
+                    //             , 'debtLibapproveby' =>  $debtLibapproveby
+                    //             , 'debtLibapprovedate' => $debtLibapprovedate
+                    //             , 'debtBuildtapproveby' => $debtBuildtapproveby
+                    //             , 'debtBuildapprovedate' => $debtBuildapprovedate
+                    //             , 'debtRegtapproveby' => $debtRegtapproveby
+                    //             , 'debtRegapprovedate' => $debtRegapprovedate
+                    //             , 'DocTypeID' => $_POST['DocTypeID']);
+                    $this->DocModel->updateDoc($data,$_POST['docID']);
+                   if($debtreg !=0 and $debtbuild != 0 and $debtfac !=0 and $debtlib != 0 )
+                   {                     
+                    $resultdebt = $debtreg+$debtbuild+$debtfac+$debtlib
+                    if($resultdebt!=8)
+                    {
+                        $data2 = array('DocID' => $_POST['docID']
+                    , 'stateID' => 't05s03'
+                    , 'OfficerCommentID' => '2'
+                    , 'OfficerCommentText' => 'มีหนี้สินคงค้าง');
+                        
+                    }
+                    else 
+                    {
+                        $data2 = array('DocID' => $_POST['docID']
+                    , 'stateID' => 't05s03'
+                    , 'OfficerCommentID' => '1'
+                    , 'OfficerCommentText' => 'ไม่มีหนี้สินคงค้าง');                        
+                    }
+                   }
+                   else if($debtreg=0 and $debtbuild != 0 and $debtfac !=0 and $debtlib != 0 )
+                   {
+                     $data2 = array('DocID' => $_POST['docID']
+                                    , 'stateID' => 't05s02');                                    
+                   }                    
+                    $this->DocStateModel->InsertDocState($data2);                               
             $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);         
         }

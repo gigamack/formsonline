@@ -153,6 +153,18 @@
             {
                 $this->load->view('ChangenameAllowedSTD',$data);
             }  
+            elseif($doctypeID==3)
+            {
+                $this->load->view('GradAllowedSTD',$data);
+            }
+            elseif($doctypeID==4)
+            {
+                $this->load->view('MasterGradAllowedSTD',$data);
+            }
+            elseif($doctypeID==5)
+            {
+                $this->load->view('DebtAllowedSTD',$data);
+            }
             elseif($doctypeID==6)
             {
                 $data['certDetail'] = $this->CertModel->getCertDetailBydocID($docID);
@@ -182,6 +194,18 @@
             elseif($doctypeID==2)
             {
                 $this->load->view('ChangenameAllowed',$data);
+            }
+            elseif($doctypeID==3)
+            {
+                $this->load->view('GradAllowed',$data);
+            }
+            elseif($doctypeID==4)
+            {
+                $this->load->view('MasterGradAllowed',$data);
+            }
+            elseif($doctypeID==5)
+            {
+                $this->load->view('DebtAllowed',$data);
             }
             elseif($doctypeID==6)
             {
@@ -255,6 +279,7 @@
                     $this->load->view('CertificateForm');
                     break;
                 case '7':
+                    $this->load->view('student/RequestRegistMoreCredit');
                     break;
                 case '8':
                     $this->load->view('student/RequestCourseTransfer');
@@ -995,13 +1020,14 @@
                     $this->DocModel->updateDoc($data,$_POST['docID']);
                    if($debtreg !=0 and $debtbuild != 0 and $debtfac !=0 and $debtlib != 0 )
                    {                     
-                    $resultdebt = $debtreg+$debtbuild+$debtfac+$debtlib
+                    $resultdebt = $debtreg+$debtbuild+$debtfac+$debtlib;
                     if($resultdebt!=8)
                     {
                         $data2 = array('DocID' => $_POST['docID']
                     , 'stateID' => 't05s03'
                     , 'OfficerCommentID' => '2'
-                    , 'OfficerCommentText' => 'มีหนี้สินคงค้าง');
+                    , 'OfficerCommentText' => 'มีหนี้สินคงค้าง'
+                    , 'OfficerID' => $_POST['userID']);
                         
                     }
                     else 
@@ -1009,14 +1035,27 @@
                         $data2 = array('DocID' => $_POST['docID']
                     , 'stateID' => 't05s03'
                     , 'OfficerCommentID' => '1'
-                    , 'OfficerCommentText' => 'ไม่มีหนี้สินคงค้าง');                        
+                    , 'OfficerCommentText' => 'ไม่มีหนี้สินคงค้าง'
+                    , 'OfficerID' => $_POST['userID']);                        
                     }
                    }
-                   else if($debtreg=0 and $debtbuild != 0 and $debtfac !=0 and $debtlib != 0 )
+                   else                   
                    {
                      $data2 = array('DocID' => $_POST['docID']
                                     , 'stateID' => 't05s02');                                    
-                   }                    
+                   }         
+
+                   $data= array('DocID' => $_POST['docID']
+                   , 'OfficerCommentID' => $_POST['commentid']
+                   , 'OfficerCommentText' => $_POST['commentText']
+                   , 'OfficerID' => $_POST['userID']
+                   , 'stateID' => $_POST['stateID']);
+                   $this->DocStateModel->InsertDocState($data);
+                //    else if($debtreg=0 and $debtbuild != 0 and $debtfac !=0 and $debtlib != 0 )
+                //    {
+                //      $data2 = array('DocID' => $_POST['docID']
+                //                     , 'stateID' => 't05s02');                                    
+                //    }                    
                     $this->DocStateModel->InsertDocState($data2);                               
             $back = base_url("/FormControl/stdMain");
             header('Location:' . $back);         

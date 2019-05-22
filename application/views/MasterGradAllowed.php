@@ -17,7 +17,6 @@
 	// $majorname=$_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'];  
 	// $dob="";
 	// $citizenid="";
-
 	$studentid=$stdinfo['STUDENT_ID'];
 	$fullname=$stdinfo['STUD_NAME_THAI'].' '.$stdinfo['STUD_SNAME_THAI'];
 	$fullnameeng=$stdinfo['STUD_NAME_ENG'].' '.$stdinfo['STUD_SNAME_ENG'];
@@ -25,7 +24,8 @@
 	$majorname=$stdinfo['MAJOR_NAME_THAI'];  
 	$dob=$stdinfo['STUD_BIRTH_DATE'];
 	$citizenid=$stdinfo['CITIZEN_ID'];
-	$staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
+    $staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
+    $commented_id = $docCommented;
 ?>
 	<div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">
@@ -154,7 +154,7 @@
 						</div></div>
 						<div class="col-md">
 						<div class="form-group">						
-								<select class="custom-select" id="province" name="province" disabled>
+								<select class="custom-select" id="yearEnd" name="yearEnd" disabled >
 								<option value="" selected><?php echo $docInfo[0]['province']; ?></option>
 									<option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
 									<option value="กระบี่">กระบี่ </option>
@@ -249,14 +249,50 @@
 						<label class="font-weight-bold" for="tel">หมายเลขโทรศัพท์:</label>
 						</div></div>
 						<div class="col-md"><div class="form-group">
-						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" value="<?php echo $docInfo[0]['tel']; ?>" disabled />
+						<input type="text" class="form-control" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" value="<?php echo $docInfo[0]['tel']; ?>" disabled/>
 						</div></div>
-					</div>					
-					<!-- <div class="row">
-						<div class="col-md-3">
+					</div>
+
+					<div class="row">
+						<div class="col-md">
 						<div class="form-group">
-						<label class="font-weight-bold" for="thesisnameth">สถานะการขออนุมัติปริญญา :</label>
+						<label class="font-weight-bold" for="thesissubjType">ประเภทวิชา:</label>
 						</div></div>
+						<div class="col-md"><div class="form-group">
+								<select class="custom-select" id="subjType" name="subjType" disabled>
+									<option value="" selected><?php echo $docInfo[0]['subjType']; ?></option>
+									<option value="อ่างทอง">สารนิพนธ์ </option>
+									<option value="อ่างทอง">วิทยานิพนธ์ </option>	
+								</select>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<label class="font-weight-bold" for="thesissubjCode">รหัสวิชาวิทยานิพนธ์ :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<input type="text" class="form-control" id="thesissubjCode" name="thesissubjCode" placeholder="รหัสวิชาวิทยานิพนธ์" value="<?php echo $docInfo[0]['thesissubjCode']; ?>" disabled />
+						</div></div>
+					</div>
+					<div class="row">
+						<div class="col-md">
+						<div class="form-group">
+						<label class="font-weight-bold" for="thesisnameth">ชื่อวิชาวิทยานิพนธ์ภาษาไทย :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<textarea class="form-control" id="thesisnameth" name="thesisnameth" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาไทย" disabled><?php echo $docInfo[0]['thesisnameth']; ?></textarea>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<label class="font-weight-bold" for="thesisnameeng">ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ :</label>
+						</div></div>
+						<div class="col-md"><div class="form-group">
+						<textarea class="form-control" id="thesisnameeng" name="thesisnameeng" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ" disabled><?php echo $docInfo[0]['thesisnameeng']; ?></textarea>
+						</div></div>
+					</div>
+					<div class="row">
+						<!-- <div class="col-md-3">
+							<div class="form-group">
+							<label class="font-weight-bold" for="thesisnameth">สถานะการขออนุมัติปริญญา :</label>
+							</div>
+						</div>
 						<div class="col-md"><div class="form-group">
 								<select class="custom-select" id="subjType" name="yearEnd">
 									<option value="" selected>--เลือกสถานะ--</option>
@@ -265,29 +301,42 @@
 									<option value="3">เสนอรายชื่อผู้สำเร็จการศึกษาต่อคณะกรรมการประจำคณะ</option>
 									<option value="4">เสนอนายกสภามหาวิทยาลัยอนุมัติปริญญา</option>
 								</select>
-						</div></div>
-					</div> -->
-					<div class="row">
+						</div> -->
+
+                        <div class="row">
 							<div style="margin: 20px auto auto auto" class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
 								<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
 								<div class="radio">
-									<input type="radio" id="agree" name="commentid" value="1">
+									<input type="radio" id="agree" name="commentid" value="1" <?php if($commented_id[0]->OfficerCommentID == 1){ echo ' checked="checked"'; } ?> disabled>
 									<label for="agree">Approve</label>
-									<input type="radio" id="disagree" name="commentid" value="2">
+									<input type="radio" id="disagree" name="commentid" value="2" <?php if($commented_id[0]->OfficerCommentID == 2){ echo ' checked="checked"'; } ?> disabled>
 									<label for="disagree">Disapprove</label>
 								</div>
 								<div class="form-group purple-border">
-									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
+									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:" disabled><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
 								</div>
 								<!-- <button style="margin: auto auto 20px auto" type="submit" class="btn btn-success btn-block">Submit</button> -->
 							</div>
 					</div>
-					<div class="row">
+						<!-- <div style="margin: 20px auto auto auto" class="card text-black bg-light text-center">
+								
+									<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
+									<div class="radio">
+										<input type="radio" id="agree" name="commentid" value="1">
+										<label for="agree">Approve</label>
+										<input type="radio" id="disagree" name="commentid" value="2">
+										<label for="disagree">Disapprove</label>
+									</div>
+									<div class="form-group purple-border">
+										<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
+									</div>
+								</div>						
+					</div>					 -->
+					<div class="row text-center">
 						<div class="col">
-							<div class="form-group text-center">							
-							<input type="hidden" name="docID" id="docID" value="<?php echo $docInfo[0]['DocID']; ?>" />
-									<input type="hidden" id="DocTypeID" name="DocTypeID" value="3" />
-									<input type="hidden" id="stateID" name="stateID" value="t03s02" />
+							<div class="form-group">
+									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
+									<input type="hidden" id="stateID" name="stateID" value="t04s02" />
 									<button type="submit" class="btn btn-success">Submit</button>
 							</div>
 						</div>

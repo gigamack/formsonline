@@ -23,11 +23,12 @@
     $faculty=$stdinfo['FAC_NAME_THAI'];
 	$majorname=$stdinfo['MAJOR_NAME_THAI'];  
 	$dob=$stdinfo['STUD_BIRTH_DATE'];
-    $citizenid=$stdinfo['CITIZEN_ID'];
-
+	$citizenid=$stdinfo['CITIZEN_ID'];
+	$staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
 ?>
 	<div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">
+		<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 			<div class="card">
 				<h5 class="card-header bg-success text-light">
 					คำร้องขอสำเร็จการศึกษา

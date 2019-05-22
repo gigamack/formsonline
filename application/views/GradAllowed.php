@@ -25,10 +25,11 @@
 	$majorname=$stdinfo['MAJOR_NAME_THAI'];  
 	$dob=$stdinfo['STUD_BIRTH_DATE'];
 	$citizenid=$stdinfo['CITIZEN_ID'];
-	$staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
+    $staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
+    $commented_id = $docCommented;
 ?>
 	<div class="container">
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardFormAdmin") ?>" method="post">
 		<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 			<div class="card">
 				<h5 class="card-header bg-success text-light">
@@ -267,17 +268,18 @@
 								</select>
 						</div></div>
 					</div> -->
-					<div class="row">
+
+                    <div class="row">
 							<div style="margin: 20px auto auto auto" class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
 								<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
 								<div class="radio">
-									<input type="radio" id="agree" name="commentid" value="1">
+									<input type="radio" id="agree" name="commentid" value="1" <?php if($commented_id[0]->OfficerCommentID == 1){ echo ' checked="checked"'; } ?> disabled>
 									<label for="agree">Approve</label>
-									<input type="radio" id="disagree" name="commentid" value="2">
+									<input type="radio" id="disagree" name="commentid" value="2" <?php if($commented_id[0]->OfficerCommentID == 2){ echo ' checked="checked"'; } ?> disabled>
 									<label for="disagree">Disapprove</label>
 								</div>
 								<div class="form-group purple-border">
-									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
+									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:" disabled><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
 								</div>
 								<!-- <button style="margin: auto auto 20px auto" type="submit" class="btn btn-success btn-block">Submit</button> -->
 							</div>
@@ -288,7 +290,7 @@
 							<input type="hidden" name="docID" id="docID" value="<?php echo $docInfo[0]['DocID']; ?>" />
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="3" />
 									<input type="hidden" id="stateID" name="stateID" value="t03s02" />
-									<button type="submit" class="btn btn-success">Submit</button>
+									<button type="submit" class="btn btn-success">Back</button>
 							</div>
 						</div>
 					</div>	

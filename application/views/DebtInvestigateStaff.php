@@ -42,6 +42,7 @@
 	$dob=$getStdInfo['STUD_BIRTH_DATE'];
 	$citizenid=$getStdInfo['CITIZEN_ID'];
 	$dob=$getStdInfo['STUD_BIRTH_DATE'];
+	$staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
 	//print_r($_SESSION['userSession']['UserRoles']['result'])
 
 	$role="";
@@ -70,6 +71,7 @@
 ?>
 <div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateDebtinvestigate") ?>" method="post">
+		<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 			<input type ="hidden" name="staffunit" id="staffunit" value="<?php echo $role;?>">
 			<div class="card">
 				<div class="card-header bg-success text-light">
@@ -175,8 +177,8 @@
 							<tr>
 							<th scope="col">งานรับนักศึกษาและทะเบียนกลาง<br/>Student Admission and Registration</th>
 							<td>			
-                            <label class="radio-inline"><input type="radio" name="debtreg" value="1" <?php if($getDocInfo['nodebtReg']== 1) echo "checked";?> <?php if($dept!='งานทะเบียนกลาง') echo "disabled" ?>>ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtreg" value="2" <?php if($getDocInfo['nodebtReg']== 2) echo "checked";?> <?php if($dept!='งานทะเบียนกลาง') echo "disabled" ?>>มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="1" <?php if($getDocInfo['nodebtReg']== 1) echo "checked";?> <?php if($role!='งานทะเบียนกลาง') echo "disabled" ?>>ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="2" <?php if($getDocInfo['nodebtReg']== 2) echo "checked";?> <?php if($role!='งานทะเบียนกลาง') echo "disabled" ?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appRegStaff; ?></td>
 							<td><?php echo $appdateReg; ?></td>

@@ -210,30 +210,57 @@
             $this->load->view('header');           
             $_SESSION["ddlchosen"] = $chosenform;
             $this->load->view('StdReqDdlPart',$data);            
-            if($chosenform=='1')
-            {
-                $this->load->view('stdTempcardfrm');
-                // $this->load->view('TempStdCardReq');
-            }
-            else if($chosenform=='2')
-            {
-                $this->load->view('NameChangingFrm');
-            }
-            else if($chosenform=='3')
-            {
-                $this->load->view('GraduateReqForm');
-            }
-            else if($chosenform=='4')
-            {
-                $this->load->view('MasterGraduateReqForm');
-            }
-            else if($chosenform=='5')
-            {
-                $this->load->view('DebtInvestigate');
-            }
-            else if($chosenform=='6')
-            {
-                $this->load->view('CertificateForm');
+            // if($chosenform=='1')
+            // {
+            //     $this->load->view('stdTempcardfrm');
+            //     // $this->load->view('TempStdCardReq');
+            // }
+            // else if($chosenform=='2')
+            // {
+            //     $this->load->view('NameChangingFrm');
+            // }
+            // else if($chosenform=='3')
+            // {
+            //     $this->load->view('GraduateReqForm');
+            // }
+            // else if($chosenform=='4')
+            // {
+            //     $this->load->view('MasterGraduateReqForm');
+            // }
+            // else if($chosenform=='5')
+            // {
+            //     $this->load->view('DebtInvestigate');
+            // }
+            // else if($chosenform=='6')
+            // {
+            //     $this->load->view('CertificateForm');
+            // }
+            switch ($chosenform){
+                case '1':
+                    $this->load->view('stdTempcardfrm');
+                    break;
+                case '2':
+                    $this->load->view('NameChangingFrm');
+                    break;
+                case '3':
+                    $this->load->view('GraduateReqForm');
+                    break;
+                case '4':
+                    $this->load->view('MasterGraduateReqForm');
+                    break;
+                case '5':
+                    $this->load->view('DebtInvestigate');
+                    break;
+                case '6':
+                    $this->load->view('CertificateForm');
+                    break;
+                case '7':
+                    break;
+                case '8':
+                    $this->load->view('student/RequestCourseTransfer');
+                    break;
+                default :
+                break;
             }
             $this->load->view('StdReqTable',$data);
             $this->load->view('footer');

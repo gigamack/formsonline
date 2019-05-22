@@ -25,12 +25,12 @@
 	$majorname=$stdinfo['MAJOR_NAME_THAI'];  
 	$dob=$stdinfo['STUD_BIRTH_DATE'];
 	$citizenid=$stdinfo['CITIZEN_ID'];
-    $staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
+    //$staff_id=$_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0];
     $commented_id = $docCommented;
 ?>
 	<div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/student/dashboard") ?>" method="post">
-		<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
+		<!-- <input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" /> -->
 			<div class="card">
 				<h5 class="card-header bg-success text-light">
 					คำร้องขอสำเร็จการศึกษา

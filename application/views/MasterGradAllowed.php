@@ -286,8 +286,7 @@
 						<div class="col-md"><div class="form-group">
 						<textarea class="form-control" id="thesisnameeng" name="thesisnameeng" rows="3" placeholder="ชื่อวิชาวิทยานิพนธ์ภาษาอังกฤษ" disabled><?php echo $docInfo[0]['thesisnameeng']; ?></textarea>
 						</div></div>
-					</div>
-					<div class="row">
+					</div>					
 						<!-- <div class="col-md-3">
 							<div class="form-group">
 							<label class="font-weight-bold" for="thesisnameth">สถานะการขออนุมัติปริญญา :</label>
@@ -308,9 +307,9 @@
 								<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
 								<div class="radio">
 									<input type="radio" id="agree" name="commentid" value="1" <?php if($commented_id[0]->OfficerCommentID == 1){ echo ' checked="checked"'; } ?> disabled>
-									<label for="agree">Approve</label>
+									<label for="agree">Approved</label>
 									<input type="radio" id="disagree" name="commentid" value="2" <?php if($commented_id[0]->OfficerCommentID == 2){ echo ' checked="checked"'; } ?> disabled>
-									<label for="disagree">Disapprove</label>
+									<label for="disagree">Disapproved</label>
 								</div>
 								<div class="form-group purple-border">
 									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:" disabled><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
@@ -337,7 +336,7 @@
 							<div class="form-group">
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
 									<input type="hidden" id="stateID" name="stateID" value="t04s02" />
-									<button type="submit" class="btn btn-success">Submit</button>
+									<button type="submit" class="btn btn-success">Back</button>
 							</div>
 						</div>
 					</div>	

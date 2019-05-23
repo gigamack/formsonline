@@ -156,14 +156,14 @@
 								<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
 								<div class="radio">
 									<input type="radio" id="agree" name="commentid" value="1">
-									<label for="agree">Agree</label>
+									<label for="agree">Approve</label>
 									<input type="radio" id="disagree" name="commentid" value="2">
-									<label for="disagree">Disagree</label>
+									<label for="disagree">Disapprove</label>
 								</div>
 								<div class="form-group purple-border">
 									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
 								</div>
-								<button style="margin: auto auto 20px auto" type="submit" class="btn btn-success btn-block">Submit</button>
+								<button style="margin: auto auto 20px auto" type="submit" class="btn btn-success">Submit</button>
 							</div>
 						</div>
 					</div>

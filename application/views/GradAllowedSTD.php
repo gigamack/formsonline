@@ -270,13 +270,13 @@
 					</div> -->
 
                     <div class="row">
-							<div style="margin: 20px auto auto auto" class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
+							<div style="margin: 20px auto auto auto" class="card text-black bg-light text-center">
 								<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
 								<div class="radio">
 									<input type="radio" id="agree" name="commentid" value="1" <?php if($commented_id[0]->OfficerCommentID == 1){ echo ' checked="checked"'; } ?> disabled>
-									<label for="agree">Approve</label>
+									<label for="agree">Approved</label>
 									<input type="radio" id="disagree" name="commentid" value="2" <?php if($commented_id[0]->OfficerCommentID == 2){ echo ' checked="checked"'; } ?> disabled>
-									<label for="disagree">Disapprove</label>
+									<label for="disagree">Disapproved</label>
 								</div>
 								<div class="form-group purple-border">
 									<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:" disabled><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>

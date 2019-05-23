@@ -268,7 +268,7 @@
 						</div></div>
 					</div> -->
 					<div class="row">
-							<div style="margin: 20px auto auto auto" class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
+							<div style="margin: 20px auto auto auto" class="card text-black bg-light text-center">
 								<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
 								<div class="radio">
 									<input type="radio" id="agree" name="commentid" value="1">

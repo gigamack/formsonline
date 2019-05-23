@@ -89,8 +89,8 @@ class docModel extends CI_Model
         //print_r($data);
         $this->db->select('*');
         $this->db->from('document');
-        $this->db->join('latest_StateID ', 'document.DocID = latest_StateID.DocID');
-        $this->db->join('StateHistory ', 'latest_StateID.step_id = StateHistory.ID');
+        $this->db->join('latest_StateID','document.DocID = latest_StateID.DocID');
+        $this->db->join('StateHistory', 'latest_StateID.step_id = StateHistory.ID');
         $this->db->where($data);
         $this->db->order_by($orderby, $ordayway);
         $query = $this->db->get();

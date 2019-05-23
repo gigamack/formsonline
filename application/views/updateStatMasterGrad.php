@@ -318,6 +318,7 @@
 					<div class="row text-center">
 						<div class="col">
 							<div class="form-group">
+							<input type="hidden" name="docID" id="docID" value="<?php echo $docInfo[0]['DocID']; ?>" />
 									<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
 									<input type="hidden" id="stateID" name="stateID" value="t04s02" />
 									<button type="submit" class="btn btn-success">Submit</button>

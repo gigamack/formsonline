@@ -67,16 +67,16 @@
 						</div>
 						<div class="input-group">
 							<!-- <input type="text" class="form-control" aria-label="Text input with radio button"> -->
-							<?php 
-            if($getDocInfo['ReasonOther']=="")
-            {
-              $showtextbox="visibility:hidden;";
-            }
-            else
-            {
-              $showtextbox="visibility: visible;";
-            }           
-            ?>
+												<?php 
+								if($getDocInfo['ReasonOther']=="")
+								{
+								$showtextbox="visibility:hidden;";
+								}
+								else
+								{
+								$showtextbox="visibility: visible;";
+								}           
+								?>
 							<input type="text" class="form-control" id="other" name="other" placeholder="ระบุ /Other" style="<?php echo $showtextbox;?>"
 							 value="<?php echo (isset($getDocInfo['ReasonOther'])?$getDocInfo['ReasonOther']:"") ?>" disabled />
 						</div>
@@ -97,18 +97,27 @@
 						<div class="form-group" style="margin: 20px auto auto auto">
 							<label class="text-danger">ในการติดต่อรับบัตรนักศึกษาชั่วคราว กรุณานำรูปถ่ายหน้าตรงขนาด1นิ้ว 1รูปมาด้วย </label>
 						</div>
-						<div class="card text-black bg-light text-center" style="margin: auto 20px auto auto">
-							<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
-							<div class="radio">
-								<input type="radio" id="agree" name="commentid" value="1">
-								<label for="agree">Agree</label>
-								<input type="radio" id="disagree" name="commentid" value="2">
-								<label for="disagree">Disagree</label>
+						<div class="row">							
+								<div class="card text-black bg-light text-center" style="margin: 20px auto auto auto" >
+									<label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
+										<div class="radio">
+											<input type="radio" id="agree" name="commentid" value="1">
+											<label for="agree">Approve</label>
+											<input type="radio" id="disagree" name="commentid" value="2">
+											<label for="disagree">Disapprove</label>
+										</div>						
+										<div class="form-group purple-border text-center">
+											<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
+										</div>
+								</div>							
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-group text-center">
+									<button style="margin: auto auto 20px auto" type="submit" class="btn btn-success">Submit</button>
+								</div>
 							</div>
-							<div class="form-group purple-border">
-								<textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:"></textarea>
-							</div>
-								<button type="submit" class="btn btn-success">Submit</button>
+						</div>
 						</div>
 					</div>
 				</div>

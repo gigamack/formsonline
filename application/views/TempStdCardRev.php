@@ -88,7 +88,7 @@
 										<td>
 											<?php echo $docid->CreatedDate;?>
 										</td>
-										<td>รอการตรวจสอบ</td>
+										<td>Waiting </td>
 										<td><a href="<?php echo base_url('FormControl/stdCardAllow?docID='.$docid->DocID.'&stdID='.$docid->StudentID);?>">Manage</a></td>
 									</tr>
 									<?php $i++;}}?>
@@ -160,10 +160,9 @@
 											<?php echo $docid->OfficerCommentedDate;?>
 										</td>
 										<td>
-											<?php echo ($docid->OfficerCommentID == '1') ? 'เห็นชอบ' : 'ไม่เห็นชอบ';?>
+											<?php echo ($docid->OfficerCommentID == '1') ? 'Approved' : 'Disapproved';?>
 										</td>
-										<td><a href="<?php echo base_url('FormControl/Allowed?docID='.$docid->DocID.'&stdID='.$docid->StudentID.'&doctypeID='.$docid->DocTypeID);?>"><img
-												 id="Image1" src="../assets/images/view.png" style="width:30px;" /></a></td>
+										<td class="text-center"><a href="<?php echo base_url('FormControl/Allowed?docID='.$docid->DocID.'&stdID='.$docid->StudentID.'&doctypeID='.$docid->DocTypeID);?>">View</a></td>
 									</tr>
 									<?php $i++;}}?>
 								</tbody>

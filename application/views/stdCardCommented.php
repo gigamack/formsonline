@@ -103,9 +103,9 @@
           <label class="form-check-label">ความเห็นเจ้าหน้าที่ทะเบียนกลาง Register's Commentd :</label>
           <div class="radio">
               <input type="radio" id="agree" name="commentid" value="1" <?php if($commented_id[0]->OfficerCommentID == 1){ echo ' checked="checked"'; } ?> disabled>
-              <label for="agree">Agree</label>
+              <label for="agree">Approved</label>
               <input type="radio" id="disagree" name="commentid" value="2" <?php if($commented_id[0]->OfficerCommentID == 2){ echo ' checked="checked"'; } ?> disabled>
-              <label for="disagree">Disagree</label>              
+              <label for="disagree">Disapproved</label>              
           </div>
           <div class="form-group purple-border">
             <textarea class="form-control" id="commentText" rows="3" name="commentText" placeholder="เหตุผล:" disabled><?php echo $commented_id[0]->OfficerCommentText; ?></textarea>
@@ -113,7 +113,7 @@
           <div class="row">
 						<div class="col">
 							<div class="form-group">
-              <button type="submit" class="btn btn-success btn-block ">Back</button>
+              <button type="submit" class="btn btn-success">Back</button>
             </div>
           </div>
         </div>

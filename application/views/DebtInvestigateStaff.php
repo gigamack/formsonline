@@ -49,14 +49,11 @@
 		// echo sizeof($_SESSION['userSession']['UserRoles']['result']);
 		$rolearraysize = sizeof($_SESSION['userSession']['UserRoles']['result']);
 		for($i = 0; $i<$rolearraysize; $i++)
-		{
-		  if($_SESSION['userSession']['UserRoles']['result'][$i]['app_id'] = '5775d840-d0f6-11e8-a537-27d43fa8bb86')
-		  {
-			  $role=$_SESSION['userSession']['UserRoles']['result'][$i]['role_name_thai'];
-		  }		  
+		{		 
+			  $role=$_SESSION['userSession']['UserRoles']['result'][$i]['role_name_thai'];	 
 		}
 		$dept='';
-		if ($role = 'COC' or $role = 'FIS' or $role = 'TE' or $role = 'ESSAND')
+		if ($role == 'COC' or $role == 'FIS' or $role == 'TE' or $role == 'ESSAND')
 		{
 			$dept = $role;
 		}
@@ -64,13 +61,15 @@
 		{
 			$dept='';
 		}
-		//echo $role;
+		// print_r($_SESSION['userSession']['UserRoles']['result'][1]);
+		// echo $role;
 		//echo $_SESSION['userSession']['UserRoles']['result'][$i];
 		// print_r($_SESSION['userSession']['UserRoles']['result']);
 
 ?>
 <div class="container">
 		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/updateDebtinvestigate") ?>" method="post">
+		<?php echo $role; ?>
 		<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 			<input type ="hidden" name="staffunit" id="staffunit" value="<?php echo $role;?>">
 			<div class="card">
@@ -159,8 +158,8 @@
 							<tr>
 							<th scope="col">ห้องสมุด / Library</th>
 							<td>
-                            <label class="radio-inline"><input type="radio" name="debtlib" value="1" <?php if($getDocInfo['nodebtLib']== 1) echo "checked";?> <?php if($dept!='งานห้องสมุด') echo "disabled" ?>>ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtlib" value="2" <?php if($getDocInfo['nodebtLib']== 2) echo "checked";?> <?php if($dept!='งานห้องสมุด') echo "disabled" ?>>มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtlib" value="1" <?php if($getDocInfo['nodebtLib']== 1) echo "checked";?> <?php if($dept!='งานห้องสมุด') echo "disabled" ?>> ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtlib" value="2" <?php if($getDocInfo['nodebtLib']== 2) echo "checked";?> <?php if($dept!='งานห้องสมุด') echo "disabled" ?>> มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appLibStaff; ?></td>
 							<td><?php echo $appdateLib; ?></td>
@@ -177,8 +176,8 @@
 							<tr>
 							<th scope="col">งานรับนักศึกษาและทะเบียนกลาง<br/>Student Admission and Registration</th>
 							<td>			
-                            <label class="radio-inline"><input type="radio" name="debtreg" value="1" <?php if($getDocInfo['nodebtReg']== 1) echo "checked";?> <?php if($role!='งานทะเบียนกลาง') echo "disabled" ?>>ไม่มีหนี้สิน</label>
-                            <label class="radio-inline"><input type="radio" name="debtreg" value="2" <?php if($getDocInfo['nodebtReg']== 2) echo "checked";?> <?php if($role!='งานทะเบียนกลาง') echo "disabled" ?>>มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="1" <?php if($getDocInfo['nodebtReg']== 1) echo "checked";?> <?php if($role!="งานทะเบียนกลาง") echo "disabled" ?>>ไม่มีหนี้สิน</label>
+                            <label class="radio-inline"><input type="radio" name="debtreg" value="2" <?php if($getDocInfo['nodebtReg']== 2) echo "checked";?> <?php if($role!="งานทะเบียนกลาง") echo "disabled" ?>>มีหนี้สิน</label>
                             </td>
 							<td><?php echo $appRegStaff; ?></td>
 							<td><?php echo $appdateReg; ?></td>

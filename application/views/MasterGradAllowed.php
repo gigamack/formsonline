@@ -28,7 +28,7 @@
     $commented_id = $docCommented;
 ?>
 	<div class="container">
-		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">
+		<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/stdCardFormAdmin") ?>" method="post">
 		<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 			<div class="card">
 				<h5 class="card-header bg-success text-light">

@@ -6,11 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Requisition for Course(s) Transfer/Equivalence</title>
+
+    <script>
+        $(document).ready(function(){
+            $('input[name=txtRequestForItemOT]').hide()
+            $('input[name=RequestForItem]').on('change',function(){
+                // alert($('input[name=RequestForItem]:checked').val());
+                if($('input[name=RequestForItem]:checked').val()==2){
+                    $('input[name=txtRequestForItemOT]').show()
+                }else{
+                    $('input[name=txtRequestForItemOT]').hide()
+                    $('input[name=txtRequestForItemOT]').val('')
+                }
+            })
+        })
+    </script>
 </head>
 
 <body>
     <div class='mt-4'>
-        <div class='card text-black bg-light'>
+        <div class='card'>
             <div class='card-header bg-success text-light'>
                 <h5>Requisition for Course(s) Transfer/Equivalence</h5>
                 <h6 class="text-minor">คำร้องขอเทียบโอน/รับโอนรายวิชา</h6>
@@ -69,18 +84,18 @@
                                 <label class='col-md-2' for="mobilenumber">Request for : <small class="sub">ยื่นคำร้องเพื่อ</small></label>
                                 <div class='col-md-10'>
                                     <div class='form-check form-check-inline'>
-                                        <input class='form-check-input' type="radio" name='RequestForItem' id='RequestForItemCE'>
+                                        <input class='form-check-input' type="radio" name='RequestForItem' id='RequestForItemCE' value='0'>
                                         <label for="">Course(s) Equivaience <small class='sub'>ขอเทียบโอนรายวิชา</small></label>
                                     </div>
                                     <div class='form-check form-check-inline'>
-                                        <input class='form-check-input' type="radio" name='RequestForItem' id='RequestForItemCT'>
+                                        <input class='form-check-input' type="radio" name='RequestForItem' id='RequestForItemCT' value='1'>
                                         <label for="">Course(s) Transfer<small class='sub'>ขอรับโอนรายวิชา</small></label>
                                     </div>
                                     <div class='form-check form-check-inline col-md-6'>
-                                        <input class='form-check-input' type="radio" name='RequestForItem' id='RequestForItemOT'>
+                                        <input class='form-check-input' type="radio" name='RequestForItem' id='RequestForItemOT' value='2'>
                                         <label class='' for="">Other<small class='sub'>อื่น ๆ</small></label>
                                         <div class='col-md-12'>
-                                            <input type="text" class='form-control' placeholder="Other">
+                                            <input type="text" name='txtRequestForItemOT' class='form-control' placeholder="Other">
                                         </div>
                                     </div>
                                 </div>

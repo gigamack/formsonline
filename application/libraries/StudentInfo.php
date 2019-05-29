@@ -44,6 +44,34 @@ class StudentInfo
         return isset($response['data']['getStudentInfo'][0]) ? $response['data']['getStudentInfo'][0] : '';
     }
 
+    public function getStudentGPA($StudentID)
+    {
+        $url = $this->ServiceHost . '/api/student';
+        $headers = array(
+            'Content-Type: application/json',
+        );
+        $data = array(
+            'query' => 'query StudentID($STUDENT_ID : String)
+                 {getStudentGPA(STUDENT_ID:$STUDENT_ID){
+                    STUDENT_ID
+                    EDU_TERM
+		            EDU_YEAR
+		            SEM_GPA
+		            CUM_GPA
+                    STATUS
+                    GRADE_STATUS_DESC
+                    GRADE_STATE
+            }}',
+            'variables' => array(
+                'STUDENT_ID' => $StudentID,
+            ),
+        );
+
+        $response = $this->getDataFromGraphQL($url, $data);
+
+        return isset($response['data']['getStudentGPA'][0]) ? $response['data']['getStudentGPA'][0] : '';
+    }
+
     private function getDataFromGraphQL($url, $data)
     {
         $headers = array(

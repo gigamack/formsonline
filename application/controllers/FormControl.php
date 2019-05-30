@@ -279,7 +279,9 @@
                     $this->load->view('CertificateForm');
                     break;
                 case '7':
-                    $this->load->view('student/RequestRegistMoreCredit');
+                    //$this->load->view('student/RequestRegistMoreCredit');
+                    $this->session->set_flashdata('data', $data); 
+                    return redirect(base_url().'RequestMoreLessCreditsControl/New');
                     break;
                 case '8':
                     $this->load->view('student/RequestCourseTransfer');

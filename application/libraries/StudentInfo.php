@@ -69,7 +69,7 @@ class StudentInfo
 
         $response = $this->getDataFromGraphQL($url, $data);
 
-        return isset($response['data']['getStudentGPA'][0]) ? $response['data']['getStudentGPA'][0] : '';
+        return isset($response['data']['getStudentGPA']) ? $response['data']['getStudentGPA'] : '';
     }
 
     private function getDataFromGraphQL($url, $data)

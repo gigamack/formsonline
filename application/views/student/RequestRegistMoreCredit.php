@@ -105,6 +105,34 @@
                             
                         </div>
                     </div> 
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="registedCredit">Total of credits registered :</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="textbox" id="registedCredit" name="registedCredit" size="3" maxlength="3"/>                             
+                        </div>                        
+                        <div class="col-md-2">
+                            <label>Alter the credits to :</label>
+                        </div>                        
+                        <div class="col-md-2">
+                            <input type="textbox" id="wanttoCredit" name="wanttoCredit" size="3" maxlength="3"/>                             
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="registedCredit">The total of credits registred :</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="textbox" id="registedCredit" name="registedCredit" size="3" maxlength="3"/>                             
+                        </div>                        
+                        <div class="col-md-2">
+                            <label>Alter the credits to :</label>
+                        </div>                        
+                        <div class="col-md-2">
+                            <input type="textbox" id="wanttoCredit" name="wanttoCredit" size="3" maxlength="3"/>                             
+                        </div>
+                    </div> 
                 </div>         
             </div>
         </div>

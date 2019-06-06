@@ -118,21 +118,33 @@
                         <div class="col-md-2">
                             <input type="textbox" id="wanttoCredit" name="wanttoCredit" size="3" maxlength="3"/>                             
                         </div>
+                    </div>
+                    <?php $creditStat = 'l'; 
+                        $creditaffect = 0;
+                    ?>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="registedCredit">Therefore, The total of credits registred<?php echo ($creditStat=='l') ? " less than ":" more than "; ?> the specified-regulation for <?php echo $creditaffect ?> credit(s)</label>
+                        </div>
+                        
+                        <div class="col-md-2">
+                            <label for="registedCredit"></label>                            
+                        </div>
                     </div> 
                     <div class="row">
                         <div class="col-md-2">
-                            <label for="registedCredit">The total of credits registred :</label>
+                            <label for="registedCredit">Reason for request :</label>
                         </div>
-                        <div class="col-md-2">
-                            <input type="textbox" id="registedCredit" name="registedCredit" size="3" maxlength="3"/>                             
-                        </div>                        
-                        <div class="col-md-2">
-                            <label>Alter the credits to :</label>
-                        </div>                        
-                        <div class="col-md-2">
-                            <input type="textbox" id="wanttoCredit" name="wanttoCredit" size="3" maxlength="3"/>                             
+                        <div class="col-md-4">
+                        <textarea class="form-control" id="reason" rows="3" name="reason" placeholder="เหตุผล:"></textarea>                          
                         </div>
-                    </div> 
+                    </div>
+                    <div class="row text-center">
+                            <div class="col">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                    </div>
+
                 </div>         
             </div>
         </div>

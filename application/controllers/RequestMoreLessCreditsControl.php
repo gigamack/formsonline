@@ -34,7 +34,20 @@
         }
         public function Insert()
         {
-
+                $data= array('StudentID' => $_POST['stdid']
+                , 'tel' => $_POST['tel']
+                , 'term' => $_POST['term']
+                , 'year' => $_POST['year']           
+                , 'DocTypeID' => $_POST['DocType']);
+                $this->DocModel->InsertDoc($data);
+                $dataMaxDocID = array('StudentID' => $_POST['stdid']);
+                $maxDocIDS=$this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
+                $maxDocID=$maxDocIDS[0];
+                $data2 = array('DocID' => $maxDocID->DocID
+                , 'stateID' => $_POST['stateID']);
+                $this->DocStateModel->InsertDocState($data2);
+                $back = base_url("/FormControl/stdMain");
+                header('Location:' . $back);
         }
 
         public function Update()

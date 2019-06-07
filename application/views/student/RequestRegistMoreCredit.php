@@ -39,6 +39,8 @@
     {
         $status="Probation No.3";
     }
+    $edu_year=$gpa[0]["EDU_YEAR"];
+    $edu_term=$gpa[0]["EDU_TERM"];
 ?>
     
 	<!-- <div class="container">		 -->
@@ -91,19 +93,9 @@
                         </div>
                     </div> 
                     <div class="row">
-                        <div class="col-md-2">
-                            <label for="gpax">GPAX:</label>
-                        </div>
-                        <div class="col-md-2">
-                        <label><?php echo $gpa[0]["CUM_GPA"]?></label>
-                        </div>
-                        <div class="col-md-2">
-                            <label>Student Status:</label>
-                        </div>                        
-                        <div class="col-md-2">
-                            <label><?php echo $status ?></label>
-                            
-                        </div>
+                        <div class="col-md">
+                            <label for="gpax">GPAX: <?php echo $gpa[0]["CUM_GPA"]?> Student Status:<?php echo $status ?> for semester/year <?php echo $edu_term."/". $edu_year ?></label>
+                        </div>                   
                     </div> 
                     <div class="row">
                         <div class="col-md-2">
@@ -124,7 +116,7 @@
                     ?>
                     <div class="row">
                         <div class="col-md">
-                            <label for="registedCredit">Therefore, The total of credits registred<?php echo ($creditStat=='l') ? " less than ":" more than "; ?> the specified-regulation for <?php echo $creditaffect ?> credit(s)</label>
+                            <label for="registedCredit">Therefore, The total of credits registred<?php echo ($creditStat=='l') ? " <u>less than</u> ":" <u>more than</u> "; ?> the specified-regulation for <?php echo "<u>".$creditaffect."</u>" ?> credit(s)</label>
                         </div>
                         
                         <div class="col-md-2">
@@ -143,6 +135,7 @@
                             <div class="col">
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
+                            <input type="hidden" id="DocType" name="DocType" value="7">
                     </div>
 
                 </div>         

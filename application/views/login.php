@@ -8,32 +8,23 @@
 </head>
 
 <body>
-	<?php
-  // if (isset($_SESSION['errors'])) {
-  //     if ($_SESSION['errors'] == 'Fail') {
-  //         echo "<script>alert('Invalid login!');</script>";
-  //         $_SESSION['errors'] = '';
-  //     }
-  // }
-?> 
-
-	<form action="<?php echo base_url("/Authentication") ?>" method="post">
-		<div class="container col-sm-6 col-md-4 col-md-offset-1" style="margin: 3rem auto auto auto">
+	<form action="<?php echo base_url() ?>Authentication" method="post">
+		<div class="container col-md-4 mx-auto mt-5">
 			<div class="card">
-				<div class="card-header bg-success" style="background-color: #003c71; color:#FFFFFF">
-				<div class="mx-auto" style="width: 250px;">
-				<h5>Login with PSU Passport</h5>
-				</div>
+				<div class="card-header bg-success">
+					<div class="text-center">
+						<h5>Login with PSU Passport</h5>
+					</div>
 				</div>
 				<div class="card-body">
-				<?php
+					<?php
 					if (isset($_SESSION['errors']) && $_SESSION['errors'] == 'Fail') {
-				?>
-				<div class="alert alert-danger" role="alert">
-					Invalid username or password !
-				</div>
-				<?php
-					}
+						?>
+						<div class="alert alert-danger" role="alert">
+							Invalid username or password !
+						</div>
+					<?php
+				}
 				?>
 					<div class="form-group">
 						<label for="">Username</label>
@@ -44,7 +35,7 @@
 						<input type="password" class="form-control" id="password" name="password" placeholder="PSU passport password">
 					</div>
 					<div class="text-center">
-					<button type="submit" class="btn bg-success btn-lg" style="background-color: #003c71; color:#FFFFFF">Sign In</button>
+						<button type="submit" class="btn btn-success btn-lg">Sign In</button>
 					</div>
 				</div>
 			</div>

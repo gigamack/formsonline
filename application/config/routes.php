@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,8 +49,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['student/dashboard'] = 'FormControl/stdMain';
+//$route['student/dashboard'] = 'FormControl/stdMain';
+//$route['from/(:type)'] = 'FormCaller/index/$1';
+//$route['(:any)/form/(:any)'] = 'FormCaller/new/$1/$2';
+
+$route['dashboard'] = 'Dashboard/index';
 $route['admin/dashboard'] = 'FormControl/stdCardFormAdmin';
+
+/// STUDENT FORMS ////
+$route['form/requestmorecredits']['get'] = 'Forms/RequestMoreLessCredits';
+$route['form/requestmorecredits']['post'] = 'Forms/RequestMoreLessCredits';
+$route['form/requesttemporarystudentcard']['get'] = 'Forms/RequestTemporaryStudentCard';
+$route['form/requesttemporarystudentcard']['post'] = 'Forms/RequestTemporaryStudentCard/insert';
+$route['form/requestnamechanging']['get'] = 'Forms/RequestNameChanging';
+$route['form/requestnamechanging']['post'] = 'Forms/RequestNameChanging/insert';
+$route['form/requestgraduate']['get'] = 'Forms/RequestGraduate';
+$route['form/requestgraduate']['post'] = 'Forms/RequestGraduate/insert';
+$route['form/requestmastergraduate']['get'] = 'Forms/RequestMasterGraduate';
+$route['form/requestmastergraduate']['post'] = 'Forms/RequestMasterGraduate';
+$route['form/requestdebtinvestigate'] = 'Forms/RequestDebtInvestigate';
+$route['form/requestcertificate']['get'] = 'Forms/RequestCertificate';
+$route['form/requestcertificate']['post'] = 'Forms/RequestCertificate';
+$route['form/requestcoursetransfer'] = 'Forms/RequestCourseTransfer';
+/////////////////////////
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

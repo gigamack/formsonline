@@ -2,7 +2,7 @@
 
 class StudentInfo
 {
-    private $ServiceHost = 'http://web3.phuket.psu.ac.th:8000';
+    private $ServiceHost = 'https://api-serv.phuket.psu.ac.th';
 
     public function getStudentInfo($StudentID)
     {

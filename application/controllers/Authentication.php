@@ -7,6 +7,7 @@ class Authentication extends CI_Controller
         parent::__construct();
         $this->load->model('User_model');
         $this->load->model('Student_model');
+        $this->load->model('PSUPassportModel');
     }
 
     public function index()
@@ -16,53 +17,27 @@ class Authentication extends CI_Controller
             'password' => $_POST['password'],
         );
         $UserInfo = $this->User_model->getUserInfo($credentail);
-        // print_r($UserInfo);
-        $_SESSION['userSession'] = $UserInfo;
         if ($UserInfo['AuthenticationResult'] == 1) {
-            if ($_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string']['9'] == 'C03') {
-                 if (empty($UserInfo['UserRoles']['result'])==false) {
-                    redirect(base_url('admin/dashboard'));
-                } else {
-                    $_SESSION["ddlchosen"] = '0';
-                    redirect(base_url("student/dashboard"));
-                }
+            $PSUPassport = $UserInfo['PSUPassport']['GetUserDetailsResult']['string'];
+            $UserRoles = $UserInfo['UserRoles']['result'];
+            $StudentInfo = $UserInfo['StudentInfo'];
+            $_SESSION['PSUPassportInfo'] = $PSUPassport;
+            $_SESSION['UserRolesInfo'] = $UserRoles;
+            $_SESSION['StudentInfo'] = $StudentInfo;
+            $_SESSION['Authentication'] = "true";
+            if (isset($UserRoles[0]['role_id'])) {
+                redirect(base_url('admin/dashboard'));
             } else {
-                $this->logout();
-
+                redirect(base_url("dashboard"));
             }
-        } elseif ($_POST['password'] = 'test') //addded for test std
-        { //addded for test std
-            $dataTest = $this->Student_model->getStudentInfo($_POST['username']); //addded for test std
-
-            print_r($dataTest); //addded for test std
-            if($dataTest!=null){
-                $_SESSION['userSession']['UserType'] = 'Students'; //addded for test std
-                $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] = $dataTest['STUDENT_ID']; //addded for test std
-                $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][0] = $dataTest['STUDENT_ID']; //addded for test std
-                $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][1] = $dataTest['STUD_NAME_THAI']; //addded for test std
-                $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][2] = $dataTest['STUD_SNAME_THAI']; //addded for test std
-                $_SESSION['userSession']['StudentInfo']['FAC_NAME_THAI'] = $dataTest['FAC_NAME_THAI']; //addded for test std
-                $_SESSION['userSession']['StudentInfo']['MAJOR_NAME_THAI'] = $dataTest['MAJOR_NAME_THAI']; //addded for test std
-                $_SESSION["ddlchosen"] = '0';
-                
-                redirect(base_url("student/dashboard"));
-            }else{
-                $_SESSION['errors'] = 'Fail';
-                redirect(base_url());
-            }
-            
-        } //addded for test std
-        else {
+        } else {
             $_SESSION['errors'] = 'Fail';
             redirect(base_url());
-
         }
-
     }
     public function logout()
     {
         session_destroy();
         redirect(base_url());
     }
-
 }

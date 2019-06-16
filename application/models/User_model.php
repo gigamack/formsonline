@@ -13,14 +13,14 @@ class User_model extends CI_Model
     {
         $this->load->library('PSUPassport', $this->credential);
         $PSUPassport = new PSUPassport($this->credential);
-        
+
         $this->load->library('RoleProvider');
         $this->load->library('StudentInfo');
 
-        
+
         $PSUPassportResult = $PSUPassport->GetUserDetails();
         $this->AuthenticationResult = (isset($PSUPassportResult['GetUserDetailsResult']) ? 1 : 0); // 1 = true 0 = false
-        
+
         $this->Username = (($this->AuthenticationResult == 1) ? $PSUPassportResult['GetUserDetailsResult']['string'][0] : '');
         $UserRoles = $this->roleprovider->GetRoles($this->Username);
         $this->UserType = (($this->AuthenticationResult == 1) ? $this->getUserType($PSUPassportResult['GetUserDetailsResult']['string'][14]) : '');
@@ -47,5 +47,4 @@ class User_model extends CI_Model
         $this->UserType = explode('=', $DataExplodeResult[4])[1];
         return $this->UserType;
     }
-
 }

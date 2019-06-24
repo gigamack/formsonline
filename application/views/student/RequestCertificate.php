@@ -11,7 +11,7 @@ $citizenid = $UserInfo->CardID;
 <div class="container">
 	<div class="row">
 		<div class="col-md">
-			<form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url() ?>form/requestcertificate'" method="post" onsubmit="return validate()">
+			<form style="margin: 20px auto auto auto" id="certForm" action="<?php echo base_url() ?>form/requestcertificate" method="post" onsubmit="return validate()">
 				<div class="card">
 					<div class="card-header bg-success text-light">
 						<h4>Requisition form for Application of a certificate</h4>

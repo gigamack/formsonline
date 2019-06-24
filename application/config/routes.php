@@ -66,12 +66,49 @@ $route['form/requestnamechanging']['post'] = 'Forms/RequestNameChanging/insert';
 $route['form/requestgraduate']['get'] = 'Forms/RequestGraduate';
 $route['form/requestgraduate']['post'] = 'Forms/RequestGraduate/insert';
 $route['form/requestmastergraduate']['get'] = 'Forms/RequestMasterGraduate';
-$route['form/requestmastergraduate']['post'] = 'Forms/RequestMasterGraduate';
-$route['form/requestdebtinvestigate'] = 'Forms/RequestDebtInvestigate';
+$route['form/requestmastergraduate']['post'] = 'Forms/RequestMasterGraduate/insert';
+$route['form/requestdebtinvestigate']['get'] = 'Forms/RequestDebtInvestigate';
+$route['form/requestdebtinvestigate']['post'] = 'Forms/RequestDebtInvestigate/insert';
 $route['form/requestcertificate']['get'] = 'Forms/RequestCertificate';
-$route['form/requestcertificate']['post'] = 'Forms/RequestCertificate';
-$route['form/requestcoursetransfer'] = 'Forms/RequestCourseTransfer';
+$route['form/requestcertificate']['post'] = 'Forms/RequestCertificate/insert';
+$route['form/requestcoursetransfer']['get'] = 'Forms/RequestCourseTransfer';
+$route['form/requestcoursetransfer']['post'] = 'Forms/RequestCourseTransfer/insert';
+
+/////// EDIT FORM /////////
+$route['form/edit/(:any)'] = 'Dashboard/Edit/$1';
+$route['form/requesttemporarystudentcard/edit/(:any)'] = 'Forms/RequestTemporaryStudentCard/edit/$1';
+$route['form/requestnamechanging/edit/(:any)'] = 'Forms/RequestNameChanging/edit/$1';
+$route['form/requestmorecredits/edit/(:any)'] = 'Forms/RequestMoreLessCredits/edit/$1';
+$route['form/requestmastergraduate/edit/(:any)'] = 'Forms/RequestMasterGraduate/edit/$1';
+$route['form/requestgraduate/edit/(:any)'] = 'Forms/RequestGraduate/edit/$1';
+$route['form/requestdebtinvestigate/edit/(:any)'] = 'Forms/RequestDebtInvestigate/edit/$1';
+$route['form/requestcoursetransfer/edit/(:any)'] = 'Forms/RequestCourseTransfer/edit/$1';
+$route['form/requestcertificate/edit/(:any)'] = 'Forms/RequestCertificate/edit/$1';
 /////////////////////////
+
+
+///////// DELETE FORM ////////////////
+$route['form/delete/(:any)'] = 'Dashboard/Delete/$1';
+$route['form/requesttemporarystudentcard/delete/(:any)'] = 'Forms/RequestTemporaryStudentCard/delete/$1';
+$route['form/requestnamechanging/delete/(:any)'] = 'Forms/RequestNameChanging/delete/$1';
+$route['form/requestmorecredits/delete/(:any)'] = 'Forms/RequestMoreLessCredits/delete/$1';
+$route['form/requestmastergraduate/delete/(:any)'] = 'Forms/RequestMasterGraduate/delete/$1';
+$route['form/requestgraduate/delete/(:any)'] = 'Forms/RequestGraduate/delete/$1';
+$route['form/requestdebtinvestigate/delete/(:any)'] = 'Forms/RequestDebtInvestigate/delete/$1';
+$route['form/requestcoursetransfer/delete/(:any)'] = 'Forms/RequestCourseTransfer/delete/$1';
+$route['form/requestcertificate/delete/(:any)'] = 'Forms/RequestCertificate/delete/$1';
+
+
+//////// UPDATE /////////////
+$route['form/update/(:any)'] = 'Dashboard/Update/$1';
+$route['form/requesttemporarystudentcard/update/(:any)'] = 'Forms/RequestTemporaryStudentCard/update/$1';
+$route['form/requestnamechanging/update/(:any)'] = 'Forms/RequestNameChanging/update/$1';
+$route['form/requestmorecredits/update/(:any)'] = 'Forms/RequestMoreLessCredits/update/$1';
+$route['form/requestmastergraduate/update/(:any)'] = 'Forms/RequestMasterGraduate/update/$1';
+$route['form/requestgraduate/update/(:any)'] = 'Forms/RequestGraduate/update/$1';
+$route['form/requestdebtinvestigate/update/(:any)'] = 'Forms/RequestDebtInvestigate/update/$1';
+$route['form/requestcoursetransfer/update/(:any)'] = 'Forms/RequestCourseTransfer/update/$1';
+$route['form/requestcertificate/update/(:any)'] = 'Forms/RequestCertificate/update/$1';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

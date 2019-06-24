@@ -71,7 +71,7 @@ $majorname = $UserInfo->Major;
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<input type="file" class="form-control-file" id="stdPicFile" name="stdPicFile">
+								<input type="file" class="form-control" id="stdPicFile" name="stdPicFile">
 							</div>
 						</div>
 						<div class="row">

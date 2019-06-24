@@ -7,7 +7,6 @@ $StudyLevel = $UserInfo->StudyLevel;
 ?>
 <script>
     $(document).ready(function() {
-
         $('input[name=txtRequestForItemOT]').hide()
         $('input[name=RequestForItem]').on('change', function() {
             if ($('input[name=RequestForItem]:checked').val() == 2) {
@@ -62,44 +61,97 @@ $StudyLevel = $UserInfo->StudyLevel;
             $('#txtCourseStudied').val('')
             $('#txtCourseTransfer').val('')
         })
-        var courseRequest = new Array()
+
+        var courseSubject = [];
+        var courseSubjectIndex = 0;
+
         $('#btnAddSubject').click(function(event) {
             event.preventDefault()
+            var empty = $(".add-subject").filter(function() {
+                return this.value === "";
+            });
 
-            var courseRequestSubject = new Array()
+            if (empty.length) {
+                alert("Please fill all add subject fields.")
+            } else {
+                var courseRequestSubject = [];
+                var txtCourseStudiedCode = $("#txtCourseStudiedCode").val()
+                var txtCourseStudiedName = $("#txtCourseStudiedName").val()
+                var txtCourseStudiedCredits = $("#txtCourseStudiedCredits").val()
+                var txtCourseTransferCode = $("#txtCourseTransferCode").val()
+                var txtCourseTransferName = $("#txtCourseTransferName").val()
+                var txtCourseTransferCredits = $("#txtCourseTransferCredits").val()
 
-            var txtCourseStudiedCode = $("#txtCourseStudiedCode").val()
-            var txtCourseStudiedName = $("#txtCourseStudiedName").val()
-            var txtCourseStudiedCredits = $("#txtCourseStudiedCredits").val()
-            var txtCourseTransferCode = $("#txtCourseTransferCode").val()
-            var txtCourseTransferName = $("#txtCourseTransferName").val()
-            var txtCourseTransferCredits = $("#txtCourseTransferCredits").val()
+                courseRequestSubject.push({
+                    "txtCourseStudiedCode": txtCourseStudiedCode
+                }, {
+                    "txtCourseStudiedName": txtCourseStudiedName
+                }, {
+                    "txtCourseStudiedCredits": txtCourseStudiedCredits
+                }, {
+                    "txtCourseTransferCode": txtCourseTransferCode
+                }, {
+                    "txtCourseTransferName": txtCourseTransferName
+                }, {
+                    "txtCourseTransferCredits": txtCourseTransferCredits
+                })
 
-            courseRequestSubject.push({
-                "txtCourseStudiedCode": txtCourseStudiedCode
-            }, {
-                "txtCourseStudiedName": txtCourseStudiedName
-            }, {
-                "txtCourseStudiedCredits": txtCourseStudiedCredits
-            }, {
-                "txtCourseTransferCode": txtCourseTransferCode
-            }, {
-                "txtCourseTransferName": txtCourseTransferName
-            }, {
-                "txtCourseTransferCredits": txtCourseTransferCredits
+                courseSubject.push(courseRequestSubject)
+                $("#tblCoursesTransfer > tbody:last-child").append("<tr id='" + courseSubjectIndex + "'>" +
+                    "<td>" + courseRequestSubject[0].txtCourseStudiedCode + "</td>" +
+                    "<td>" + courseRequestSubject[1].txtCourseStudiedName + "</td>" +
+                    "<td>" + courseRequestSubject[2].txtCourseStudiedCredits + "</td>" +
+                    "<td>" + courseRequestSubject[3].txtCourseTransferCode + "</td>" +
+                    "<td>" + courseRequestSubject[4].txtCourseTransferName + "</td>" +
+                    "<td>" + courseRequestSubject[5].txtCourseTransferCredits + "</td>" +
+                    "<td><button id='" + courseSubjectIndex + "' class='btn btn-danger btn-delete-subject'>Delete</button></td>" +
+                    "</tr>")
+
+                $("#CoursesTransfer").val(JSON.stringify(courseSubject))
+
+                $("#" + courseSubjectIndex).click(function(event) {
+                    event.preventDefault()
+                    courseSubject.splice($(this).attr('id'), 1);
+                    $("#" + $(this).attr('id')).remove();
+                    console.log(courseSubject)
+                    $("#CoursesTransfer").val(JSON.stringify(courseSubject))
+                })
+                courseSubjectIndex++;
+
+                $(".add-subject").each(function() {
+                    $(this).val("")
+                })
+            }
+        })
+
+        $("#btnClear").click(function() {
+            $(".add-subject").each(function() {
+                $(this).val("")
             })
-            var uuid = uuidv4().toString()
-            courseRequest.push(courseRequestSubject)
-            $("#tblCoursesTransfer > tbody:last-child").append("<tr>" +
-                "<td>" + courseRequestSubject[0].txtCourseStudiedCode + "</td>" +
-                "<td>" + courseRequestSubject[1].txtCourseStudiedName + "</td>" +
-                "<td>" + courseRequestSubject[2].txtCourseStudiedCredits + "</td>" +
-                "<td>" + courseRequestSubject[3].txtCourseTransferCode + "</td>" +
-                "<td>" + courseRequestSubject[4].txtCourseTransferName + "</td>" +
-                "<td>" + courseRequestSubject[5].txtCourseTransferCredits + "</td>" +
-                "</tr>")
+        })
 
-            $("#hidCoursesTransfer").val(JSON.stringify(courseRequest))
+        $("#btnSendRequest").click(function(event) {
+            //event.preventDefault()
+            if ($("#MobileNumber").val() == "") {
+                alert("Pleasr add your mobile number.")
+                $("#MobileNumber").focus()
+                return false
+            }
+            if ($("input[name=RequestForItem]:checked").val() === undefined) {
+                alert("Please select your request")
+                $("input[name=RequestForItem]").focus()
+                return false
+            }
+            if (courseSubject.length == 0) {
+                alert("Pleasr add your Courses for request.")
+                $("#txtCourseStudiedCode").focus()
+                return false
+            }
+            if ($("input[name=ReasonForRequest]:checked").val() === undefined) {
+                alert("Please select your reason for request")
+                $("#AdmissionToUniversity").focus()
+                return false
+            }
         })
     })
 </script>
@@ -113,7 +165,7 @@ $StudyLevel = $UserInfo->StudyLevel;
                         <h6 class="text-minor">คำร้องขอเทียบโอน/รับโอนรายวิชา</h6>
                     </div>
                     <div class='card-body'>
-                        <form action="">
+                        <form method="post" action="<?php echo base_url(); ?>form/requestcoursetransfer" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md">
                                     <div class="card">
@@ -125,6 +177,7 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                 <div class='col-md'>
                                                     <div class='form-group'>
                                                         <label for="">Student ID : <small class="sub">รหัสนักศึกษา</small><?php echo $StudentID ?></label>
+                                                        <input type="hidden" name="StudentID" value="<?php echo $StudentID ?>">
                                                     </div>
                                                 </div>
                                                 <div class='col-md'>
@@ -150,7 +203,7 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                     <div class='form-row'>
                                                         <label class='col-md-3' for="mobilenumber">Mobile Number : <small class="sub">หมายเลขโทรศัพท์มือถือ</small></label>
                                                         <div class='col-md-8'>
-                                                            <input type="text" class='form-control' id='txtMobileNumber' placeholder='Mobile Number'>
+                                                            <input type="text" class='form-control' name="MobileNumber" id='MobileNumber' placeholder='Mobile Number'>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -191,7 +244,7 @@ $StudyLevel = $UserInfo->StudyLevel;
 
                             <div class='row'>
                                 <div class='col-md'>
-                                    <div class='card'>
+                                    <div id="divCourseForRequest" class='card'>
                                         <div class='card-header'>
                                             Courses for request / รายวิชาที่จะขอ
                                         </div>
@@ -199,25 +252,25 @@ $StudyLevel = $UserInfo->StudyLevel;
                                             <div class='form-group row'>
                                                 <label for="staticEmail" class="col-md-3">Course have been studied<small class='sub'>รายวิชาที่ได้ศึกษามาแล้ว</small></label>
                                                 <div class="col-md-2">
-                                                    <input type="text" class="form-control" id="txtCourseStudiedCode" placeholder="Subject Codes / รหัสรายวิชา">
+                                                    <input type="text" class="form-control add-subject" id="txtCourseStudiedCode" placeholder="Subject Codes / รหัสรายวิชา">
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <input type="text" class="form-control" id="txtCourseStudiedName" placeholder="Subject Name / ชื่อรายวิชา">
+                                                    <input type="text" class="form-control add-subject" id="txtCourseStudiedName" placeholder="Subject Name / ชื่อรายวิชา">
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <input type="text" class="form-control" id="txtCourseStudiedCredits" placeholder="Credits / จำนวนหน่วยกิต">
+                                                    <input type="text" class="form-control add-subject" id="txtCourseStudiedCredits" placeholder="Credits / จำนวนหน่วยกิต">
                                                 </div>
                                             </div>
                                             <div class='form-group row'>
                                                 <label for="staticEmail" class="col-md-3">Course to equivalence/transfer<small class='sub'>รายวิชาที่จะขอเทียบโอน</small></label>
                                                 <div class="col-md-2">
-                                                    <input type="text" class="form-control" id="txtCourseTransferCode" placeholder="Subject Codes / รหัสรายวิชา">
+                                                    <input type="text" class="form-control add-subject" id="txtCourseTransferCode" placeholder="Subject Codes / รหัสรายวิชา">
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <input type="text" class="form-control" id="txtCourseTransferName" placeholder="Subject Name / ชื่อรายวิชา">
+                                                    <input type="text" class="form-control add-subject" id="txtCourseTransferName" placeholder="Subject Name / ชื่อรายวิชา">
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <input type="text" class="form-control" id="txtCourseTransferCredits" placeholder="Credits / จำนวนหน่วยกิต">
+                                                    <input type="text" class="form-control add-subject" id="txtCourseTransferCredits" placeholder="Credits / จำนวนหน่วยกิต">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -230,7 +283,7 @@ $StudyLevel = $UserInfo->StudyLevel;
 
                                             </div>
 
-                                            <input type="hidden" id="hidCoursesTransfer" value="" />
+                                            <input type="hidden" name="CoursesTransfer" id="CoursesTransfer" value="" />
                                             <div class="row">
                                                 <div class="col-md">
                                                     <table id="tblCoursesTransfer" class="table table-bordered">
@@ -242,22 +295,25 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                                 <td colspan="3">
                                                                     Course to equivalence/transfer
                                                                 </td>
+                                                                <td rowspan="2" class="align-middle">
+                                                                    Manage
+                                                                </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>
-                                                                    Subject Codes
+                                                                <td style="width: 10%">
+                                                                    Codes
                                                                 </td>
                                                                 <td>
-                                                                    Subject Name
+                                                                    Name
                                                                 </td>
                                                                 <td>
                                                                     Credits
                                                                 </td>
-                                                                <td>
-                                                                    Subject Codes
+                                                                <td style="width: 10%">
+                                                                    Codes
                                                                 </td>
                                                                 <td>
-                                                                    Subject Name
+                                                                    Name
                                                                 </td>
                                                                 <td>
                                                                     Credits
@@ -291,7 +347,7 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                     <div class='row'>
                                                         <div class='col-md-2'>
                                                             <label for="">From Semester / Year : </label>
-                                                            <input type="text" class="form-control" id="txtAdmissionToUniversity" placeholder="semester/year">
+                                                            <input type="text" class="form-control" name="txtAdmissionToUniversity" id="txtAdmissionToUniversity" placeholder="semester/year">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -306,20 +362,20 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                     <div class='row'>
                                                         <div class='col-md'>
                                                             <label for="">From The Field of Study :</label>
-                                                            <input type="text" class="form-control" id="txtApproveMoveFromFieldStudyFrom" placeholder="from the field of study">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromFieldStudyFrom" id="txtApproveMoveFromFieldStudyFrom" placeholder="from the field of study">
                                                         </div>
 
                                                     </div>
                                                     <div class='row'>
                                                         <div class='col-md'>
                                                             <label for="">To The Field of Study :</label>
-                                                            <input type="text" class="form-control" id="txtApproveMoveFromFieldStudyTo" placeholder="to the field of study">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromFieldStudyTo" id="txtApproveMoveFromFieldStudyTo" placeholder="to the field of study">
                                                         </div>
                                                     </div>
                                                     <div class='row'>
                                                         <div class='col-md-2'>
                                                             <label for="">From Semester / Year : </label>
-                                                            <input type="text" class="form-control" id="txtApproveMoveFromFieldStudyYear" placeholder="from semester/year">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromFieldStudyYear" id="txtApproveMoveFromFieldStudyYear" placeholder="from semester/year">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -334,20 +390,20 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                     <div class='row'>
                                                         <div class='col-md'>
                                                             <label for=""> From Faculty : </label>
-                                                            <input type="text" class="form-control" id="txtApproveMoveFromFacultyFrom" placeholder="from the faculty / college">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromFacultyFrom" id="txtApproveMoveFromFacultyFrom" placeholder="from the faculty / college">
                                                         </div>
 
                                                     </div>
                                                     <div class='row'>
                                                         <div class='col-md'>
                                                             <label for="">To Faculty :</label>
-                                                            <input type="text" class="form-control" id="txtApproveMoveFromFacultyTo" placeholder="to the faculty / college">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromFacultyTo" id="txtApproveMoveFromFacultyTo" placeholder="to the faculty / college">
                                                         </div>
                                                     </div>
                                                     <div class='row'>
                                                         <div class='col-md-2'>
                                                             <label for="">From Semester / Year</label>
-                                                            <input type="text" class="form-control" id="txtApproveMoveFromFacultyYear" placeholder="from semester/year">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromFacultyYear" id="txtApproveMoveFromFacultyYear" placeholder="from semester/year">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -362,20 +418,20 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                     <div class='row'>
                                                         <div class='col-md'>
                                                             <label for="">From Univeristy : </label>
-                                                            <input type="text" class="form-control" id="txtApproveMoveFromUniversityFrom" placeholder="from the university">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromUniversityFrom"  id="txtApproveMoveFromUniversityFrom" placeholder="from the university">
                                                         </div>
 
                                                     </div>
                                                     <div class='row'>
                                                         <div class='col-md'>
                                                             <label for="">To University : </label>
-                                                            <input type="text" class="form-control" readonly id="txtApproveMoveFromUniversityTo" placeholder="to the university" value='มหาวิทยาลัยสงขลานครินทร์'>
+                                                            <input type="text" class="form-control" readonly name="txtApproveMoveFromUniversityTo" id="txtApproveMoveFromUniversityTo" placeholder="to the university" value='มหาวิทยาลัยสงขลานครินทร์'>
                                                         </div>
                                                     </div>
                                                     <div class='row'>
                                                         <div class='col-md-2'>
                                                             <label for="">From Semester / Year : </label>
-                                                            <input type="text" class="form-control" id="txtApproveMoveFromUniversityYear" placeholder="from semester/year">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromUniversityYear" id="txtApproveMoveFromUniversityYear" placeholder="from semester/year">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -389,7 +445,7 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                 <div class='form-check' id='divOther' style="display:none">
                                                     <div class='row'>
                                                         <div class='col-md'>
-                                                            <input type="text" class="form-control" id="txtOther" placeholder="Other">
+                                                            <input type="text" class="form-control" name="txtOther" id="txtOther" id="txtOther" placeholder="Other">
                                                         </div>
                                                     </div>
                                                 </div>

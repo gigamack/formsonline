@@ -8,8 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/site.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/js/DataTables-1.10.18/css/jquery.dataTables.min.css">
     <script src="<?php echo base_url(); ?>assets/js/jquery-3.4.1.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/moment-with-locales.js"></script>
+    
     <title>PSU Phuket Online Forms</title>
     <style>
         @media screen and (max-width: 991.98px) {

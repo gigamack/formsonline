@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller
         $this->setSelectDocumentType();
         $this->load->model('UserModel');
         $this->load->model('DocumentTypeModel');
+        $this->load->model('DocumentModel');
         $this->load->model('DocModel');
     }
 
@@ -48,24 +49,95 @@ class Dashboard extends CI_Controller
             default:
                 break;
         }
-
         $this->load->view('StdReqTable');
+        $this->load->view('dashboard/footer');
     }
 
-    private function setData()
+    public function Edit($DocumentID)
     {
-        $this->data['selectDocumentType'] = isset($_SESSION['selectDocumentType']) ? $_SESSION['selectDocumentType'] : "";
-        $this->data['UserInfo'] = $this->UserModel;
-        $this->data['DocumentType'] = $this->DocumentTypeModel->getDocumentType($this->UserModel->Type);
-        $this->data['DocList'] = $this->DocModel->selectDocWithStateOrder(array('StudentID' => $this->UserModel->ID), 'CreatedDate', 'DESC');
+        $this->setData();
+        $DocumentTypeID = $this->DocumentModel->getDocumentTypeID($DocumentID);
+        $this->load->view('dashboard/header', $this->data);
+
+        switch ($DocumentTypeID) {
+            case '1':
+                return redirect(base_url() . 'form/requesttemporarystudentcard/edit/' . $DocumentID);
+                break;
+            case '2':
+                return redirect(base_url() . 'form/requestnamechanging/edit/' . $DocumentID);
+                break;
+            case '3':
+                return redirect(base_url() . 'form/requestgraduate/edit/' . $DocumentID);
+                break;
+            case '4':
+                return redirect(base_url() . 'form/requestmastergraduate/edit/' . $DocumentID);
+                break;
+            case '5':
+                return redirect(base_url() . 'form/requestdebtinvestigate/edit/' . $DocumentID);
+                break;
+            case '6':
+                return redirect(base_url() . 'form/requestcertificate/edit/' . $DocumentID);
+                break;
+            case '7':
+                return redirect(base_url() . 'form/requestmorecredits/edit/' . $DocumentID);
+                break;
+            case '8':
+                return redirect(base_url() . 'form/requestcoursetransfer/edit/' . $DocumentID);
+                break;
+            default:
+                break;
+        }
     }
 
-    private function checkAuthentication()
-    {
-        ($_SESSION['Authentication'] === "true") ? "" : redirect(base_url("/"));
+    public function Delete ($DocumentID) {
+        $this->setData();
+        $DocumentTypeID = $this->DocumentModel->getDocumentTypeID($DocumentID);
+        $this->load->view('dashboard/header', $this->data);
+
+        switch ($DocumentTypeID) {
+            case '1':
+                return redirect(base_url() . 'form/requesttemporarystudentcard/delete/' . $DocumentID);
+                break;
+            case '2':
+                return redirect(base_url() . 'form/requestnamechanging/delete/' . $DocumentID);
+                break;
+            case '3':
+                return redirect(base_url() . 'form/requestgraduate/delete/' . $DocumentID);
+                break;
+            case '4':
+                return redirect(base_url() . 'form/requestmastergraduate/delete/' . $DocumentID);
+                break;
+            case '5':
+                return redirect(base_url() . 'form/requestdebtinvestigate/delete/' . $DocumentID);
+                break;
+            case '6':
+                return redirect(base_url() . 'form/requestcertificate/delete/' . $DocumentID);
+                break;
+            case '7':
+                return redirect(base_url() . 'form/requestmorecredits/delete/' . $DocumentID);
+                break;
+            case '8':
+                return redirect(base_url() . 'form/requestcoursetransfer/delete/' . $DocumentID);
+                break;
+            default:
+                break;
+        }
     }
-    private function setSelectDocumentType()
-    {
-        $_SESSION['selectDocumentType'] = isset($_POST['selectDocumentType']) ? $_POST['selectDocumentType'] : "";
-    }
+
+private function setData()
+{
+    $this->data['selectDocumentType'] = isset($_SESSION['selectDocumentType']) ? $_SESSION['selectDocumentType'] : "";
+    $this->data['UserInfo'] = $this->UserModel;
+    $this->data['DocumentType'] = $this->DocumentTypeModel->getDocumentType($this->UserModel->Type);
+    $this->data['DocList'] = $this->DocModel->selectDocWithStateOrder(array('StudentID' => $this->UserModel->ID), 'document.CreatedDate', 'DESC');
+}
+
+private function checkAuthentication()
+{
+    ($_SESSION['Authentication'] === "true") ? "" : redirect(base_url("/"));
+}
+private function setSelectDocumentType()
+{
+    $_SESSION['selectDocumentType'] = isset($_POST['selectDocumentType']) ? $_POST['selectDocumentType'] : "";
+}
 }

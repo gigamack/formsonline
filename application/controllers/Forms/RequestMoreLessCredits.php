@@ -3,6 +3,7 @@ class RequestMoreLessCredits extends CI_Controller
 {
 
     private $data;
+    private $DocumentID;
 
     public function __construct()
     {
@@ -16,6 +17,9 @@ class RequestMoreLessCredits extends CI_Controller
         $this->load->model('Student_model');
         $this->load->config('email');
         $this->load->library('email');
+        $this->load->model('DocumentModel');
+        $this->load->model('DocumentStateModel');
+        $this->load->library('uuid');
     }
 
     public function Index()
@@ -25,29 +29,66 @@ class RequestMoreLessCredits extends CI_Controller
         $this->load->view('dashboard/dashboard');
         $this->load->view('student/RequestRegistMoreCredit');
         $this->load->view('StdReqTable');
+        $this->load->view('dashboard/footer');
     }
     public function Get()
     { }
+    public function Edit()
+    {
+        $this->setData();
+        $this->load->view('dashboard/header', $this->data);
+        $this->load->view('student/edit/RequestMoreLessCredits');
+        $this->load->view('dashboard/footer');
+    }
     public function Insert()
     {
+        $this->DocumentID = $this->uuid->v4();
+
         $data = array(
-            'StudentID' => $_POST['stdid'], 'tel' => $_POST['tel'], 'term' => $_POST['term'], 'year' => $_POST['year'], 'DocTypeID' => $_POST['DocType']
+            'DocumentID' => $this->DocumentID,
+            'StatusID' => 'S01',
+            'StudentID' => $_POST['stdid'],
+            'tel' => $_POST['tel'],
+            'term' => $_POST['term'],
+            'year' => $_POST['year'],
+            'DocTypeID' => $_POST['DocType']
         );
-        $this->DocModel->InsertDoc($data);
-        $dataMaxDocID = array('StudentID' => $_POST['stdid']);
-        $maxDocIDS = $this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
-        $maxDocID = $maxDocIDS[0];
-        $data2 = array(
-            'DocID' => $maxDocID->DocID, 'stateID' => $_POST['stateID']
+        $this->DocumentModel->Insert($data);
+
+        $DocumentState = array(
+            'DocumentID' => $this->DocumentID,
+            'StatusID' => 'S01'
         );
-        $this->DocStateModel->InsertDocState($data2);
+        $this->DocumentStateModel->Insert($DocumentState);
+
         //$this->sendMail();
         redirect(base_url() . "dashboard");
     }
     public function Update()
     { }
-    public function Delete()
-    { }
+    public function Delete($DocumentID)
+    {
+        $data = array('DocumentID' => $DocumentID);
+        $docinfo['docInfo'] = $this->DocModel->getDocBydocID($DocumentID);
+        if ($docinfo['docInfo'][0]['PoliceNoticePath'] != '') {
+            $targetPath = getcwd() . '/uploads/';
+            unlink($targetPath . $docinfo['docInfo'][0]['PoliceNoticePath']);
+        }
+        if ($docinfo['docInfo'][0]['stdFile1'] != '') {
+            $targetPath = getcwd() . '/uploads/';
+            unlink($targetPath . $docinfo['docInfo'][0]['stdFile1']);
+        }
+        if ($docinfo['docInfo'][0]['stdFile2'] != '') {
+            $targetPath = getcwd() . '/uploads/';
+            unlink($targetPath . $docinfo['docInfo'][0]['stdFile2']);
+        }
+        if ($docinfo['docInfo'][0]['stdFile3'] != '') {
+            $targetPath = getcwd() . '/uploads/';
+            unlink($targetPath . $docinfo['docInfo'][0]['stdFile3']);
+        }
+        $this->DocModel->deleteDoc($data);
+        redirect(base_url() . 'dashboard');
+    }
     private function setData()
     {
         $this->data['selectDocumentType'] = isset($_SESSION['selectDocumentType']) ? $_SESSION['selectDocumentType'] : "";

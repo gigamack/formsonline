@@ -10,7 +10,7 @@ $citizenid = $UserInfo->CardID;
 <div class="container">
 	<div class="row">
 		<div class="col-md">
-			<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDebtinvestigate") ?>" method="post">
+			<form style="margin: 20px auto auto auto" action="<?php echo base_url() ?>form/requestdebtinvestigate" method="post">
 				<div class="card">
 					<div class="card-header bg-success text-light">
 						<h4>Request form for Graduation and Debt Investigation (Graduate School) </h4>

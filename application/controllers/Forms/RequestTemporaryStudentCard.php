@@ -1,6 +1,7 @@
 <?php
 class RequestTemporaryStudentCard extends CI_Controller
 {
+    private $DocumentID;
     private $data;
     public function __construct()
     {
@@ -9,8 +10,10 @@ class RequestTemporaryStudentCard extends CI_Controller
         $this->load->model('UserModel');
         $this->load->model('DocumentTypeModel');
         $this->load->model('DocModel');
-        $this->load->model('DocStateModel');
+        $this->load->model('DocumentModel');
+        $this->load->model('DocumentStateModel');
         $this->load->model('Student_model');
+        $this->load->library('uuid');
         $this->load->config('email');
         $this->load->library('email');
     }
@@ -21,39 +24,105 @@ class RequestTemporaryStudentCard extends CI_Controller
         $this->load->view('dashboard/dashboard');
         $this->load->view('student/RequestTemporaryStudentCard');
         $this->load->view('StdReqTable');
+        $this->load->view('dashboard/footer');
     }
     public function Insert()
     {
+        $this->DocumentID = $this->uuid->v4();
         $filename = '';
-        $encodename = uniqid();
         if ($_FILES['stdPicFile']['name'] != '') {
-            $filename = $encodename . '_' . $_FILES['stdPicFile']['name'];
+            $fileExtension = pathinfo($_FILES['stdPicFile']['name'], PATHINFO_EXTENSION);
+            $filename = $this->uuid->v4() . "." . $fileExtension;
             $tempFile = $_FILES['stdPicFile']['tmp_name'];
             $targetPath = getcwd() . '/uploads/';
-            $targetFile = $targetPath . $encodename . '_' . $_FILES['stdPicFile']['name'];
+            $targetFile = $targetPath . $filename;
             move_uploaded_file($tempFile, $targetFile);
         }
         $data = array(
-            'StudentID' => $_POST['stdid'], 'ReasonID' => $_POST['reason'], 'ReasonOther' => $_POST['other'], 'PoliceNoticePath' => $filename, 'DocTypeID' => $_POST['DocTypeID']
+            'DocumentID' => $this->DocumentID,
+            'StudentID' => $_POST['stdid'],
+            'StatusID' => 'S01',
+            'ReasonID' => $_POST['reason'],
+            'ReasonOther' => $_POST['other'],
+            'PoliceNoticePath' => $filename,
+            'DocTypeID' => $_POST['DocTypeID']
         );
-        $this->DocModel->InsertDoc($data);
-        $dataMaxDocID = array('StudentID' => $_POST['stdid']);
-        $maxDocIDS = $this->DocModel->getMaxDocIDbyUserIDtoSetInitState($dataMaxDocID);
-        $maxDocID = $maxDocIDS[0];
-        $data2 = array(
-            'DocID' => $maxDocID->DocID, 'stateID' => $_POST['stateID']
+
+        $this->DocumentModel->Insert($data);
+
+        $DocumentState = array(
+            'DocumentID' => $this->DocumentID,
+            'StatusID' => 'S01'
         );
-        $this->DocStateModel->InsertDocState($data2);
-        echo $targetPath;
+        $this->DocumentStateModel->insert($DocumentState);
+
         //$this->sendMail();
         redirect(base_url() . 'dashboard');
     }
     public function Get()
     { }
-    public function Update()
-    { }
-    public function Delete()
-    { }
+    public function Update($DocumentID)
+    {
+        $data = array();
+        $targetPath = getcwd() . '/uploads/';
+        if (!empty($_FILES['stdPicFile']['name'])) {
+            $fileExtension = pathinfo($_FILES['stdPicFile']['name'], PATHINFO_EXTENSION);
+            $filename = $this->uuid->v4() . "." . $fileExtension;
+            $tempFile = $_FILES['stdPicFile']['tmp_name'];
+            $targetFile = $targetPath . $filename;
+            move_uploaded_file($tempFile, $targetFile);
+            unlink($targetPath . $_POST['oldfilename']);
+            $data = array(
+                "ReasonID" => $_POST['reason'],
+                "PoliceNoticePath" => $filename
+            );
+        } else {
+            if ($_POST['reason'] == "1") {
+                $data = array(
+                    "ReasonID" => $_POST['reason'],
+                );
+            } else {
+                $data = array(
+                    "ReasonID" => $_POST['reason'],
+                    "PoliceNoticePath" => ""
+                );
+                unlink($targetPath . $_POST['oldfilename']);
+            }
+        }
+        $this->DocumentModel->update($DocumentID, $data);
+        redirect(base_url() . 'dashboard');
+    }
+    public function Edit($DocumentID)
+    {
+        $this->data['UserInfo'] = $this->UserModel;
+        $this->data['Document'] = $this->DocumentModel->Get($DocumentID);
+        $this->load->view('dashboard/header', $this->data);
+        $this->load->view('student/edit/RequestTemporaryStudentCard');
+        $this->load->view('dashboard/footer');
+    }
+    public function Delete($DocumentID)
+    {
+        $data = array('DocumentID' => $DocumentID);
+        $docinfo['docInfo'] = $this->DocModel->getDocBydocID($DocumentID);
+        if ($docinfo['docInfo'][0]['PoliceNoticePath'] != '') {
+            $targetPath = getcwd() . '/uploads/';
+            unlink($targetPath . $docinfo['docInfo'][0]['PoliceNoticePath']);
+        }
+        if ($docinfo['docInfo'][0]['stdFile1'] != '') {
+            $targetPath = getcwd() . '/uploads/';
+            unlink($targetPath . $docinfo['docInfo'][0]['stdFile1']);
+        }
+        if ($docinfo['docInfo'][0]['stdFile2'] != '') {
+            $targetPath = getcwd() . '/uploads/';
+            unlink($targetPath . $docinfo['docInfo'][0]['stdFile2']);
+        }
+        if ($docinfo['docInfo'][0]['stdFile3'] != '') {
+            $targetPath = getcwd() . '/uploads/';
+            unlink($targetPath . $docinfo['docInfo'][0]['stdFile3']);
+        }
+        $this->DocModel->deleteDoc($data);
+        redirect(base_url() . 'dashboard');
+    }
 
     /////// Private Function /////////
     private function setData()
@@ -71,7 +140,7 @@ class RequestTemporaryStudentCard extends CI_Controller
     {
         $from_email = $this->config->item('smtp_user');
         $to_email = "nitiwat.t@phuket.psu.ac.th";
-        
+
         $this->email->from($from_email, 'Nitiwat Thongkao');
         $this->email->to($to_email);
         $this->email->subject('PSU Phuket Online Forms');

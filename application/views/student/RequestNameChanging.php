@@ -95,7 +95,7 @@ $majorname = $UserInfo->Major;
 								<div class="col">
 									<div class="form-group">
 										<label class="font-weight-bold" for="stdPicFile1">1.Copy of National ID Card<small class="sub">สำเนาบัตรประจำตัวประชาชน</small>:</label>
-										<input type="file" class="form-control-file" id="stdFile1" name="stdFile1" required>
+										<input type="file" class="form-control" id="stdFile1" name="stdFile1" required>
 									</div>
 								</div>
 							</div>
@@ -103,7 +103,7 @@ $majorname = $UserInfo->Major;
 								<div class="col">
 									<div class="form-group">
 										<label class="font-weight-bold" for="stdPicFile2">2.Copy of change of name form <small class="sub">สำเนาหนังสือสำคัญแสดงการเปลี่ยนชื่อ-สกุล</small>:</label>
-										<input type="file" class="form-control-file" id="stdFile2" name="stdFile2" required>
+										<input type="file" class="form-control" id="stdFile2" name="stdFile2" required>
 									</div>
 								</div>
 							</div>
@@ -111,7 +111,7 @@ $majorname = $UserInfo->Major;
 								<div class="col">
 									<div class="form-group">
 										<label class="font-weight-bold" for="stdPicFile2">3.Copy of Passport <small class="sub">สำเนาหนังสือเดินทาง(กรณีเปลี่ยนชื่อ-สกุลภาษาอังกฤษตามหนังสือเดินทาง)</small>:</label>
-										<input type="file" class="form-control-file" id="stdFile3" name="stdFile3">
+										<input type="file" class="form-control" id="stdFile3" name="stdFile3">
 									</div>
 								</div>
 							</div>

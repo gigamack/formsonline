@@ -83,9 +83,9 @@ $citizenid = $UserInfo->CardID;
 								<div class="form-group">
 									<select class="custom-select" id="yearEnd" name="yearEnd">
 										<option selected>เลือก</option>
-										<option value="1">2561</option>
-										<option value="2">2562</option>
-										<option value="3">2563</option>
+										<option value="<?php echo date("Y") + 542; ?>"><?php echo date("Y") + 542; ?></option>
+										<option value="<?php echo date("Y") + 543; ?>"><?php echo date("Y") + 543; ?></option>
+										<option value="<?php echo date("Y") + 544; ?>"><?php echo date("Y") + 544; ?></option>
 									</select>
 								</div>
 							</div>
@@ -266,7 +266,7 @@ $citizenid = $UserInfo->CardID;
 							</div>
 							<div class="col-md">
 								<div class="form-group">
-									<select class="custom-select" id="subjType" name="yearEnd">
+									<select class="custom-select" id="subjType" name="subjType">
 										<option value="" selected>--เลือกประเภท--</option>
 										<option value="สารนิพนธ์">สารนิพนธ์ </option>
 										<option value="วิทยานิพนธ์">วิทยานิพนธ์ </option>

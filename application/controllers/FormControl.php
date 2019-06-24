@@ -9,13 +9,14 @@ class FormControl extends CI_Controller
         $this->load->model('DocModel');
         $this->load->model('DocStateModel');
         $this->load->model('Student_model');
-        $this->load->model('PSUPassportModel');
+        //$this->load->model('PSUPassportModel');
         $this->load->model('DocTypeModel');
         $this->load->helper(array('form', 'url'));
         $this->load->library('session');
+        $this->load->model('UserModel');
 
-        $PSUPassport = $this->session->flashdata('PSUPassport');
-        $this->PSUPassportModel->setPSUPassport($PSUPassport);
+        //$PSUPassport = $this->session->flashdata('PSUPassport');
+        //$this->PSUPassportModel->setPSUPassport($PSUPassport);
     }
     public function index()
     {
@@ -44,7 +45,7 @@ class FormControl extends CI_Controller
     public function dashboard()
     {
         //echo $this->PSUPassportModel->Email;
-        
+
         //$this->chkSTDLogin();
         // $studentid = isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
         // $dataSelect = array('StudentID' => $studentid);
@@ -62,7 +63,7 @@ class FormControl extends CI_Controller
         $this->chkSTDLogin();
         $studentid = isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
         $dataSelect = array('StudentID' => $studentid);
-        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'CreatedDate', 'ASC');
+        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'ASC');
         $data['docList2'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'OfficerCommentedDate', 'DESC');
         $this->load->view('css');
         $this->load->view('header');
@@ -141,7 +142,7 @@ class FormControl extends CI_Controller
     {
         $studentid = isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
         $dataSelect = array('StudentID' => $studentid);
-        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'CreatedDate', 'DESC');
+        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'DESC');
         $data['docList2'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'OfficerCommentedDate', 'DESC');
         $data['doctypeList'] = $this->DocTypeModel->getDocType();
         $chosenform = $_POST['formselect'];
@@ -187,7 +188,7 @@ class FormControl extends CI_Controller
     {
         $studentid = isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
         $dataSelect = array('StudentID' => $studentid);
-        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'CreatedDate', 'ASC');
+        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'ASC');
         $data['docList2'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'OfficerCommentedDate', 'DESC');
         $chosenform = $_POST['formselect'];
         $this->load->view('css');
@@ -245,7 +246,7 @@ class FormControl extends CI_Controller
     {
         //$this->chkStaffLogin();
         $dataSelect = array();
-        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'CreatedDate', 'ASC');
+        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'ASC');
         $data['docList2'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'OfficerCommentedDate', 'DESC');
         $this->load->view('css');
         $this->load->view('headerAdmin');
@@ -477,18 +478,18 @@ class FormControl extends CI_Controller
     //added 05-2-2019
     public function editRequest()
     {
-        $this->chkSTDLogin();
+        //$this->chkSTDLogin();
         $studentid = isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
         $dataSelect = array('StudentID' => $studentid);
-        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'CreatedDate', 'ASC');
+        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'ASC');
         $data['docList2'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'OfficerCommentedDate', 'DESC');
-        $docID = $_GET['docID'];
+        $docID = $_GET['DocumentID'];
         $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
-        $back = base_url("/FormControl/stdMain");
+        //$back = base_url("/FormControl/stdMain");
 
-        $this->load->view('css');
-        $this->load->view('header');
-        $this->load->view('StdReqDdlPart', $data);
+        // $this->load->view('css');
+        // $this->load->view('header');
+        // $this->load->view('StdReqDdlPart', $data);
 
         if ($data['docInfo'][0]['DocTypeID'] == 1) {
             $this->load->view('editTempStdCardReq', $data);
@@ -497,20 +498,19 @@ class FormControl extends CI_Controller
         } else if ($data['docInfo'][0]['DocTypeID'] == 3) {
             $this->load->view('EditGradReqForm', $data);
         }
-        $this->load->view('StdReqTable', $data);
-        $this->load->view('footer');
+        // $this->load->view('StdReqTable', $data);
+        //$this->load->view('footer');
     }
     //ended
 
     public function editReq()
     {
-        $this->chkSTDLogin();
-        $docID = $_GET['docID'];
+        //$this->chkSTDLogin();
+        $docID = $_GET['DocumentID'];
+        $data['UserInfo'] = $this->UserModel;
         $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
-        $back = base_url("/FormControl/stdMain");
 
-        $this->load->view('css');
-        $this->load->view('header');
+        $this->load->view('dashboard/header', $data);
         if ($data['docInfo'][0]['DocTypeID'] == 1) {
             $this->load->view('editTempStdCardReq', $data);
         } else if ($data['docInfo'][0]['DocTypeID'] == 2) {
@@ -525,7 +525,6 @@ class FormControl extends CI_Controller
             $data['certDetail'] = $this->CertModel->getCertDetailBydocID($docID);
             $this->load->view('EditCertifyform', $data);
         }
-        $this->load->view('footer');
     }
 
     public function delReq()

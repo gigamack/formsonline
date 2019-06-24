@@ -44,24 +44,22 @@ $GetDocID = $DocList;
 									}
 									?>
 									<td>
-										<?php echo $docTypeName; ?>
+										<?php echo $docid->DoctypeNameEng; ?>
 									</td>
 									<td class="text-center">
 										<?php
 										$datenew = date("d-M-Y", strtotime($docid->CreatedDate));
-										// echo $docid->CreatedDate; 
 										echo $datenew;
 										?>
 									</td>
-									<td class="text-center <?php echo ($docid->OfficerCommentID == '1') ? 'text-primary' : ($docid->OfficerCommentID == '2' ? 'text-danger' : 'text-info'); ?>">
-										<?php echo ($docid->OfficerCommentID == '1') ? 'Approved' : ($docid->OfficerCommentID == '2' ? 'Disapproved' : 'Waiting'); ?>
+									<td class="text-center <?php echo ($docid->StatusID == 'S01') ? 'text-primary' : ($docid->StatusID == 'S02' ? 'text-danger' : 'text-info'); ?>">
+										<?php echo ($docid->StatusID == 'S01') ? 'Waiting' : ($docid->StatusID == 'S02' ? 'Approved' : 'Disapprove'); ?>
 									</td>
 									<?php
 									$processedDate = date("d-M-Y", strtotime($docid->OfficerCommentedDate));
 									?>
 									<td class="text-center">
 										<?php
-										// echo $docid->OfficerCommentedDate 
 										echo $processedDate;
 										?>
 									</td>
@@ -71,7 +69,7 @@ $GetDocID = $DocList;
 									$wording = '';
 									if ($docid->OfficerCommentID == '0') {
 										$wording = "Edit";
-										$linkpage = "FormControl/editReq?docID=" . $docid->DocID;
+										$linkpage = "form/edit/" . $docid->DocumentID;
 										$visible = "width:30px;";
 									} else {
 										$wording = "View";
@@ -81,21 +79,16 @@ $GetDocID = $DocList;
 									?>
 									<td>
 										<div class="row">
-											<!-- <a href="<?php echo base_url($linkpage); ?>"><img id="Image1" src="../assets/images/view.png"
-										 		style="width:30px;" /></a> -->
 											<div class="col">
 												<a href="<?php echo base_url($linkpage); ?>">
 													<?php echo $wording; ?></a>
 											</div>
-											<!-- <a href="<?php echo base_url('FormControl/delReq?docID=' . $docid->DocID); ?>" onclick="return confirm('ยืนยันที่จะลบรายการนี้?');"><img
-										 		id="Image1" src="../assets/images/trash.png" style="<?php echo $visible; ?>" /></a> -->
 											<div class="col">
-												<a href="<?php echo base_url('FormControl/delReq?docID=' . $docid->DocID); ?>" style="<?php echo $visible; ?>" onclick="return confirm('Confirm to delete ?');">Delete</a>
+												<a href="<?php echo base_url('form/delete/' . $docid->DocumentID); ?>" style="<?php echo $visible; ?>" onclick="return confirm('Confirm to delete ?');">Delete</a>
 											</div>
 										</div>
 									</td>
 								</tr>
-
 								<?php $i++;
 							} ?>
 						</tbody>
@@ -118,14 +111,14 @@ $GetDocID = $DocList;
 					targets: 2,
 					"render": function(data, type, row) {
 						moment.locale('en');
-						return moment(data).format('DD-MMM-YYYY');
+						return moment(new Date(data)).format('DD-MMM-YYYY');
 					}
 				},
 				{
 					targets: 4,
 					"render": function(data, type, row) {
 						moment.locale('en');
-						return moment(data).format('DD-MMM-YYYY');
+						return moment(new Date(data)).format('DD-MMM-YYYY');
 					}
 				}
 			]

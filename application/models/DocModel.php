@@ -2,16 +2,16 @@
 class docModel extends CI_Model
 {
     public function InsertDoc($data)
-    {        
+    {
         $this->db->insert('document', $data);
         return $this->db->insert_id();
     }
 
-    public function getDocBydocID($docID)
+    public function getDocBydocID($DocumentID)
     {
         $this->db->select('*');
         $this->db->from('document');
-        $this->db->where('document.DocID', $docID);
+        $this->db->where('document.DocumentID', $DocumentID);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -33,13 +33,13 @@ class docModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    
-    public function updateDoc($data,$conditionVal)
+
+    public function updateDoc($data, $conditionVal)
     {
         // echo $conditionVal;
         // print_r($data);
         $this->db->where('DocID', $conditionVal);
-        $this->db->update('document',$data);
+        $this->db->update('document', $data);
         return true;
     }
 
@@ -62,7 +62,7 @@ class docModel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    
+
 
     public function selectDoc($data)
     {
@@ -70,7 +70,7 @@ class docModel extends CI_Model
         $query = $this->db->get_where('document', $data);
         return $query->result();
     }
-    
+
     public function selectDocWithState($data)
     {
         //print_r($data);
@@ -79,29 +79,38 @@ class docModel extends CI_Model
         $this->db->join('latest_StateID ', 'document.DocID = latest_StateID.DocID');
         $this->db->join('StateHistory ', 'latest_StateID.step_id = StateHistory.ID');
         $this->db->where($data);
-        
+
         $query = $this->db->get();
         //$query = $this->db->get();
         return $query->result();
     }
-    public function selectDocWithStateOrder($data,$orderby,$ordayway)
+    public function selectDocWithStateOrder($data, $orderby, $ordayway)
     {
-        //print_r($data);
+        // $this->db->select('*');
+        // $this->db->from('document');
+        // $this->db->join('latest_StateID','document.DocID = latest_StateID.DocID');
+        // $this->db->join('StateHistory', 'latest_StateID.step_id = StateHistory.ID');
+        // $this->db->where($data);
+        // $this->db->order_by($orderby, $ordayway);
+
         $this->db->select('*');
         $this->db->from('document');
-        $this->db->join('latest_StateID','document.DocID = latest_StateID.DocID');
-        $this->db->join('StateHistory', 'latest_StateID.step_id = StateHistory.ID');
+        $this->db->join('StateHistory','document.DocumentID = StateHistory.DocumentID and document.StatusID = StateHistory.StatusID','inner');
+        $this->db->join('documentType','document.DocTypeID = documentType.DocTypeID');
+        $this->db->order_by('StateHistory.CreatedDate','DESC');
         $this->db->where($data);
-        $this->db->order_by($orderby, $ordayway);
+        $this->db->where("document.DocumentID !=''");
+
         $query = $this->db->get();
-        //$query = $this->db->get();
         return $query->result();
     }
-    public function selectDocSome($data,$feild)
+    private function getLatestState()
+    { }
+    public function selectDocSome($data, $feild)
     {
         //print_r($data);
         $this->db->select($feild);
-        $query=$this->db->get_where('document', $data);
+        $query = $this->db->get_where('document', $data);
         return $query->result_array();
     }
 
@@ -116,10 +125,6 @@ class docModel extends CI_Model
     public function deleteDoc($data)
     {
         //$this->db->where('DocID', $data);
-        $this->db->delete('document',$data);
-
+        $this->db->delete('document', $data);
     }
-
 }
-
-?>

@@ -16,7 +16,7 @@ class RequestCourseTransfer extends CI_Controller
         $this->load->model('Student_model');
         $this->load->model('TransferSubjectRequestModel');
         $this->load->model('TransferSubjectModel');
-        $this->load->model('DocumentOption');
+       
         $this->load->model('DocumentModel');
         $this->load->model('DocumentStateModel');
         $this->load->library('uuid');

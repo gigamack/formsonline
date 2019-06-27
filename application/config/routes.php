@@ -74,6 +74,9 @@ $route['form/requestcertificate']['post'] = 'Forms/RequestCertificate/insert';
 $route['form/requestcoursetransfer']['get'] = 'Forms/RequestCourseTransfer';
 $route['form/requestcoursetransfer']['post'] = 'Forms/RequestCourseTransfer/insert';
 
+$route['form/requesttuitionfeerefund']['get'] = 'Forms/RequestTuitionFeeRefund';
+$route['form/requesttuitionfeerefund']['post'] = 'Forms/RequestTuitionFeeRefund/insert';
+
 /////// EDIT FORM /////////
 $route['form/edit/(:any)'] = 'Dashboard/Edit/$1';
 $route['form/requesttemporarystudentcard/edit/(:any)'] = 'Forms/RequestTemporaryStudentCard/edit/$1';

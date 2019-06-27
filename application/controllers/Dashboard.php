@@ -46,6 +46,9 @@ class Dashboard extends CI_Controller
             case '8':
                 return redirect(base_url() . 'form/requestcoursetransfer');
                 break;
+            case '9':
+                return redirect(base_url() . 'form/requesttuitionfeerefund');
+                break;
             default:
                 break;
         }
@@ -84,6 +87,9 @@ class Dashboard extends CI_Controller
             case '8':
                 return redirect(base_url() . 'form/requestcoursetransfer/edit/' . $DocumentID);
                 break;
+            case '9':
+                return redirect(base_url() . 'form/requesttuitionfeerefund/edit/' . $DocumentID);
+                break;    
             default:
                 break;
         }
@@ -118,6 +124,9 @@ class Dashboard extends CI_Controller
                 break;
             case '8':
                 return redirect(base_url() . 'form/requestcoursetransfer/delete/' . $DocumentID);
+                break;
+            case '9':
+                return redirect(base_url() . 'form/requesttuitionfeerefund/delete/' . $DocumentID);
                 break;
             default:
                 break;

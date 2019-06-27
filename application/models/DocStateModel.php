@@ -12,23 +12,22 @@ class docStateModel extends CI_Model
     public function selectDocState($data)
     {
         //print_r($data);
-        $query = $this->db->get_where('StateHistory', $data);
+        $this->db->select("*");
+        $this->db->where('DocumentID', $data);
+        $this->db->from("StateHistory");
+        $query = $this->db->get();
         return $query->result();
     }
-    
-    public function updateDocState($data,$conditionVal)
+
+    public function updateDocState($data, $conditionVal)
     {
         $this->db->where('ID', $conditionVal);
-        $this->db->update('StateHistory',$data);
+        $this->db->update('StateHistory', $data);
         return true;
     }
     public function deleteDocState($data)
     {
         $this->db->where('ID', $data);
         $this->db->delete('StateHistory');
-
     }
 }
-
-
-?>

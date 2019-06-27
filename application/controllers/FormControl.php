@@ -11,6 +11,8 @@ class FormControl extends CI_Controller
         $this->load->model('Student_model');
         //$this->load->model('PSUPassportModel');
         $this->load->model('DocTypeModel');
+        $this->load->model('DocumentModel');
+        $this->load->model('DocumentStateModel');
         $this->load->helper(array('form', 'url'));
         $this->load->library('session');
         $this->load->model('UserModel');
@@ -41,21 +43,6 @@ class FormControl extends CI_Controller
         } else {
             redirect(base_url());
         }
-    }
-    public function dashboard()
-    {
-        //echo $this->PSUPassportModel->Email;
-
-        //$this->chkSTDLogin();
-        // $studentid = isset($_SESSION['userSession']['StudentInfo']['STUDENT_ID']) ? $_SESSION['userSession']['StudentInfo']['STUDENT_ID'] : "";
-        // $dataSelect = array('StudentID' => $studentid);
-        // $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'CreatedDate', 'DESC');
-        // $data['doctypeList'] = $this->DocTypeModel->getDocType();
-        // $this->load->view('css');
-        // $this->load->view('header');
-        // $this->load->view('StdReqDdlPart', $data);
-        // $this->load->view('StdReqTable', $data);
-        // $this->load->view('footer');
     }
 
     public function stdCardMain()
@@ -244,12 +231,11 @@ class FormControl extends CI_Controller
 
     public function stdCardFormAdmin()
     {
-        //$this->chkStaffLogin();
+        $data['UserInfo'] = $this->UserModel;
         $dataSelect = array();
         $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'ASC');
-        $data['docList2'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'OfficerCommentedDate', 'DESC');
-        $this->load->view('css');
-        $this->load->view('headerAdmin');
+        //$data['docList2'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'OfficerCommentedDate', 'DESC');
+        $this->load->view('dashboard/header', $data);
         $this->load->view('TempStdCardRev', $data);
         $this->load->view('footer');
     }
@@ -264,14 +250,13 @@ class FormControl extends CI_Controller
 
     public function stdCardAllow()
     {
-        $this->chkStaffLogin();
         $docID = $_GET['docID'];
         $stdID = $_GET['stdID'];
+        $data['UserInfo'] = $this->UserModel;
         $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
         $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
         $data['docState'] = $this->DocStateModel->selectDocState($docID);
-        $this->load->view('headerAdmin');
-        $this->load->view('css');
+        $this->load->view('dashboard/header', $data);
         if ($data['docInfo'][0]['DocTypeID'] == 1) {
             $this->load->view('ChkTempReq', $data);
         } else if ($data['docInfo'][0]['DocTypeID'] == 2) {
@@ -285,6 +270,14 @@ class FormControl extends CI_Controller
         } else if ($data['docInfo'][0]['DocTypeID'] == 6) {
             $data['certDetail'] = $this->CertModel->getCertDetailBydocID($docID);
             $this->load->view('AllowCertifyform', $data);
+        } else if ($data['docInfo'][0]['DocTypeID'] == 8) {
+            $this->load->model('DocumentModel');
+            $this->load->model('TransferSubjectRequestModel');
+            $this->load->model('TransferSubjectModel');
+            $data['Document'] = $this->DocumentModel->Get($docID);
+            $data['TransferSubject'] = $this->TransferSubjectModel->Get($docID);
+            $data['TransferSubjectRequest'] = $this->TransferSubjectRequestModel->Get($docID);
+            $this->load->view('student/admin/RequestCourseTransfer', $data);
         }
         $this->load->view('footer');
     }
@@ -656,7 +649,7 @@ class FormControl extends CI_Controller
 
     public function updateDebtinvestigate()
     {
-        $Fullname = $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][1] . ' ' . $_SESSION['userSession']['PSUPassport']['GetUserDetailsResult']['string'][2];
+        $Fullname = $this->UserModel->Fullname;
         $appdate = date("Y-m-d");
         $debtfac = 0;
         $debtlib = 0;
@@ -734,26 +727,34 @@ class FormControl extends CI_Controller
             $resultdebt = $debtreg + $debtbuild + $debtfac + $debtlib;
             if ($resultdebt != 8) {
                 $data2 = array(
-                    'DocID' => $_POST['docID'], 'stateID' => 't05s03', 'OfficerCommentID' => '2', 'OfficerCommentText' => 'มีหนี้สินคงค้าง', 'OfficerID' => $_POST['userID']
+                    'DocumentID' => $_POST['docID'],
+                    'OfficerCommentID' => '2',
+                    'OfficerCommentText' => 'มีหนี้สินคงค้าง',
+                    'OfficerID' => $_POST['userID']
                 );
             } else {
                 $data2 = array(
-                    'DocID' => $_POST['docID'], 'stateID' => 't05s03', 'OfficerCommentID' => '1', 'OfficerCommentText' => 'ไม่มีหนี้สินคงค้าง', 'OfficerID' => $_POST['userID']
+                    'DocumentID' => $_POST['docID'],
+                    'OfficerCommentID' => '1',
+                    'OfficerCommentText' => 'ไม่มีหนี้สินคงค้าง',
+                    'OfficerID' => $_POST['userID']
                 );
             }
         } else {
             $data2 = array(
-                'DocID' => $_POST['docID'], 'stateID' => 't05s02'
+                'DocumentID' => $_POST['docID']
             );
         }
 
         $data = array(
-            'DocID' => $_POST['docID'], 'OfficerCommentID' => $_POST['commentid'], 'OfficerCommentText' => $_POST['commentText'], 'OfficerID' => $_POST['userID'], 'stateID' => $_POST['stateID']
+            'DocumentID' => $_POST['docID'],
+            'OfficerID' => $_POST['userID'],
+            'StatusID' => "S01"
         );
         $this->DocStateModel->InsertDocState($data);
 
         $this->DocStateModel->InsertDocState($data2);
-        $back = base_url("/FormControl/stdMain");
+        $back = base_url("/FormControl/stdCardFormAdmin");
         header('Location:' . $back);
     }
 
@@ -771,9 +772,14 @@ class FormControl extends CI_Controller
     public function insertDocNextState()
     {
         $data = array(
-            'DocID' => $_POST['docID'], 'OfficerCommentID' => $_POST['commentid'], 'OfficerCommentText' => $_POST['commentText'], 'OfficerID' => $_POST['userID'], 'stateID' => $_POST['stateID']
+            'DocumentID' => $_POST['docID'],
+            'OfficerCommentText' => $_POST['commentText'],
+            'OfficerID' => $_POST['userID'],
+            'StatusID' => $_POST['StatusID']
         );
         $this->DocStateModel->InsertDocState($data);
+
+        $this->DocumentModel->Update($_POST['docID'], array('StatusID' => $_POST['StatusID']));
 
         $back = base_url("/FormControl/stdCardFormAdmin");
         header('Location:' . $back);

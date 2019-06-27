@@ -52,7 +52,7 @@ $GetDocID = $DocList;
 										echo $datenew;
 										?>
 									</td>
-									<td class="text-center <?php echo ($docid->StatusID == 'S01') ? 'text-primary' : ($docid->StatusID == 'S02' ? 'text-danger' : 'text-info'); ?>">
+									<td class="text-center <?php echo ($docid->StatusID == 'S01') ? 'text-primary' : ($docid->StatusID == 'S03' ? 'text-danger' : 'text-info'); ?>">
 										<?php echo ($docid->StatusID == 'S01') ? 'Waiting' : ($docid->StatusID == 'S02' ? 'Approved' : 'Disapprove'); ?>
 									</td>
 									<?php
@@ -67,7 +67,7 @@ $GetDocID = $DocList;
 									$linkpage = "";
 									$visible = "";
 									$wording = '';
-									if ($docid->OfficerCommentID == '0') {
+									if ($docid->StatusID == 'S01') {
 										$wording = "Edit";
 										$linkpage = "form/edit/" . $docid->DocumentID;
 										$visible = "width:30px;";

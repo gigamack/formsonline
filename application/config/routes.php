@@ -110,6 +110,10 @@ $route['form/requestdebtinvestigate/update/(:any)'] = 'Forms/RequestDebtInvestig
 $route['form/requestcoursetransfer/update/(:any)'] = 'Forms/RequestCourseTransfer/update/$1';
 $route['form/requestcertificate/update/(:any)'] = 'Forms/RequestCertificate/update/$1';
 
+
+//////// ADMIN ////////
+$route['form/admin/requestcoursetransfer/approve/(:any)'] = 'Admin/RequestCourseTransfer/approve/$1';
+
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

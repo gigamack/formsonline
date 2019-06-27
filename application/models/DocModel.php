@@ -86,20 +86,13 @@ class docModel extends CI_Model
     }
     public function selectDocWithStateOrder($data, $orderby, $ordayway)
     {
-        // $this->db->select('*');
-        // $this->db->from('document');
-        // $this->db->join('latest_StateID','document.DocID = latest_StateID.DocID');
-        // $this->db->join('StateHistory', 'latest_StateID.step_id = StateHistory.ID');
-        // $this->db->where($data);
-        // $this->db->order_by($orderby, $ordayway);
-
         $this->db->select('*');
         $this->db->from('document');
         $this->db->join('StateHistory','document.DocumentID = StateHistory.DocumentID and document.StatusID = StateHistory.StatusID','inner');
         $this->db->join('documentType','document.DocTypeID = documentType.DocTypeID');
-        $this->db->order_by('StateHistory.CreatedDate','DESC');
+        $this->db->join('DocumentStatus','document.StatusID = DocumentStatus.ID');
+        $this->db->order_by('StateHistory.CreatedDate', 'DESC');
         $this->db->where($data);
-        $this->db->where("document.DocumentID !=''");
 
         $query = $this->db->get();
         return $query->result();

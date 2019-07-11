@@ -2,13 +2,15 @@
 $getDocInfo = $docInfo[0];
 $getStdInfo = $stdinfo;
 $staff_id = $UserInfo->ID;
-$AdminName = $UserInfo->Fullname
+$AdminName = $UserInfo->Fullname;
+$AdminNameEN = $UserInfo->FullnameEng;
 ?>
 <div class="container Chuanpim">
 	<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">
 		<input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocumentID']; ?>" />
 		<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
 		<input type="hidden" id="AdminName" name="AdminName" value="<?php echo $AdminName; ?>" />
+		<input type="hidden" id="AdminNameEN" name="AdminNameEN" value="<?php echo $AdminNameEN; ?>" />
 		<input type="hidden" id="stateID" name="stateID" value="t01s02" />
 		<input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>" />
 		<div class="card">

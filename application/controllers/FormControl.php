@@ -775,6 +775,7 @@ class FormControl extends CI_Controller
             'DocumentID' => $_POST['docID'],
             'OfficerCommentText' => $_POST['commentText'],
             'OfficerID' => $_POST['userID'],
+            'OfficerName' => $_POST['AdminName'],
             'StatusID' => $_POST['StatusID']
         );
         $this->DocStateModel->InsertDocState($data);

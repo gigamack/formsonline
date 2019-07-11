@@ -9,22 +9,20 @@
 }
 
 html {
-	
 }
-form
-{
-color: #929292;
+form {
+	color: #929292;
 }
 
-form label{
-color: #626262;
+form label {
+	color: #626262;
 }
 
 form small.sub {
 	display: block;
 	position: absolute;
 	color: #626262;
-    top: 1.2em;
+	top: 1.2em;
 }
 
 body {
@@ -59,7 +57,7 @@ h4,
 h5,
 h6 {
 	font-family: 'Stidti-Regular';
-	color: #fff ;
+	color: #fff;
 }
 
 .bg-primary {
@@ -93,7 +91,7 @@ h6 {
 
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
-.show>.btn-primary.dropdown-toggle {
+.show > .btn-primary.dropdown-toggle {
 	color: #fff;
 	background-color: #69b3e7;
 	border-color: #69b3e7;
@@ -101,24 +99,24 @@ h6 {
 
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
-.show>.btn-primary.dropdown-toggle:focus {
+.show > .btn-primary.dropdown-toggle:focus {
 	box-shadow: 0 0 0 0.2rem rgb(105, 179, 231);
 }
 
 .bg-success {
-	background-color: #0085AD !important;
+	background-color: #0085ad !important;
 }
 
 .btn-success {
-	background-color: #0085AD !important;
+	background-color: #0085ad !important;
 	color: #fff;
-	border-color: #0085AD;
+	border-color: #0085ad;
 }
 
 .btn-success:hover {
 	color: #fff;
-	background-color: #0085AD;
-	border-color: #0085AD;
+	background-color: #0085ad;
+	border-color: #0085ad;
 }
 
 .btn-success:focus,
@@ -129,21 +127,21 @@ h6 {
 .btn-success.disabled,
 .btn-success:disabled {
 	color: #fff;
-	background-color: #0085AD;
-	border-color: #0085AD;
+	background-color: #0085ad;
+	border-color: #0085ad;
 }
 
 .btn-success:not(:disabled):not(.disabled):active,
 .btn-success:not(:disabled):not(.disabled).active,
-.show>.btn-success.dropdown-toggle {
+.show > .btn-success.dropdown-toggle {
 	color: #fff;
-	background-color: #0085AD;
-	border-color: #0085AD;
+	background-color: #0085ad;
+	border-color: #0085ad;
 }
 
 .btn-success:not(:disabled):not(.disabled):active:focus,
 .btn-success:not(:disabled):not(.disabled).active:focus,
-.show>.btn-success.dropdown-toggle:focus {
+.show > .btn-success.dropdown-toggle:focus {
 	box-shadow: 0 0 0 0.2rem rgb(89, 203, 232);
 }
 
@@ -152,11 +150,30 @@ h6 {
 	padding-bottom: 10px;
 }
 
-[class*="col"] {
+[class*='col'] {
 	padding-left: 5px;
 	padding-right: 5px;
 }
 
 .text-minor {
 	color: #ccc;
+}
+
+.bg-gray {
+	background-color: #dcdcdc !important;
+}
+.tab {
+	text-indent: 50px;
+}
+.tab2 {
+	text-indent: 100px;
+}
+.tab3 {
+	text-indent: 150px;
+}
+.form-view {
+	font-size: 1.3em;
+}
+table.table-bordered2 tbody tr td {
+	border: 1px solid black;
 }

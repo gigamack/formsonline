@@ -1,6 +1,6 @@
 {
-	"description": "The CodeIgniter framework",
-	"name": "codeigniter/framework",
+	"description": "PSU Phuket Online Forms",
+	"name": "onlineforms",
 	"type": "project",
 	"homepage": "https://codeigniter.com",
 	"license": "MIT",

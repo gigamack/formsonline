@@ -73,14 +73,14 @@ $GetDocID = $DocList;
 										$visible = "width:30px;";
 									} else {
 										$wording = "View";
-										$linkpage = 'FormControl/AllowedStdView?docID=' . $docid->DocID . '&stdID=' . $docid->StudentID . '&doctypeID=' . $docid->DocTypeID;
+										$linkpage = 'form/requesttemporarystudentcard/view/' . $docid->DocumentID;
 										$visible = "display: none;";
 									}
 									?>
 									<td>
 										<div class="row">
 											<div class="col">
-												<a href="<?php echo base_url($linkpage); ?>">
+												<a href="<?php echo base_url('form/view/' . $docid->DocumentID); ?>">
 													<?php echo $wording; ?></a>
 											</div>
 											<div class="col">

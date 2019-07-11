@@ -12,6 +12,8 @@ class RequestTemporaryStudentCard extends CI_Controller
         $this->load->model('DocModel');
         $this->load->model('DocumentModel');
         $this->load->model('DocumentStateModel');
+        $this->load->model('ReasonModel');
+        $this->load->model('StudentModel');
         $this->load->model('Student_model');
         $this->load->library('uuid');
         $this->load->config('email');
@@ -59,8 +61,16 @@ class RequestTemporaryStudentCard extends CI_Controller
         //$this->sendMail();
         redirect(base_url() . 'dashboard');
     }
-    public function Get()
-    { }
+    public function Get($DocumentID)
+    {
+        $this->data['UserInfo'] = $this->UserModel;
+        $Document = $this->DocumentModel->GetWithReason($DocumentID);
+        $LastState = $this->DocumentStateModel->getLastState($DocumentID);
+        $this->StudentModel->setStudent($this->Student_model->getStudentInfo($Document[0]->StudentID));
+        $this->data['Document'] = (object) array_merge((array) $Document[0], (array) $this->StudentModel,  (array) $LastState[0]);
+        $this->load->view('dashboard/header', $this->data);
+        $this->load->view('student/view/RequestTemporaryStudentCard');
+    }
     public function Update($DocumentID)
     {
         $data = array();

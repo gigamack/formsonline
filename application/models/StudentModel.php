@@ -6,10 +6,12 @@ class StudentModel extends CI_Model
     public $FirstnameThai;
     public $LastnameThai;
     public $FullnameThai;
+    public $TitleFullnameThai;
     public $TitleEng;
     public $FirstnameEng;
     public $LastnameEng;
     public $FullnameEng;
+    public $TitleFullnameEng;
     public $FacultyThai;
     public $MajorThai;
     public $FacultyEng;
@@ -26,10 +28,12 @@ class StudentModel extends CI_Model
         $this->FirstnameThai = isset($StudentInfo['STUD_NAME_THAI']) ? $StudentInfo['STUD_NAME_THAI'] : "";
         $this->LastnameThai = isset($StudentInfo['STUD_SNAME_THAI']) ? $StudentInfo['STUD_SNAME_THAI'] : "";
         $this->FullnameThai = $this->FirstnameThai . " " . $this->LastnameThai;
+        $this->TitleFullnameThai = $this->TitleThai . $this->FirstnameThai . " " . $this->LastnameThai;
         $this->TitleEng = isset($StudentInfo['TITLE_NAME_ENG']) ? $StudentInfo['TITLE_NAME_ENG'] : "";
         $this->FirstnameEng = isset($StudentInfo['STUD_NAME_ENG']) ? $StudentInfo['STUD_NAME_ENG'] : "";
         $this->LastnameEng = isset($StudentInfo['STUD_SNAME_ENG']) ? $StudentInfo['STUD_SNAME_ENG'] : "";
         $this->FullnameEng = $this->FirstnameEng . " " . $this->LastnameEng;
+        $this->TitleFullnameEng = $this->TitleEng . " " . $this->FirstnameEng . " " . $this->LastnameEng;
         $this->FacultyThai = isset($StudentInfo['FAC_NAME_THAI']) ? $StudentInfo['FAC_NAME_THAI'] : "";
         $this->MajorThai = isset($StudentInfo['MAJOR_NAME_THAI']) ? $StudentInfo['MAJOR_NAME_THAI'] : "";
         $this->FacultyEng = isset($StudentInfo['FAC_NAME_ENG']) ? $StudentInfo['FAC_NAME_ENG'] : "";

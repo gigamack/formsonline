@@ -20,6 +20,18 @@ class DocumentModel extends CI_Model
         return $query->result();
     }
 
+    public function GetWithReason($DocumentID)
+    {
+        $this->db->select('*');
+        $this->db->from('document');
+        $this->db->join('Reason', 'document.ReasonID=Reason.ReasonID', 'inner');
+        $this->db->where('DocumentID', $DocumentID);
+
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     public function Update($DocumentID, $data)
     {
         $this->db->where("DocumentID", $DocumentID);

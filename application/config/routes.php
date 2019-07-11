@@ -113,6 +113,17 @@ $route['form/requestdebtinvestigate/update/(:any)'] = 'Forms/RequestDebtInvestig
 $route['form/requestcoursetransfer/update/(:any)'] = 'Forms/RequestCourseTransfer/update/$1';
 $route['form/requestcertificate/update/(:any)'] = 'Forms/RequestCertificate/update/$1';
 
+/////// VIEW ////////////////
+$route['form/view/(:any)'] = 'Dashboard/Get/$1';
+$route['form/requesttemporarystudentcard/view/(:any)'] = 'Forms/RequestTemporaryStudentCard/get/$1';
+$route['form/requestnamechanging/view/(:any)'] = 'Forms/RequestNameChanging/get/$1';
+$route['form/requestmorecredits/view/(:any)'] = 'Forms/RequestMoreLessCredits/get/$1';
+$route['form/requestmastergraduate/view/(:any)'] = 'Forms/RequestMasterGraduate/get/$1';
+$route['form/requestgraduate/view/(:any)'] = 'Forms/RequestGraduate/get/$1';
+$route['form/requestdebtinvestigate/view/(:any)'] = 'Forms/RequestDebtInvestigate/get/$1';
+$route['form/requestcoursetransfer/view/(:any)'] = 'Forms/RequestCourseTransfer/get/$1';
+$route['form/requestcertificate/view/(:any)'] = 'Forms/RequestCertificate/get/$1';
+
 
 //////// ADMIN ////////
 $route['form/admin/requestcoursetransfer/approve/(:any)'] = 'Admin/RequestCourseTransfer/approve/$1';

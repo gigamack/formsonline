@@ -13,6 +13,7 @@ class RequestNameChanging extends CI_Controller
         $this->load->model('DocStateModel');
         $this->load->model('DocumentModel');
         $this->load->model('DocumentStateModel');
+        $this->load->model('StudentModel');
         $this->load->library('uuid');
         $this->load->model('Student_model');
         $this->load->config('email');
@@ -90,8 +91,17 @@ class RequestNameChanging extends CI_Controller
         $this->load->view('student/edit/RequestNameChanging');
         $this->load->view('dashboard/footer');
     }
-    public function Get()
-    { }
+    public function Get($DocumentID)
+    {
+        $this->data['UserInfo'] = $this->UserModel;
+        $Document = $this->DocumentModel->getWithDocumentType($DocumentID);
+        $LastState = $this->DocumentStateModel->getLastState($DocumentID);
+        $this->StudentModel->setStudent($this->Student_model->getStudentInfo($Document[0]->StudentID));
+        $this->data['Document'] = (object) array_merge((array) $Document[0], (array) $this->StudentModel,  (array) $LastState[0]);
+        $this->load->view('dashboard/header', $this->data);
+        $this->load->view('student/view/header');
+        $this->load->view('student/view/RequestNameChanging');
+    }
     public function Update($DocumentID)
     {
         if (!empty($_FILES['stdFile1']['name'])) {

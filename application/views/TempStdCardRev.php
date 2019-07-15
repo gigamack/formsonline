@@ -132,7 +132,7 @@ $GetDocID = $docList;
 												echo $docid->ID == "S02" ?  "<span style='color:green'>$docid->Name</span>" : "<span style='color:red'>$docid->Name</span>";
 												?>
 											</td>
-											<td class="text-center"><a href="<?php echo base_url('FormControl/Allowed?docID=' . $docid->DocID . '&stdID=' . $docid->StudentID . '&doctypeID=' . $docid->DocTypeID); ?>">View</a></td>
+											<td class="text-center"><a href="<?php echo base_url('form/admin/view/' . $docid->DocumentID); ?>">View</a></td>
 										</tr>
 										<?php $i++;
 									}

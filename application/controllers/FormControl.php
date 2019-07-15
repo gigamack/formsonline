@@ -234,8 +234,7 @@ class FormControl extends CI_Controller
         $data['UserInfo'] = $this->UserModel;
         $dataSelect = array();
         $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'ASC');
-        //$data['docList2'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'OfficerCommentedDate', 'DESC');
-        $this->load->view('dashboard/header', $data);
+        $this->load->view('dashboard/headerAdmin', $data);
         $this->load->view('TempStdCardRev', $data);
         $this->load->view('footer');
     }

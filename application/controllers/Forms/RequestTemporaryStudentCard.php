@@ -64,11 +64,12 @@ class RequestTemporaryStudentCard extends CI_Controller
     public function Get($DocumentID)
     {
         $this->data['UserInfo'] = $this->UserModel;
-        $Document = $this->DocumentModel->GetWithReason($DocumentID);
+        $Document = $this->DocumentModel->getWithReasonDocumentType($DocumentID);
         $LastState = $this->DocumentStateModel->getLastState($DocumentID);
         $this->StudentModel->setStudent($this->Student_model->getStudentInfo($Document[0]->StudentID));
         $this->data['Document'] = (object) array_merge((array) $Document[0], (array) $this->StudentModel,  (array) $LastState[0]);
         $this->load->view('dashboard/header', $this->data);
+        $this->load->view('student/view/header');
         $this->load->view('student/view/RequestTemporaryStudentCard');
     }
     public function Update($DocumentID)

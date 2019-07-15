@@ -23,9 +23,9 @@
                                             <option value="">Choose the form ...</option>
                                             <?php
                                             foreach ($DocumentType as $row) {
-                                                if($row->DoctypeID===$selectDocumentType){
+                                                if ($row->DoctypeID === $selectDocumentType) {
                                                     echo "<option value='$row->DoctypeID' selected>$row->DoctypeNameEng</option>";
-                                                }else{
+                                                } else {
                                                     echo "<option value='$row->DoctypeID'>$row->DoctypeNameEng</option>";
                                                 }
                                             }
@@ -44,4 +44,5 @@
         </div>
     </div>
 </body>
+
 </html>

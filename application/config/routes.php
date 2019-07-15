@@ -125,8 +125,20 @@ $route['form/requestcoursetransfer/view/(:any)'] = 'Forms/RequestCourseTransfer/
 $route['form/requestcertificate/view/(:any)'] = 'Forms/RequestCertificate/get/$1';
 
 
-//////// ADMIN ////////
+//////// ADMIN APPROVE////////
 $route['form/admin/requestcoursetransfer/approve/(:any)'] = 'Admin/RequestCourseTransfer/approve/$1';
+
+//////// ADMIN GET //////////
+$route['form/admin/view/(:any)'] = 'Admin/Dashboard/Get/$1';
+$route['form/admin/requesttemporarystudentcard/view/(:any)'] = 'Admin/RequestTemporaryStudentCard/get/$1';
+$route['form/admin/requestnamechanging/view/(:any)'] = 'Admin/RequestNameChanging/get/$1';
+$route['form/admin/requestmorecredits/view/(:any)'] = 'Admin/RequestMoreLessCredits/get/$1';
+$route['form/admin/requestmastergraduate/view/(:any)'] = 'Admin/RequestMasterGraduate/get/$1';
+$route['form/admin/requestgraduate/view/(:any)'] = 'Admin/RequestGraduate/get/$1';
+$route['form/admin/requestdebtinvestigate/view/(:any)'] = 'Admin/RequestDebtInvestigate/get/$1';
+$route['form/admin/requestcoursetransfer/view/(:any)'] = 'Admin/RequestCourseTransfer/get/$1';
+$route['form/admin/requestcertificate/view/(:any)'] = 'Admin/RequestCertificate/get/$1';
+
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

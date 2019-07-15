@@ -32,6 +32,29 @@ class DocumentModel extends CI_Model
         return $query->result();
     }
 
+    public function getWithReasonDocumentType($DocumentID)
+    {
+        $this->db->select('*');
+        $this->db->from('document');
+        $this->db->join('Reason', 'document.ReasonID=Reason.ReasonID', 'inner');
+        $this->db->join('documentType', 'document.DoctypeID=documentType.DoctypeID', 'inner');
+        $this->db->where('DocumentID', $DocumentID);
+
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+    public function getWithDocumentType($DocumentID)
+    {
+        $this->db->select('*');
+        $this->db->from('document');
+        $this->db->join('documentType', 'document.DoctypeID=documentType.DoctypeID', 'inner');
+        $this->db->where('DocumentID', $DocumentID);
+
+        $query = $this->db->get();
+
+        return $query->result();
+    }
     public function Update($DocumentID, $data)
     {
         $this->db->where("DocumentID", $DocumentID);

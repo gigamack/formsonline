@@ -48,8 +48,8 @@ $GetDocID = $DocList;
 									</td>
 									<td class="text-center">
 										<?php
-										$datenew = date("d-M-Y", strtotime($docid->CreatedDate));
-										echo $datenew;
+										//$datenew = date("d-M-Y", strtotime($docid->CreatedDate));
+										echo $docid->DocumentCreatedDate;
 										?>
 									</td>
 									<td class="text-center <?php echo ($docid->StatusID == 'S01') ? 'text-primary' : ($docid->StatusID == 'S03' ? 'text-danger' : 'text-info'); ?>">
@@ -73,14 +73,14 @@ $GetDocID = $DocList;
 										$visible = "width:30px;";
 									} else {
 										$wording = "View";
-										$linkpage = 'form/requesttemporarystudentcard/view/' . $docid->DocumentID;
+										$linkpage = 'form/view/' . $docid->DocumentID;
 										$visible = "display: none;";
 									}
 									?>
 									<td>
 										<div class="row">
 											<div class="col">
-												<a href="<?php echo base_url('form/view/' . $docid->DocumentID); ?>">
+												<a href="<?php echo base_url($linkpage); ?>">
 													<?php echo $wording; ?></a>
 											</div>
 											<div class="col">

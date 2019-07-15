@@ -1,27 +1,4 @@
 <div class='container form-view'>
-    <div class='row mt-5'>
-        <div class='col-md'>
-            <div class="text-center">
-                <div class='pb-3'>
-                    <img src='<?php echo base_url() ?>assets/img/PSU-logo-Original.png' width="75" height="100">
-                </div>
-                <!-- <div>
-                    งานรับนักศึกษาและงานทะเบียนกลาง วิทยาเขตภูเก็ต มหาวิทยาลัยสงขลานครินทร์
-                </div> -->
-                <div>
-                    Registrar's Division, Prince of Songkla University, Phuket Campus
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-md'>
-            <div class='text-center bg-gray pt-2 pb-2'>
-                <!-- <h5 class='text-dark font-weight-bold'>คำร้องขอทำบัตรนักศึกษาชั่วคราว</h5> -->
-                <h5 class='text-dark font-weight-bold'>Request Form for PSU Student Identification Card</h5>
-            </div>
-        </div>
-    </div>
     <div class='row'>
         <div class='col-md'>
             Dear Registrar
@@ -29,6 +6,7 @@
     </div>
     <div class='row'>
         <div class='col-md tab'>
+            <span>My name is </span>
             <span class='font-weight-bold'><?php echo $Document->TitleFullnameEng ?></span>
             <span>Student ID</span>
             <span class='font-weight-bold'><?php echo $Document->StudentID ?></span>
@@ -36,16 +14,14 @@
             <span class='font-weight-bold'><?php echo $Document->FacultyEng ?></span>
             <span>Major</span>
             <span class='font-weight-bold'><?php echo $Document->MajorEng ?></span>
-            <span>Telephone</span>
-            <span class='font-weight-bold'><?php echo $Document->tel ?></span>
-            <span>I would like to request a Temporary Student Identification Card</span>
+            <span>I would like to request a PSU Temporary Student Identification Card due to</span>
             <span class='font-weight-bold'><?php echo $Document->ReasonNameEng ?></span>
         </div>
     </div>
     <div class='row pt-5 pb-5'>
         <div class='col-md'>
             <div>
-                *** A one-inch color photo with student uniform. (Photos not older than 6 months)
+                *** Please attach a one-inch color photo with student uniform. (Photo isn't older than 6 months)
             </div>
         </div>
     </div>
@@ -67,12 +43,12 @@
                 <tr>
                     <td class='bg-gray'>
                         <div>
-                            Registrar's Comments
+                            Registation Officer's Comments
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class='w-50'>
+                    <td>
                         <div class="blockquote">
                             <p class="mb-0">
                                 (<span <?php echo ($Document->Name == "Approved") ? "class='text-success'" : "class='text-danger'" ?>>

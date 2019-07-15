@@ -26,8 +26,10 @@ class Authentication extends CI_Controller
             $_SESSION['StudentInfo'] = $StudentInfo;
             $_SESSION['Authentication'] = "true";
             if (isset($UserRoles[0]['role_id'])) {
+                $_SESSION['Type'] = "Admin";
                 redirect(base_url('admin/dashboard'));
             } else {
+                $_SESSION['Type'] = "User";
                 redirect(base_url("dashboard"));
             }
         } else {

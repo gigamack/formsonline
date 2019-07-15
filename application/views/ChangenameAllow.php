@@ -7,12 +7,16 @@ $fullname = $getStdInfo['TITLE_NAME_THAI'] . $getStdInfo['STUD_NAME_THAI'] . ' '
 $faculty = $getStdInfo['FAC_NAME_THAI'];
 $majorname = $getStdInfo['MAJOR_NAME_THAI'];
 $staff_id = $UserInfo->ID;
+$AdminName = $UserInfo->Fullname;
+$AdminNameEN = $UserInfo->FullnameEng;
 ?>
 <div class="container mt-3 mb-3">
 	<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post" enctype="multipart/form-data">
 		<input type="hidden" id="docID" name="docID" value="<?php echo $getDocInfo['DocumentID']; ?>" />
 		<input type="hidden" name="stdid" value="<?php echo $getDocInfo['StudentID']; ?>" />
 		<input type="hidden" id="userID" name="userID" value="<?php echo $staff_id; ?>" />
+		<input type="hidden" id="AdminName" name="AdminName" value="<?php echo $AdminName; ?>" />
+		<input type="hidden" id="AdminNameEN" name="AdminNameEN" value="<?php echo $AdminNameEN; ?>" />
 		<input type="hidden" id="stateID" name="stateID" value="t02s02" />
 		<div class="card text-black bg-light">
 			<h5 class="card-header bg-primary text-light">

@@ -66,7 +66,7 @@
     <div class='row pt-5'>
         <div class='col-md'>
             <div>
-                <span class='font-weight-bold'>Attachments</span>
+                <span class='font-weight-bold'>Attachment</span>
             </div>
             <div>
                 <a style='text-decoration: none; color:black' target="_blank" href='<?php echo base_url() . 'uploads/' . $Document->stdFile1 ?>'>1. Copy of National ID Card : </a><?php echo ($Document->stdFile1 != "") ? "<span class='text-success'>YES</span>" : "<span class='text-danger'>NO</span>" ?>

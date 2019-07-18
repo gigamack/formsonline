@@ -8,6 +8,8 @@ $majorname = $stdinfo['MAJOR_NAME_THAI'];
 $dob = $stdinfo['STUD_BIRTH_DATE'];
 $citizenid = $stdinfo['CITIZEN_ID'];
 $staff_id = $UserInfo->ID;
+$AdminName = $UserInfo->Fullname;
+$AdminNameEN = $UserInfo->FullnameEng;
 ?>
 <div class="container">
 	<form style="margin: 20px auto auto auto" action="<?php echo base_url("/FormControl/insertDocNextState") ?>" method="post">
@@ -325,6 +327,8 @@ $staff_id = $UserInfo->ID;
 							<input type="hidden" name="docID" id="docID" value="<?php echo $docInfo[0]['DocumentID']; ?>" />
 							<input type="hidden" id="DocTypeID" name="DocTypeID" value="4" />
 							<input type="hidden" id="stateID" name="stateID" value="t04s02" />
+							<input type="hidden" id="AdminName" name="AdminName" value="<?php echo $AdminName; ?>" />
+							<input type="hidden" id="AdminNameEN" name="AdminNameEN" value="<?php echo $AdminNameEN; ?>" />
 							<button type="submit" class="btn btn-success">Submit</button>
 						</div>
 					</div>

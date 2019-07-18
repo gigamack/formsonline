@@ -7,13 +7,13 @@
     <div class='row'>
         <div class='col-md tab'>
             <span>My name is </span>
-            <span class='font-weight-bold'><?php echo $Document->TitleFullnameEng ?></span>
+            <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->TitleFullnameEng)) ?></span>
             <span>Student ID</span>
             <span class='font-weight-bold'><?php echo $Document->StudentID ?></span>
             <span>Faculty</span>
-            <span class='font-weight-bold'><?php echo $Document->FacultyEng ?></span>
+            <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->FacultyEng)) ?></span>
             <span>Major</span>
-            <span class='font-weight-bold'><?php echo $Document->MajorEng ?></span>
+            <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->MajorEng)) ?></span>
             <span>I would like to request a PSU Temporary Student Identification Card due to</span>
             <span class='font-weight-bold'><?php echo $Document->ReasonNameEng ?></span>
         </div>
@@ -31,7 +31,7 @@
         <div class='col-md'>
             <div class='text-center'>
                 <div><?php echo $Document->FullnameEng ?></div>
-                <div>( <?php echo $Document->TitleFullnameEng ?> )</div>
+                <div>( <?php echo ucwords(strtolower($Document->TitleFullnameEng)) ?> )</div>
                 <div id='divCreatedDate'><?php echo $Document->CreatedDate ?></div>
                 <input id='CreatedDate' type='hidden' value='<?php echo $Document->CreatedDate ?>' />
             </div>

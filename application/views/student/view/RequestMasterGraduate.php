@@ -15,67 +15,53 @@
                 <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->FacultyEng)) ?></span>
                 <span>Major</span>
                 <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->MajorEng)) ?></span>
-                <span class='font-weight-bold'><?php echo ucwords(strtolower('( Undergraduate Students )')) ?></span>
-                <span>Telephone number </span>
+                <span class='font-weight-bold'><?php echo ucwords(strtolower('( Postgraduate Students )')) ?></span>
+                <span>Telephone</span>
                 <span class='font-weight-bold'><?php echo $Document->tel ?></span>
             </div>
             <div class='tab'>
-                <span>I would like to change the following personel information due to </span>
-                <span class='font-weight-bold'><?php echo $Document->reason ?></span>
+                <span>I would like to request for graduate approval that i am going to graduate</span>
+                <span>in semester</span>
+                <span class='font-weight-bold'><?php echo $Document->termEnd ?></span>,
+                <span>year </span>
+                <span class='font-weight-bold'><?php echo $Document->yearEnd ?></span>
             </div>
         </div>
     </div>
     <div class='row'>
         <div class='col-md'>
-            <table class='table table-bordered2 table-sm'>
-                <tr>
-                    <td class='bg-gray' style='width:10%;'>
-                    </td>
-                    <td class='text-center bg-gray' style='width:45%;'>
-                        Thai
-                    </td>
-                    <td class='text-center bg-gray' style='width:45%;'>
-                        English
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        <?php echo $Document->newthname ?>
-                    </td>
-                    <td>
-                        <?php echo $Document->newengname ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Surname
-                    </td>
-                    <td>
-                        <?php echo $Document->newthsname ?>
-                    </td>
-                    <td>
-                        <?php echo $Document->newengsname ?>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class='row pt-5'>
-        <div class='col-md'>
-            <div>
-                <span class='font-weight-bold'>Attachments</span>
-            </div>
-            <div>
-                <a style='text-decoration: none; color:black' target="_blank" href='<?php echo base_url() . 'uploads/' . $Document->stdFile1 ?>'> <input type="checkbox" <?php echo ($Document->stdFile1 != "") ? "checked" : "" ?>> Copy of National ID Card </a>
-            </div>
-            <div>
-                <a style='text-decoration: none; color:black' target="_blank" href='<?php echo base_url() . 'uploads/' . $Document->stdFile2 ?>'><input type="checkbox" <?php echo ($Document->stdFile2 != "") ? "checked" : "" ?>> Copy of change of name form </a>
-            </div>
-            <div>
-                <a style=' text-decoration: none; color:black' target="_blank" href='<?php echo base_url() . 'uploads/' . $Document->stdFile3 ?>'><input type="checkbox" <?php echo ($Document->stdFile3 != "") ? "checked" : "" ?>> Copy of Passport </a>
+            <div class='tab'>
+                <div>
+                    <span> Current Address :</span>
+                </div>
+                <div class='tab2'>
+                    <div>
+                        <span>House no : </span>
+                        <span class='font-weight-bold'><?php echo $Document->houseNumber ?></span>
+                        <span>Lane : </span>
+                        <span class='font-weight-bold'><?php echo $Document->soi ?></span>
+                    </div>
+                    <div>
+                        <span>Street : </span>
+                        <span class='font-weight-bold'><?php echo $Document->street ?></span>
+                    </div>
+                    <div>
+                        <span>Sub-district : </span>
+                        <span class='font-weight-bold'><?php echo $Document->sub_district ?></span>
+                        <span>District : </span>
+                        <span class='font-weight-bold'><?php echo $Document->district ?></span>
+                    </div>
+                    <div>
+                        <span>Province : </span>
+                        <span class='font-weight-bold'><?php echo $Document->province ?></span>
+                        <span>Postal Code : </span>
+                        <span class='font-weight-bold'><?php echo $Document->zipcode ?></span>
+                    </div>
+                    <div>
+                        <span>Tel : </span>
+                        <span class='font-weight-bold'><?php echo $Document->tel ?></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

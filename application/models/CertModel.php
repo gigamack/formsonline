@@ -15,6 +15,15 @@ class CertModel extends CI_Model
         return $query->result_array();
     }
 
+    public function getCertByDocumentID($DocumentID)
+    {
+        $this->db->select('*');
+        $this->db->from('totalCertCost');
+        $this->db->where('DocumentID', $DocumentID);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function Get($DocumentID)
     {
         $this->db->select('*');

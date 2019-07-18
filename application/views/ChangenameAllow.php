@@ -131,9 +131,6 @@ $AdminNameEN = $UserInfo->FullnameEng;
 								file</button>
 						</div>
 					</div>
-					<!-- <input type="hidden" name="currentimageValue1" value="<?php echo $getDocInfo['stdFile1']; ?>"/>
-          <input type="hidden" name="currentimageValue2" value="<?php echo $getDocInfo['stdFile2']; ?>"/>
-          <input type="hidden" name="currentimageValue3" value="<?php echo $getDocInfo['stdFile3']; ?>"/> -->
 					<input type="hidden" id="DocTypeID" name="DocTypeID" value="2" />
 					<div style="margin:  auto auto 20px auto">
 						<div style="margin: 20px auto auto auto" class="card text-black bg-light text-center" style="margin: auto 20px auto auto">

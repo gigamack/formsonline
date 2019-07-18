@@ -184,8 +184,19 @@ class RequestCertificate extends CI_Controller
         $this->load->view('student/edit/RequestCertificate');
         $this->load->view('dashboard/footer');
     }
-    public function Get()
-    { }
+    public function Get($DocumentID)
+    {
+        $this->data['UserInfo'] = $this->UserModel;
+        $Document = $this->DocumentModel->getWithDocumentType($DocumentID);
+        $Certs = $this->CertModel->getCertByDocumentID($DocumentID);
+        $LastState = $this->DocumentStateModel->getLastState($DocumentID);
+        $this->StudentModel->setStudent($this->Student_model->getStudentInfo($Document[0]->StudentID));
+        $this->data['Document'] = (object) array_merge((array) $Document[0], (array) $this->StudentModel,  (array) $LastState[0]);
+        $this->data['Certs'] = $Certs;
+        $this->load->view('dashboard/header', $this->data);
+        $this->load->view('student/view/header');
+        $this->load->view('student/view/RequestCertificate');
+    }
     public function Update()
     { }
     public function Delete($DocumentID)

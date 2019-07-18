@@ -3,7 +3,7 @@
         <div class='col-md'>
             <div class="text-center">
                 <div class='pb-3'>
-                    <img src='<?php echo base_url() ?>assets/img/PSU-logo-Original.png' width="75" height="100">
+                    <img src='<?php echo base_url() ?>assets/img/PSU-logo-Original.png' width="11%" height="11%">
                 </div>
                 <div>
                     Registrar's Division, Prince of Songkla University, Phuket Campus

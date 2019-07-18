@@ -8,6 +8,7 @@ class certController extends CI_Controller
         $this->load->model('CertModel');
         $this->load->model('DocModel');
         $this->load->model('DocStateModel');
+        $this->load->model('DocumentModel');
         $this->load->model('Student_model');
         $this->load->helper(array('form', 'url'));
     }
@@ -152,11 +153,20 @@ class certController extends CI_Controller
     public function insertDocNextState()
     {
         $data = array(
-            'DocID' => $_POST['docID'], 'OfficerCommentID' => 1, 'OfficerCommentText' => '', 'OfficerID' => $_POST['userID'], 'stateID' => $_POST['stateID']
+            'DocumentID' => $_POST['docID'],
+            'OfficerCommentText' => $_POST['commentText'],
+            'OfficerID' => $_POST['userID'],
+            'OfficerName' => $_POST['AdminName'],
+            'OfficerNameEN' => $_POST['AdminNameEN'],
+            'StatusID' => $_POST['StatusID']
         );
         $this->DocStateModel->InsertDocState($data);
+        $this->DocumentModel->Update($_POST['docID'], array('StatusID' => $_POST['StatusID']));
         $dataupdate = array(
-            'DocID' => $_POST['docID'], 'StudentID' => $_POST['stdid'], 'receiptNumber' => $_POST['accno'], 'DocTypeID' => $_POST['DocTypeID']
+            'DocID' => $_POST['docID'],
+            'StudentID' => $_POST['stdid'],
+            'receiptNumber' => $_POST['accno'],
+            'DocTypeID' => $_POST['DocTypeID']
         );
         $this->DocModel->updateDoc($dataupdate, $_POST['docID']);
         $back = base_url("/FormControl/stdCardFormAdmin");
@@ -165,7 +175,7 @@ class certController extends CI_Controller
 
     public function Certsubmitedview()
     {
-        $this->chkSTDLogin();
+        //$this->chkSTDLogin();
         $doctypeID = $_GET['doctypeID'];
         $docID = $_GET['docID'];
         $stdID = $_GET['stdID'];

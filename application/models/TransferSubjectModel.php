@@ -14,8 +14,10 @@ class TransferSubjectModel extends CI_Model
     public function Get($DocumentID)
     {
         $this->db->select("*");
-        $this->db->where("DocumentID", $DocumentID);
         $this->db->from("TransferSubject");
+        $this->db->join("TransferSubjectRequestFor", "TransferSubject.RequestForID=TransferSubjectRequestFor.RequestID", "inner");
+        $this->db->join("TransferSubjectReason", "TransferSubject.ReasonForID=TransferSubjectReason.ReasonID", "inner");
+        $this->db->where("DocumentID", $DocumentID);
         $query = $this->db->get();
 
         return $query->result();

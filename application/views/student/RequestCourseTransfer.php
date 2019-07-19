@@ -226,7 +226,7 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                                 <input class='form-check-input' type="radio" name='RequestForItem' id='RequestForItemCT' value='1'>
                                                                 <label for="RequestForItemCT">Course(s) Transfer<small class='sub'>ขอรับโอนรายวิชา</small></label>
                                                             </div>
-                                                            <div class='form-check form-check-inline col-md-6'>
+                                                            <div class='form-check form-check-inline col-md'>
                                                                 <input class='form-check-input' type="radio" name='RequestForItem' id='RequestForItemOT' value='2'>
                                                                 <label class='' for="RequestForItemOT">Other<small class='sub'>อื่น ๆ</small></label>
                                                                 <div class='col-md-12'>
@@ -418,7 +418,7 @@ $StudyLevel = $UserInfo->StudyLevel;
                                                     <div class='row'>
                                                         <div class='col-md'>
                                                             <label for="">From Univeristy : </label>
-                                                            <input type="text" class="form-control" name="txtApproveMoveFromUniversityFrom"  id="txtApproveMoveFromUniversityFrom" placeholder="from the university">
+                                                            <input type="text" class="form-control" name="txtApproveMoveFromUniversityFrom" id="txtApproveMoveFromUniversityFrom" placeholder="from the university">
                                                         </div>
 
                                                     </div>

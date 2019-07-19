@@ -31,7 +31,8 @@ class TransferSubjectRequestModel extends CI_Model
         return $query->result();
     }
 
-    public function DeleteAll($DocumentID){
+    public function DeleteAll($DocumentID)
+    {
         $this->db->where("DocumentID", $DocumentID);
         $this->db->delete("TransferSubjectRequest");
     }

@@ -60,7 +60,7 @@
                 $TotalCost += $Cert->totalcertPrice;
             } ?>
             <div class='row'>
-                <div class='col-md'>
+                <div class='col-md-9'>
 
                 </div>
                 <div class='col-md border-bottom pt-3 pb-3'>

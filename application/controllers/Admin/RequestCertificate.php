@@ -11,6 +11,7 @@ class RequestCertificate extends CI_Controller
         $this->load->model('DocumentTypeModel');
         $this->load->model('DocModel');
         $this->load->model('DocumentModel');
+        $this->load->model('CertModel');
         $this->load->model('DocumentStateModel');
         $this->load->model('ReasonModel');
         $this->load->model('StudentModel');
@@ -26,10 +27,12 @@ class RequestCertificate extends CI_Controller
     public function Get($DocumentID)
     {
         $this->data['UserInfo'] = $this->UserModel;
-        $Document = $this->DocumentModel->getWithReasonDocumentType($DocumentID);
+        $Document = $this->DocumentModel->getWithDocumentType($DocumentID);
+        $Certs = $this->CertModel->getCertByDocumentID($DocumentID);
         $LastState = $this->DocumentStateModel->getLastState($DocumentID);
         $this->StudentModel->setStudent($this->Student_model->getStudentInfo($Document[0]->StudentID));
         $this->data['Document'] = (object) array_merge((array) $Document[0], (array) $this->StudentModel,  (array) $LastState[0]);
+        $this->data['Certs'] = $Certs;
         $this->load->view('dashboard/headerAdmin', $this->data);
         $this->load->view('student/view/header');
         $this->load->view('student/view/RequestCertificate');

@@ -50,7 +50,7 @@ class RequestCourseTransfer extends CI_Controller
         $Document = array(
             'DocumentID' => $this->DocumentID,
             'StudentID' => $_POST['StudentID'],
-            'StatusID' => 'S01',
+            // 'StatusID' => 'S01',
             'tel' => $_POST['MobileNumber'],
             'DocTypeID' => 8,
             'stdFile1' => $filename
@@ -208,7 +208,8 @@ class RequestCourseTransfer extends CI_Controller
         $this->data['selectDocumentType'] = isset($_SESSION['selectDocumentType']) ? $_SESSION['selectDocumentType'] : "";
         $this->data['UserInfo'] = $this->UserModel;
         $this->data['DocumentType'] = $this->DocumentTypeModel->getDocumentType($this->UserModel->Type);
-        $this->data['DocList'] = $this->DocModel->selectDocWithStateOrder(array('StudentID' => $this->UserModel->ID), 'CreatedDate', 'DESC');
+        //$this->data['DocList'] = $this->DocModel->selectDocWithStateOrder(array('StudentID' => $this->UserModel->ID), 'CreatedDate', 'DESC');
+        $this->data['DocList'] = $this->DocumentStateModel->getLastStateWithUserID($this->UserModel->ID);
     }
     private function checkAuthentication()
     {

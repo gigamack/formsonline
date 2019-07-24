@@ -16,6 +16,7 @@ class FormControl extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('session');
         $this->load->model('UserModel');
+        $this->load->model('RoleModel');
 
         //$PSUPassport = $this->session->flashdata('PSUPassport');
         //$this->PSUPassportModel->setPSUPassport($PSUPassport);
@@ -232,8 +233,12 @@ class FormControl extends CI_Controller
     public function stdCardFormAdmin()
     {
         $data['UserInfo'] = $this->UserModel;
+        $data['RolesID'] = $this->RoleModel->RolesID;
+        //print_r($data['RolesID']);
         $dataSelect = array();
-        $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'ASC');
+        // $data['docList'] = $this->DocModel->selectDocWithStateOrder($dataSelect, 'document.CreatedDate', 'ASC');
+        // $data['docList'] = $this->DocumentStateModel->getDocumentLastState();
+        $data['docList'] = $this->DocumentStateModel->getDocumentLastStateWithRoles($data['RolesID']);
         $this->load->view('dashboard/headerAdmin', $data);
         $this->load->view('TempStdCardRev', $data);
         $this->load->view('footer');
@@ -780,7 +785,7 @@ class FormControl extends CI_Controller
         );
         $this->DocStateModel->InsertDocState($data);
 
-        $this->DocumentModel->Update($_POST['docID'], array('StatusID' => $_POST['StatusID']));
+        //$this->DocumentModel->Update($_POST['docID'], array('StatusID' => $_POST['StatusID']));
 
         $back = base_url("/FormControl/stdCardFormAdmin");
         header('Location:' . $back);

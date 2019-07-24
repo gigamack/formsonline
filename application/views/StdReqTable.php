@@ -28,20 +28,20 @@ $GetDocID = $DocList;
 										<?php echo $i; ?>
 									</th>
 									<?php
-									$docTypeName = "";
-									if ($docid->DocTypeID == 1) {
-										$docTypeName = 'คำร้องขอทำบัตรนักศึกษาชั่วคราว';
-									} else if ($docid->DocTypeID == 2) {
-										$docTypeName = 'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล';
-									} else if ($docid->DocTypeID == 3) {
-										$docTypeName = 'คำร้องขอสำเร็จการศึกษา';
-									} else if ($docid->DocTypeID == 4) {
-										$docTypeName = 'คำร้องขอสำเร็จการศึกษา ป.โท';
-									} else if ($docid->DocTypeID == 5) {
-										$docTypeName = 'คำร้องขอตรวจสอบหนี้สิน';
-									} else if ($docid->DocTypeID == 6) {
-										$docTypeName = 'คำร้องขอหนังสือรับรอง';
-									}
+									// $docTypeName = "";
+									// if ($docid->DocTypeID == 1) {
+									// 	$docTypeName = 'คำร้องขอทำบัตรนักศึกษาชั่วคราว';
+									// } else if ($docid->DocTypeID == 2) {
+									// 	$docTypeName = 'คำร้องขอแจ้งการเปลี่ยนชื่อ-สกุล';
+									// } else if ($docid->DocTypeID == 3) {
+									// 	$docTypeName = 'คำร้องขอสำเร็จการศึกษา';
+									// } else if ($docid->DocTypeID == 4) {
+									// 	$docTypeName = 'คำร้องขอสำเร็จการศึกษา ป.โท';
+									// } else if ($docid->DocTypeID == 5) {
+									// 	$docTypeName = 'คำร้องขอตรวจสอบหนี้สิน';
+									// } else if ($docid->DocTypeID == 6) {
+									// 	$docTypeName = 'คำร้องขอหนังสือรับรอง';
+									// }
 									?>
 									<td>
 										<?php echo $docid->DoctypeNameEng; ?>
@@ -52,8 +52,21 @@ $GetDocID = $DocList;
 										echo $docid->DocumentCreatedDate;
 										?>
 									</td>
-									<td class="text-center <?php echo ($docid->StatusID == 'S01') ? 'text-primary' : ($docid->StatusID == 'S03' ? 'text-danger' : 'text-info'); ?>">
-										<?php echo ($docid->StatusID == 'S01') ? 'Waiting' : ($docid->StatusID == 'S02' ? 'Approved' : 'Disapprove'); ?>
+									<td class="text-center <?php
+															// echo ($docid->StatusID == 'S01') ? 'text-primary' : ($docid->StatusID == 'S03' ? 'text-danger' : 'text-info'); 
+															switch ($docid->StatusID) {
+																case 'S01':
+																	echo 'text-primary';
+																	break;
+																case 'S02':
+																	echo 'text-info';
+																	break;
+																case 'S03':
+																	echo 'text-danger';
+																	break;
+															}
+															?>">
+										<?php echo $docid->Name ?>
 									</td>
 									<?php
 									$processedDate = date("d-M-Y", strtotime($docid->OfficerCommentedDate));

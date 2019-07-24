@@ -33,7 +33,7 @@ class RequestGraduate extends CI_Controller
 
         $data = array(
             'DocumentID' => $this->DocumentID,
-            'StatusID' => 'S01',
+            // 'StatusID' => 'S01',
             'StudentID' => $_POST['stdid'],
             'tel' => $_POST['tel'],
             'termEnd' => $_POST['termEnd'],
@@ -123,7 +123,8 @@ class RequestGraduate extends CI_Controller
         $this->data['selectDocumentType'] = isset($_SESSION['selectDocumentType']) ? $_SESSION['selectDocumentType'] : "";
         $this->data['UserInfo'] = $this->UserModel;
         $this->data['DocumentType'] = $this->DocumentTypeModel->getDocumentType($this->UserModel->Type);
-        $this->data['DocList'] = $this->DocModel->selectDocWithStateOrder(array('StudentID' => $this->UserModel->ID), 'CreatedDate', 'DESC');
+        //$this->data['DocList'] = $this->DocModel->selectDocWithStateOrder(array('StudentID' => $this->UserModel->ID), 'CreatedDate', 'DESC');
+        $this->data['DocList'] = $this->DocumentStateModel->getLastStateWithUserID($this->UserModel->ID);
     }
     private function checkAuthentication()
     {

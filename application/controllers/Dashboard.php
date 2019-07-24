@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller
         $this->load->model('UserModel');
         $this->load->model('DocumentTypeModel');
         $this->load->model('DocumentModel');
+        $this->load->model('DocumentStateModel');
         $this->load->model('DocModel');
     }
 
@@ -177,7 +178,8 @@ class Dashboard extends CI_Controller
         $this->data['selectDocumentType'] = isset($_SESSION['selectDocumentType']) ? $_SESSION['selectDocumentType'] : "";
         $this->data['UserInfo'] = $this->UserModel;
         $this->data['DocumentType'] = $this->DocumentTypeModel->getDocumentType($this->UserModel->Type);
-        $this->data['DocList'] = $this->DocModel->selectDocWithStateOrder(array('StudentID' => $this->UserModel->ID), 'document.CreatedDate', 'DESC');
+        //$this->data['DocList'] = $this->DocModel->selectDocWithStateOrder(array('StudentID' => $this->UserModel->ID), 'document.CreatedDate', 'DESC');
+        $this->data['DocList'] = $this->DocumentStateModel->getLastStateWithUserID($this->UserModel->ID);
     }
 
     private function checkAuthentication()

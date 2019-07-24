@@ -260,7 +260,7 @@ class FormControl extends CI_Controller
         $data['docInfo'] = $this->DocModel->getDocBydocID($docID);
         $data['stdinfo'] = $this->Student_model->getStudentInfo($stdID);
         $data['docState'] = $this->DocStateModel->selectDocState($docID);
-        $this->load->view('dashboard/header', $data);
+        $this->load->view('dashboard/headerAdmin', $data);
         if ($data['docInfo'][0]['DocTypeID'] == 1) {
             $this->load->view('ChkTempReq', $data);
         } else if ($data['docInfo'][0]['DocTypeID'] == 2) {

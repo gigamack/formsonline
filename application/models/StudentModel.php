@@ -20,6 +20,8 @@ class StudentModel extends CI_Model
     public $BirthDate;
     public $StudyLevel;
     public $CitizenID;
+    public $StudyLevelThai;
+    public $StudyLevelEng;
 
     public function setStudent($StudentInfo)
     {
@@ -42,5 +44,7 @@ class StudentModel extends CI_Model
         $this->BirthDate = isset($StudentInfo['STUD_BIRTH_DATE']) ? $StudentInfo['STUD_BIRTH_DATE'] : "";
         $this->CitizenID = isset($StudentInfo['CITIZEN_ID']) ? $StudentInfo['CITIZEN_ID'] : "";
         $this->StudyLevel = isset($StudentInfo['STUDY_LEVEL_ID']) ? $StudentInfo['STUDY_LEVEL_ID'] : "";
+        $this->StudyLevelThai = isset($StudentInfo['STUDY_LEVEL_NAME']) ? $StudentInfo['STUDY_LEVEL_NAME'] : "";
+        $this->StudyLevelEng = isset($StudentInfo['STUDY_LEVEL_NAME_ENG']) ? $StudentInfo['STUDY_LEVEL_NAME_ENG'] : "";
     }
 }

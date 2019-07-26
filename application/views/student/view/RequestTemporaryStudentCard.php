@@ -14,6 +14,7 @@
             <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->FacultyEng)) ?></span>
             <span>Major</span>
             <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->MajorEng)) ?></span>
+            <span class='font-weight-bold'><?php echo ucwords(strtolower("( " . $Document->StudyLevelEng . " )")) ?></span>
             <span>I would like to request a PSU Temporary Student Identification Card due to</span>
             <span class='font-weight-bold'><?php echo $Document->ReasonNameEng ?></span>
         </div>

@@ -33,6 +33,8 @@ class StudentInfo
                     CITIZEN_ID
                     STUD_BIRTH_DATE
                     STUDY_LEVEL_ID
+                    STUDY_LEVEL_NAME
+                    STUDY_LEVEL_NAME_ENG
             }}',
             'variables' => array(
                 'STUDENT_ID' => $StudentID,
@@ -86,7 +88,9 @@ class StudentInfo
         curl_setopt($curl_handle, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
         $result = curl_exec($curl_handle);
 
-        if (!$result) {die("Connection Failure");}
+        if (!$result) {
+            die("Connection Failure");
+        }
         $response = json_decode($result, true);
 
         return $response;

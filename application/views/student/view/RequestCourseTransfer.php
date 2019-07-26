@@ -18,7 +18,7 @@
                 <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->FacultyEng)) ?></span>
                 <span>Major</span>
                 <span class='font-weight-bold'><?php echo ucwords(strtolower($Document->MajorEng)) ?></span>
-                <span class='font-weight-bold'><?php echo ucwords(strtolower('( Undergraduate Student )')) ?></span>
+                <span class='font-weight-bold'><?php echo ucwords(strtolower("( " . $Document->StudyLevelEng . " )")) ?></span>
                 <span>Telephone number</span>
                 <span class='font-weight-bold'><?php echo ($Document->tel != "") ? $Document->tel : '-' ?></span>
             </div>
